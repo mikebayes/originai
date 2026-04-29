@@ -58,17 +58,19 @@ html, body {
 }
 
 /* Mobile: portrait viewport. We override `cover` with an explicit zoom
-   (auto width, 145% of container height) so the image is taller AND
-   wider than the viewport. That gives us real positioning room in both
-   axes, which `cover` doesn't because it fits height exactly.
-   Then we anchor toward the bottom-right but pulled in slightly so
-   the hikers sit roughly 75% from the left and 80% from the top of
-   the hero, which keeps them in the lower-right without being squeezed
-   against the edge or hidden behind the iOS Safari bottom bar. */
+   so the image is taller AND wider than the viewport, which gives us
+   real positioning room in both axes (cover fits height exactly, so
+   vertical positioning has no effect). 130% is a moderate zoom that
+   keeps the figures small enough to read as "looking out into vast
+   space" rather than being prominent subjects, while still leaving
+   enough vertical excess to lift their feet above the iOS Safari bar.
+   88% horizontal pushes them into the right third of the viewport,
+   100% vertical anchors the bottom of the photo to the bottom of the
+   hero (hikers naturally rise into view from there). */
 @media (max-width: 900px) {
   .hero-photo {
-    background-size: auto 145%;
-    background-position: 90% 100%;
+    background-size: auto 130%;
+    background-position: 88% 100%;
   }
 }
 @keyframes kenburns {
@@ -446,7 +448,8 @@ html, body {
   .hero-nav-hamburger { display: flex; }
   .hero-nav-drawer { display: flex; }
   .hero-content { padding: 0 20px; }
-  .hero-copy { gap: 20px; margin-top: 0; }
+  /* Lift the copy block up so the buttons clear the hikers below */
+  .hero-copy { gap: 20px; margin-top: -48px; }
   .h1 { font-size: clamp(36px, 9vw, 56px); }
   .sub { font-size: 16px; }
   .hero-mark-line { width: 48px; }
