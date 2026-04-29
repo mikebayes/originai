@@ -58,10 +58,6 @@ export default function HeroNav() {
           <a href="/team">Team</a>
           <a href="/insights">Insights</a>
         </div>
-        <a href="/contact" className="pill pill-primary nav-pill">
-          Get started
-          <span className="arrow" aria-hidden="true">→</span>
-        </a>
         <button
           className="hero-nav-hamburger"
           type="button"

@@ -67,7 +67,6 @@ export default function StickyNav() {
         </nav>
         <a href="/contact" className="pill pill-primary sticky-nav-cta">
           Get started
-          <span className="arrow" aria-hidden="true">→</span>
         </a>
         <button
           className="sticky-nav-hamburger"
