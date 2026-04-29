@@ -171,51 +171,180 @@
   .aurora-ribbon { animation: none; }
 }
 
-/* Layer 2 — faint network of nodes connected by hairline dashed lines.
-   Reads as "system" without being literal. */
-.aurora-network {
-  position: absolute; inset: 0; z-index: 2;
-  width: 100%; height: 100%;
-  pointer-events: none;
-  opacity: 0.55;
-}
-.aurora-network .aurora-lines path {
-  stroke: rgba(63, 221, 201, 0.45);
-  stroke-width: 0.6;
-  fill: none;
-  stroke-dasharray: 3 5;
-  stroke-linecap: round;
-  animation: aurora-flow 6s linear infinite;
-}
-@keyframes aurora-flow {
-  to { stroke-dashoffset: -16; }
-}
-.aurora-network .aurora-nodes circle {
-  fill: var(--accent);
-  filter: drop-shadow(0 0 6px rgba(63, 221, 201, 0.55));
-}
-.aurora-network .aurora-node-pulse {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: aurora-pulse 3.2s ease-in-out infinite;
-}
-@keyframes aurora-pulse {
-  0%, 100% { opacity: 1;   transform: scale(1); }
-  50%      { opacity: 0.55; transform: scale(1.4); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .aurora-network .aurora-lines path,
-  .aurora-network .aurora-node-pulse { animation: none; }
-}
-
-/* Layer 3 — film grain to match the rest of the page */
+/* Layer 2 — film grain to match the rest of the page */
 .aurora-noise {
-  position: absolute; inset: 0; z-index: 3;
+  position: absolute; inset: 0; z-index: 2;
   pointer-events: none;
-  opacity: 0.12;
+  opacity: 0.10;
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'><filter id='n' x='0' y='0' width='100%25' height='100%25'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
   background-size: 320px 320px;
+}
+
+/* ─── UI MOCKUP — designed AI software interface that floats over the aurora ─── */
+.ui-mockup {
+  position: absolute;
+  inset: 11% 7%;
+  z-index: 3;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(10, 14, 16, 0.78);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  backdrop-filter: blur(20px) saturate(140%);
+  border: 0.5px solid rgba(255, 255, 255, 0.10);
+  box-shadow:
+    0 30px 80px -20px rgba(0, 0, 0, 0.7),
+    0 8px 24px -8px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', sans-serif;
+  /* Subtle 3D float — gives the panel depth without screaming */
+  transform: perspective(1400px) rotateX(2deg) rotateY(-3deg);
+  transform-origin: center center;
+}
+
+.ui-titlebar {
+  height: 28px;
+  display: flex; align-items: center; gap: 6px;
+  padding: 0 12px;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.25);
+  flex-shrink: 0;
+}
+.ui-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.20);
+}
+.ui-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.45);
+  margin-left: auto;
+}
+
+.ui-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 14px 0;
+  gap: 12px;
+  min-height: 0;
+}
+
+.ui-chat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 0;
+}
+.ui-msg {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.ui-msg-user { justify-content: flex-end; }
+
+.ui-msg-content {
+  font-size: 12px;
+  line-height: 1.45;
+  padding: 7px 11px;
+  border-radius: 10px;
+  max-width: 78%;
+}
+.ui-msg-user .ui-msg-content {
+  background: rgba(63, 221, 201, 0.10);
+  color: rgba(255, 255, 255, 0.92);
+  border: 0.5px solid rgba(63, 221, 201, 0.35);
+}
+.ui-msg-ai .ui-msg-content {
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.92);
+  border: 0.5px solid rgba(255, 255, 255, 0.08);
+}
+.ui-msg-text .ui-accent { color: var(--accent); }
+
+.ui-msg-avatar {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background:
+    radial-gradient(60% 60% at 30% 25%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 60%),
+    linear-gradient(135deg, var(--accent) 0%, #2ba48f 100%);
+  box-shadow: 0 0 10px rgba(63, 221, 201, 0.45);
+  margin-top: 2px;
+}
+
+.ui-msg-cursor {
+  display: inline-block;
+  width: 6px; height: 12px;
+  vertical-align: -1px;
+  background: var(--accent);
+  margin-left: 3px;
+  border-radius: 1px;
+  animation: ui-cursor-blink 1.05s steps(2) infinite;
+}
+@keyframes ui-cursor-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.ui-stats {
+  display: flex;
+  gap: 14px;
+  padding: 10px 0;
+  margin-top: auto;
+  border-top: 0.5px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+.ui-stat {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.ui-stat-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.30);
+  flex-shrink: 0;
+}
+.ui-stat-dot-pulse {
+  background: var(--accent);
+  box-shadow: 0 0 8px rgba(63, 221, 201, 0.55);
+  animation: ui-stat-pulse 2.4s ease-in-out infinite;
+}
+@keyframes ui-stat-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+.ui-stat-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+.ui-stat-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.42);
+}
+.ui-stat-value {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ui-msg-cursor,
+  .ui-stat-dot-pulse { animation: none; }
 }
 
 /* Build badge gets a slightly stronger teal treatment to match the aurora intensity */

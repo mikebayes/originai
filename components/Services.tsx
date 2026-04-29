@@ -25,37 +25,66 @@ export default function Services() {
           {/* Featured: AI Software & Systems (Build) — left column, full height */}
           <article className="svc svc-featured">
             <div className="svc-photo svc-photo-aurora">
-              {/* Layered visual: deep gradient base + drifting teal aurora +
-                  faint network of nodes/connections + film grain. No literal
-                  imagery, just an atmospheric "system being built" field. */}
+              {/* Aurora gradient field acts as the backdrop. Floating UI
+                  mockup on top reads as "the kind of AI software we build". */}
               <div className="aurora-base" aria-hidden="true" />
               <div className="aurora-ribbon" aria-hidden="true" />
-              <svg
-                className="aurora-network"
-                viewBox="0 0 400 240"
-                preserveAspectRatio="xMidYMid slice"
-                aria-hidden="true"
-              >
-                <g className="aurora-lines">
-                  <path d="M 60 50 L 180 105" />
-                  <path d="M 180 105 L 320 60" />
-                  <path d="M 60 50 L 100 175" />
-                  <path d="M 180 105 L 215 195" />
-                  <path d="M 320 60 L 355 175" />
-                  <path d="M 215 195 L 355 175" />
-                  <path d="M 100 175 L 215 195" />
-                  <path d="M 180 105 L 100 175" />
-                </g>
-                <g className="aurora-nodes">
-                  <circle cx="60"  cy="50"  r="3" />
-                  <circle cx="180" cy="105" r="4" className="aurora-node-pulse" />
-                  <circle cx="320" cy="60"  r="3" />
-                  <circle cx="100" cy="175" r="3" />
-                  <circle cx="215" cy="195" r="3" />
-                  <circle cx="355" cy="175" r="3" />
-                </g>
-              </svg>
               <div className="aurora-noise" aria-hidden="true" />
+
+              {/* Stylized AI software mockup. Designed-looking, not a literal
+                  screenshot of any real product. Communicates "AI software"
+                  immediately and visibly. */}
+              <div className="ui-mockup" aria-hidden="true">
+                <div className="ui-titlebar">
+                  <span className="ui-dot ui-dot-r" />
+                  <span className="ui-dot ui-dot-y" />
+                  <span className="ui-dot ui-dot-g" />
+                  <span className="ui-title">Origin · Operations</span>
+                </div>
+                <div className="ui-body">
+                  <div className="ui-chat">
+                    <div className="ui-msg ui-msg-user">
+                      <div className="ui-msg-content">
+                        Where are we losing time this week?
+                      </div>
+                    </div>
+                    <div className="ui-msg ui-msg-ai">
+                      <div className="ui-msg-avatar" />
+                      <div className="ui-msg-content">
+                        <div className="ui-msg-text">
+                          Intake is the bottleneck. <span className="ui-accent">14 hours/week</span>{" "}
+                          recoverable by routing class&nbsp;X tickets through the new model.
+                          <span className="ui-msg-cursor" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="ui-stats">
+                    <div className="ui-stat">
+                      <span className="ui-stat-dot" />
+                      <div className="ui-stat-content">
+                        <span className="ui-stat-label">Pipeline</span>
+                        <span className="ui-stat-value">98%</span>
+                      </div>
+                    </div>
+                    <div className="ui-stat">
+                      <span className="ui-stat-dot ui-stat-dot-pulse" />
+                      <div className="ui-stat-content">
+                        <span className="ui-stat-label">Models</span>
+                        <span className="ui-stat-value">14 live</span>
+                      </div>
+                    </div>
+                    <div className="ui-stat">
+                      <span className="ui-stat-dot" />
+                      <div className="ui-stat-content">
+                        <span className="ui-stat-label">Latency</span>
+                        <span className="ui-stat-value">1.2s</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <span className="cphoto-badge">Build</span>
             </div>
             <div className="svc-body">
