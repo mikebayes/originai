@@ -75,8 +75,10 @@
   color: var(--ink-muted);
   max-width: 44ch;
   margin: 0;
+  justify-self: start;      /* flush to the left of the column, not floating */
   align-self: end;          /* align bottom of lede to bottom of H2 in the header grid */
   padding-bottom: 10px;     /* sit just above the H2 baseline for an editorial feel */
+  text-align: left;
   text-wrap: pretty;
 }
 
