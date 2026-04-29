@@ -57,13 +57,18 @@ html, body {
   will-change: transform;
 }
 
-/* Mobile: portrait viewport crops the wide landscape image horizontally,
-   which would lose the two hikers in the lower-right (the symbolic
-   subject of the photo). Anchor the crop to the right side so the hikers
-   stay in frame, and favor the lower portion vertically. */
+/* Mobile: portrait viewport. We override `cover` with an explicit zoom
+   (auto width, 145% of container height) so the image is taller AND
+   wider than the viewport. That gives us real positioning room in both
+   axes, which `cover` doesn't because it fits height exactly.
+   Then we anchor toward the bottom-right but pulled in slightly so
+   the hikers sit roughly 75% from the left and 80% from the top of
+   the hero, which keeps them in the lower-right without being squeezed
+   against the edge or hidden behind the iOS Safari bottom bar. */
 @media (max-width: 900px) {
   .hero-photo {
-    background-position: 96% 70%;
+    background-size: auto 145%;
+    background-position: 90% 100%;
   }
 }
 @keyframes kenburns {
