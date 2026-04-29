@@ -7,8 +7,8 @@ export default function Proof() {
           <div>
             <span className="eyebrow">Proof</span>
             <h2 className="s-h2 display">
-              <span>Leadership teams trust us</span>
-              <span className="muted"> with their AI direction.</span>
+              <span>Companies betting</span>
+              <span className="muted"> their AI on us.</span>
             </h2>
           </div>
           <p className="s-lede">
