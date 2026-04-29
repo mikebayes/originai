@@ -5,6 +5,14 @@
    conflict between them.
 */
 
+/* Prevent any element from causing horizontal page scroll on mobile.
+   Sections with cinematic photos and atmospheric overflows occasionally
+   bleed slightly past 100% on small viewports; this clips that. */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 /* Reset margin/padding on common elements that might receive default browser styles */
 h1, h2, h3, h4, h5, h6, p, ul, ol, li, figure, blockquote {
   margin: 0;
