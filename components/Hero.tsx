@@ -24,10 +24,7 @@ export default function Hero() {
             <span className="hero-mark-dot" />
             <span className="hero-mark-line" />
           </span>
-          <h1 className="h1 display">
-            <span className="into">We build </span>
-            <span>the AI your business runs on.</span>
-          </h1>
+          <h1 className="h1 display">We build the AI your business runs on.</h1>
           <p className="sub">
             AI software, strategy, and operations, focused on measurable business outcomes.
           </p>
