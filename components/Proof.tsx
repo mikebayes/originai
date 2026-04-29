@@ -16,14 +16,23 @@ export default function Proof() {
           </p>
         </header>
 
-        {/* Client wordmark row */}
+        {/* Client logo row — each logo sits inside a white "chip" card so
+            the original brand colors render naturally on a dark page. */}
         <div className="proof-marks" aria-label="Selected clients" data-reveal>
           <span className="proof-marks-label"><span className="bar" />Selected clients</span>
           <div className="proof-marks-row">
-            <span className="wordmark">Tripwire Media Group</span>
-            <span className="wordmark">Direct Focus</span>
-            <span className="wordmark">Thor Plumbing<span className="amp"> &amp; </span>Heating</span>
-            <span className="wordmark">Equipco Ltd.</span>
+            <div className="client-logo-card">
+              <img src="/logos/clients/tripwire.png" alt="Tripwire Media Group" />
+            </div>
+            <div className="client-logo-card">
+              <img src="/logos/clients/direct-focus.jpg" alt="Direct Focus" />
+            </div>
+            <div className="client-logo-card">
+              <img src="/logos/clients/thor.png" alt="Thor Plumbing &amp; Heating" />
+            </div>
+            <div className="client-logo-card">
+              <img src="/logos/clients/equipco.png" alt="Equipco Ltd." />
+            </div>
           </div>
         </div>
 
