@@ -130,6 +130,19 @@
 .svc-supporting .svc-title { font-size: 20px; }
 .svc-supporting .svc-promise { font-size: 14.5px; }
 
+/* On supporting cards, push the mini-figure to the bottom of the body
+   and pull the link up tight against it. Result: the title + promise sit
+   at the top, breathing room opens between the promise and the figure,
+   and the figure + link cluster as a unit anchored near the bottom. */
+.svc-supporting .svc-body > .svc-photo-mini {
+  margin-top: auto;
+  margin-bottom: 0;
+}
+.svc-supporting .svc-foot {
+  margin-top: 0;
+  padding-top: 4px;
+}
+
 /* ─── MINI VISUAL FIGURE for supporting service cards ───
    Lives inside .svc-body, between the promise and the link.
    Bleeds to the card edges with hairline rules top and bottom so it
