@@ -1,0 +1,235 @@
+/* Origin AI — Section 3: Align / Govern / Activate
+   The signature forest-green panel. Dimensional, not flat. */
+
+.framework {
+  position: relative;
+  width: 100%;
+  padding: 140px 0 120px;
+  background: #050a0c;
+  isolation: isolate;
+}
+
+/* Curved section dividers. Filled with the previous/next section's color
+   so they visually carve a gentle convex bump out of the rectangular edge,
+   with a faint teal hairline along the arc to make the curve perceptible. */
+.framework-curve {
+  position: absolute;
+  left: -1px;
+  right: -1px;
+  width: calc(100% + 2px);
+  height: 80px;
+  z-index: 4;
+  pointer-events: none;
+  display: block;
+}
+.framework-curve-top    { top: -1px; }
+.framework-curve-bottom { bottom: -1px; }
+
+@media (max-width: 900px) {
+  .framework-curve { height: 52px; }
+}
+
+/* Atmospheric stage behind the panel */
+.framework::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(70% 50% at 50% 0%, rgba(63, 221, 201, 0.08) 0%, rgba(63, 221, 201, 0) 60%),
+    radial-gradient(80% 60% at 50% 100%, rgba(19, 72, 54, 0.30) 0%, rgba(19, 72, 54, 0) 65%),
+    linear-gradient(180deg, #03070a 0%, #060c0e 100%);
+}
+.framework-grain {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  opacity: 0.10; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'><filter id='n' x='0' y='0' width='100%25' height='100%25'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 320px 320px;
+}
+
+.framework-inner {
+  position: relative; z-index: 2;
+  max-width: 820px;   /* narrower than the rest of the site so the curves and orb read as a focused beat */
+  margin: 0 auto;
+  padding: 0 56px;
+}
+
+/* Section header — sits ABOVE the green panel */
+.framework-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: end;
+  margin-bottom: 48px;
+}
+.framework-h2 {
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 500;
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -0.005em;
+  margin: 16px 0 0;
+  color: var(--ink);
+  text-wrap: balance;
+}
+.framework-h2 .muted { color: var(--ink-muted); font-weight: 500; }
+.framework-lede {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+  max-width: 44ch;
+  margin: 0;
+  padding-bottom: 6px;
+  text-wrap: pretty;
+}
+
+/* Atmospheric forest-green field — replaces the rectangular panel.
+   The "panel" is now a transparent container with a soft elliptical
+   green orb behind it. No rectangle, no hard border, no sticky pin. */
+.framework-panel {
+  position: relative;
+  padding: 64px 0 32px;
+  isolation: isolate;
+}
+/* The forest-green orb — soft, no edges, ellipse to match horizontal layout */
+.framework-panel::before {
+  content: '';
+  position: absolute;
+  inset: -6% -8%;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    55% 45% at 50% 50%,
+    rgba(26, 90, 69, 0.70) 0%,
+    rgba(19, 72, 54, 0.42) 32%,
+    rgba(19, 72, 54, 0.16) 60%,
+    rgba(19, 72, 54, 0) 82%
+  );
+  filter: blur(1px);
+}
+
+/* Pillars — horizontal row, three nodes side by side */
+.pillars {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 16px;
+  align-items: start;
+  justify-items: center;
+}
+.pillar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  max-width: 220px;
+  position: relative;
+}
+.pillar + .pillar::before { display: none; }   /* kill the old vertical divider */
+
+.pillar-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: rgba(63, 221, 201, 0.75);
+}
+/* Each pillar's icon now sits inside a circular node — the "diagram point" */
+.pillar-icon {
+  width: 88px; height: 88px;
+  border-radius: 50%;
+  background:
+    radial-gradient(70% 70% at 35% 28%, rgba(63, 221, 201, 0.18), rgba(63, 221, 201, 0.04) 60%, transparent),
+    rgba(15, 46, 37, 0.85);
+  border: 0.5px solid rgba(63, 221, 201, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  flex-shrink: 0;
+  box-shadow:
+    0 0 32px rgba(63, 221, 201, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  filter: none;
+  transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 280ms ease-out;
+}
+.pillar-icon svg { width: 38px; height: 38px; display: block; }
+.pillar:hover .pillar-icon {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 44px rgba(63, 221, 201, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+.pillar-name {
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 500;
+  font-size: 26px;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--ink);
+  margin: 4px 0 0;
+}
+.pillar-body {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.78);
+  margin: 0;
+  text-wrap: pretty;
+}
+.pillar-body .lead {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* Divider + closing line at panel foot */
+.framework-foot {
+  position: relative;
+  z-index: 1;
+  margin-top: 48px;
+  padding-top: 28px;
+  border-top: 0.5px solid rgba(63, 221, 201, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+.framework-foot p {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.78);
+  text-wrap: pretty;
+}
+.framework-foot .meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: rgba(63, 221, 201, 0.6);
+  display: inline-flex; align-items: center; gap: 10px;
+  white-space: nowrap;
+}
+.framework-foot .meta .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px rgba(63, 221, 201, 0.55);
+}
+
+@media (max-width: 900px) {
+  .framework { padding: 96px 0 96px; }
+  .framework-inner { padding: 0 20px; max-width: 100%; }
+  .framework-header { grid-template-columns: 1fr; gap: 24px; margin-bottom: 32px; }
+  .framework-panel { padding: 48px 8px 32px; }
+  .pillars {
+    grid-template-columns: 1fr;
+    row-gap: 36px;
+    column-gap: 0;
+  }
+  .pillar-icon { width: 72px; height: 72px; }
+  .pillar-icon svg { width: 32px; height: 32px; }
+  .pillar-name { font-size: 22px; }
+  .framework-foot { flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 24px; margin-top: 32px; }
+}

@@ -1,0 +1,20 @@
+/* Origin AI — global styles
+   Tokens and base typography come from styles/hero.css.
+   Each section's stylesheet is imported in app/layout.tsx so they
+   load globally; class names are unique per section so there's no
+   conflict between them.
+*/
+
+/* Reset margin/padding on common elements that might receive default browser styles */
+h1, h2, h3, h4, h5, h6, p, ul, ol, li, figure, blockquote {
+  margin: 0;
+  padding: 0;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+button { font: inherit; cursor: pointer; }

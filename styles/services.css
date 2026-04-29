@@ -1,0 +1,133 @@
+/* Section 4 — Services overview */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+.svc {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.025) 0%, rgba(255,255,255,0) 70%),
+    rgba(15, 15, 15, 0.72);
+  -webkit-backdrop-filter: blur(8px) saturate(140%);
+  backdrop-filter: blur(8px) saturate(140%);
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.04) inset,
+    0 30px 60px -20px rgba(0,0,0,0.65),
+    0 8px 24px -8px rgba(0,0,0,0.45);
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 220ms ease-out, box-shadow 220ms ease-out, border-color 220ms ease-out;
+}
+.svc:hover { transform: translateY(-4px); }
+
+.svc-photo {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  width: 100%;
+}
+.svc-photo .cphoto-caption { font-size: 10.5px; }
+
+.svc-body {
+  padding: 26px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 14px;
+}
+.svc-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase;
+  color: var(--ink-subtle);
+}
+.svc-title {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  line-height: 1.25;
+  color: var(--ink);
+  margin: 0;
+  text-wrap: balance;
+}
+.svc-promise {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+  margin: 0;
+  text-wrap: pretty;
+}
+.svc-foot {
+  margin-top: auto;
+  padding-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.svc-foot .anchor {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.svc-foot .anchor .bar { width: 16px; height: 1px; background: rgba(255,255,255,0.3); }
+
+/* Centerpiece — AI Solutions & Development */
+.svc.centerpiece {
+  border: 1.5px solid rgba(63, 221, 201, 0.55);
+  box-shadow:
+    0 1px 0 rgba(63,221,201,0.15) inset,
+    0 0 80px -20px rgba(63,221,201,0.32),
+    0 30px 60px -20px rgba(0,0,0,0.7),
+    0 8px 24px -8px rgba(0,0,0,0.5);
+  transform: translateY(-12px);
+}
+.svc.centerpiece:hover { transform: translateY(-16px); }
+.svc.centerpiece .cphoto-badge {
+  background: rgba(63, 221, 201, 0.12);
+  border-color: rgba(63, 221, 201, 0.5);
+  color: var(--accent);
+}
+
+/* "Centerpiece" tag in the upper-right of the centerpiece card */
+.svc-centerpiece-tag {
+  position: absolute;
+  top: 16px; right: 16px;
+  z-index: 5;
+  height: 26px;
+  padding: 0 12px;
+  display: inline-flex; align-items: center; gap: 8px;
+  border-radius: 999px;
+  background: rgba(63, 221, 201, 0.12);
+  border: 0.5px solid rgba(63, 221, 201, 0.55);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--accent);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+.svc-centerpiece-tag::before {
+  content: '';
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px rgba(63,221,201,0.55);
+}
+
+@media (max-width: 900px) {
+  .services-grid { grid-template-columns: 1fr; gap: 16px; }
+  .svc.centerpiece { transform: none; }
+  .svc.centerpiece:hover { transform: translateY(-2px); }
+}

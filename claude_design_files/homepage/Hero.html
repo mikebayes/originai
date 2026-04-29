@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Origin AI · Hero</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Inter+Tight:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles/hero.css?v=4" />
+</head>
+<body>
+
+<section class="hero" data-screen-label="Hero">
+  <!-- Photo + treatment stack (z-index 0–4) -->
+  <div class="hero-photo" aria-hidden="true"></div>
+  <div class="hero-grade" aria-hidden="true"></div>
+  <div class="hero-scrim" aria-hidden="true"></div>
+  <div class="hero-vignette" aria-hidden="true"></div>
+  <div class="hero-grain" aria-hidden="true"></div>
+
+  <!-- Floating nav (no background bar) -->
+  <nav class="hero-nav" aria-label="Primary">
+    <div class="nav-logo">ORIGIN</div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#approach">Approach</a>
+      <a href="#team">Team</a>
+      <a href="#insights">Insights</a>
+    </div>
+    <a href="#contact" class="pill pill-primary nav-pill">
+      Book a discovery session
+      <span class="arrow" aria-hidden="true">→</span>
+    </a>
+  </nav>
+
+  <!-- Copy block, upper-left third -->
+  <div class="hero-content">
+    <div class="hero-copy">
+      <span class="eyebrow">Strategy · Build · Operate</span>
+      <h1 class="h1 display">
+        <span>Turning AI ambition</span>
+        <span class="into"> into </span>
+        <span>working systems.</span>
+      </h1>
+      <p class="sub">
+        Strategy, development, and AI solutions that deliver measurable business outcomes.
+      </p>
+      <div class="cta-stack">
+        <a href="#contact" class="pill pill-primary">
+          Book a discovery session
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <a href="#services" class="pill pill-secondary">
+          See our services
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Corner mono captions — anchor the photo composition -->
+  <div class="hero-caption">
+    <span class="bar"></span>
+    <span>Origin AI · 2026</span>
+  </div>
+  <div class="hero-corner-right">
+    <span class="dot" aria-hidden="true"></span>
+    <span>Now booking · Q2 engagements</span>
+  </div>
+</section>
+
+</body>
+</html>

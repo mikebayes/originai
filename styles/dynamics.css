@@ -1,0 +1,224 @@
+/* Origin AI — dynamic page motion
+   Reveal animations, sticky nav, scroll indicator, card hover, atmospheric continuity.
+   Tokens come from styles/hero.css (:root). */
+
+/* ─────────────────────────  REVEAL  ───────────────────────── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-reveal-stagger] > * {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+[data-reveal-stagger].is-visible > *:nth-child(1) { transition-delay: 0ms;   opacity: 1; transform: translateY(0); }
+[data-reveal-stagger].is-visible > *:nth-child(2) { transition-delay: 110ms; opacity: 1; transform: translateY(0); }
+[data-reveal-stagger].is-visible > *:nth-child(3) { transition-delay: 220ms; opacity: 1; transform: translateY(0); }
+[data-reveal-stagger].is-visible > *:nth-child(4) { transition-delay: 330ms; opacity: 1; transform: translateY(0); }
+[data-reveal-stagger].is-visible > *:nth-child(5) { transition-delay: 440ms; opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal],
+  [data-reveal-stagger] > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ─────────────────────────  STICKY NAV  ───────────────────────── */
+.sticky-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 280ms cubic-bezier(0.22, 1, 0.36, 1),
+              transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.sticky-nav.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.sticky-nav-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 14px 56px;
+  background: rgba(5, 8, 10, 0.72);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 0.5px solid rgba(255,255,255,0.08);
+}
+.sticky-nav-logo {
+  display: inline-flex;
+  align-items: center;
+  color: var(--ink);
+  text-decoration: none;
+  transition: opacity 150ms ease-out;
+}
+.sticky-nav-logo:hover { opacity: 0.85; }
+.sticky-nav-logo svg { height: 22px; width: auto; display: block; }
+
+.sticky-nav-links {
+  display: flex;
+  gap: 32px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.sticky-nav-links a {
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  transition: color 150ms ease-out;
+}
+.sticky-nav-links a:hover { color: #fff; }
+
+.sticky-nav-cta {
+  height: 38px;
+  padding: 0 16px;
+  font-size: 13px;
+}
+
+@media (max-width: 900px) {
+  .sticky-nav-inner { padding: 10px 20px; gap: 12px; }
+  .sticky-nav-links { display: none; }
+}
+
+/* ─────────────────────────  SCROLL INDICATOR  ───────────────────────── */
+.scroll-indicator {
+  position: absolute;
+  z-index: 10;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  pointer-events: none;
+  transition: opacity 360ms ease-out, transform 360ms ease-out;
+}
+.scroll-indicator.is-hidden {
+  opacity: 0;
+  transform: translateX(-50%) translateY(8px);
+}
+
+.scroll-mouse {
+  position: relative;
+  width: 22px;
+  height: 34px;
+  border: 1px solid rgba(255,255,255,0.55);
+  border-radius: 11px;
+  overflow: hidden;
+}
+.scroll-dot {
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  width: 3px;
+  height: 8px;
+  margin-left: -1.5px;
+  border-radius: 2px;
+  background: var(--accent);
+  box-shadow: 0 0 8px rgba(63,221,201,0.55);
+  animation: scroll-dot-bounce 2s cubic-bezier(0.6, 0.05, 0.4, 1) infinite;
+}
+@keyframes scroll-dot-bounce {
+  0%   { transform: translateY(0); opacity: 1; }
+  60%  { transform: translateY(14px); opacity: 0.2; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.scroll-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+}
+
+@media (max-width: 900px) {
+  .scroll-indicator { bottom: 20px; }
+  .scroll-mouse { width: 18px; height: 28px; border-radius: 9px; }
+  .scroll-label { display: none; }
+}
+
+/* ─────────────────────────  CARD HOVER MICROINTERACTIONS  ───────────────────────── */
+.card,
+.svc,
+.about-card,
+.insight,
+.testimonial {
+  transition:
+    transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 280ms ease-out,
+    box-shadow 280ms ease-out;
+}
+.card:hover,
+.svc:hover,
+.about-card:hover,
+.insight:hover,
+.testimonial:hover {
+  transform: translateY(-4px);
+}
+.card:hover { border-color: rgba(63,221,201,0.30); }
+.svc:hover { border-color: rgba(63,221,201,0.30); }
+.about-card:hover { border-color: rgba(63,221,201,0.30); }
+.insight:hover { border-color: rgba(63,221,201,0.30); }
+.testimonial:hover { border-color: rgba(63,221,201,0.20); }
+
+/* Subtle scale on cinematic photo placeholders inside cards on hover */
+.svc:hover .cphoto,
+.insight:hover .cphoto {
+  transform: scale(1.015);
+  transition: transform 380ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.svc .cphoto,
+.insight .cphoto {
+  transition: transform 380ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ─────────────────────────  ATMOSPHERIC CONTINUITY  ───────────────────────── */
+/* Hero → Problem fade. The bottom of the hero gets a soft black gradient
+   that pours into the problem section's dark backdrop, killing the hard cut. */
+.hero::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 22vh;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(5,10,12,0.85) 70%, #050a0c 100%);
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Problem → Framework: forest green washes upward into the bottom of the problem section */
+.problem {
+  position: relative;
+}
+.problem .problem-bottom-bleed {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 18vh;
+  background: linear-gradient(180deg, rgba(19,72,54,0) 0%, rgba(19,72,54,0.18) 100%);
+  z-index: 0;
+  pointer-events: none;
+}
