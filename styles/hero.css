@@ -454,9 +454,12 @@ html, body {
 
 /* ─────────────────────────  RESPONSIVE  ───────────────────────── */
 @media (max-width: 900px) {
-  .hero-nav { padding: 20px 20px 0; }
+  .hero-nav { padding: 20px 20px 0; gap: 10px; }
   .nav-links { display: none; }
-  .nav-pill { display: none; }
+  /* Show the CTA pill next to the hamburger on mobile.
+     margin-left: auto pushes pill + hamburger to the right edge,
+     keeping the logo flush left. */
+  .nav-pill { display: inline-flex; margin-left: auto; height: 36px; padding: 0 14px; font-size: 13px; }
   .hero-nav-hamburger { display: flex; }
   .hero-nav-drawer { display: flex; }
   .hero-content { padding: 0 20px; }

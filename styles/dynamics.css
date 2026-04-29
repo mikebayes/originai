@@ -190,9 +190,11 @@
 }
 
 @media (max-width: 900px) {
-  .sticky-nav-inner { padding: 10px 16px 10px 20px; gap: 12px; }
+  .sticky-nav-inner { padding: 10px 16px 10px 20px; gap: 10px; }
   .sticky-nav-links { display: none; }
-  .sticky-nav-cta { display: none; }
+  /* CTA pill stays on mobile, pushed right next to the hamburger.
+     Slightly tighter sizing so the row doesn't feel crowded. */
+  .sticky-nav-cta { display: inline-flex; margin-left: auto; height: 34px; padding: 0 14px; font-size: 13px; }
   .sticky-nav-hamburger { display: flex; }
   .sticky-nav-drawer { display: flex; }
 }
