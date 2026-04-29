@@ -8,9 +8,8 @@ export default function FinalCTA() {
         <div className="stage-grain" aria-hidden="true" />
         <div className="stage-inner">
           <div className="cta-panel" data-reveal>
-            <span className="cta-eyebrow"><span className="bar" />Get started<span className="bar" /></span>
-            <h2 className="cta-h2 display">Ready to put leadership and execution behind your AI.</h2>
-            <p className="cta-sub">Start with a 30-minute discovery session. We&rsquo;ll tell you where you are, where you should go, and what&rsquo;s in the way.</p>
+            <h2 className="cta-h2 display">Ready to put AI to work.</h2>
+            <p className="cta-sub">Start with a 30-minute call. Bring the problem you&rsquo;re working on. Leave with a sense of what to build, what to skip, and what we&rsquo;d ship first.</p>
             <div className="cta-actions">
               <a className="pill pill-primary" href="/contact">
                 Book a discovery session
@@ -18,7 +17,6 @@ export default function FinalCTA() {
               </a>
               <a className="pill pill-secondary" href="/services">See our services</a>
             </div>
-            <div className="cta-meta"><span className="dot" aria-hidden="true" />30 min · No prep required · Free</div>
           </div>
         </div>
       </section>
