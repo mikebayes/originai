@@ -267,5 +267,8 @@
 
 @media (max-width: 900px) {
   .about-grid { grid-template-columns: 1fr; gap: 16px; }
+  /* Two-card variant also stacks vertically on mobile (otherwise the cards
+     are too scrunched at narrow widths) */
+  .about-grid.about-grid-two { grid-template-columns: 1fr; gap: 16px; }
   .about-header .s-h2 { max-width: none; }
 }
