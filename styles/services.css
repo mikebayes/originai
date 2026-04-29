@@ -130,6 +130,102 @@
 .svc-supporting .svc-title { font-size: 20px; }
 .svc-supporting .svc-promise { font-size: 14.5px; }
 
+/* ─── AURORA visual for the Build card ─── */
+.svc-photo-aurora {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: #050a0c;
+}
+
+/* Layer 0 — dark base + radial color anchors */
+.aurora-base {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(70% 90% at 88% 12%, rgba(63, 221, 201, 0.28) 0%, rgba(63, 221, 201, 0) 55%),
+    radial-gradient(80% 100% at 10% 95%, rgba(19, 72, 54, 0.70) 0%, rgba(19, 72, 54, 0) 60%),
+    linear-gradient(135deg, #050a0c 0%, #0a1614 55%, #050a0c 100%);
+}
+
+/* Layer 1 — soft teal "ribbon" drifting diagonally across the field.
+   Uses a wide blurred linear gradient that animates slow horizontal/vertical drift. */
+.aurora-ribbon {
+  position: absolute; inset: -30%; z-index: 1;
+  background:
+    linear-gradient(108deg,
+      transparent 25%,
+      rgba(63, 221, 201, 0.20) 42%,
+      rgba(63, 221, 201, 0.08) 50%,
+      rgba(63, 221, 201, 0.16) 58%,
+      transparent 75%);
+  filter: blur(48px);
+  animation: aurora-drift 16s ease-in-out infinite alternate;
+  will-change: transform;
+}
+@keyframes aurora-drift {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  50%  { transform: translate(-3%, 4%) rotate(1deg); }
+  100% { transform: translate(-7%, -2%) rotate(-1deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .aurora-ribbon { animation: none; }
+}
+
+/* Layer 2 — faint network of nodes connected by hairline dashed lines.
+   Reads as "system" without being literal. */
+.aurora-network {
+  position: absolute; inset: 0; z-index: 2;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  opacity: 0.55;
+}
+.aurora-network .aurora-lines path {
+  stroke: rgba(63, 221, 201, 0.45);
+  stroke-width: 0.6;
+  fill: none;
+  stroke-dasharray: 3 5;
+  stroke-linecap: round;
+  animation: aurora-flow 6s linear infinite;
+}
+@keyframes aurora-flow {
+  to { stroke-dashoffset: -16; }
+}
+.aurora-network .aurora-nodes circle {
+  fill: var(--accent);
+  filter: drop-shadow(0 0 6px rgba(63, 221, 201, 0.55));
+}
+.aurora-network .aurora-node-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: aurora-pulse 3.2s ease-in-out infinite;
+}
+@keyframes aurora-pulse {
+  0%, 100% { opacity: 1;   transform: scale(1); }
+  50%      { opacity: 0.55; transform: scale(1.4); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .aurora-network .aurora-lines path,
+  .aurora-network .aurora-node-pulse { animation: none; }
+}
+
+/* Layer 3 — film grain to match the rest of the page */
+.aurora-noise {
+  position: absolute; inset: 0; z-index: 3;
+  pointer-events: none;
+  opacity: 0.12;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'><filter id='n' x='0' y='0' width='100%25' height='100%25'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 320px 320px;
+}
+
+/* Build badge gets a slightly stronger teal treatment to match the aurora intensity */
+.svc-photo-aurora .cphoto-badge {
+  background: rgba(63, 221, 201, 0.14);
+  border-color: rgba(63, 221, 201, 0.55);
+  color: var(--accent);
+  z-index: 4;
+}
+
 @media (max-width: 900px) {
   .services-grid { grid-template-columns: 1fr; gap: 16px; }
   .svc-grid-featured-left {

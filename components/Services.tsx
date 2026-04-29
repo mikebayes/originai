@@ -24,10 +24,39 @@ export default function Services() {
 
           {/* Featured: AI Software & Systems (Build) — left column, full height */}
           <article className="svc svc-featured">
-            <div className="svc-photo cphoto">
+            <div className="svc-photo svc-photo-aurora">
+              {/* Layered visual: deep gradient base + drifting teal aurora +
+                  faint network of nodes/connections + film grain. No literal
+                  imagery, just an atmospheric "system being built" field. */}
+              <div className="aurora-base" aria-hidden="true" />
+              <div className="aurora-ribbon" aria-hidden="true" />
+              <svg
+                className="aurora-network"
+                viewBox="0 0 400 240"
+                preserveAspectRatio="xMidYMid slice"
+                aria-hidden="true"
+              >
+                <g className="aurora-lines">
+                  <path d="M 60 50 L 180 105" />
+                  <path d="M 180 105 L 320 60" />
+                  <path d="M 60 50 L 100 175" />
+                  <path d="M 180 105 L 215 195" />
+                  <path d="M 320 60 L 355 175" />
+                  <path d="M 215 195 L 355 175" />
+                  <path d="M 100 175 L 215 195" />
+                  <path d="M 180 105 L 100 175" />
+                </g>
+                <g className="aurora-nodes">
+                  <circle cx="60"  cy="50"  r="3" />
+                  <circle cx="180" cy="105" r="4" className="aurora-node-pulse" />
+                  <circle cx="320" cy="60"  r="3" />
+                  <circle cx="100" cy="175" r="3" />
+                  <circle cx="215" cy="195" r="3" />
+                  <circle cx="355" cy="175" r="3" />
+                </g>
+              </svg>
+              <div className="aurora-noise" aria-hidden="true" />
               <span className="cphoto-badge">Build</span>
-              <div className="cphoto-grain" aria-hidden="true" />
-              <span className="cphoto-caption"><span className="bar" />Engineering bay · placeholder</span>
             </div>
             <div className="svc-body">
               <span className="svc-num">The work</span>
