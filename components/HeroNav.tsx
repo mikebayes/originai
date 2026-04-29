@@ -59,7 +59,7 @@ export default function HeroNav() {
           <a href="/insights">Insights</a>
         </div>
         <a href="/contact" className="pill pill-primary nav-pill">
-          Book a discovery session
+          Get started
           <span className="arrow" aria-hidden="true">→</span>
         </a>
         <button

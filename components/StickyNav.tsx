@@ -66,7 +66,7 @@ export default function StickyNav() {
           <a href="/insights">Insights</a>
         </nav>
         <a href="/contact" className="pill pill-primary sticky-nav-cta">
-          Book a discovery session
+          Get started
           <span className="arrow" aria-hidden="true">→</span>
         </a>
         <button
