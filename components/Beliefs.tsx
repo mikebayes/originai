@@ -22,13 +22,11 @@ export default function Beliefs() {
 
       <div className="beliefs-inner">
         <header className="beliefs-header" data-reveal>
-          <div>
-            <span className="eyebrow">Our beliefs</span>
-            <h2 className="beliefs-h2 display">
-              <span>What we believe.</span>
-              <span className="muted"> Said out loud.</span>
-            </h2>
-          </div>
+          <span className="eyebrow">Our beliefs</span>
+          <h2 className="beliefs-h2 display">
+            <span>What we believe.</span>
+            <span className="muted"> Said out loud.</span>
+          </h2>
           <p className="beliefs-lede">
             Three opinions that decide what work we take on, how we build,
             and what we&rsquo;ll never do.

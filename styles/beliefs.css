@@ -49,13 +49,15 @@
   padding: 0 56px;
 }
 
-/* Section header — same pattern as other sections */
+/* Section header — single column, stacked. Eyebrow → H2 → lede.
+   Editorial top-of-section beat without grid alignment ambiguity. */
 .beliefs-header {
-  display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-  gap: 56px;
-  align-items: end;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
   margin-bottom: 56px;
+  max-width: 760px;
 }
 .beliefs-h2 {
   font-family: 'Inter Tight', sans-serif;
@@ -63,7 +65,7 @@
   font-size: clamp(36px, 4vw, 56px);
   line-height: 1.08;
   letter-spacing: -0.005em;
-  margin: 16px 0 0;
+  margin: 0;
   color: var(--ink);
   text-wrap: balance;
 }
@@ -73,11 +75,8 @@
   font-size: 17px;
   line-height: 1.6;
   color: var(--ink-muted);
-  max-width: 44ch;
-  margin: 0;
-  justify-self: start;      /* flush to the left of the column, not floating */
-  align-self: end;          /* align bottom of lede to bottom of H2 in the header grid */
-  padding-bottom: 10px;     /* sit just above the H2 baseline for an editorial feel */
+  max-width: 56ch;
+  margin: 8px 0 0;
   text-align: left;
   text-wrap: pretty;
 }
