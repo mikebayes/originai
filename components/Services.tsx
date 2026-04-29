@@ -50,11 +50,40 @@ export default function Services() {
                     </div>
                     <div className="ui-msg ui-msg-ai">
                       <div className="ui-msg-avatar" />
-                      <div className="ui-msg-content">
-                        <div className="ui-msg-text">
-                          Intake is the bottleneck. <span className="ui-accent">14 hours/week</span>{" "}
-                          recoverable by routing class&nbsp;X tickets through the new model.
-                          <span className="ui-msg-cursor" />
+                      <div className="ui-msg-bubble">
+                        <div className="ui-msg-content">
+                          <div className="ui-msg-text">
+                            Intake is the bottleneck. <span className="ui-accent">14 hours/week</span>{" "}
+                            recoverable by routing class&nbsp;X tickets through the new model.
+                            <span className="ui-msg-cursor" />
+                          </div>
+                        </div>
+                        {/* Light "result card" attached to the AI reply — looks like a
+                            generated data artifact, breaks up the dark palette. */}
+                        <div className="ui-card-preview">
+                          <div className="ui-card-head">
+                            <span className="ui-card-title">Time recoverable by class</span>
+                            <span className="ui-card-meta">7d</span>
+                          </div>
+                          <svg className="ui-card-chart" viewBox="0 0 200 56" preserveAspectRatio="none">
+                            <rect x="2"   y="30" width="28" height="26" rx="2" />
+                            <rect x="36"  y="38" width="28" height="18" rx="2" />
+                            <rect x="70"  y="6"  width="28" height="50" rx="2" className="ui-card-bar-accent" />
+                            <rect x="104" y="34" width="28" height="22" rx="2" />
+                            <rect x="138" y="22" width="28" height="34" rx="2" />
+                            <rect x="172" y="44" width="26" height="12" rx="2" />
+                          </svg>
+                          <div className="ui-card-foot">
+                            <span className="ui-card-stat">
+                              <span className="ui-card-stat-label">Recovered</span>
+                              <span className="ui-card-stat-value">14h</span>
+                            </span>
+                            <span className="ui-card-divider" />
+                            <span className="ui-card-stat">
+                              <span className="ui-card-stat-label">Class</span>
+                              <span className="ui-card-stat-value">X · Intake</span>
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </div>

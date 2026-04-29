@@ -277,6 +277,93 @@
   box-shadow: 0 0 10px rgba(63, 221, 201, 0.45);
   margin-top: 2px;
 }
+.ui-msg-bubble {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 82%;
+  min-width: 0;
+}
+.ui-msg-bubble .ui-msg-content {
+  max-width: 100%;
+}
+
+/* Light "result card" — designed to feel like a generated artifact attached
+   to the AI's reply. Breaks up the dark palette and reads as a real app. */
+.ui-card-preview {
+  background: #F4F4EE;
+  border: 0.5px solid rgba(0, 0, 0, 0.10);
+  border-radius: 10px;
+  padding: 10px 12px 9px;
+  color: #1B2024;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+.ui-card-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+.ui-card-title {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: #1B2024;
+  letter-spacing: -0.005em;
+}
+.ui-card-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(27, 32, 36, 0.45);
+}
+.ui-card-chart {
+  width: 100%;
+  height: 38px;
+  display: block;
+}
+.ui-card-chart rect {
+  fill: rgba(27, 32, 36, 0.18);
+}
+.ui-card-chart .ui-card-bar-accent {
+  fill: var(--accent);
+}
+.ui-card-foot {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 6px;
+  border-top: 0.5px solid rgba(0, 0, 0, 0.08);
+}
+.ui-card-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.ui-card-stat-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(27, 32, 36, 0.50);
+}
+.ui-card-stat-value {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #1B2024;
+}
+.ui-card-divider {
+  width: 0.5px;
+  align-self: stretch;
+  background: rgba(0, 0, 0, 0.10);
+}
 
 .ui-msg-cursor {
   display: inline-block;
