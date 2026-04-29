@@ -68,7 +68,7 @@ export default function About() {
               </div>
             </div>
             <h3 className="about-title">The people behind every engagement.</h3>
-            <p className="about-body">A small senior team. Strategy, engineering, and operations under one roof. No offshore handoffs, no junior bench to staff up.</p>
+            <p className="about-body">A small senior team based in Winnipeg, Canada. Strategy, engineering, and operations under one roof. No offshore handoffs, no junior bench to staff up.</p>
             <div className="about-foot">
               <a className="tlink" href="/team">Meet the team <span className="arrow" aria-hidden="true">→</span></a>
             </div>

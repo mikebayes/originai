@@ -22,25 +22,71 @@ import "./globals.css";
 import StickyNav from "@/components/StickyNav";
 import RevealInit from "@/components/RevealInit";
 
+const SEO_TITLE = "AI Consulting & Custom AI Software in Winnipeg | Origin AI";
+const SEO_DESCRIPTION =
+  "Origin AI is a Canadian AI consulting firm in Winnipeg. We build custom AI software, lead AI strategy, and run AI systems for businesses across Canada.";
+const SITE_URL = "https://www.originai.ca";
+
 export const metadata: Metadata = {
-  title: "Origin AI — Turning AI ambition into working systems.",
-  description:
-    "Strategy, development, and AI solutions that deliver measurable business outcomes.",
-  metadataBase: new URL("https://www.originai.ca"),
+  title: SEO_TITLE,
+  description: SEO_DESCRIPTION,
+  metadataBase: new URL(SITE_URL),
+  alternates: {
+    canonical: SITE_URL,
+  },
   openGraph: {
-    title: "Origin AI — Turning AI ambition into working systems.",
-    description:
-      "Strategy, development, and AI solutions that deliver measurable business outcomes.",
-    url: "https://www.originai.ca",
+    title: SEO_TITLE,
+    description: SEO_DESCRIPTION,
+    url: SITE_URL,
     siteName: "Origin AI",
     type: "website",
+    locale: "en_CA",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Origin AI — Turning AI ambition into working systems.",
-    description:
-      "Strategy, development, and AI solutions that deliver measurable business outcomes.",
+    title: SEO_TITLE,
+    description: SEO_DESCRIPTION,
   },
+};
+
+// LocalBusiness / ProfessionalService JSON-LD.
+// Provides structured data so Google can associate the page with our service area
+// (Canada), location (Winnipeg), and the things we do (AI consulting, AI software,
+// AI strategy, agentic AI). This is the single most important on-page signal for
+// local pack rankings.
+const ORG_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": `${SITE_URL}/#organization`,
+  name: "Origin AI",
+  alternateName: "Origin AI Inc.",
+  description:
+    "AI consulting firm in Winnipeg, Canada. Custom AI software, AI strategy, and managed AI for businesses across Canada.",
+  url: SITE_URL,
+  telephone: "+1-204-515-1415",
+  email: "info@originai.ca",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Winnipeg",
+    addressRegion: "MB",
+    addressCountry: "CA",
+  },
+  areaServed: [
+    { "@type": "Country", name: "Canada" },
+    { "@type": "AdministrativeArea", name: "Manitoba" },
+    { "@type": "City", name: "Winnipeg" },
+  ],
+  knowsAbout: [
+    "AI consulting",
+    "Custom AI software",
+    "AI software development",
+    "AI strategy",
+    "AI roadmap",
+    "Agentic AI",
+    "AI agents",
+    "Managed AI",
+  ],
+  sameAs: ["https://www.linkedin.com/company/originai"],
 };
 
 export default function RootLayout({
@@ -58,6 +104,13 @@ export default function RootLayout({
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Inter+Tight:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap"
           rel="stylesheet"
+        />
+        {/* Structured data: ProfessionalService schema with NAP and service area.
+            Helps Google associate Origin AI with Winnipeg, Canada, and our service
+            categories for local pack and AI consulting rankings. */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG_JSON_LD) }}
         />
       </head>
       <body>

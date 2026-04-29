@@ -30,7 +30,7 @@ export default function FinalCTA() {
                 <Logo />
               </a>
               <p className="f-tagline">
-                Strategy, development, and AI solutions for organizations ready to ship.
+                Custom AI software and AI consulting for organizations ready to ship. Based in Winnipeg, Canada.
               </p>
               <a className="f-social" href="https://www.linkedin.com" target="_blank" rel="noreferrer">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
