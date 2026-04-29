@@ -43,10 +43,6 @@ export default function Beliefs() {
               <div className="beliefs-photo-grain" aria-hidden="true" />
               <div className="beliefs-photo-vignette" aria-hidden="true" />
             </div>
-            <figcaption className="beliefs-photo-caption">
-              <span className="bar" aria-hidden="true" />
-              <span>Origin · Strategy session</span>
-            </figcaption>
           </figure>
 
           {/* Three beliefs, stacked editorially */}

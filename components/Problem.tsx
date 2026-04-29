@@ -20,7 +20,6 @@ export default function Problem() {
 
         <div className="problem-grid" data-reveal-stagger>
           <article className="card">
-            <span className="card-num">01 · Sprawl</span>
             <div className="card-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="5" cy="6" r="2" />
@@ -36,11 +35,9 @@ export default function Problem() {
             </div>
             <h3 className="card-title">Shadow AI across departments.</h3>
             <p className="card-body">Tools are in use everywhere with no shared standards or oversight.</p>
-            <span className="card-tag"><span className="bar" />No standards</span>
           </article>
 
           <article className="card">
-            <span className="card-num">02 · Stalled</span>
             <div className="card-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12 a7 7 0 0 1 11.5 -5.4" />
@@ -52,11 +49,9 @@ export default function Problem() {
             </div>
             <h3 className="card-title">Pilots that never become systems.</h3>
             <p className="card-body">Teams experiment, momentum stalls, value never lands.</p>
-            <span className="card-tag"><span className="bar" />Stuck at pilot</span>
           </article>
 
           <article className="card">
-            <span className="card-num">03 · Drift</span>
             <div className="card-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="12" r="8.5" />
@@ -70,7 +65,6 @@ export default function Problem() {
             </div>
             <h3 className="card-title">No defined ownership.</h3>
             <p className="card-body">Initiatives drift because no one owns the outcome.</p>
-            <span className="card-tag"><span className="bar" />No owner</span>
           </article>
         </div>
       </div>
