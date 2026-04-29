@@ -50,10 +50,21 @@ html, body {
   inset: -3%; /* slight bleed so the ken-burns scale never reveals an edge */
   background-image: url('/images/main_hero.jpg');
   background-size: cover;
+  /* Desktop: centered crop, slightly weighted toward the upper portion of the photo. */
   background-position: center 38%;
   animation: kenburns 32s ease-in-out infinite alternate;
   transform-origin: 70% 65%;
   will-change: transform;
+}
+
+/* Mobile: portrait viewport crops the wide landscape image horizontally,
+   which would lose the two hikers in the lower-right (the symbolic
+   subject of the photo). Anchor the crop to the right side so the hikers
+   stay in frame, and favor the lower portion vertically. */
+@media (max-width: 900px) {
+  .hero-photo {
+    background-position: 96% 70%;
+  }
 }
 @keyframes kenburns {
   0%   { transform: scale(1.04) translate(0, 0); }
