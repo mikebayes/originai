@@ -1,4 +1,4 @@
-import Logo from "./Logo";
+import HeroNav from "./HeroNav";
 import HeroPhotoLayer from "./HeroPhotoLayer";
 import ScrollIndicator from "./ScrollIndicator";
 
@@ -12,27 +12,18 @@ export default function Hero() {
       <div className="hero-vignette" aria-hidden="true" />
       <div className="hero-grain" aria-hidden="true" />
 
-      {/* Floating nav (no background bar) */}
-      <nav className="hero-nav" aria-label="Primary">
-        <a className="nav-logo" href="/" aria-label="Origin AI home">
-          <Logo />
-        </a>
-        <div className="nav-links">
-          <a href="#services">Services</a>
-          <a href="#approach">Approach</a>
-          <a href="#team">Team</a>
-          <a href="#insights">Insights</a>
-        </div>
-        <a href="#contact" className="pill pill-primary nav-pill">
-          Book a discovery session
-          <span className="arrow" aria-hidden="true">→</span>
-        </a>
-      </nav>
+      {/* Floating nav (no background bar) — desktop links + CTA, mobile hamburger drawer */}
+      <HeroNav />
 
       {/* Copy block, upper-left third */}
       <div className="hero-content">
         <div className="hero-copy">
-          <span className="eyebrow">Strategy · Build · Operate</span>
+          {/* Graphic mark — teal dot + fading hairline. Replaces a marketing eyebrow,
+              keeps the teal accent for visual separation between the photo and the H1. */}
+          <span className="hero-mark" aria-hidden="true">
+            <span className="hero-mark-dot" />
+            <span className="hero-mark-line" />
+          </span>
           <h1 className="h1 display">
             <span>Turning AI ambition</span>
             <span className="into"> into </span>
