@@ -5,6 +5,11 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
 }
+/* Two-card variant — Team + Principles only */
+.about-grid.about-grid-two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
 
 .about-card {
   position: relative;
@@ -84,6 +89,29 @@
   background:
     radial-gradient(80% 80% at 50% 30%, rgba(63,221,201,0.18) 0%, rgba(63,221,201,0) 60%),
     linear-gradient(135deg, #14302a 0%, #060a0c 100%);
+}
+
+/* Real photographic portraits — replace the placeholder gradient with the actual headshot */
+.portrait-photo {
+  background-size: cover;
+  background-position: center;
+  font-size: 0;            /* hide any text content if present */
+}
+.portrait-photo.p-mike {
+  background-image:
+    radial-gradient(80% 80% at 30% 25%, rgba(63,221,201,0.10) 0%, rgba(63,221,201,0) 60%),
+    url('/images/team/mike.jpg');
+  background-size: cover, cover;
+  background-position: center, center;
+  background-blend-mode: overlay, normal;
+}
+.portrait-photo.p-chad {
+  background-image:
+    radial-gradient(80% 80% at 70% 25%, rgba(120,150,160,0.10) 0%, rgba(120,150,160,0) 60%),
+    url('/images/team/chad.jpg');
+  background-size: cover, cover;
+  background-position: center, center;
+  background-blend-mode: overlay, normal;
 }
 .portrait-count {
   margin-left: 14px;
