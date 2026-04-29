@@ -79,10 +79,11 @@
   text-wrap: pretty;
 }
 
-/* Editorial two-column: photo on the left, beliefs list on the right */
+/* Editorial two-column: photo on the left, beliefs list on the right.
+   Text column is wider so the photo doesn't visually dominate the section. */
 .beliefs-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
   gap: 56px;
   align-items: start;
 }
@@ -94,6 +95,8 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
+  max-width: 420px;
+  width: 100%;
 }
 .beliefs-photo-frame {
   position: relative;
