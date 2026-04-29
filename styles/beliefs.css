@@ -75,7 +75,8 @@
   color: var(--ink-muted);
   max-width: 44ch;
   margin: 0;
-  padding-bottom: 6px;
+  align-self: end;          /* align bottom of lede to bottom of H2 in the header grid */
+  padding-bottom: 10px;     /* sit just above the H2 baseline for an editorial feel */
   text-wrap: pretty;
 }
 
