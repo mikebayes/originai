@@ -130,18 +130,25 @@
 .svc-supporting .svc-title { font-size: 20px; }
 .svc-supporting .svc-promise { font-size: 14.5px; }
 
-/* ─── MINI VISUAL HEADER for supporting service cards ───
-   Smaller than the featured Build card's photo; signals what each
-   service is at a glance without competing visually with Build. */
+/* ─── MINI VISUAL FIGURE for supporting service cards ───
+   Lives inside .svc-body, between the promise and the link.
+   Bleeds to the card edges with hairline rules top and bottom so it
+   reads like an inserted figure, not a banner header. Smaller than
+   the featured Build card's photo so it doesn't compete visually. */
 .svc-photo-mini {
   position: relative;
   height: 92px;
-  border-bottom: 0.5px solid rgba(255, 255, 255, 0.06);
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 22px 22px;
+  padding: 14px 26px 22px;
+  /* Bleed past .svc-supporting .svc-body's 26px horizontal padding
+     so the figure runs edge-to-edge inside the card. */
+  margin-inline: -26px;
+  margin-block: 4px;
+  border-top: 0.5px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.06);
 }
 .svc-photo-roadmap {
   background:
@@ -165,7 +172,7 @@
 .svc-photo-mini .mini-caption {
   position: absolute;
   bottom: 10px;
-  left: 22px;
+  left: 26px;  /* aligns with the body text inset */
   font-family: 'JetBrains Mono', monospace;
   font-size: 9.5px;
   letter-spacing: 0.10em;

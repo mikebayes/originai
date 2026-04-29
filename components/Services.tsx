@@ -132,24 +132,6 @@ export default function Services() {
 
           {/* Supporting: AI Strategy — right column, top */}
           <article className="svc svc-supporting">
-            <div className="svc-photo svc-photo-mini svc-photo-roadmap">
-              {/* Mini roadmap: four phase milestones, two done, current
-                  active, one future. Reads as "we plan and sequence". */}
-              <svg className="mini-roadmap" viewBox="0 0 300 50" aria-hidden="true">
-                <line x1="22" y1="25" x2="278" y2="25" className="mini-track" />
-                <g className="mini-node-done">
-                  <circle cx="22" cy="25" r="7" />
-                  <path d="M18.5 25 L21.5 28 L26 22" />
-                </g>
-                <g className="mini-node-done">
-                  <circle cx="107" cy="25" r="7" />
-                  <path d="M103.5 25 L106.5 28 L111 22" />
-                </g>
-                <circle cx="192" cy="25" r="8" className="mini-node-active" />
-                <circle cx="278" cy="25" r="7" className="mini-node-future" />
-              </svg>
-              <span className="mini-caption"><span className="bar" />Phased roadmap</span>
-            </div>
             <div className="svc-body">
               <span className="svc-num">Before you build</span>
               <h3 className="svc-title">AI Strategy</h3>
@@ -157,6 +139,24 @@ export default function Services() {
                 Get unstuck before you build. We help leadership pick the right
                 AI bets and sequence them properly.
               </p>
+              {/* Mini roadmap: four phase milestones, two done, current
+                  active, one future. Reads as "we plan and sequence". */}
+              <div className="svc-photo svc-photo-mini svc-photo-roadmap">
+                <svg className="mini-roadmap" viewBox="0 0 300 50" aria-hidden="true">
+                  <line x1="22" y1="25" x2="278" y2="25" className="mini-track" />
+                  <g className="mini-node-done">
+                    <circle cx="22" cy="25" r="7" />
+                    <path d="M18.5 25 L21.5 28 L26 22" />
+                  </g>
+                  <g className="mini-node-done">
+                    <circle cx="107" cy="25" r="7" />
+                    <path d="M103.5 25 L106.5 28 L111 22" />
+                  </g>
+                  <circle cx="192" cy="25" r="8" className="mini-node-active" />
+                  <circle cx="278" cy="25" r="7" className="mini-node-future" />
+                </svg>
+                <span className="mini-caption"><span className="bar" />Phased roadmap</span>
+              </div>
               <div className="svc-foot">
                 <a className="tlink" href="/services#strategy">Learn more <span className="arrow" aria-hidden="true">→</span></a>
               </div>
@@ -165,20 +165,6 @@ export default function Services() {
 
           {/* Supporting: Managed AI — right column, bottom */}
           <article className="svc svc-supporting">
-            <div className="svc-photo svc-photo-mini svc-photo-monitor">
-              {/* Mini monitoring sparkline trending up, ending in a pulsing
-                  teal dot. Reads as "live, ongoing, improving". */}
-              <svg className="mini-sparkline" viewBox="0 0 300 60" preserveAspectRatio="none" aria-hidden="true">
-                <path className="mini-area" d="M 0 42 Q 60 46 95 32 T 175 22 T 250 14 L 300 8 L 300 60 L 0 60 Z" />
-                <path className="mini-line" d="M 0 42 Q 60 46 95 32 T 175 22 T 250 14 L 300 8" />
-                <circle cx="50"  cy="44" r="2" className="mini-point" />
-                <circle cx="120" cy="28" r="2" className="mini-point" />
-                <circle cx="195" cy="20" r="2" className="mini-point" />
-                <circle cx="260" cy="12" r="2" className="mini-point" />
-                <circle cx="294" cy="9"  r="4.5" className="mini-pulse" />
-              </svg>
-              <span className="mini-caption"><span className="bar" />Live · 14 systems running</span>
-            </div>
             <div className="svc-body">
               <span className="svc-num">After we ship</span>
               <h3 className="svc-title">Managed AI</h3>
@@ -186,6 +172,20 @@ export default function Services() {
                 We keep building. Continuous development on the AI we shipped,
                 on a defined monthly scope.
               </p>
+              {/* Mini monitoring sparkline trending up, ending in a pulsing
+                  teal dot. Reads as "live, ongoing, improving". */}
+              <div className="svc-photo svc-photo-mini svc-photo-monitor">
+                <svg className="mini-sparkline" viewBox="0 0 300 60" preserveAspectRatio="none" aria-hidden="true">
+                  <path className="mini-area" d="M 0 42 Q 60 46 95 32 T 175 22 T 250 14 L 300 8 L 300 60 L 0 60 Z" />
+                  <path className="mini-line" d="M 0 42 Q 60 46 95 32 T 175 22 T 250 14 L 300 8" />
+                  <circle cx="50"  cy="44" r="2" className="mini-point" />
+                  <circle cx="120" cy="28" r="2" className="mini-point" />
+                  <circle cx="195" cy="20" r="2" className="mini-point" />
+                  <circle cx="260" cy="12" r="2" className="mini-point" />
+                  <circle cx="294" cy="9"  r="4.5" className="mini-pulse" />
+                </svg>
+                <span className="mini-caption"><span className="bar" />Live · 14 systems running</span>
+              </div>
               <div className="svc-foot">
                 <a className="tlink" href="/services#managed">Learn more <span className="arrow" aria-hidden="true">→</span></a>
               </div>
