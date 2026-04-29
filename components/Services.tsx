@@ -7,70 +7,72 @@ export default function Services() {
           <div>
             <span className="eyebrow">Our services</span>
             <h2 className="s-h2 display">
-              <span>From AI ambition to AI in production.</span>
-              <span className="muted"> We cover the full path.</span>
+              <span>Build is the work.</span>
+              <span className="muted"> Strategy and operations sit on either side.</span>
             </h2>
           </div>
           <p className="s-lede">
-            Strategy, build, and operations under one team. Engage the slice you need or the full path end to end.
+            Three ways in. Pick the one you need. We don&rsquo;t require a discovery
+            session before you can buy a build, and we don&rsquo;t pretend a build
+            ends when the code ships.
           </p>
         </header>
 
-        <div className="services-grid" data-reveal-stagger>
-          {/* Card 1 — Opportunity & Roadmap */}
-          <article className="svc">
-            <div className="svc-photo cphoto">
-              <span className="cphoto-badge">Strategy</span>
-              <div className="cphoto-grain" aria-hidden="true" />
-              <span className="cphoto-caption"><span className="bar" />Strategy session · placeholder</span>
-            </div>
-            <div className="svc-body">
-              <span className="svc-num">01 · Roadmap</span>
-              <h3 className="svc-title">AI Opportunity &amp; Roadmap</h3>
-              <p className="svc-promise">We map where AI fits, what to build first, and how to sequence the work.</p>
-              <div className="svc-foot">
-                <a className="tlink" href="/services#opportunity">Learn more <span className="arrow" aria-hidden="true">→</span></a>
-                <span className="anchor"><span className="bar" />Align</span>
-              </div>
-            </div>
-          </article>
+        {/* Asymmetric featured-left layout: Build occupies the left column,
+            Strategy and Managed AI stack on the right as supporting cards. */}
+        <div className="services-grid svc-grid-featured-left" data-reveal-stagger>
 
-          {/* Card 2 — AI Solutions & Development (centerpiece) */}
-          <article className="svc centerpiece">
-            <span className="svc-centerpiece-tag">Centerpiece</span>
+          {/* Featured: AI Software & Systems (Build) — left column, full height */}
+          <article className="svc svc-featured">
             <div className="svc-photo cphoto">
               <span className="cphoto-badge">Build</span>
               <div className="cphoto-grain" aria-hidden="true" />
               <span className="cphoto-caption"><span className="bar" />Engineering bay · placeholder</span>
             </div>
             <div className="svc-body">
-              <span className="svc-num">02 · Solutions</span>
-              <h3 className="svc-title">AI Solutions &amp; Development</h3>
-              <p className="svc-promise">We design, build, and deploy custom AI solutions that solve real business problems.</p>
+              <span className="svc-num">The work</span>
+              <h3 className="svc-title">AI Software &amp; Systems</h3>
+              <p className="svc-promise">
+                Custom AI software, built for your business. Replace the SaaS stack
+                you&rsquo;ve been duct-taping together with a system shaped to how
+                your team actually works.
+              </p>
               <div className="svc-foot">
-                <a className="tlink" href="/services#solutions">Learn more <span className="arrow" aria-hidden="true">→</span></a>
-                <span className="anchor"><span className="bar" />Activate</span>
+                <a className="tlink" href="/services#solutions">Start a build conversation <span className="arrow" aria-hidden="true">→</span></a>
               </div>
             </div>
           </article>
 
-          {/* Card 3 — Managed AI */}
-          <article className="svc">
-            <div className="svc-photo cphoto">
-              <span className="cphoto-badge">Operate</span>
-              <div className="cphoto-grain" aria-hidden="true" />
-              <span className="cphoto-caption"><span className="bar" />Operations floor · placeholder</span>
-            </div>
+          {/* Supporting: AI Strategy — right column, top */}
+          <article className="svc svc-supporting">
             <div className="svc-body">
-              <span className="svc-num">03 · Managed</span>
-              <h3 className="svc-title">Managed AI</h3>
-              <p className="svc-promise">We operate, monitor, and improve AI systems so they keep delivering value.</p>
+              <span className="svc-num">Before you build</span>
+              <h3 className="svc-title">AI Strategy</h3>
+              <p className="svc-promise">
+                Get unstuck before you build. We help leadership pick the right
+                AI bets and sequence them properly.
+              </p>
               <div className="svc-foot">
-                <a className="tlink" href="/services#managed">Learn more <span className="arrow" aria-hidden="true">→</span></a>
-                <span className="anchor"><span className="bar" />Govern</span>
+                <a className="tlink" href="/services#strategy">Learn more <span className="arrow" aria-hidden="true">→</span></a>
               </div>
             </div>
           </article>
+
+          {/* Supporting: Managed AI — right column, bottom */}
+          <article className="svc svc-supporting">
+            <div className="svc-body">
+              <span className="svc-num">After we ship</span>
+              <h3 className="svc-title">Managed AI</h3>
+              <p className="svc-promise">
+                We keep building. Continuous development on the AI we shipped,
+                on a defined monthly scope.
+              </p>
+              <div className="svc-foot">
+                <a className="tlink" href="/services#managed">Learn more <span className="arrow" aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>

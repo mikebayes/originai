@@ -7,6 +7,7 @@ import "../styles/sections.css";
 // Per-section styles (each scoped by unique class names, no conflicts)
 import "../styles/problem.css";
 import "../styles/framework.css";
+import "../styles/beliefs.css";
 import "../styles/services.css";
 import "../styles/proof.css";
 import "../styles/about.css";

@@ -1,0 +1,222 @@
+/* Section 3 — Beliefs (replaces the old Framework section).
+   Editorial layout: photograph on the left, three beliefs stacked on the right. */
+
+.beliefs {
+  position: relative;
+  width: 100%;
+  padding: 140px 0 120px;
+  background: #050a0c;
+  isolation: isolate;
+}
+
+.beliefs::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(70% 50% at 18% 0%, rgba(63, 221, 201, 0.06) 0%, rgba(63, 221, 201, 0) 60%),
+    radial-gradient(80% 60% at 90% 100%, rgba(19, 72, 54, 0.20) 0%, rgba(19, 72, 54, 0) 65%),
+    linear-gradient(180deg, #03070a 0%, #060c0e 100%);
+}
+.beliefs-grain {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  opacity: 0.10; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'><filter id='n' x='0' y='0' width='100%25' height='100%25'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 320px 320px;
+}
+
+/* Curved dividers — match the previous Framework treatment so the
+   transition into and out of this section reads consistent. */
+.beliefs-curve {
+  position: absolute;
+  left: -1px;
+  right: -1px;
+  width: calc(100% + 2px);
+  height: 80px;
+  z-index: 4;
+  pointer-events: none;
+  display: block;
+}
+.beliefs-curve-top    { top: -1px; }
+.beliefs-curve-bottom { bottom: -1px; }
+@media (max-width: 900px) {
+  .beliefs-curve { height: 52px; }
+}
+
+.beliefs-inner {
+  position: relative; z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 56px;
+}
+
+/* Section header — same pattern as other sections */
+.beliefs-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: end;
+  margin-bottom: 56px;
+}
+.beliefs-h2 {
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 500;
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -0.005em;
+  margin: 16px 0 0;
+  color: var(--ink);
+  text-wrap: balance;
+}
+.beliefs-h2 .muted { color: var(--ink-muted); font-weight: 500; }
+.beliefs-lede {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+  max-width: 44ch;
+  margin: 0;
+  padding-bottom: 6px;
+  text-wrap: pretty;
+}
+
+/* Editorial two-column: photo on the left, beliefs list on the right */
+.beliefs-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: start;
+}
+
+/* ─── PHOTO ─── */
+.beliefs-photo {
+  position: relative;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.beliefs-photo-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 0.5px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 30px 60px -20px rgba(0, 0, 0, 0.65),
+    0 8px 24px -8px rgba(0, 0, 0, 0.45);
+  isolation: isolate;
+  background: #0a1012;
+}
+.beliefs-photo-img {
+  position: absolute; inset: 0;
+  background-image: url('/images/beliefs_anchor.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+.beliefs-photo-grain {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  opacity: 0.14; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'><filter id='n' x='0' y='0' width='100%25' height='100%25'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 320px 320px;
+}
+.beliefs-photo-vignette {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.45) 100%),
+    radial-gradient(120% 80% at 50% 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.35) 100%);
+}
+.beliefs-photo-caption {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  display: inline-flex; align-items: center; gap: 12px;
+  margin: 0;
+}
+.beliefs-photo-caption .bar {
+  display: inline-block;
+  width: 22px; height: 1px;
+  background: rgba(255,255,255,0.35);
+}
+
+/* ─── BELIEFS LIST ─── */
+.beliefs-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.belief {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  column-gap: 18px;
+  row-gap: 8px;
+  padding: 28px 0 32px;
+  border-top: 0.5px solid rgba(255, 255, 255, 0.10);
+  position: relative;
+}
+.belief:first-child { border-top: 0; padding-top: 0; }
+.belief::before {
+  content: '';
+  grid-column: 1 / 3;
+  grid-row: 1 / 4;
+  position: absolute;
+  left: 0; top: 0; bottom: 0; width: 1px;
+  pointer-events: none;
+}
+.belief-num {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 0.10em;
+  color: rgba(63, 221, 201, 0.75);
+  align-self: start;
+  padding-top: 4px;
+}
+.belief-claim {
+  grid-column: 2;
+  grid-row: 1;
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.22;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  margin: 0;
+  text-wrap: balance;
+}
+.belief-expand {
+  grid-column: 2;
+  grid-row: 2;
+  font-family: 'Inter', sans-serif;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.70);
+  margin: 0;
+  text-wrap: pretty;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .beliefs { padding: 96px 0 96px; }
+  .beliefs-inner { padding: 0 20px; }
+  .beliefs-header {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 36px;
+  }
+  .beliefs-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .beliefs-photo-frame { aspect-ratio: 4 / 3; }
+  .belief { grid-template-columns: 36px 1fr; column-gap: 12px; padding: 22px 0 24px; }
+  .belief-claim { font-size: 20px; }
+  .belief-expand { font-size: 15px; }
+}

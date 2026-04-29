@@ -83,51 +83,66 @@
 }
 .svc-foot .anchor .bar { width: 16px; height: 1px; background: rgba(255,255,255,0.3); }
 
-/* Centerpiece — AI Solutions & Development */
-.svc.centerpiece {
+/* ─────────────────────────  FEATURED-LEFT LAYOUT  ─────────────────────────
+   Asymmetric: featured Build card on the left, two supporting cards
+   stacked on the right. Build is the headline service; Strategy and
+   Managed AI are the supporting doors. */
+.svc-grid-featured-left {
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  grid-template-rows: 1fr 1fr;
+  column-gap: 24px;
+  row-gap: 18px;
+}
+.svc-featured {
+  grid-column: 1;
+  grid-row: 1 / 3;       /* span both rows on the left */
   border: 1.5px solid rgba(63, 221, 201, 0.55);
   box-shadow:
-    0 1px 0 rgba(63,221,201,0.15) inset,
-    0 0 80px -20px rgba(63,221,201,0.32),
-    0 30px 60px -20px rgba(0,0,0,0.7),
-    0 8px 24px -8px rgba(0,0,0,0.5);
-  transform: translateY(-12px);
+    0 1px 0 rgba(63, 221, 201, 0.15) inset,
+    0 0 90px -20px rgba(63, 221, 201, 0.32),
+    0 30px 60px -20px rgba(0, 0, 0, 0.7),
+    0 8px 24px -8px rgba(0, 0, 0, 0.5);
 }
-.svc.centerpiece:hover { transform: translateY(-16px); }
-.svc.centerpiece .cphoto-badge {
+.svc-featured .cphoto-badge {
   background: rgba(63, 221, 201, 0.12);
   border-color: rgba(63, 221, 201, 0.5);
   color: var(--accent);
 }
+.svc-featured .svc-photo {
+  aspect-ratio: 16 / 10;  /* wider photo for the featured card */
+}
+.svc-featured .svc-body {
+  padding: 30px 32px 32px;
+  gap: 16px;
+}
+.svc-featured .svc-title { font-size: 28px; }
+.svc-featured .svc-promise { font-size: 16px; }
 
-/* "Centerpiece" tag in the upper-right of the centerpiece card */
-.svc-centerpiece-tag {
-  position: absolute;
-  top: 16px; right: 16px;
-  z-index: 5;
-  height: 26px;
-  padding: 0 12px;
-  display: inline-flex; align-items: center; gap: 8px;
-  border-radius: 999px;
-  background: rgba(63, 221, 201, 0.12);
-  border: 0.5px solid rgba(63, 221, 201, 0.55);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10.5px;
-  letter-spacing: 0.10em;
-  text-transform: uppercase;
-  color: var(--accent);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+.svc-supporting {
+  /* Right column, no photo, smaller scale, quieter visual weight */
+  display: flex;
+  flex-direction: column;
 }
-.svc-centerpiece-tag::before {
-  content: '';
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 10px rgba(63,221,201,0.55);
+.svc-supporting .svc-body {
+  padding: 24px 26px 26px;
+  gap: 12px;
 }
+.svc-supporting .svc-title { font-size: 20px; }
+.svc-supporting .svc-promise { font-size: 14.5px; }
 
 @media (max-width: 900px) {
   .services-grid { grid-template-columns: 1fr; gap: 16px; }
-  .svc.centerpiece { transform: none; }
-  .svc.centerpiece:hover { transform: translateY(-2px); }
+  .svc-grid-featured-left {
+    grid-template-rows: auto;     /* let cards size naturally */
+  }
+  .svc-featured {
+    grid-column: 1;
+    grid-row: auto;               /* Build comes first on mobile */
+  }
+  .svc-supporting {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .svc-featured .svc-photo { aspect-ratio: 4 / 3; }
+  .svc-featured .svc-title { font-size: 24px; }
 }

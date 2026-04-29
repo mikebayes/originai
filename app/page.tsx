@@ -1,6 +1,6 @@
 import Hero from "@/components/Hero";
 import Problem from "@/components/Problem";
-import Framework from "@/components/Framework";
+import Beliefs from "@/components/Beliefs";
 import Services from "@/components/Services";
 import Proof from "@/components/Proof";
 import About from "@/components/About";
@@ -11,7 +11,7 @@ export default function HomePage() {
     <main>
       <Hero />
       <Problem />
-      <Framework />
+      <Beliefs />
       <Services />
       <Proof />
       <About />

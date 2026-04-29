@@ -25,12 +25,11 @@ export default function Hero() {
             <span className="hero-mark-line" />
           </span>
           <h1 className="h1 display">
-            <span>Turning AI ambition</span>
-            <span className="into"> into </span>
-            <span>working systems.</span>
+            <span className="into">We build </span>
+            <span>the AI your business runs on.</span>
           </h1>
           <p className="sub">
-            Strategy, development, and AI solutions that deliver measurable business outcomes.
+            AI software, strategy, and operations, focused on measurable business outcomes.
           </p>
           <div className="cta-stack">
             <a href="#contact" className="pill pill-primary">
