@@ -408,17 +408,29 @@
 }
 
 /* ─────────────────────────  RESPONSIVE  ─────────────────────────
-   Mobile: stack the hero. Visual goes below the copy at smaller scale. */
+   Mobile: hide the system view diagram entirely (it's too dense to
+   read well at small widths and degrades the hero when stacked
+   under the CTA). The hero becomes copy-led with the atmospheric
+   backdrop carrying the visual weight. The three-service signal
+   comes back when the user scrolls into the body sections, which
+   visualize the services properly at full width. */
 @media (max-width: 1000px) {
   .services-hero-inner {
     grid-template-columns: 1fr;
     gap: 40px;
-    padding: 120px 24px 80px;
+    padding: 120px 24px 96px;
     align-items: start;
   }
+  /* Strengthen the teal glow on mobile so the now-empty right area
+     of the hero still has visual anchor. */
+  .services-hero-glow {
+    background:
+      radial-gradient(70% 50% at 80% 22%, rgba(63, 221, 201, 0.22) 0%, rgba(63, 221, 201, 0) 65%),
+      radial-gradient(80% 80% at 5% 100%, rgba(19, 72, 54, 0.55) 0%, rgba(19, 72, 54, 0) 65%),
+      linear-gradient(135deg, #050a0c 0%, #081513 50%, #050a0c 100%);
+  }
   .services-hero-visual {
-    max-width: 540px;
-    margin: 0 auto;
+    display: none;
   }
   .services-hero-h1 {
     font-size: clamp(42px, 8vw, 60px);
