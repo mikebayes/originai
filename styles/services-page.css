@@ -53,7 +53,11 @@
   width: 100%;
   max-width: 1320px;
   margin: 0 auto;
-  padding: 140px 56px 120px;
+  /* Top padding bumped slightly so the H1 sits a touch lower in the
+     hero. Combined with the extra inter-sentence margin in the H1, this
+     positions "End-to-End AI Services." below the Strategy card's
+     vertical range, freeing the right side for the single-line break. */
+  padding: 170px 56px 120px;
 }
 
 /* Soft gradient fade at the bottom into the next section, mirroring the
@@ -122,12 +126,15 @@
   margin: 0 0 22px;
   text-wrap: balance;
 }
-/* Second sentence wrapper: extra space between "Modern Software." and
-   "End-to-End", but tight line-height between "End-to-End" and "AI
-   Services." since they're part of the same phrase. */
+/* Second sentence: extra space below "Modern Software.", forced to a
+   single line via white-space: nowrap. The single line is wider than
+   the copy column at hero scale, so it visually extends to the right
+   past the column edge — landing in the empty space below the Strategy
+   card, where there's no diagram element competing with it. */
 .services-hero-h1-second {
   display: block;
-  margin-top: 0.32em;
+  margin-top: 0.55em;
+  white-space: nowrap;
 }
 
 .services-hero-sub {

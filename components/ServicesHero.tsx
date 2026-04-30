@@ -38,7 +38,7 @@ export default function ServicesHero() {
           <h1 className="services-hero-h1 display">
             Modern Software.
             <span className="services-hero-h1-second">
-              End-to-End<br />AI Services.
+              End-to-End AI Services.
             </span>
           </h1>
           <p className="services-hero-sub">
