@@ -1,179 +1,184 @@
 /**
- * Services overview — three-card grid.
+ * Services overview — three cards in the featured-left layout.
  *
- * Replaces the elaborate per-service feature sections with a simpler
- * three-card layout. Each card has eyebrow, title, short body copy,
- * and a link to its deep service page. Build is the centerpiece (slight
- * forest green tint, accent border) but the three sit as siblings in a
- * 3-column grid rather than a featured-left asymmetric layout.
+ * Mirrors the homepage Services section's asymmetric layout exactly:
+ * Build is the featured card on the left (full height with the aurora
+ * UI mockup), Strategy and Managed stack on the right as supporting
+ * cards. This keeps the visual style consistent across the homepage
+ * and /services so users get the same expression of the three services
+ * on both surfaces.
  *
- * Visual placeholder boxes inside each card mark where small per-service
- * mockups will eventually live. Keeping them as placeholders for now so
- * the structural change can be reviewed before the visuals are designed.
+ * Differences from the homepage version: no section header (the hero
+ * above does that work), and links point to deep service pages
+ * (/services/build, /services/strategy, /services/managed) instead of
+ * the homepage's anchor links to /services.
  */
 export default function ServicesCardsGrid() {
   return (
-    <section className="svc-cards-section" data-screen-label="Services cards">
-      <div className="svc-cards-inner">
-        <header className="svc-cards-header" data-reveal>
-          <h2 className="svc-cards-h2 display">
-            <span>Three services.</span>
-            <span className="muted"> Pick what your team needs.</span>
-          </h2>
-          <p className="svc-cards-sub">
-            Build is the centerpiece. Strategy and Managed sit alongside.
-          </p>
-        </header>
+    <section className="stage" data-screen-label="Services cards">
+      <div className="stage-grain" aria-hidden="true" />
+      <div className="stage-inner">
+        <div className="services-grid svc-grid-featured-left" data-reveal-stagger>
 
-        <div className="svc-cards-grid" data-reveal-stagger>
-          {/* Build — centerpiece. Visual: a light SaaS-style screenshot
-              for a field-ops product. Off-color (coral accent) so it
-              doesn't read as Origin's branded teal — looks like a real
-              piece of software, not a marketing illustration. */}
-          <article className="svc-card svc-card-build">
-            <span className="svc-card-num">The work</span>
-            <h3 className="svc-card-title">AI Software &amp; Systems</h3>
-            <p className="svc-card-promise">
-              Custom AI software, built for your business. Replace the
-              SaaS stack you&rsquo;ve been duct-taping together with a
-              system shaped to how your team actually works.
-            </p>
-            <div className="svc-card-visual">
-              <svg viewBox="0 0 280 165" className="svc-card-svg" aria-hidden="true">
-                {/* Card surface */}
-                <rect x="0.5" y="0.5" width="279" height="164" rx="6" fill="#F4F2EC" stroke="rgba(0,0,0,0.08)" />
-                {/* Top bar */}
-                <rect x="0.5" y="0.5" width="279" height="22" fill="#FFFFFF" />
-                <rect x="0.5" y="0.5" width="279" height="22" fill="none" stroke="rgba(0,0,0,0.06)" />
-                <text x="12" y="15" fill="#1B2024" fontFamily="'Inter Tight', sans-serif" fontSize="9" fontWeight="500">Field Operations</text>
-                <circle cx="245" cy="11" r="3" fill="#D85A30" />
-                <text x="252" y="14" fill="#888" fontFamily="'Inter', sans-serif" fontSize="7">3</text>
-                <text x="265" y="14" textAnchor="end" fill="#888" fontFamily="'Inter', sans-serif" fontSize="7">●</text>
+          {/* Featured: AI Software & Systems (Build) — left column, full height */}
+          <article className="svc svc-featured">
+            <div className="svc-photo svc-photo-aurora">
+              <div className="aurora-base" aria-hidden="true" />
+              <div className="aurora-ribbon" aria-hidden="true" />
+              <div className="aurora-noise" aria-hidden="true" />
 
-                {/* Stat cards */}
-                <rect x="10" y="32" width="84" height="44" rx="4" fill="#FFFFFF" stroke="rgba(0,0,0,0.06)" />
-                <text x="20" y="44" fill="#777" fontFamily="'Inter', sans-serif" fontSize="7">Active jobs</text>
-                <text x="20" y="62" fill="#1B2024" fontFamily="'Inter Tight', sans-serif" fontSize="14" fontWeight="700">14</text>
-                <text x="20" y="72" fill="#D85A30" fontFamily="'Inter', sans-serif" fontSize="6.5">↑ 2 today</text>
+              <div className="ui-mockup" aria-hidden="true">
+                <div className="ui-titlebar">
+                  <span className="ui-dot ui-dot-r" />
+                  <span className="ui-dot ui-dot-y" />
+                  <span className="ui-dot ui-dot-g" />
+                  <span className="ui-title">Origin · Operations</span>
+                </div>
+                <div className="ui-body">
+                  <div className="ui-chat">
+                    <div className="ui-msg ui-msg-user">
+                      <div className="ui-msg-content">
+                        Where are we losing time this week?
+                      </div>
+                    </div>
+                    <div className="ui-msg ui-msg-ai">
+                      <div className="ui-msg-avatar" />
+                      <div className="ui-msg-bubble">
+                        <div className="ui-msg-content">
+                          <div className="ui-msg-text">
+                            Intake is the bottleneck. <span className="ui-accent">14 hours/week</span>{" "}
+                            recoverable by routing class&nbsp;X tickets through the new model.
+                            <span className="ui-msg-cursor" />
+                          </div>
+                        </div>
+                        <div className="ui-card-preview">
+                          <div className="ui-card-head">
+                            <span className="ui-card-title">Time recoverable by class</span>
+                            <span className="ui-card-meta">7d</span>
+                          </div>
+                          <svg className="ui-card-chart" viewBox="0 0 200 56" preserveAspectRatio="none">
+                            <rect x="2"   y="30" width="28" height="26" rx="2" />
+                            <rect x="36"  y="38" width="28" height="18" rx="2" />
+                            <rect x="70"  y="6"  width="28" height="50" rx="2" className="ui-card-bar-accent" />
+                            <rect x="104" y="34" width="28" height="22" rx="2" />
+                            <rect x="138" y="22" width="28" height="34" rx="2" />
+                            <rect x="172" y="44" width="26" height="12" rx="2" />
+                          </svg>
+                          <div className="ui-card-foot">
+                            <span className="ui-card-stat">
+                              <span className="ui-card-stat-label">Recovered</span>
+                              <span className="ui-card-stat-value">14h</span>
+                            </span>
+                            <span className="ui-card-divider" />
+                            <span className="ui-card-stat">
+                              <span className="ui-card-stat-label">Class</span>
+                              <span className="ui-card-stat-value">X · Intake</span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="ui-stats">
+                    <div className="ui-stat">
+                      <span className="ui-stat-dot" />
+                      <div className="ui-stat-content">
+                        <span className="ui-stat-label">Pipeline</span>
+                        <span className="ui-stat-value">98%</span>
+                      </div>
+                    </div>
+                    <div className="ui-stat">
+                      <span className="ui-stat-dot ui-stat-dot-pulse" />
+                      <div className="ui-stat-content">
+                        <span className="ui-stat-label">Models</span>
+                        <span className="ui-stat-value">14 live</span>
+                      </div>
+                    </div>
+                    <div className="ui-stat">
+                      <span className="ui-stat-dot" />
+                      <div className="ui-stat-content">
+                        <span className="ui-stat-label">Latency</span>
+                        <span className="ui-stat-value">1.2s</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-                <rect x="98" y="32" width="84" height="44" rx="4" fill="#FFFFFF" stroke="rgba(0,0,0,0.06)" />
-                <text x="108" y="44" fill="#777" fontFamily="'Inter', sans-serif" fontSize="7">Revenue today</text>
-                <text x="108" y="62" fill="#1B2024" fontFamily="'Inter Tight', sans-serif" fontSize="14" fontWeight="700">$3,250</text>
-                <text x="108" y="72" fill="#777" fontFamily="'Inter', sans-serif" fontSize="6.5">vs $2,820 yest.</text>
-
-                <rect x="186" y="32" width="84" height="44" rx="4" fill="#FFFFFF" stroke="rgba(0,0,0,0.06)" />
-                <text x="196" y="44" fill="#777" fontFamily="'Inter', sans-serif" fontSize="7">Crew on site</text>
-                <text x="196" y="62" fill="#1B2024" fontFamily="'Inter Tight', sans-serif" fontSize="14" fontWeight="700">8/10</text>
-
-                {/* Schedule panel */}
-                <rect x="10" y="84" width="260" height="74" rx="4" fill="#FFFFFF" stroke="rgba(0,0,0,0.06)" />
-                <text x="20" y="98" fill="#1B2024" fontFamily="'Inter Tight', sans-serif" fontSize="9" fontWeight="500">Today&rsquo;s schedule</text>
-                <line x1="20" y1="105" x2="260" y2="105" stroke="rgba(0,0,0,0.08)" />
-
-                <text x="20" y="118" fill="#1B2024" fontFamily="'Inter', sans-serif" fontSize="7.5">09:00  Plumbing inspect · Doe</text>
-                <rect x="226" y="113" width="34" height="10" rx="3" fill="rgba(216,90,48,0.15)" />
-                <text x="243" y="120" textAnchor="middle" fill="#D85A30" fontFamily="'JetBrains Mono', monospace" fontSize="6" fontWeight="500" letterSpacing="0.08em">LIVE</text>
-
-                <text x="20" y="134" fill="#1B2024" fontFamily="'Inter', sans-serif" fontSize="7.5">11:30  Electrical · Smith Co.</text>
-                <text x="260" y="134" textAnchor="end" fill="#888" fontFamily="'JetBrains Mono', monospace" fontSize="6.5">11:30</text>
-
-                <text x="20" y="150" fill="#1B2024" fontFamily="'Inter', sans-serif" fontSize="7.5">14:00  HVAC · Rivers Mech.</text>
-                <text x="260" y="150" textAnchor="end" fill="#888" fontFamily="'JetBrains Mono', monospace" fontSize="6.5">14:00</text>
-              </svg>
+              <span className="cphoto-badge">Build</span>
             </div>
-            <a href="/services/build" className="svc-card-link">
-              Explore what we build <span className="arrow" aria-hidden="true">→</span>
-            </a>
+            <div className="svc-body">
+              <span className="svc-num">The work</span>
+              <h3 className="svc-title">AI Software &amp; Systems</h3>
+              <p className="svc-promise">
+                Custom AI software, built for your business. Replace the SaaS stack
+                you&rsquo;ve been duct-taping together with a system shaped to how
+                your team actually works.
+              </p>
+              <div className="svc-foot">
+                <a className="tlink" href="/services/build">Explore what we build <span className="arrow" aria-hidden="true">→</span></a>
+              </div>
+            </div>
           </article>
 
-          {/* Strategy — real workshop photo. Three photos available in
-              public/images/workshop/. To swap, change the src below to:
-                /images/workshop/workshop-1.jpg  (charlesdeluvio)
-                /images/workshop/workshop-2.jpg  (dylan-gillis - boardroom-y)
-                /images/workshop/workshop-3.jpg  (mario-gogh - close-up hands)
-              Photo gets a slight dim filter so it integrates with the
-              dark theme rather than blasting bright. */}
-          <article className="svc-card">
-            <span className="svc-card-num">AI roadmap &amp; planning</span>
-            <h3 className="svc-card-title">AI Strategy</h3>
-            <p className="svc-card-promise">
-              Get unstuck before you build. We help leadership pick the
-              right AI bets and sequence them properly.
-            </p>
-            <div className="svc-card-visual">
-              <img
-                src="/images/workshop/workshop-2.jpg"
-                alt=""
-                className="svc-card-photo"
-              />
+          {/* Supporting: AI Strategy — right column, top */}
+          <article className="svc svc-supporting">
+            <div className="svc-body">
+              <span className="svc-num">AI roadmap &amp; planning</span>
+              <h3 className="svc-title">AI Strategy</h3>
+              <p className="svc-promise">
+                Get unstuck before you build. We help leadership pick the right
+                AI bets and sequence them properly.
+              </p>
+              <div className="svc-photo svc-photo-mini svc-photo-roadmap">
+                <svg className="mini-roadmap" viewBox="0 0 300 50" aria-hidden="true">
+                  <line x1="22" y1="25" x2="278" y2="25" className="mini-track" />
+                  <g className="mini-node-done">
+                    <circle cx="22" cy="25" r="7" />
+                    <path d="M18.5 25 L21.5 28 L26 22" />
+                  </g>
+                  <g className="mini-node-done">
+                    <circle cx="107" cy="25" r="7" />
+                    <path d="M103.5 25 L106.5 28 L111 22" />
+                  </g>
+                  <circle cx="192" cy="25" r="8" className="mini-node-active" />
+                  <circle cx="278" cy="25" r="7" className="mini-node-future" />
+                </svg>
+                <span className="mini-caption"><span className="bar" />Phased roadmap</span>
+              </div>
+              <div className="svc-foot">
+                <a className="tlink" href="/services/strategy">Learn more <span className="arrow" aria-hidden="true">→</span></a>
+              </div>
             </div>
-            <a href="/services/strategy" className="svc-card-link">
-              Learn more <span className="arrow" aria-hidden="true">→</span>
-            </a>
           </article>
 
-          {/* Managed — light monitoring dashboard. Same screenshot
-              treatment as Build but for system health. Green for healthy
-              metrics, coral for warnings, mid-tones for the chart. */}
-          <article className="svc-card">
-            <span className="svc-card-num">After we ship</span>
-            <h3 className="svc-card-title">Managed AI</h3>
-            <p className="svc-card-promise">
-              We keep building. Continuous development on the AI we
-              shipped, on a defined monthly scope.
-            </p>
-            <div className="svc-card-visual">
-              <svg viewBox="0 0 280 165" className="svc-card-svg" aria-hidden="true">
-                <rect x="0.5" y="0.5" width="279" height="164" rx="6" fill="#F4F2EC" stroke="rgba(0,0,0,0.08)" />
-                {/* Top bar */}
-                <rect x="0.5" y="0.5" width="279" height="22" fill="#FFFFFF" />
-                <rect x="0.5" y="0.5" width="279" height="22" fill="none" stroke="rgba(0,0,0,0.06)" />
-                <text x="12" y="15" fill="#1B2024" fontFamily="'Inter Tight', sans-serif" fontSize="9" fontWeight="500">System monitor</text>
-                <circle cx="245" cy="11" r="3" fill="#3B6D11" />
-                <text x="265" y="14" textAnchor="end" fill="#3B6D11" fontFamily="'JetBrains Mono', monospace" fontSize="6.5" fontWeight="500" letterSpacing="0.08em">LIVE</text>
-
-                {/* Stat cards */}
-                <rect x="10" y="32" width="84" height="44" rx="4" fill="#FFFFFF" stroke="rgba(0,0,0,0.06)" />
-                <text x="20" y="44" fill="#777" fontFamily="'Inter', sans-serif" fontSize="7">Uptime</text>
-                <text x="20" y="62" fill="#3B6D11" fontFamily="'Inter Tight', sans-serif" fontSize="14" fontWeight="700">99.2%</text>
-                <text x="20" y="72" fill="#777" fontFamily="'Inter', sans-serif" fontSize="6.5">Last 30 days</text>
-
-                <rect x="98" y="32" width="84" height="44" rx="4" fill="#FFFFFF" stroke="rgba(0,0,0,0.06)" />
-                <text x="108" y="44" fill="#777" fontFamily="'Inter', sans-serif" fontSize="7">Active models</text>
-                <text x="108" y="62" fill="#1B2024" fontFamily="'Inter Tight', sans-serif" fontSize="14" fontWeight="700">14</text>
-                <text x="108" y="72" fill="#777" fontFamily="'Inter', sans-serif" fontSize="6.5">2 deployed today</text>
-
-                <rect x="186" y="32" width="84" height="44" rx="4" fill="#FFFFFF" stroke="rgba(0,0,0,0.06)" />
-                <text x="196" y="44" fill="#777" fontFamily="'Inter', sans-serif" fontSize="7">Avg latency</text>
-                <text x="196" y="62" fill="#1B2024" fontFamily="'Inter Tight', sans-serif" fontSize="14" fontWeight="700">1.2s</text>
-                <text x="196" y="72" fill="#D85A30" fontFamily="'Inter', sans-serif" fontSize="6.5">↑ 0.3s vs last wk</text>
-
-                {/* Chart panel */}
-                <rect x="10" y="84" width="260" height="58" rx="4" fill="#FFFFFF" stroke="rgba(0,0,0,0.06)" />
-                <text x="20" y="98" fill="#1B2024" fontFamily="'Inter Tight', sans-serif" fontSize="8" fontWeight="500">Requests · 7 days</text>
-                <text x="260" y="98" textAnchor="end" fill="#3B6D11" fontFamily="'Inter', sans-serif" fontSize="7" fontWeight="500">↑ 18%</text>
-
-                <path d="M 22 130 Q 60 126 95 116 T 165 100 T 220 86 L 260 76 L 260 134 L 22 134 Z" fill="rgba(59,109,17,0.12)" />
-                <path d="M 22 130 Q 60 126 95 116 T 165 100 T 220 86 L 260 76" stroke="#3B6D11" strokeWidth="1.4" fill="none" strokeLinecap="round" />
-                <circle cx="260" cy="76" r="3" fill="#3B6D11" />
-
-                {/* Status row */}
-                <circle cx="20" cy="156" r="3" fill="#3B6D11" />
-                <text x="28" y="159" fill="#1B2024" fontFamily="'Inter', sans-serif" fontSize="7.5">12 healthy</text>
-
-                <circle cx="98" cy="156" r="3" fill="#D85A30" />
-                <text x="106" y="159" fill="#1B2024" fontFamily="'Inter', sans-serif" fontSize="7.5">2 warning</text>
-
-                <circle cx="180" cy="156" r="3" fill="#888" />
-                <text x="188" y="159" fill="#888" fontFamily="'Inter', sans-serif" fontSize="7.5">0 critical</text>
-
-                <text x="260" y="159" textAnchor="end" fill="#888" fontFamily="'Inter', sans-serif" fontSize="6.5">14 systems</text>
-              </svg>
+          {/* Supporting: Managed AI — right column, bottom */}
+          <article className="svc svc-supporting">
+            <div className="svc-body">
+              <span className="svc-num">After we ship</span>
+              <h3 className="svc-title">Managed AI</h3>
+              <p className="svc-promise">
+                We keep building. Continuous development on the AI we shipped,
+                on a defined monthly scope.
+              </p>
+              <div className="svc-photo svc-photo-mini svc-photo-monitor">
+                <svg className="mini-sparkline" viewBox="0 0 300 60" preserveAspectRatio="none" aria-hidden="true">
+                  <path className="mini-area" d="M 0 42 Q 60 46 95 32 T 175 22 T 250 14 L 300 8 L 300 60 L 0 60 Z" />
+                  <path className="mini-line" d="M 0 42 Q 60 46 95 32 T 175 22 T 250 14 L 300 8" />
+                  <circle cx="50"  cy="44" r="2" className="mini-point" />
+                  <circle cx="120" cy="28" r="2" className="mini-point" />
+                  <circle cx="195" cy="20" r="2" className="mini-point" />
+                  <circle cx="260" cy="12" r="2" className="mini-point" />
+                  <circle cx="294" cy="9"  r="4.5" className="mini-pulse" />
+                </svg>
+                <span className="mini-caption"><span className="bar" />Live · 14 systems running</span>
+              </div>
+              <div className="svc-foot">
+                <a className="tlink" href="/services/managed">Learn more <span className="arrow" aria-hidden="true">→</span></a>
+              </div>
             </div>
-            <a href="/services/managed" className="svc-card-link">
-              Learn more <span className="arrow" aria-hidden="true">→</span>
-            </a>
           </article>
+
         </div>
       </div>
     </section>
