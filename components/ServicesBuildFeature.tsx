@@ -22,7 +22,7 @@ export default function ServicesBuildFeature() {
         <div className="svc-build-visual" data-reveal>
           <svg
             className="svc-build-arch"
-            viewBox="0 0 1100 360"
+            viewBox="0 0 970 360"
             preserveAspectRatio="xMidYMid meet"
             aria-hidden="true"
           >

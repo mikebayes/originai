@@ -75,6 +75,9 @@
   position: relative;
   z-index: 6;
   max-width: 560px;
+  /* Slight lift above optical center so the copy doesn't sit too low
+     against the visual diagram on the right. */
+  margin-top: -30px;
 }
 
 /* Mark: teal dot + fading line. Echoes the homepage hero mark for
@@ -682,10 +685,10 @@
   .services-hero-inner {
     grid-template-columns: 1fr;
     gap: 40px;
-    /* Top padding bumped on mobile so copy sits ~15-20% lower in the
-       viewport (with the diagram hidden, the hero needs more visual
-       weight pulled away from the top edge). */
-    padding: 240px 24px 96px;
+    /* Top padding tuned so copy lands in the upper third of mobile
+       viewports rather than the lower half (combined with the desktop
+       margin-top: -30 lift on .services-hero-copy). */
+    padding: 130px 24px 96px;
     align-items: start;
   }
   /* Strengthen the teal glow on mobile so the now-empty right area
