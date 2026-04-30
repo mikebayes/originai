@@ -176,7 +176,9 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 28px;
-  margin-top: -40px; /* lifts copy slightly above optical center */
+  /* Pushed slightly past optical center so more of the mountain peak
+     stays visible above the headline. */
+  margin-top: 30px;
 }
 
 /* Eyebrow */
