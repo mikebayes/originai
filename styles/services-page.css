@@ -1021,11 +1021,13 @@
    the table are visible. */
 .svc-photo-strategy-meeting {
   background-image: url("/images/meeting_table.png");
-  /* Source image (1448x1086) has the table and people composed in
-     the lower-middle, not the geometric center. Bias down to 60% so
-     the people land at the actual visual center of the 180px crop
-     instead of the lower third. */
-  background-position: center 60%;
+  /* Source image (1448x1086) composition: ceiling and pendant light
+     occupy the top ~45%, the meeting table with people sits at ~45-75%,
+     and the floor takes the bottom ~25%. To land the meeting at the
+     vertical center of the 180px crop, we need to bias the position
+     down to ~70%. The trip from 38% → 60% → 70% reflects iteratively
+     measuring where the actual subject sits in this specific photo. */
+  background-position: center 70%;
 }
 
 @media (max-width: 720px) {
