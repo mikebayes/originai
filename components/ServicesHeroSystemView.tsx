@@ -58,11 +58,14 @@ export default function ServicesHeroSystemView() {
       />
 
       {/* ─── STRATEGY NODE (upper-left) ─── */}
-      {/* Box height bumped to 150 to give the "Phase 3 of 4" caption proper
-          breathing room. Roadmap shifted +2px right so the first circle's
-          left edge aligns with the "BEFORE YOU BUILD" tag's left edge. */}
+      {/* Box height bumped to 200 to fit the strategy deliverables checklist.
+          The list replaces the abstract phased roadmap with concrete,
+          recognizable strategy work items (Leadership alignment, AI workshops,
+          AI policy, AI governance) with progress states (some done, one active,
+          one pending). Reads as "humans doing real strategy work" rather than
+          a software automation flow. */}
       <g transform="translate(40, 50)">
-        <rect className="sys-node-bg" width="200" height="150" rx="14" />
+        <rect className="sys-node-bg" width="200" height="200" rx="14" />
         <text className="sys-node-label" x="18" y="32">Strategy</text>
         <text className="sys-node-tag" x="18" y="50">AI ROADMAP &amp; PLANNING</text>
 
@@ -85,28 +88,31 @@ export default function ServicesHeroSystemView() {
           />
         </g>
 
-        {/* Phase numbers above each roadmap node turn it into a real plan view */}
-        <text className="sys-phase-label" x="24" y="80" textAnchor="middle">01</text>
-        <text className="sys-phase-label" x="70" y="80" textAnchor="middle">02</text>
-        <text className="sys-phase-label sys-phase-label-active" x="117" y="80" textAnchor="middle">03</text>
-        <text className="sys-phase-label sys-phase-label-future" x="162" y="80" textAnchor="middle">04</text>
-
-        {/* Roadmap track + nodes */}
-        <line x1="24" y1="100" x2="180" y2="100" className="sys-mini-track" />
-        <g className="sys-mini-done">
-          <circle cx="24" cy="100" r="6" />
-          <path d="M 21 100 L 23.5 102.5 L 27 98.5" />
+        {/* Strategy deliverables checklist — done, done, active, pending */}
+        <g transform="translate(18, 80)">
+          {/* Item 1: done */}
+          <g transform="translate(0, 0)">
+            <circle cx="6" cy="6" r="5.5" className="sys-task-done-circle" />
+            <path d="M 3 6 L 5.5 8.3 L 9 4.7" className="sys-task-check" />
+            <text className="sys-task-label sys-task-label-done" x="20" y="10">Leadership alignment</text>
+          </g>
+          {/* Item 2: done */}
+          <g transform="translate(0, 26)">
+            <circle cx="6" cy="6" r="5.5" className="sys-task-done-circle" />
+            <path d="M 3 6 L 5.5 8.3 L 9 4.7" className="sys-task-check" />
+            <text className="sys-task-label sys-task-label-done" x="20" y="10">AI workshops &amp; training</text>
+          </g>
+          {/* Item 3: active (pulsing teal dot, brighter label) */}
+          <g transform="translate(0, 52)">
+            <circle cx="6" cy="6" r="6" className="sys-task-active-circle" />
+            <text className="sys-task-label sys-task-label-active" x="20" y="10">AI policy</text>
+          </g>
+          {/* Item 4: pending */}
+          <g transform="translate(0, 78)">
+            <circle cx="6" cy="6" r="5.5" className="sys-task-pending-circle" />
+            <text className="sys-task-label sys-task-label-pending" x="20" y="10">AI governance</text>
+          </g>
         </g>
-        <g className="sys-mini-done">
-          <circle cx="70" cy="100" r="6" />
-          <path d="M 67 100 L 69.5 102.5 L 73 98.5" />
-        </g>
-        <circle cx="117" cy="100" r="7" className="sys-mini-active" />
-        <circle cx="162" cy="100" r="6" className="sys-mini-future" />
-
-        {/* Caption pulled down with the taller box. Left-aligned to x=18 so
-            it sits flush with the "BEFORE YOU BUILD" tag above. */}
-        <text className="sys-mini-caption" x="18" y="135">Phase 3 of 4</text>
       </g>
 
       {/* ─── BUILD NODE (center, the centerpiece) ─── */}

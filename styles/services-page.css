@@ -122,6 +122,13 @@
   margin: 0 0 22px;
   text-wrap: balance;
 }
+/* Second sentence wrapper: extra space between "Modern Software." and
+   "End-to-End", but tight line-height between "End-to-End" and "AI
+   Services." since they're part of the same phrase. */
+.services-hero-h1-second {
+  display: block;
+  margin-top: 0.32em;
+}
 
 .services-hero-sub {
   font-family: 'Inter', sans-serif;
@@ -262,6 +269,48 @@
   fill: rgba(63, 221, 201, 0.85);
 }
 
+/* ─── Strategy deliverables checklist ───
+   Replaces the abstract phased roadmap with concrete strategy work items.
+   Done items have a teal-tinted check circle, the active item has a
+   pulsing teal dot, the pending item has a hollow outlined circle. */
+.sys-task-done-circle {
+  fill: rgba(63, 221, 201, 0.10);
+  stroke: rgba(63, 221, 201, 0.55);
+  stroke-width: 0.6;
+}
+.sys-task-check {
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.sys-task-active-circle {
+  fill: var(--accent);
+  filter: drop-shadow(0 0 6px rgba(63, 221, 201, 0.6));
+  animation: sys-blink 2.4s ease-in-out infinite;
+}
+.sys-task-pending-circle {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.20);
+  stroke-width: 0.8;
+}
+.sys-task-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10.5px;
+  letter-spacing: 0;
+}
+.sys-task-label-done {
+  fill: rgba(255, 255, 255, 0.55);
+}
+.sys-task-label-active {
+  fill: rgba(255, 255, 255, 0.95);
+  font-weight: 500;
+}
+.sys-task-label-pending {
+  fill: rgba(255, 255, 255, 0.40);
+}
+
 /* Build node interior — window dots and the system architecture sketch */
 .sys-app-dot {
   fill: rgba(255, 255, 255, 0.18);
@@ -380,7 +429,8 @@
   .sys-mini-active,
   .sys-mini-pulse,
   .sys-arch-core-dot,
-  .sys-managed-status { animation: none; }
+  .sys-managed-status,
+  .sys-task-active-circle { animation: none; }
 }
 
 /* ─────────────────────────  PLACEHOLDER NEXT SECTION  ─────────────────────────
