@@ -13,6 +13,7 @@ import "../styles/proof.css";
 import "../styles/about.css";
 import "../styles/insights.css";
 import "../styles/cta-footer.css";
+import "../styles/services-page.css";
 // Dynamic motion: reveal animations, sticky nav, scroll indicator, hover, continuity
 import "../styles/dynamics.css";
 
