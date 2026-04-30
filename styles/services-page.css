@@ -194,7 +194,7 @@
   fill: rgba(63, 221, 201, 0.55);
 }
 
-/* Strategy mini roadmap inside its node */
+/* Strategy node interior */
 .sys-mini-track {
   stroke: rgba(63, 221, 201, 0.25);
   stroke-width: 0.5;
@@ -223,26 +223,100 @@
   stroke-width: 0.8;
 }
 
-/* Build node interior — stylized app rows + window dots */
+/* Phase numbers above each roadmap node */
+.sys-phase-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.10em;
+  fill: rgba(255, 255, 255, 0.45);
+}
+.sys-phase-label-active {
+  fill: var(--accent);
+  font-weight: 500;
+}
+.sys-phase-label-future {
+  fill: rgba(255, 255, 255, 0.25);
+}
+
+/* Caption under the mini visuals (Strategy "Phase 3 of 4", Build
+   "Production AI system", etc.) */
+.sys-mini-caption {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  fill: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+}
+
+/* Build node interior — window dots and the system architecture sketch */
 .sys-app-dot {
   fill: rgba(255, 255, 255, 0.18);
 }
-.sys-app-row {
-  fill: rgba(255, 255, 255, 0.05);
-  stroke: rgba(255, 255, 255, 0.06);
+
+/* System architecture: Data → Model → App boxes */
+.sys-arch-box {
+  fill: rgba(255, 255, 255, 0.03);
+  stroke: rgba(255, 255, 255, 0.10);
   stroke-width: 0.5;
 }
-.sys-app-row-accent {
-  fill: rgba(63, 221, 201, 0.14);
-  stroke: rgba(63, 221, 201, 0.40);
+.sys-arch-box-accent {
+  fill: rgba(63, 221, 201, 0.06);
+  stroke: rgba(63, 221, 201, 0.45);
+  stroke-width: 0.8;
+}
+.sys-arch-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  fill: rgba(255, 255, 255, 0.55);
+}
+.sys-arch-label-accent {
+  fill: var(--accent);
+}
+/* Thin "record" lines inside the Data box */
+.sys-arch-detail {
+  stroke: rgba(255, 255, 255, 0.18);
+  stroke-width: 0.6;
+}
+/* Stylized UI bars inside the App box */
+.sys-arch-detail-bar {
+  fill: rgba(255, 255, 255, 0.18);
+}
+/* Concentric "core" indicator inside the Model box */
+.sys-arch-core-ring {
+  fill: none;
+  stroke: rgba(63, 221, 201, 0.35);
+  stroke-width: 0.6;
+}
+.sys-arch-core-mid {
+  fill: none;
+  stroke: rgba(63, 221, 201, 0.55);
+  stroke-width: 0.8;
+}
+.sys-arch-core-dot {
+  fill: var(--accent);
+  filter: drop-shadow(0 0 6px rgba(63, 221, 201, 0.7));
+  animation: sys-blink 2.4s ease-in-out infinite;
+}
+/* Connector arrows between the three boxes */
+.sys-arch-conn {
+  stroke: rgba(63, 221, 201, 0.45);
+  stroke-width: 0.8;
+}
+.sys-arch-arrow {
+  fill: rgba(63, 221, 201, 0.55);
 }
 
-/* Managed mini sparkline */
+/* Managed mini monitoring dashboard */
 .sys-mini-line {
   stroke: rgba(63, 221, 201, 0.70);
   stroke-width: 1.2;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+.sys-mini-area {
+  fill: rgba(63, 221, 201, 0.10);
 }
 .sys-mini-pt {
   fill: rgba(63, 221, 201, 0.55);
@@ -252,6 +326,37 @@
   filter: drop-shadow(0 0 8px rgba(63, 221, 201, 0.7));
   animation: sys-blink 2s ease-in-out infinite;
 }
+/* Hairline under sparkline, separates visual from stats row below */
+.sys-stat-divider {
+  stroke: rgba(255, 255, 255, 0.06);
+  stroke-width: 0.5;
+}
+/* Stat readouts (uptime, systems, avg) */
+.sys-stat-value {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  fill: rgba(255, 255, 255, 0.95);
+}
+.sys-stat-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  fill: rgba(255, 255, 255, 0.42);
+}
+/* "LIVE" status indicator in upper-right of Managed node */
+.sys-managed-status {
+  fill: var(--accent);
+  filter: drop-shadow(0 0 6px rgba(63, 221, 201, 0.7));
+  animation: sys-blink 1.6s ease-in-out infinite;
+}
+.sys-managed-status-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  fill: var(--accent);
+}
 
 @keyframes sys-blink {
   0%, 100% { opacity: 1; }
@@ -259,7 +364,9 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .sys-mini-active,
-  .sys-mini-pulse { animation: none; }
+  .sys-mini-pulse,
+  .sys-arch-core-dot,
+  .sys-managed-status { animation: none; }
 }
 
 /* ─────────────────────────  PLACEHOLDER NEXT SECTION  ─────────────────────────
