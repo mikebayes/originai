@@ -52,7 +52,7 @@ export default function ServicesHeroSystemView() {
       {/* Build → Managed: exits Build bottom-left, drops and curves left into Managed top */}
       <path
         className="sys-flow"
-        d="M 345 355 C 345 395, 320 405, 305 410"
+        d="M 345 355 C 345 385, 320 395, 305 400"
         fill="none"
         markerEnd="url(#sys-flow-arrow)"
       />
@@ -173,10 +173,12 @@ export default function ServicesHeroSystemView() {
       </g>
 
       {/* ─── MANAGED NODE (lower, pulled down for breathing room) ─── */}
-      {/* Box height bumped to 130 so the stat labels (UPTIME / SYSTEMS / AVG)
-          have proper room and don't fall off the bottom edge. */}
-      <g transform="translate(220, 410)">
-        <rect className="sys-node-bg" width="240" height="130" rx="14" />
+      {/* Box bumped to 150 height (was 130) and translated up 10px so the
+          new bottom still fits inside the viewBox. The sparkline and stats
+          are shifted down +20 internally so the sparkline has clear
+          breathing room below the "AFTER WE SHIP" tag. */}
+      <g transform="translate(220, 400)">
+        <rect className="sys-node-bg" width="240" height="150" rx="14" />
         <text className="sys-node-label" x="18" y="32">Managed</text>
         <text className="sys-node-tag" x="18" y="50">AFTER WE SHIP</text>
 
@@ -188,32 +190,32 @@ export default function ServicesHeroSystemView() {
         {/* Sparkline area fill */}
         <path
           className="sys-mini-area"
-          d="M 18 78 Q 60 76, 90 68 T 145 56 L 200 48 L 200 84 L 18 84 Z"
+          d="M 18 98 Q 60 96, 90 88 T 145 76 L 200 68 L 200 104 L 18 104 Z"
         />
         {/* Sparkline line */}
         <path
           className="sys-mini-line"
-          d="M 18 78 Q 60 76, 90 68 T 145 56 L 200 48"
+          d="M 18 98 Q 60 96, 90 88 T 145 76 L 200 68"
           fill="none"
         />
-        <circle cx="50" cy="77" r="2" className="sys-mini-pt" />
-        <circle cx="100" cy="66" r="2" className="sys-mini-pt" />
-        <circle cx="150" cy="56" r="2" className="sys-mini-pt" />
-        <circle cx="200" cy="48" r="4" className="sys-mini-pulse" />
+        <circle cx="50" cy="97" r="2" className="sys-mini-pt" />
+        <circle cx="100" cy="86" r="2" className="sys-mini-pt" />
+        <circle cx="150" cy="76" r="2" className="sys-mini-pt" />
+        <circle cx="200" cy="68" r="4" className="sys-mini-pulse" />
 
         {/* Stats row (3 cells: uptime, systems, latency) — reads as a real monitor */}
-        <line x1="18" y1="92" x2="222" y2="92" className="sys-stat-divider" />
+        <line x1="18" y1="112" x2="222" y2="112" className="sys-stat-divider" />
         <g transform="translate(18, 0)">
-          <text className="sys-stat-value" x="0" y="106">99%</text>
-          <text className="sys-stat-label" x="0" y="118">UPTIME</text>
+          <text className="sys-stat-value" x="0" y="126">99%</text>
+          <text className="sys-stat-label" x="0" y="138">UPTIME</text>
         </g>
         <g transform="translate(86, 0)">
-          <text className="sys-stat-value" x="0" y="106">14</text>
-          <text className="sys-stat-label" x="0" y="118">SYSTEMS</text>
+          <text className="sys-stat-value" x="0" y="126">14</text>
+          <text className="sys-stat-label" x="0" y="138">SYSTEMS</text>
         </g>
         <g transform="translate(154, 0)">
-          <text className="sys-stat-value" x="0" y="106">1.2s</text>
-          <text className="sys-stat-label" x="0" y="118">AVG</text>
+          <text className="sys-stat-value" x="0" y="126">1.2s</text>
+          <text className="sys-stat-label" x="0" y="138">AVG</text>
         </g>
       </g>
     </svg>
