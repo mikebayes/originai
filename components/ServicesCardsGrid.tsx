@@ -161,7 +161,20 @@ export default function ServicesCardsGrid() {
                 We help you pick the right AI bets and get your people
                 confident putting them to work.
               </p>
-              <div className="svc-photo svc-photo-real svc-photo-strategy-meeting" aria-hidden="true" />
+              {/* Using a real <img> with object-fit: cover instead of a
+                  background-image. The base .svc-photo rule sets
+                  aspect-ratio: 4/3 which was fighting our height: 180px
+                  for the background approach. With <img>, the wrapper
+                  size is unambiguous and object-fit handles the crop. */}
+              <div className="svc-photo svc-photo-real">
+                <img
+                  className="svc-photo-img"
+                  src="/images/meeting_table_crop.jpg"
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                />
+              </div>
               <div className="svc-foot">
                 <a className="tlink" href="/services/strategy">Learn more <span className="arrow" aria-hidden="true">→</span></a>
               </div>

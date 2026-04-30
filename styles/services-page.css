@@ -989,47 +989,39 @@
    so the photo has room to actually read. Same edge-bleed pattern.
 */
 .svc-photo-real {
+  /* Wrapper for a real <img> child. Explicit height + width, and
+     aspect-ratio: auto to override the base .svc-photo aspect-ratio
+     so this container is sized purely by our height + width rules. */
   position: relative;
   height: 180px;
+  width: auto;
+  aspect-ratio: auto;
   overflow: hidden;
-  background-size: cover;
-  background-position: center;
   /* Bleed past .svc-supporting .svc-body's 26px horizontal padding
-     so the photo runs edge-to-edge inside the card, matching the
-     visual rhythm of .svc-photo-mini. */
+     so the photo runs edge-to-edge inside the card. */
   margin-inline: -26px;
   margin-block: 4px;
+  padding: 0;
   border-top: 0.5px solid rgba(255, 255, 255, 0.06);
   border-bottom: 0.5px solid rgba(255, 255, 255, 0.06);
-  /* Slight desaturate + darken so the photo blends with the dark
-     theme rather than punching out as a bright rectangle. Same
-     treatment used on the previous round of card photos. */
+  background: #0a1416;
+}
+
+/* The actual <img> inside .svc-photo-real. object-fit: cover crops
+   the image to fill the container. object-position: center centers
+   the crop. Filter blends the photo with the dark theme. */
+.svc-photo-real .svc-photo-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   filter: brightness(0.82) saturate(0.88) contrast(0.97);
 }
 
-/* Match the layout pinning that .svc-photo-mini gets in the
-   supporting card so the title + body stay top-anchored and the
-   photo + link cluster anchors near the bottom of the card. */
 .svc-supporting .svc-body > .svc-photo-real {
   margin-top: auto;
   margin-bottom: 0;
-}
-
-/* Strategy card meeting photo. Tune background-position if the crop
-   needs to shift — currently centered horizontally and biased
-   slightly toward the upper portion of the photo so faces around
-   the table are visible. */
-.svc-photo-strategy-meeting {
-  /* Pre-cropped variant of meeting_table.png. The original photo had
-     the subject (table + people) composed in the lower-middle of the
-     frame, so percentage-based crop positions kept missing. Instead,
-     the source image was cropped at the file level (1448x1086 → 1448x603)
-     so the meeting is the geometric center. With that, plain
-     background-position: center reliably lands the subject in the
-     middle of the card crop. Bonus: the JPEG is ~12x smaller than the
-     original PNG. */
-  background-image: url("/images/meeting_table_crop.jpg");
-  background-position: center;
 }
 
 @media (max-width: 720px) {
