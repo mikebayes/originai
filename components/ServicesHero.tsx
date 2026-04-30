@@ -36,10 +36,10 @@ export default function ServicesHero() {
           </span>
           <span className="eyebrow services-hero-eyebrow">Services</span>
           <h1 className="services-hero-h1 display">
-            Modern software, with end-to-end AI services.
+            Modern Software.<br />End-to-End AI Services.
           </h1>
           <p className="services-hero-sub">
-            A software development firm in Winnipeg, Manitoba.
+            Designed, built, and run by senior AI engineers.
           </p>
           <div className="services-hero-cta">
             <a href="/contact" className="pill pill-primary">
