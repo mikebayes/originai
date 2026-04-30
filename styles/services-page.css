@@ -252,6 +252,16 @@
   text-transform: uppercase;
 }
 
+/* Two-person icon in the Strategy card. Humanizes the service so it
+   doesn't read as pure software automation. The front/back distinction
+   adds depth at the small scale. */
+.sys-person-back {
+  fill: rgba(63, 221, 201, 0.45);
+}
+.sys-person-front {
+  fill: rgba(63, 221, 201, 0.85);
+}
+
 /* Build node interior — window dots and the system architecture sketch */
 .sys-app-dot {
   fill: rgba(255, 255, 255, 0.18);

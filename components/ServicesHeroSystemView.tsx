@@ -66,6 +66,25 @@ export default function ServicesHeroSystemView() {
         <text className="sys-node-label" x="18" y="32">Strategy</text>
         <text className="sys-node-tag" x="18" y="50">AI ROADMAP &amp; PLANNING</text>
 
+        {/* Two-person icon in the top-right corner. Humanizes the Strategy
+            card so it doesn't read as a pure software/automation play.
+            Strategy work happens with the client's leadership team, and
+            this small visual signal carries that meaning. */}
+        <g transform="translate(160, 18)">
+          {/* Back person (smaller, dimmer, behind) */}
+          <circle cx="15" cy="4" r="2.5" className="sys-person-back" />
+          <path
+            d="M 11 13 Q 11 8.5 15 8.5 Q 19 8.5 19 13 Z"
+            className="sys-person-back"
+          />
+          {/* Front person (larger, brighter, in front) */}
+          <circle cx="7" cy="5" r="3.5" className="sys-person-front" />
+          <path
+            d="M 1 14 Q 1 9 7 9 Q 13 9 13 14 Z"
+            className="sys-person-front"
+          />
+        </g>
+
         {/* Phase numbers above each roadmap node turn it into a real plan view */}
         <text className="sys-phase-label" x="24" y="80" textAnchor="middle">01</text>
         <text className="sys-phase-label" x="70" y="80" textAnchor="middle">02</text>
