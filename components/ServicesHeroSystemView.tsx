@@ -21,7 +21,7 @@ export default function ServicesHeroSystemView() {
   return (
     <svg
       className="sys-view"
-      viewBox="0 0 600 540"
+      viewBox="0 0 600 555"
       preserveAspectRatio="xMidYMid meet"
       aria-hidden="true"
     >
@@ -58,32 +58,36 @@ export default function ServicesHeroSystemView() {
       />
 
       {/* ─── STRATEGY NODE (upper-left) ─── */}
+      {/* Box height bumped to 150 to give the "Phase 3 of 4" caption proper
+          breathing room. Roadmap shifted +2px right so the first circle's
+          left edge aligns with the "BEFORE YOU BUILD" tag's left edge. */}
       <g transform="translate(40, 50)">
-        <rect className="sys-node-bg" width="200" height="130" rx="14" />
+        <rect className="sys-node-bg" width="200" height="150" rx="14" />
         <text className="sys-node-label" x="18" y="32">Strategy</text>
         <text className="sys-node-tag" x="18" y="50">BEFORE YOU BUILD</text>
 
         {/* Phase numbers above each roadmap node turn it into a real plan view */}
-        <text className="sys-phase-label" x="22" y="80" textAnchor="middle">01</text>
-        <text className="sys-phase-label" x="68" y="80" textAnchor="middle">02</text>
-        <text className="sys-phase-label sys-phase-label-active" x="115" y="80" textAnchor="middle">03</text>
-        <text className="sys-phase-label sys-phase-label-future" x="160" y="80" textAnchor="middle">04</text>
+        <text className="sys-phase-label" x="24" y="80" textAnchor="middle">01</text>
+        <text className="sys-phase-label" x="70" y="80" textAnchor="middle">02</text>
+        <text className="sys-phase-label sys-phase-label-active" x="117" y="80" textAnchor="middle">03</text>
+        <text className="sys-phase-label sys-phase-label-future" x="162" y="80" textAnchor="middle">04</text>
 
         {/* Roadmap track + nodes */}
-        <line x1="22" y1="100" x2="178" y2="100" className="sys-mini-track" />
+        <line x1="24" y1="100" x2="180" y2="100" className="sys-mini-track" />
         <g className="sys-mini-done">
-          <circle cx="22" cy="100" r="6" />
-          <path d="M 19 100 L 21.5 102.5 L 25 98.5" />
+          <circle cx="24" cy="100" r="6" />
+          <path d="M 21 100 L 23.5 102.5 L 27 98.5" />
         </g>
         <g className="sys-mini-done">
-          <circle cx="68" cy="100" r="6" />
-          <path d="M 65 100 L 67.5 102.5 L 71 98.5" />
+          <circle cx="70" cy="100" r="6" />
+          <path d="M 67 100 L 69.5 102.5 L 73 98.5" />
         </g>
-        <circle cx="115" cy="100" r="7" className="sys-mini-active" />
-        <circle cx="160" cy="100" r="6" className="sys-mini-future" />
+        <circle cx="117" cy="100" r="7" className="sys-mini-active" />
+        <circle cx="162" cy="100" r="6" className="sys-mini-future" />
 
-        {/* Caption under the roadmap clarifies what's shown */}
-        <text className="sys-mini-caption" x="22" y="120">Phase 3 of 4</text>
+        {/* Caption pulled down with the taller box. Left-aligned to x=18 so
+            it sits flush with the "BEFORE YOU BUILD" tag above. */}
+        <text className="sys-mini-caption" x="18" y="135">Phase 3 of 4</text>
       </g>
 
       {/* ─── BUILD NODE (center, the centerpiece) ─── */}
@@ -144,8 +148,10 @@ export default function ServicesHeroSystemView() {
       </g>
 
       {/* ─── MANAGED NODE (lower, pulled down for breathing room) ─── */}
+      {/* Box height bumped to 130 so the stat labels (UPTIME / SYSTEMS / AVG)
+          have proper room and don't fall off the bottom edge. */}
       <g transform="translate(220, 410)">
-        <rect className="sys-node-bg" width="240" height="115" rx="14" />
+        <rect className="sys-node-bg" width="240" height="130" rx="14" />
         <text className="sys-node-label" x="18" y="32">Managed</text>
         <text className="sys-node-tag" x="18" y="50">AFTER WE SHIP</text>
 
