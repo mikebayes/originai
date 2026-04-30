@@ -7,14 +7,12 @@ export default function Services() {
           <div>
             <span className="eyebrow">Our services</span>
             <h2 className="s-h2 display">
-              <span>Build is the work.</span>
-              <span className="muted"> Strategy and operations sit on either side.</span>
+              <span>Working AI, owned end to end.</span>
+              <span className="muted"> Strategy, build, and operations.</span>
             </h2>
           </div>
           <p className="s-lede">
-            Three ways in. Pick the one you need. We don&rsquo;t require a discovery
-            session before you can buy a build, and we don&rsquo;t pretend a build
-            ends when the code ships.
+            Three services from one senior team. Modern software with end-to-end AI services.
           </p>
         </header>
 
