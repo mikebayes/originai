@@ -86,10 +86,13 @@ export default function ServicesCardsGrid() {
             </a>
           </article>
 
-          {/* Strategy — abstract whiteboard with sticky notes. Avoids
-              stock-photo cliches. The varied colors and slight rotations
-              feel hand-placed, like an actual workshop artifact. Mike
-              may swap this for a real photo later. */}
+          {/* Strategy — real workshop photo. Three photos available in
+              public/images/workshop/. To swap, change the src below to:
+                /images/workshop/workshop-1.jpg  (charlesdeluvio)
+                /images/workshop/workshop-2.jpg  (dylan-gillis - boardroom-y)
+                /images/workshop/workshop-3.jpg  (mario-gogh - close-up hands)
+              Photo gets a slight dim filter so it integrates with the
+              dark theme rather than blasting bright. */}
           <article className="svc-card">
             <span className="svc-card-num">AI roadmap &amp; planning</span>
             <h3 className="svc-card-title">AI Strategy</h3>
@@ -98,75 +101,11 @@ export default function ServicesCardsGrid() {
               right AI bets and sequence them properly.
             </p>
             <div className="svc-card-visual">
-              <svg viewBox="0 0 280 165" className="svc-card-svg" aria-hidden="true">
-                {/* Whiteboard surface */}
-                <rect x="0.5" y="0.5" width="279" height="164" rx="6" fill="#F4F2EC" stroke="rgba(0,0,0,0.06)" />
-                {/* Subtle grid texture */}
-                <line x1="0" y1="42" x2="280" y2="42" stroke="rgba(0,0,0,0.03)" />
-                <line x1="0" y1="84" x2="280" y2="84" stroke="rgba(0,0,0,0.03)" />
-                <line x1="0" y1="126" x2="280" y2="126" stroke="rgba(0,0,0,0.03)" />
-                <line x1="70" y1="0" x2="70" y2="165" stroke="rgba(0,0,0,0.025)" />
-                <line x1="140" y1="0" x2="140" y2="165" stroke="rgba(0,0,0,0.025)" />
-                <line x1="210" y1="0" x2="210" y2="165" stroke="rgba(0,0,0,0.025)" />
-
-                {/* Yellow sticky — "Where are we losing time?" */}
-                <g transform="translate(20, 18) rotate(-3)">
-                  <rect width="62" height="56" fill="#FFE680" stroke="rgba(0,0,0,0.10)" strokeWidth="0.5" />
-                  <text x="6" y="14" fill="#3a3a1a" fontFamily="'Inter', sans-serif" fontSize="7" fontWeight="500">Where are we</text>
-                  <text x="6" y="24" fill="#3a3a1a" fontFamily="'Inter', sans-serif" fontSize="7" fontWeight="500">losing time?</text>
-                  <line x1="6" y1="32" x2="48" y2="32" stroke="rgba(58,58,26,0.30)" />
-                  <text x="6" y="42" fill="#3a3a1a" fontFamily="'Inter', sans-serif" fontSize="6.5">- Intake</text>
-                  <text x="6" y="50" fill="#3a3a1a" fontFamily="'Inter', sans-serif" fontSize="6.5">- Routing</text>
-                </g>
-
-                {/* Pink sticky — "Q1 priorities" */}
-                <g transform="translate(108, 16) rotate(2)">
-                  <rect width="64" height="60" fill="#FFCFD8" stroke="rgba(0,0,0,0.10)" strokeWidth="0.5" />
-                  <text x="6" y="14" fill="#5a1a30" fontFamily="'Inter', sans-serif" fontSize="7" fontWeight="500">Q1 priorities</text>
-                  <line x1="6" y1="22" x2="50" y2="22" stroke="rgba(90,26,48,0.30)" />
-                  <text x="6" y="32" fill="#5a1a30" fontFamily="'Inter', sans-serif" fontSize="6.5">1. Stakeholder</text>
-                  <text x="6" y="40" fill="#5a1a30" fontFamily="'Inter', sans-serif" fontSize="6.5">   alignment</text>
-                  <text x="6" y="48" fill="#5a1a30" fontFamily="'Inter', sans-serif" fontSize="6.5">2. AI policy</text>
-                </g>
-
-                {/* Blue sticky — "Sequence" */}
-                <g transform="translate(196, 22) rotate(-2)">
-                  <rect width="66" height="52" fill="#B5D4F4" stroke="rgba(0,0,0,0.10)" strokeWidth="0.5" />
-                  <text x="6" y="14" fill="#0c3a6a" fontFamily="'Inter', sans-serif" fontSize="7" fontWeight="500">Sequence</text>
-                  <line x1="6" y1="22" x2="50" y2="22" stroke="rgba(12,58,106,0.30)" />
-                  <text x="6" y="32" fill="#0c3a6a" fontFamily="'Inter', sans-serif" fontSize="6.5">data → model</text>
-                  <text x="6" y="40" fill="#0c3a6a" fontFamily="'Inter', sans-serif" fontSize="6.5">→ app</text>
-                </g>
-
-                {/* Green sticky — "AI training" */}
-                <g transform="translate(38, 92) rotate(1)">
-                  <rect width="62" height="56" fill="#C0DD97" stroke="rgba(0,0,0,0.10)" strokeWidth="0.5" />
-                  <text x="6" y="14" fill="#1f3d0c" fontFamily="'Inter', sans-serif" fontSize="7" fontWeight="500">AI training</text>
-                  <line x1="6" y1="22" x2="50" y2="22" stroke="rgba(31,61,12,0.30)" />
-                  <text x="6" y="32" fill="#1f3d0c" fontFamily="'Inter', sans-serif" fontSize="6.5">Roll out to all</text>
-                  <text x="6" y="40" fill="#1f3d0c" fontFamily="'Inter', sans-serif" fontSize="6.5">teams by Q2.</text>
-                  <text x="6" y="50" fill="#1f3d0c" fontFamily="'Inter', sans-serif" fontSize="6.5">Owner: Sara</text>
-                </g>
-
-                {/* White card with workshop note */}
-                <g transform="translate(118, 92) rotate(-1)">
-                  <rect width="72" height="54" fill="#FFFFFF" stroke="rgba(0,0,0,0.12)" strokeWidth="0.5" />
-                  <text x="6" y="14" fill="#1B2024" fontFamily="'Inter Tight', sans-serif" fontSize="7" fontWeight="500">Workshop · Mar 15</text>
-                  <line x1="6" y1="22" x2="58" y2="22" stroke="rgba(0,0,0,0.10)" />
-                  <text x="6" y="32" fill="#444" fontFamily="'Inter', sans-serif" fontSize="6.5">7 attendees</text>
-                  <text x="6" y="42" fill="#444" fontFamily="'Inter', sans-serif" fontSize="6.5">4 hrs · workshop</text>
-                  <circle cx="64" cy="44" r="3" fill="#3B6D11" />
-                </g>
-
-                {/* Yellow sticky bottom-right */}
-                <g transform="translate(208, 96) rotate(3)">
-                  <rect width="55" height="50" fill="#FFE680" stroke="rgba(0,0,0,0.10)" strokeWidth="0.5" />
-                  <text x="6" y="14" fill="#3a3a1a" fontFamily="'Inter', sans-serif" fontSize="7" fontWeight="500">Phase 3</text>
-                  <line x1="6" y1="22" x2="42" y2="22" stroke="rgba(58,58,26,0.30)" />
-                  <text x="6" y="32" fill="#3a3a1a" fontFamily="'Inter', sans-serif" fontSize="6.5">Brief draft by</text>
-                  <text x="6" y="40" fill="#3a3a1a" fontFamily="'Inter', sans-serif" fontSize="6.5">end of month</text>
-                </g>
-              </svg>
+              <img
+                src="/images/workshop/workshop-2.jpg"
+                alt=""
+                className="svc-card-photo"
+              />
             </div>
             <a href="/services/strategy" className="svc-card-link">
               Learn more <span className="arrow" aria-hidden="true">→</span>
