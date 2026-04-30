@@ -53,11 +53,7 @@
   width: 100%;
   max-width: 1320px;
   margin: 0 auto;
-  /* Top padding bumped slightly so the H1 sits a touch lower in the
-     hero. Combined with the extra inter-sentence margin in the H1, this
-     positions "End-to-End AI Services." below the Strategy card's
-     vertical range, freeing the right side for the single-line break. */
-  padding: 170px 56px 120px;
+  padding: 140px 56px 120px;
 }
 
 /* Soft gradient fade at the bottom into the next section, mirroring the
@@ -114,10 +110,6 @@
 
 .services-hero-h1 {
   font-family: 'Inter Tight', sans-serif;
-  /* Capped at 68px so "Modern Software." reliably lands on one line
-     at the column width we have (preserving the diagram size on the
-     right). Slight reduction from the homepage's 84px hero scale, but
-     still substantial. */
   font-size: clamp(48px, 5.4vw, 68px);
   font-weight: 700;
   line-height: 1.02;
@@ -125,16 +117,6 @@
   color: var(--ink);
   margin: 0 0 22px;
   text-wrap: balance;
-}
-/* Second sentence: extra space below "Modern Software.", forced to a
-   single line via white-space: nowrap. The single line is wider than
-   the copy column at hero scale, so it visually extends to the right
-   past the column edge — landing in the empty space below the Strategy
-   card, where there's no diagram element competing with it. */
-.services-hero-h1-second {
-  display: block;
-  margin-top: 0.55em;
-  white-space: nowrap;
 }
 
 .services-hero-sub {
