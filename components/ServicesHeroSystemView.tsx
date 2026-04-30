@@ -64,7 +64,7 @@ export default function ServicesHeroSystemView() {
       <g transform="translate(40, 50)">
         <rect className="sys-node-bg" width="200" height="150" rx="14" />
         <text className="sys-node-label" x="18" y="32">Strategy</text>
-        <text className="sys-node-tag" x="18" y="50">BEFORE YOU BUILD</text>
+        <text className="sys-node-tag" x="18" y="50">AI ROADMAP &amp; PLANNING</text>
 
         {/* Phase numbers above each roadmap node turn it into a real plan view */}
         <text className="sys-phase-label" x="24" y="80" textAnchor="middle">01</text>

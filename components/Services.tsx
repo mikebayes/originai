@@ -133,7 +133,7 @@ export default function Services() {
           {/* Supporting: AI Strategy — right column, top */}
           <article className="svc svc-supporting">
             <div className="svc-body">
-              <span className="svc-num">Before you build</span>
+              <span className="svc-num">AI roadmap &amp; planning</span>
               <h3 className="svc-title">AI Strategy</h3>
               <p className="svc-promise">
                 Get unstuck before you build. We help leadership pick the right
