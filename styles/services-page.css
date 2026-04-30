@@ -979,3 +979,53 @@
     margin-top: 20px;
   }
 }
+
+/* ─── Real photo variant for supporting cards ─────────────────────────
+   Replaces .svc-photo-mini when we want a humanizing real photo
+   instead of the diagrammatic mini SVG. Used on the Strategy card
+   on /services to add humans to the page (Origin's existing audience
+   knows them as consulting and training, so abstract diagrams alone
+   risk confusing them). Taller than .svc-photo-mini (180px vs 92px)
+   so the photo has room to actually read. Same edge-bleed pattern.
+*/
+.svc-photo-real {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  /* Bleed past .svc-supporting .svc-body's 26px horizontal padding
+     so the photo runs edge-to-edge inside the card, matching the
+     visual rhythm of .svc-photo-mini. */
+  margin-inline: -26px;
+  margin-block: 4px;
+  border-top: 0.5px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.06);
+  /* Slight desaturate + darken so the photo blends with the dark
+     theme rather than punching out as a bright rectangle. Same
+     treatment used on the previous round of card photos. */
+  filter: brightness(0.82) saturate(0.88) contrast(0.97);
+}
+
+/* Match the layout pinning that .svc-photo-mini gets in the
+   supporting card so the title + body stay top-anchored and the
+   photo + link cluster anchors near the bottom of the card. */
+.svc-supporting .svc-body > .svc-photo-real {
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+/* Strategy card meeting photo. Tune background-position if the crop
+   needs to shift — currently centered horizontally and biased
+   slightly toward the upper portion of the photo so faces around
+   the table are visible. */
+.svc-photo-strategy-meeting {
+  background-image: url("/images/meeting_table.png");
+  background-position: center 38%;
+}
+
+@media (max-width: 720px) {
+  .svc-photo-real {
+    height: 150px;
+  }
+}

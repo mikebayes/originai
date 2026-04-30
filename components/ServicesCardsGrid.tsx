@@ -145,31 +145,23 @@ export default function ServicesCardsGrid() {
             </div>
           </article>
 
-          {/* Supporting: AI Strategy — right column, top */}
+          {/* Supporting: AI Strategy & Training — right column, top.
+              Differs from the homepage version: title now includes
+              "& Training" to reflect Origin's existing reputation as a
+              consulting and training firm, and the visual swaps the
+              abstract mini-roadmap for a real meeting photo to humanize
+              the page. Trying this here on /services first before
+              applying the rename site-wide. */}
           <article className="svc svc-supporting">
             <div className="svc-body">
-              <span className="svc-num">AI roadmap &amp; planning</span>
-              <h3 className="svc-title">AI Strategy</h3>
+              <span className="svc-num">Advisory &amp; training</span>
+              <h3 className="svc-title">AI Strategy &amp; Training</h3>
               <p className="svc-promise">
-                Get unstuck before you build. We help leadership pick the right
-                AI bets and sequence them properly.
+                Workshops, advisory, and AI training for leadership teams.
+                We help you pick the right AI bets and get your people
+                confident putting them to work.
               </p>
-              <div className="svc-photo svc-photo-mini svc-photo-roadmap">
-                <svg className="mini-roadmap" viewBox="0 0 300 50" aria-hidden="true">
-                  <line x1="22" y1="25" x2="278" y2="25" className="mini-track" />
-                  <g className="mini-node-done">
-                    <circle cx="22" cy="25" r="7" />
-                    <path d="M18.5 25 L21.5 28 L26 22" />
-                  </g>
-                  <g className="mini-node-done">
-                    <circle cx="107" cy="25" r="7" />
-                    <path d="M103.5 25 L106.5 28 L111 22" />
-                  </g>
-                  <circle cx="192" cy="25" r="8" className="mini-node-active" />
-                  <circle cx="278" cy="25" r="7" className="mini-node-future" />
-                </svg>
-                <span className="mini-caption"><span className="bar" />Phased roadmap</span>
-              </div>
+              <div className="svc-photo svc-photo-real svc-photo-strategy-meeting" aria-hidden="true" />
               <div className="svc-foot">
                 <a className="tlink" href="/services/strategy">Learn more <span className="arrow" aria-hidden="true">→</span></a>
               </div>
