@@ -57,9 +57,18 @@ export default function ServicesHero() {
       {/* Page-load animation overlay. A faint teal "comet" leaves the
           words "AI ambition" in the H1, arcs up over the Strategy card,
           and "zaps" the Build card to light up its teal accent. Plays
-          once on mount. Respects prefers-reduced-motion. */}
+          once on mount. Respects prefers-reduced-motion.
+
+          Three nested wrappers decouple the X and Y motion: X moves
+          linearly left-to-right while Y moves in a smooth parabolic
+          arc (ease-out going up, ease-in coming down), simulating
+          natural projectile physics. */}
       <div className="services-hero-comet" aria-hidden="true">
-        <span className="comet-dot" />
+        <div className="comet-arc-x">
+          <div className="comet-arc-y">
+            <span className="comet-dot" />
+          </div>
+        </div>
       </div>
     </section>
   );

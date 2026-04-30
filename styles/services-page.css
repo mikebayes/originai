@@ -449,7 +449,10 @@
   100% { text-shadow: 0 0 0 rgba(63, 221, 201, 0); color: var(--ink); }
 }
 
-/* Comet overlay — full-hero absolutely positioned layer */
+/* Comet overlay — full-hero absolutely positioned layer.
+   X and Y motion decoupled across two nested wrappers so each axis can
+   have its own timing function (X linear, Y physics-y arc). This is what
+   gives the comet a smooth parabolic path instead of jumpy waypoints. */
 .services-hero-comet {
   position: absolute;
   inset: 0;
@@ -457,10 +460,13 @@
   z-index: 9;
   overflow: hidden;
 }
-.comet-dot {
+.comet-arc-x {
   position: absolute;
   top: 0;
   left: 0;
+}
+.comet-dot {
+  display: block;
   width: 6px;
   height: 6px;
   border-radius: 50%;
@@ -469,32 +475,59 @@
     0 0 10px rgba(63, 221, 201, 0.55),
     0 0 22px rgba(63, 221, 201, 0.25);
   opacity: 0;
+  /* Center the visible dot on the parent's anchor point */
+  margin: -3px 0 0 -3px;
 }
 @media (prefers-reduced-motion: no-preference) {
+  /* X axis: linear left-to-right, simulating constant horizontal velocity */
+  .comet-arc-x {
+    animation: comet-arc-x 3s linear 0.7s both;
+  }
+  /* Y axis: parabolic, ease-out going up + ease-in coming down,
+     simulating gravity. Per-keyframe timing functions handle the
+     two segments. */
+  .comet-arc-y {
+    animation: comet-arc-y 3s 0.7s both;
+  }
+  /* Dot opacity: fades in at start, holds, fades out at end */
   .comet-dot {
-    /* Curved path approximated through 5 keyframe waypoints. Coordinates
-       are viewport-relative so the comet roughly hits the H1 area on the
-       left and the Build card on the right at typical desktop sizes. */
-    animation: comet-fly 1.6s cubic-bezier(0.4, 0.1, 0.2, 1) 0.7s forwards;
+    animation: comet-dot-fade 3s 0.7s both;
   }
 }
-@keyframes comet-fly {
-  0%   { transform: translate(22vw, 45vh) scale(0.4);  opacity: 0;    }
-  10%  { transform: translate(26vw, 42vh) scale(0.85); opacity: 0.85; }
-  50%  { transform: translate(50vw, 26vh) scale(1);    opacity: 0.95; }
-  85%  { transform: translate(70vw, 40vh) scale(1.1);  opacity: 0.95; }
-  100% { transform: translate(72vw, 44vh) scale(2);    opacity: 0;    }
+@keyframes comet-arc-x {
+  0%   { transform: translateX(28vw); }
+  100% { transform: translateX(73vw); }
+}
+@keyframes comet-arc-y {
+  0%   {
+    transform: translateY(45vh);
+    animation-timing-function: ease-out; /* decelerate going up */
+  }
+  50%  {
+    transform: translateY(12vh);
+    animation-timing-function: ease-in; /* accelerate coming down */
+  }
+  100% { transform: translateY(45vh); }
+}
+@keyframes comet-dot-fade {
+  0%   { opacity: 0; }
+  10%  { opacity: 0.85; }
+  85%  { opacity: 0.95; }
+  100% { opacity: 0; }
 }
 
 /* Build "zap" — Build's stroke starts dimmed (white-grey), animation
    flashes bright teal then settles to the standard lit teal stroke.
    Halo follows the same timing, fading in from invisible to lit. */
 @media (prefers-reduced-motion: no-preference) {
+  /* Delay matched to comet arrival: 0.7s start delay + 3s flight,
+     with the zap kicking in at ~88% of the flight when the comet is
+     visually approaching the Build card. */
   .sys-node-bg-build {
-    animation: build-zap-stroke 0.8s ease-out 2.0s both;
+    animation: build-zap-stroke 0.8s ease-out 3.4s both;
   }
   .sys-node-halo {
-    animation: build-zap-halo 0.8s ease-out 2.0s both;
+    animation: build-zap-halo 0.8s ease-out 3.4s both;
   }
 }
 @keyframes build-zap-stroke {
