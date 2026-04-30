@@ -1021,7 +1021,11 @@
    the table are visible. */
 .svc-photo-strategy-meeting {
   background-image: url("/images/meeting_table.png");
-  background-position: center;
+  /* Source image (1448x1086) has the table and people composed in
+     the lower-middle, not the geometric center. Bias down to 60% so
+     the people land at the actual visual center of the 180px crop
+     instead of the lower third. */
+  background-position: center 60%;
 }
 
 @media (max-width: 720px) {
