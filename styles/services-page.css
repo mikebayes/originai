@@ -441,12 +441,9 @@
   }
 }
 @keyframes ai-ambition-glow {
-  0%   { text-shadow: 0 0 0 rgba(63, 221, 201, 0); color: var(--ink); }
-  35%  {
-    text-shadow: 0 0 24px rgba(63, 221, 201, 0.7), 0 0 8px rgba(63, 221, 201, 0.5);
-    color: rgba(180, 240, 230, 1);
-  }
-  100% { text-shadow: 0 0 0 rgba(63, 221, 201, 0); color: var(--ink); }
+  0%   { text-shadow: 0 0 0 rgba(63, 221, 201, 0); }
+  35%  { text-shadow: 0 0 14px rgba(63, 221, 201, 0.40), 0 0 4px rgba(63, 221, 201, 0.22); }
+  100% { text-shadow: 0 0 0 rgba(63, 221, 201, 0); }
 }
 
 /* Comet overlay — full-hero absolutely positioned layer.
@@ -465,31 +462,37 @@
   top: 0;
   left: 0;
 }
+/* Streak-shaped dot: thin horizontal pill with a gradient leading edge.
+   Reads as a faint streak rather than a hard dot. */
 .comet-dot {
   display: block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
+  width: 14px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg,
+    rgba(63, 221, 201, 0) 0%,
+    rgba(63, 221, 201, 0.28) 60%,
+    rgba(63, 221, 201, 0.55) 100%);
   box-shadow:
-    0 0 10px rgba(63, 221, 201, 0.55),
-    0 0 22px rgba(63, 221, 201, 0.25);
+    0 0 6px rgba(63, 221, 201, 0.28),
+    0 0 16px rgba(63, 221, 201, 0.10);
   opacity: 0;
-  /* Center the visible dot on the parent's anchor point */
-  margin: -3px 0 0 -3px;
+  /* Center the streak on the parent's anchor point */
+  margin: -1.5px 0 0 -7px;
 }
 @media (prefers-reduced-motion: no-preference) {
-  /* X axis: linear left-to-right, simulating constant horizontal velocity */
+  /* X axis: linear left-to-right, constant horizontal velocity */
   .comet-arc-x {
     animation: comet-arc-x 3s linear 0.7s both;
   }
-  /* Y axis: parabolic, ease-out going up + ease-in coming down,
-     simulating gravity. Per-keyframe timing functions handle the
-     two segments. */
+  /* Y axis: ease-in-out across the whole animation. Velocity is zero
+     at start, peak, and end, so the comet decelerates approaching the
+     ground rather than accelerating into it. Reads as a controlled
+     glide rather than a drop. */
   .comet-arc-y {
-    animation: comet-arc-y 3s 0.7s both;
+    animation: comet-arc-y 3s ease-in-out 0.7s both;
   }
-  /* Dot opacity: fades in at start, holds, fades out at end */
+  /* Streak opacity: fades in at start, holds, fades out at end */
   .comet-dot {
     animation: comet-dot-fade 3s 0.7s both;
   }
@@ -499,20 +502,14 @@
   100% { transform: translateX(73vw); }
 }
 @keyframes comet-arc-y {
-  0%   {
-    transform: translateY(45vh);
-    animation-timing-function: ease-out; /* decelerate going up */
-  }
-  50%  {
-    transform: translateY(12vh);
-    animation-timing-function: ease-in; /* accelerate coming down */
-  }
+  0%   { transform: translateY(45vh); }
+  50%  { transform: translateY(12vh); }
   100% { transform: translateY(45vh); }
 }
 @keyframes comet-dot-fade {
   0%   { opacity: 0; }
   10%  { opacity: 0.85; }
-  85%  { opacity: 0.95; }
+  85%  { opacity: 0.85; }
   100% { opacity: 0; }
 }
 
