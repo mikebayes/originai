@@ -21,7 +21,7 @@ export default function ServicesHeroSystemView() {
   return (
     <svg
       className="sys-view"
-      viewBox="0 0 600 555"
+      viewBox="0 0 600 570"
       preserveAspectRatio="xMidYMid meet"
       aria-hidden="true"
     >
@@ -52,7 +52,7 @@ export default function ServicesHeroSystemView() {
       {/* Build → Managed: exits Build bottom-left, drops and curves left into Managed top */}
       <path
         className="sys-flow"
-        d="M 345 355 C 345 385, 320 395, 305 400"
+        d="M 345 355 C 345 395, 315 410, 290 415"
         fill="none"
         markerEnd="url(#sys-flow-arrow)"
       />
@@ -172,12 +172,11 @@ export default function ServicesHeroSystemView() {
         <text className="sys-mini-caption" x="18" y="178">Production AI system</text>
       </g>
 
-      {/* ─── MANAGED NODE (lower, pulled down for breathing room) ─── */}
-      {/* Box bumped to 150 height (was 130) and translated up 10px so the
-          new bottom still fits inside the viewBox. The sparkline and stats
-          are shifted down +20 internally so the sparkline has clear
-          breathing room below the "AFTER WE SHIP" tag. */}
-      <g transform="translate(220, 400)">
+      {/* ─── MANAGED NODE (lower-left) ─── */}
+      {/* Sits more toward the lower-left now, with Strategy upper-left
+          and Build the right-side centerpiece. Box is 150 tall with the
+          sparkline and stats shifted +20 internally for breathing room. */}
+      <g transform="translate(200, 415)">
         <rect className="sys-node-bg" width="240" height="150" rx="14" />
         <text className="sys-node-label" x="18" y="32">Managed</text>
         <text className="sys-node-tag" x="18" y="50">AFTER WE SHIP</text>
