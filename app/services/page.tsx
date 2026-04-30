@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ServicesHero from "@/components/ServicesHero";
+import ServicesBuildFeature from "@/components/ServicesBuildFeature";
 
 export const metadata: Metadata = {
   title: "AI Consulting Services in Canada | Origin AI",
@@ -11,28 +12,19 @@ export const metadata: Metadata = {
 /**
  * /services overview page.
  *
- * SCAFFOLD STATE — only the hero is implemented + a transition placeholder
- * into the first section, so the design approach can be reviewed before the
- * full page is built. Subsequent sections (statement, three feature blocks,
- * how-we-engage, CTA) come after design approval.
+ * Body sections lined up: Build (centerpiece, stacked layout) →
+ * Strategy (2-col) → Managed (2-col mirrored) → How we engage → Final CTA.
+ * Currently building one at a time so we can iterate visually.
  */
 export default function ServicesPage() {
   return (
     <main>
       <ServicesHero />
+      <ServicesBuildFeature />
 
-      {/* PLACEHOLDER first section. Just enough visual to show the
-          transition from hero into body content. Real content lands
-          after the design approach is approved. */}
-      <section className="services-next-placeholder" aria-label="First section placeholder">
-        <div className="services-next-inner">
-          <span className="services-next-tag">First section starts here</span>
-          <p className="services-next-note">
-            (Placeholder. Real content for the &ldquo;how the three services work
-            together&rdquo; section lands once the hero design is approved.)
-          </p>
-        </div>
-      </section>
+      {/* Strategy and Managed feature sections, How we engage, and the
+          final CTA come next. Placeholder removed since the Build feature
+          section now follows the hero. */}
     </main>
   );
 }

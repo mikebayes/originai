@@ -423,42 +423,252 @@
 }
 
 
-/* ─────────────────────────  PLACEHOLDER NEXT SECTION  ─────────────────────────
-   Just enough visual to show the transition from hero into body content.
-   Will be replaced with real "how the three services work together" content
-   once the hero design is approved. */
-.services-next-placeholder {
+/* ─────────────────────────  BUILD FEATURE SECTION  ─────────────────────────
+   Stacked layout: full-bleed architecture diagram visual at the top,
+   centered copy column below. Build is the centerpiece service so it
+   leads the body of /services and gets the most substantial visual
+   treatment. Strategy and Managed feature sections follow with smaller
+   2-column layouts, varying the page rhythm. */
+.svc-build-feature {
   position: relative;
-  background: #050a0c;
-  padding: 96px 56px 120px;
+  background: linear-gradient(180deg, #050a0c 0%, #07100f 100%);
+  padding: 120px 56px 140px;
   color: var(--ink);
-  border-top: 0.5px solid rgba(255, 255, 255, 0.04);
+  isolation: isolate;
 }
-.services-next-inner {
-  max-width: 1320px;
+/* Subtle teal radial glow on the upper-right, echoing the hero's atmosphere */
+.svc-build-feature::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(70% 60% at 80% 0%, rgba(63, 221, 201, 0.06) 0%, rgba(63, 221, 201, 0) 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+.svc-build-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
   margin: 0 auto;
-  text-align: center;
-  padding: 80px 0;
-  border: 1px dashed rgba(255, 255, 255, 0.10);
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.015);
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+  align-items: center;
 }
-.services-next-tag {
-  display: inline-block;
+
+/* Architecture diagram visual */
+.svc-build-visual {
+  width: 100%;
+}
+.svc-build-arch {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.55));
+}
+
+/* Column labels (DATA SOURCES, AI CORE, APPLICATIONS) */
+.svc-build-col-label {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
-  margin-bottom: 12px;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  fill: rgba(255, 255, 255, 0.40);
 }
-.services-next-note {
+
+/* Cards in the data sources and applications columns */
+.svc-build-card {
+  fill: rgba(15, 22, 22, 0.85);
+  stroke: rgba(255, 255, 255, 0.10);
+  stroke-width: 0.5;
+}
+.svc-build-card-title {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  fill: rgba(255, 255, 255, 0.92);
+}
+.svc-build-card-bar {
+  stroke: rgba(255, 255, 255, 0.20);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+}
+.svc-build-card-bar-fill {
+  fill: rgba(255, 255, 255, 0.10);
+  stroke: rgba(255, 255, 255, 0.20);
+  stroke-width: 0.5;
+}
+.svc-build-card-dot {
+  fill: rgba(63, 221, 201, 0.75);
+}
+.svc-build-card-task-done {
+  fill: rgba(63, 221, 201, 0.20);
+  stroke: rgba(63, 221, 201, 0.55);
+  stroke-width: 0.6;
+}
+.svc-build-card-task-active {
+  fill: var(--accent);
+  filter: drop-shadow(0 0 4px rgba(63, 221, 201, 0.6));
+}
+.svc-build-card-sparkline {
+  stroke: rgba(63, 221, 201, 0.65);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+}
+.svc-build-card-sparkline-dot {
+  fill: var(--accent);
+  filter: drop-shadow(0 0 4px rgba(63, 221, 201, 0.6));
+}
+
+/* AI Core: the prominent center element with halo and concentric rings */
+.svc-build-core-halo {
+  fill: rgba(63, 221, 201, 0.05);
+  stroke: rgba(63, 221, 201, 0.18);
+  stroke-width: 0.5;
+}
+.svc-build-core-bg {
+  fill: rgba(13, 28, 27, 0.95);
+  stroke: rgba(63, 221, 201, 0.55);
+  stroke-width: 1.2;
+}
+.svc-build-core-title {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  fill: rgba(255, 255, 255, 0.95);
+}
+.svc-build-core-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  fill: var(--accent);
+}
+.svc-build-core-ring-3 {
+  fill: none;
+  stroke: rgba(63, 221, 201, 0.18);
+  stroke-width: 0.6;
+}
+.svc-build-core-ring-2 {
+  fill: none;
+  stroke: rgba(63, 221, 201, 0.40);
+  stroke-width: 0.8;
+}
+.svc-build-core-ring-1 {
+  fill: none;
+  stroke: rgba(63, 221, 201, 0.65);
+  stroke-width: 1;
+}
+.svc-build-core-dot {
+  fill: var(--accent);
+  filter: drop-shadow(0 0 8px rgba(63, 221, 201, 0.7));
+}
+.svc-build-core-pill {
+  fill: rgba(63, 221, 201, 0.08);
+  stroke: rgba(63, 221, 201, 0.35);
+  stroke-width: 0.5;
+}
+.svc-build-core-pill-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.06em;
+  fill: rgba(63, 221, 201, 0.85);
+}
+
+/* Flow lines connecting data → core → applications */
+.svc-build-flow {
+  stroke: rgba(63, 221, 201, 0.45);
+  stroke-width: 1;
+  stroke-dasharray: 3 4;
+  stroke-linecap: round;
+  fill: none;
+}
+
+/* Copy column below the visual */
+.svc-build-copy {
+  max-width: 720px;
+  text-align: center;
+}
+.svc-build-eyebrow {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: var(--accent);
+}
+.svc-build-h2 {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: clamp(36px, 4.4vw, 56px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0 0 22px;
+  text-wrap: balance;
+}
+.svc-build-lede {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.78);
+  margin: 0 auto 28px;
+  max-width: 600px;
+  text-wrap: pretty;
+}
+.svc-build-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 32px;
+  text-align: left;
+  max-width: 660px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.svc-build-list li {
   font-family: 'Inter', sans-serif;
   font-size: 14.5px;
-  color: rgba(255, 255, 255, 0.45);
-  max-width: 540px;
-  margin: 0 auto;
-  line-height: 1.55;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+  padding-left: 22px;
+  position: relative;
+}
+.svc-build-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 12px;
+  height: 1.5px;
+  background: var(--accent);
+  border-radius: 1px;
+}
+.svc-build-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 180ms ease-out, color 150ms ease-out;
+}
+.svc-build-link:hover {
+  color: var(--accent-hover);
+  gap: 12px;
+}
+
+/* Mobile: scale down padding, allow visual to compress, stack list to 1 col */
+@media (max-width: 1000px) {
+  .svc-build-feature {
+    padding: 80px 24px 96px;
+  }
+  .svc-build-inner {
+    gap: 48px;
+  }
+  .svc-build-list {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
 }
 
 /* ─────────────────────────  RESPONSIVE  ─────────────────────────
