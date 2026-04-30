@@ -12,7 +12,7 @@ export default function Beliefs() {
         <path d="M 0 0 L 0 80 Q 720 -8 1440 80 L 1440 0 Z" fill="#050a0c" />
         <path
           d="M 0 80 Q 720 -8 1440 80"
-          stroke="rgba(63,221,201,0.18)"
+          stroke="rgba(93,168,156,0.18)"
           strokeWidth="0.6"
           fill="none"
         />
@@ -94,7 +94,7 @@ export default function Beliefs() {
         <path d="M 0 0 Q 720 88 1440 0 L 1440 80 L 0 80 Z" fill="#050a0c" />
         <path
           d="M 0 0 Q 720 88 1440 0"
-          stroke="rgba(63,221,201,0.14)"
+          stroke="rgba(93,168,156,0.14)"
           strokeWidth="0.6"
           fill="none"
         />

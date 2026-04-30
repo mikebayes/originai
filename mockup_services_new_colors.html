@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mockup — Services page with new colors + 3-card structure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #050a0c;
+    --ink: #ffffff;
+    --ink-muted: rgba(255, 255, 255, 0.78);
+    --ink-subtle: rgba(255, 255, 255, 0.45);
+    --border: rgba(255, 255, 255, 0.10);
+    --accent: #5DA89C;
+    --accent-hover: #6CB8AC;
+    --forest: #134836;
+    --forest-soft: rgba(19, 72, 54, 0.45);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #1a1f1d; color: var(--ink); font-family: 'Inter', sans-serif; }
+
+  .doc-header { padding: 20px 32px; background: #2a2f2d; border-bottom: 0.5px solid rgba(255,255,255,0.08); }
+  .doc-title { font-family: 'Inter Tight', sans-serif; font-size: 16px; font-weight: 500; margin: 0; color: rgba(255,255,255,0.85); }
+  .doc-sub { font-size: 13px; color: rgba(255,255,255,0.55); margin: 4px 0 0; }
+  .section-label { padding: 16px 32px 10px; background: #2a2f2d; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase; color: rgba(255,255,255,0.55); border-bottom: 0.5px solid rgba(255,255,255,0.08); }
+
+  /* SERVICES HERO */
+  .stage { background: var(--bg); position: relative; overflow: hidden; }
+  .services-hero {
+    position: relative;
+    min-height: 580px;
+    background:
+      radial-gradient(60% 70% at 78% 38%, rgba(93,168,156,0.16) 0%, transparent 60%),
+      radial-gradient(80% 80% at 5% 100%, var(--forest-soft) 0%, transparent 65%),
+      linear-gradient(135deg, #050a0c 0%, #081513 50%, #050a0c 100%);
+    padding: 56px 56px 100px;
+  }
+  .services-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 80px; }
+  .nav-logo { font-family: 'Inter Tight', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: 0.02em; color: var(--ink); }
+  .nav-links { display: flex; gap: 32px; font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.95); }
+
+  .services-inner { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr); gap: 56px; align-items: center; max-width: 1320px; margin: 0 auto; }
+  .services-copy { max-width: 560px; }
+  .hero-mark { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+  .hero-mark-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 14px rgba(93,168,156,0.55); }
+  .hero-mark-line { width: 56px; height: 1px; background: linear-gradient(90deg, var(--accent), rgba(93,168,156,0)); }
+  .eyebrow { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-subtle); margin-bottom: 16px; }
+  .services-h1 { font-family: 'Inter Tight', sans-serif; font-weight: 700; font-size: 52px; line-height: 1.04; letter-spacing: -0.02em; margin: 0 0 22px; color: var(--ink); }
+  .services-sub { font-size: 16px; line-height: 1.55; color: var(--ink-muted); margin: 0 0 28px; max-width: 520px; }
+  .pill { display: inline-flex; align-items: center; gap: 10px; height: 40px; padding: 0 20px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 0.5px solid var(--accent); color: var(--accent); background: rgba(15,15,15,0.55); text-decoration: none; }
+
+  /* SYSTEM VIEW DIAGRAM (simplified, with new colors) */
+  .sys-view { width: 100%; height: auto; }
+  .sv-strategy-bg { fill: rgba(15,22,22,0.85); stroke: rgba(255,255,255,0.10); stroke-width: 0.5; }
+  .sv-build-halo { fill: rgba(19,72,54,0.18); stroke: rgba(93,168,156,0.20); stroke-width: 0.5; }
+  .sv-build-bg { fill: rgba(13,28,27,0.95); stroke: rgba(93,168,156,0.45); stroke-width: 1; }
+  .sv-managed-bg { fill: rgba(15,22,22,0.85); stroke: rgba(255,255,255,0.10); stroke-width: 0.5; }
+  .sv-label { font-family: 'Inter Tight', sans-serif; font-size: 18px; font-weight: 500; fill: rgba(255,255,255,0.96); }
+  .sv-label-build { font-size: 22px; font-weight: 600; }
+  .sv-tag { font-family: 'JetBrains Mono', monospace; font-size: 9.5px; letter-spacing: 0.10em; fill: rgba(255,255,255,0.45); }
+  .sv-tag-build { fill: var(--accent); }
+  .sv-flow { stroke: rgba(93,168,156,0.40); stroke-width: 1; stroke-dasharray: 3 4; stroke-linecap: round; fill: none; }
+  .sv-task-done { fill: rgba(93,168,156,0.10); stroke: rgba(93,168,156,0.55); stroke-width: 0.6; }
+  .sv-task-active { fill: var(--accent); }
+  .sv-task-pending { fill: none; stroke: rgba(255,255,255,0.20); stroke-width: 0.8; }
+  .sv-mini-line { stroke: rgba(93,168,156,0.65); stroke-width: 1.2; fill: none; }
+  .sv-mini-area { fill: rgba(93,168,156,0.10); }
+  .sv-mini-pulse { fill: var(--accent); }
+  .sv-stat-val { font-family: 'Inter Tight', sans-serif; font-size: 11.5px; font-weight: 500; fill: rgba(255,255,255,0.95); }
+  .sv-stat-label { font-family: 'JetBrains Mono', monospace; font-size: 7.5px; letter-spacing: 0.14em; fill: rgba(255,255,255,0.42); }
+
+  /* THREE SERVICE CARDS section */
+  .cards-section {
+    padding: 100px 56px 120px;
+    background: linear-gradient(180deg, var(--bg) 0%, #0a1814 100%);
+    border-top: 0.5px solid rgba(255,255,255,0.04);
+  }
+  .cards-header { max-width: 880px; margin: 0 auto 56px; text-align: center; }
+  .cards-h2 { font-family: 'Inter Tight', sans-serif; font-weight: 700; font-size: 38px; line-height: 1.1; letter-spacing: -0.015em; margin: 0 0 14px; color: var(--ink); }
+  .cards-h2 .muted { color: var(--ink-muted); font-weight: 500; }
+  .cards-sub { font-size: 16px; line-height: 1.55; color: var(--ink-muted); margin: 0; }
+
+  .cards-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; max-width: 1320px; margin: 0 auto; }
+  .card { background: rgba(15,15,15,0.72); border: 0.5px solid var(--border); border-radius: 16px; padding: 32px 28px 28px; min-height: 280px; display: flex; flex-direction: column; }
+  .card-build { background: linear-gradient(180deg, rgba(19,72,54,0.20) 0%, rgba(15,15,15,0.72) 100%); border: 1px solid rgba(93,168,156,0.40); }
+  .card-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase; color: var(--ink-subtle); margin-bottom: 10px; }
+  .card-build .card-num { color: var(--accent); }
+  .card-title { font-family: 'Inter Tight', sans-serif; font-weight: 500; font-size: 24px; margin: 0 0 14px; color: var(--ink); }
+  .card-promise { font-size: 14.5px; line-height: 1.55; color: var(--ink-muted); margin: 0 0 20px; flex: 1; }
+  .card-placeholder {
+    margin-top: auto;
+    border: 1px dashed rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-subtle);
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  .card-build .card-placeholder { border-color: rgba(93,168,156,0.20); color: rgba(93,168,156,0.6); }
+  .card-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; color: var(--accent); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header class="doc-header">
+  <h1 class="doc-title">Services page with new color palette + 3-card structure</h1>
+  <p class="doc-sub">Same muted teal as homepage. Build feature section is gone — replaced by three cards directly. System view diagram in hero is in muted tones, not electric.</p>
+</header>
+
+<div class="section-label">Services hero (with simplified system view in new colors)</div>
+<section class="stage">
+  <div class="services-hero">
+    <div class="services-nav">
+      <span class="nav-logo">ORIGIN</span>
+      <div class="nav-links"><span>Services</span><span>Approach</span><span>Team</span><span>Insights</span></div>
+    </div>
+    <div class="services-inner">
+      <div class="services-copy">
+        <span class="hero-mark"><span class="hero-mark-dot"></span><span class="hero-mark-line"></span></span>
+        <span class="eyebrow">Services</span>
+        <h1 class="services-h1">From AI ambition to working systems.</h1>
+        <p class="services-sub">Modern software and end-to-end AI services. Designed, built, and run by senior development teams in Winnipeg.</p>
+        <a class="pill">Book a discovery session →</a>
+      </div>
+      <div>
+        <svg class="sys-view" viewBox="0 0 600 470" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(93,168,156,0.7)"/>
+            </marker>
+          </defs>
+
+          <path class="sv-flow" d="M 240 125 C 285 125, 285 195, 305 195" marker-end="url(#ar)" />
+          <path class="sv-flow" d="M 345 355 C 345 385, 320 395, 305 400" marker-end="url(#ar)" />
+
+          <g transform="translate(40, 50)">
+            <rect class="sv-strategy-bg" width="200" height="150" rx="14"/>
+            <text class="sv-label" x="18" y="32">Strategy</text>
+            <text class="sv-tag" x="18" y="50">AI ROADMAP &amp; PLANNING</text>
+            <g transform="translate(160, 18)">
+              <circle cx="15" cy="4" r="2.5" fill="rgba(93,168,156,0.45)"/>
+              <path d="M 11 13 Q 11 8.5 15 8.5 Q 19 8.5 19 13 Z" fill="rgba(93,168,156,0.45)"/>
+              <circle cx="7" cy="5" r="3.5" fill="rgba(93,168,156,0.85)"/>
+              <path d="M 1 14 Q 1 9 7 9 Q 13 9 13 14 Z" fill="rgba(93,168,156,0.85)"/>
+            </g>
+            <g class="sv-task-done">
+              <circle cx="24" cy="100" r="6"/>
+            </g>
+            <g class="sv-task-done">
+              <circle cx="70" cy="100" r="6"/>
+            </g>
+            <circle cx="117" cy="100" r="7" class="sv-task-active"/>
+            <circle cx="162" cy="100" r="6" class="sv-task-pending"/>
+            <line x1="24" y1="100" x2="180" y2="100" stroke="rgba(93,168,156,0.25)" stroke-width="0.5" stroke-dasharray="2 3"/>
+            <text class="sv-tag" x="18" y="135">PHASE 3 OF 4</text>
+          </g>
+
+          <g transform="translate(305, 165)">
+            <rect class="sv-build-halo" x="-10" y="-10" width="270" height="210" rx="22"/>
+            <rect class="sv-build-bg" width="250" height="190" rx="14"/>
+            <text class="sv-label sv-label-build" x="18" y="36">Build</text>
+            <text class="sv-tag sv-tag-build" x="18" y="54">THE WORK</text>
+            <text class="sv-tag" x="18" y="178">PRODUCTION AI SYSTEM</text>
+          </g>
+
+          <g transform="translate(200, 415)">
+            <rect class="sv-managed-bg" width="240" height="150" rx="14"/>
+            <text class="sv-label" x="18" y="32">Managed</text>
+            <text class="sv-tag" x="18" y="50">AFTER WE SHIP</text>
+            <text x="208" y="35" text-anchor="end" class="sv-tag" style="font-weight:500;fill:var(--accent);">LIVE</text>
+            <circle cx="218" cy="32" r="3" class="sv-mini-pulse"/>
+
+            <path class="sv-mini-area" d="M 18 98 Q 60 96, 90 88 T 145 76 L 200 68 L 200 104 L 18 104 Z"/>
+            <path class="sv-mini-line" d="M 18 98 Q 60 96, 90 88 T 145 76 L 200 68"/>
+            <circle cx="200" cy="68" r="4" class="sv-mini-pulse"/>
+
+            <line x1="18" y1="112" x2="222" y2="112" stroke="rgba(255,255,255,0.06)"/>
+            <text class="sv-stat-val" x="18" y="126">99%</text>
+            <text class="sv-stat-label" x="18" y="138">UPTIME</text>
+            <text class="sv-stat-val" x="104" y="126">14</text>
+            <text class="sv-stat-label" x="104" y="138">SYSTEMS</text>
+            <text class="sv-stat-val" x="172" y="126">1.2s</text>
+            <text class="sv-stat-label" x="172" y="138">AVG</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-label">Three service cards (replaces feature sections / placeholders, no graphics yet)</div>
+<section class="cards-section">
+  <header class="cards-header">
+    <h2 class="cards-h2"><span>Three services.</span><span class="muted"> Pick what your team needs.</span></h2>
+    <p class="cards-sub">Build is the centerpiece. Strategy and Managed sit alongside.</p>
+  </header>
+  <div class="cards-grid">
+    <article class="card card-build">
+      <span class="card-num">The work</span>
+      <h3 class="card-title">AI Software &amp; Systems</h3>
+      <p class="card-promise">Custom AI software, built for your business. Replace the SaaS stack you've been duct-taping together with a system shaped to how your team actually works.</p>
+      <div class="card-placeholder">[ visual placeholder ]</div>
+      <a class="card-link">Explore what we build →</a>
+    </article>
+    <article class="card">
+      <span class="card-num">AI roadmap &amp; planning</span>
+      <h3 class="card-title">AI Strategy</h3>
+      <p class="card-promise">Get unstuck before you build. We help leadership pick the right AI bets and sequence them properly.</p>
+      <div class="card-placeholder">[ visual placeholder ]</div>
+      <a class="card-link">Learn more →</a>
+    </article>
+    <article class="card">
+      <span class="card-num">After we ship</span>
+      <h3 class="card-title">Managed AI</h3>
+      <p class="card-promise">We keep building. Continuous development on the AI we shipped, on a defined monthly scope.</p>
+      <div class="card-placeholder">[ visual placeholder ]</div>
+      <a class="card-link">Learn more →</a>
+    </article>
+  </div>
+</section>
+
+</body>
+</html>

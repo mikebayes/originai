@@ -96,16 +96,16 @@
 .svc-featured {
   grid-column: 1;
   grid-row: 1 / 3;       /* span both rows on the left */
-  border: 1.5px solid rgba(63, 221, 201, 0.55);
+  border: 1.5px solid rgba(93, 168, 156, 0.55);
   box-shadow:
-    0 1px 0 rgba(63, 221, 201, 0.15) inset,
-    0 0 90px -20px rgba(63, 221, 201, 0.32),
+    0 1px 0 rgba(93, 168, 156, 0.15) inset,
+    0 0 90px -20px rgba(93, 168, 156, 0.32),
     0 30px 60px -20px rgba(0, 0, 0, 0.7),
     0 8px 24px -8px rgba(0, 0, 0, 0.5);
 }
 .svc-featured .cphoto-badge {
-  background: rgba(63, 221, 201, 0.12);
-  border-color: rgba(63, 221, 201, 0.5);
+  background: rgba(93, 168, 156, 0.12);
+  border-color: rgba(93, 168, 156, 0.5);
   color: var(--accent);
 }
 .svc-featured .svc-photo {
@@ -165,13 +165,13 @@
 }
 .svc-photo-roadmap {
   background:
-    radial-gradient(70% 90% at 50% 0%, rgba(63, 221, 201, 0.07) 0%, rgba(63, 221, 201, 0) 60%),
+    radial-gradient(70% 90% at 50% 0%, rgba(93, 168, 156, 0.07) 0%, rgba(93, 168, 156, 0) 60%),
     radial-gradient(80% 100% at 0% 100%, rgba(19, 72, 54, 0.18) 0%, rgba(19, 72, 54, 0) 70%),
     linear-gradient(180deg, #0a1416 0%, #060c0e 100%);
 }
 .svc-photo-monitor {
   background:
-    radial-gradient(70% 90% at 100% 0%, rgba(63, 221, 201, 0.08) 0%, rgba(63, 221, 201, 0) 60%),
+    radial-gradient(70% 90% at 100% 0%, rgba(93, 168, 156, 0.08) 0%, rgba(93, 168, 156, 0) 60%),
     radial-gradient(80% 100% at 0% 100%, rgba(19, 72, 54, 0.14) 0%, rgba(19, 72, 54, 0) 70%),
     linear-gradient(180deg, #0a1416 0%, #060c0e 100%);
 }
@@ -202,14 +202,14 @@
 
 /* ─ Strategy mini-roadmap ─ */
 .mini-roadmap .mini-track {
-  stroke: rgba(63, 221, 201, 0.28);
+  stroke: rgba(93, 168, 156, 0.28);
   stroke-width: 0.6;
   stroke-dasharray: 2 3;
   fill: none;
 }
 .mini-roadmap .mini-node-done circle {
-  fill: rgba(63, 221, 201, 0.10);
-  stroke: rgba(63, 221, 201, 0.55);
+  fill: rgba(93, 168, 156, 0.10);
+  stroke: rgba(93, 168, 156, 0.55);
   stroke-width: 0.6;
 }
 .mini-roadmap .mini-node-done path {
@@ -221,7 +221,7 @@
 }
 .mini-roadmap .mini-node-active {
   fill: var(--accent);
-  filter: drop-shadow(0 0 8px rgba(63, 221, 201, 0.6));
+  filter: drop-shadow(0 0 8px rgba(93, 168, 156, 0.6));
   animation: mini-blink 2.4s ease-in-out infinite;
 }
 .mini-roadmap .mini-node-future {
@@ -232,21 +232,21 @@
 
 /* ─ Managed AI mini-sparkline ─ */
 .mini-sparkline .mini-area {
-  fill: rgba(63, 221, 201, 0.10);
+  fill: rgba(93, 168, 156, 0.10);
 }
 .mini-sparkline .mini-line {
-  stroke: rgba(63, 221, 201, 0.70);
+  stroke: rgba(93, 168, 156, 0.70);
   stroke-width: 1.2;
   fill: none;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 .mini-sparkline .mini-point {
-  fill: rgba(63, 221, 201, 0.55);
+  fill: rgba(93, 168, 156, 0.55);
 }
 .mini-sparkline .mini-pulse {
   fill: var(--accent);
-  filter: drop-shadow(0 0 8px rgba(63, 221, 201, 0.7));
+  filter: drop-shadow(0 0 8px rgba(93, 168, 156, 0.7));
   animation: mini-blink 2s ease-in-out infinite;
 }
 
@@ -271,7 +271,7 @@
 .aurora-base {
   position: absolute; inset: 0; z-index: 0;
   background:
-    radial-gradient(70% 90% at 88% 12%, rgba(63, 221, 201, 0.28) 0%, rgba(63, 221, 201, 0) 55%),
+    radial-gradient(70% 90% at 88% 12%, rgba(93, 168, 156, 0.28) 0%, rgba(93, 168, 156, 0) 55%),
     radial-gradient(80% 100% at 10% 95%, rgba(19, 72, 54, 0.70) 0%, rgba(19, 72, 54, 0) 60%),
     linear-gradient(135deg, #050a0c 0%, #0a1614 55%, #050a0c 100%);
 }
@@ -283,9 +283,9 @@
   background:
     linear-gradient(108deg,
       transparent 25%,
-      rgba(63, 221, 201, 0.20) 42%,
-      rgba(63, 221, 201, 0.08) 50%,
-      rgba(63, 221, 201, 0.16) 58%,
+      rgba(93, 168, 156, 0.20) 42%,
+      rgba(93, 168, 156, 0.08) 50%,
+      rgba(93, 168, 156, 0.16) 58%,
       transparent 75%);
   filter: blur(48px);
   animation: aurora-drift 16s ease-in-out infinite alternate;
@@ -385,9 +385,9 @@
   max-width: 78%;
 }
 .ui-msg-user .ui-msg-content {
-  background: rgba(63, 221, 201, 0.10);
+  background: rgba(93, 168, 156, 0.10);
   color: rgba(255, 255, 255, 0.92);
-  border: 0.5px solid rgba(63, 221, 201, 0.35);
+  border: 0.5px solid rgba(93, 168, 156, 0.35);
 }
 .ui-msg-ai .ui-msg-content {
   background: rgba(255, 255, 255, 0.04);
@@ -403,7 +403,7 @@
   background:
     radial-gradient(60% 60% at 30% 25%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 60%),
     linear-gradient(135deg, var(--accent) 0%, #2ba48f 100%);
-  box-shadow: 0 0 10px rgba(63, 221, 201, 0.45);
+  box-shadow: 0 0 10px rgba(93, 168, 156, 0.45);
   margin-top: 2px;
 }
 .ui-msg-bubble {
@@ -531,7 +531,7 @@
 }
 .ui-stat-dot-pulse {
   background: var(--accent);
-  box-shadow: 0 0 8px rgba(63, 221, 201, 0.55);
+  box-shadow: 0 0 8px rgba(93, 168, 156, 0.55);
   animation: ui-stat-pulse 2.4s ease-in-out infinite;
 }
 @keyframes ui-stat-pulse {
@@ -565,8 +565,8 @@
 
 /* Build badge gets a slightly stronger teal treatment to match the aurora intensity */
 .svc-photo-aurora .cphoto-badge {
-  background: rgba(63, 221, 201, 0.14);
-  border-color: rgba(63, 221, 201, 0.55);
+  background: rgba(93, 168, 156, 0.14);
+  border-color: rgba(93, 168, 156, 0.55);
   color: var(--accent);
   z-index: 4;
 }

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mockup — Homepage with new colors</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* OLD vs NEW palette */
+    --bg: #050a0c;
+    --ink: #ffffff;
+    --ink-muted: rgba(255, 255, 255, 0.78);
+    --ink-subtle: rgba(255, 255, 255, 0.45);
+    --border: rgba(255, 255, 255, 0.10);
+
+    /* Old: --accent: #3FDDC9 */
+    --accent: #5DA89C;             /* Muted teal — was #3FDDC9 */
+    --accent-hover: #6CB8AC;
+    --forest: #134836;             /* Forest green from brand guide, used more prominently */
+    --forest-soft: rgba(19, 72, 54, 0.45);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #1a1f1d; color: var(--ink); font-family: 'Inter', sans-serif; }
+
+  .doc-header { padding: 20px 32px; background: #2a2f2d; border-bottom: 0.5px solid rgba(255,255,255,0.08); }
+  .doc-title { font-family: 'Inter Tight', sans-serif; font-size: 16px; font-weight: 500; margin: 0; color: rgba(255,255,255,0.85); }
+  .doc-sub { font-size: 13px; color: rgba(255,255,255,0.55); margin: 4px 0 0; }
+
+  .swatches { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+  .sw { display: inline-flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.7); background: rgba(0,0,0,0.3); padding: 6px 10px; border-radius: 6px; }
+  .sw-chip { width: 14px; height: 14px; border-radius: 3px; }
+
+  .section-label { padding: 16px 32px 10px; background: #2a2f2d; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase; color: rgba(255,255,255,0.55); border-bottom: 0.5px solid rgba(255,255,255,0.08); }
+
+  .stage { background: var(--bg); position: relative; overflow: hidden; }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 540px;
+    overflow: hidden;
+    background-image: url('public/images/main_hero.jpg');
+    background-size: cover;
+    background-position: center 38%;
+  }
+  .hero-grade { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(93,168,156,0.05) 0%, rgba(93,168,156,0) 60%); mix-blend-mode: screen; }
+  .hero-scrim { position: absolute; inset: 0; background:
+    linear-gradient(90deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.62) 22%, rgba(0,0,0,0.30) 45%, rgba(0,0,0,0.00) 62%),
+    linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.00) 18%, rgba(0,0,0,0.00) 70%, rgba(0,0,0,0.55) 100%); }
+  .hero-vignette { position: absolute; inset: 0; background: radial-gradient(120% 90% at 50% 50%, transparent 38%, rgba(0,0,0,0.45) 100%); }
+
+  .hero-nav { position: absolute; top: 0; left: 0; right: 0; padding: 24px 56px 0; display: flex; justify-content: space-between; align-items: center; z-index: 10; }
+  .nav-logo { font-family: 'Inter Tight', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: 0.02em; color: var(--ink); }
+  .nav-links { display: flex; gap: 32px; font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.95); }
+
+  .hero-content { position: relative; z-index: 10; height: 100%; padding: 0 56px; display: flex; align-items: center; }
+  .hero-copy { max-width: 560px; }
+  .hero-mark { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+  .hero-mark-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 14px rgba(93,168,156,0.55); }
+  .hero-mark-line { width: 64px; height: 1.5px; background: linear-gradient(90deg, var(--accent), rgba(93,168,156,0)); }
+  .hero h1 { font-family: 'Inter Tight', sans-serif; font-weight: 700; font-size: 56px; line-height: 1.04; letter-spacing: -0.02em; margin: 0 0 18px; color: var(--ink); text-shadow: 0 2px 28px rgba(0,0,0,0.45); }
+  .hero-sub { font-size: 17px; line-height: 1.5; color: var(--ink-muted); margin: 0 0 26px; max-width: 460px; }
+  .cta { display: flex; gap: 12px; }
+  .pill { display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 22px; border-radius: 999px; font-size: 14px; font-weight: 500; text-decoration: none; background: rgba(15,15,15,0.55); backdrop-filter: blur(8px) saturate(140%); }
+  .pill-pri { border: 0.5px solid var(--accent); color: var(--accent); }
+  .pill-sec { border: 0.5px solid rgba(255,255,255,0.45); color: var(--ink); }
+
+  /* SERVICES SECTION */
+  .services {
+    background:
+      radial-gradient(80% 90% at 100% 0%, var(--forest-soft) 0%, transparent 60%),
+      var(--bg);
+    padding: 80px 56px;
+    border-top: 0.5px solid rgba(255,255,255,0.04);
+  }
+  .s-header { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: end; max-width: 1320px; margin: 0 auto 48px; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+  .eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .s-h2 { font-family: 'Inter Tight', sans-serif; font-weight: 700; font-size: 44px; line-height: 1.1; letter-spacing: -0.015em; margin: 0; color: var(--ink); }
+  .s-h2 .muted { color: var(--ink-muted); font-weight: 500; }
+  .s-lede { font-size: 16px; line-height: 1.55; color: var(--ink-muted); margin: 0; max-width: 480px; }
+
+  .svc-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+    grid-template-rows: 1fr 1fr;
+    column-gap: 24px;
+    row-gap: 18px;
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+  .svc { background: rgba(15,15,15,0.72); border: 0.5px solid var(--border); border-radius: 16px; overflow: hidden; }
+  .svc-feat { grid-row: 1 / 3; border: 1px solid rgba(93,168,156,0.40); }
+  .svc-photo { aspect-ratio: 4/3; background: linear-gradient(135deg, var(--forest), #0a1f1a); position: relative; }
+  .svc-feat .svc-photo {
+    aspect-ratio: 16/10;
+    background:
+      radial-gradient(70% 80% at 70% 30%, rgba(93,168,156,0.18) 0%, transparent 60%),
+      linear-gradient(135deg, var(--forest) 0%, #0a1f1a 100%);
+  }
+  .svc-photo-mini { height: 92px; padding: 14px 26px 22px; display: flex; align-items: center; justify-content: center; }
+  .svc-body { padding: 22px 26px 24px; }
+  .svc-feat .svc-body { padding: 30px 32px 32px; }
+  .svc-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
+  .svc-title { font-family: 'Inter Tight', sans-serif; font-weight: 500; font-size: 20px; margin: 10px 0 12px; color: var(--ink); }
+  .svc-feat .svc-title { font-size: 28px; }
+  .svc-promise { font-size: 14.5px; line-height: 1.55; color: var(--ink-muted); margin: 0; }
+  .svc-feat .svc-promise { font-size: 16px; }
+  .svc-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-size: 13px; font-weight: 500; color: var(--accent); text-decoration: none; }
+  .badge { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.10em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px; background: rgba(93,168,156,0.12); border: 0.5px solid rgba(93,168,156,0.5); color: var(--accent); position: absolute; top: 16px; left: 16px; }
+
+</style>
+</head>
+<body>
+
+<header class="doc-header">
+  <h1 class="doc-title">Homepage with new color palette</h1>
+  <p class="doc-sub">Muted teal accent (was #3FDDC9 → now #5DA89C) + forest green used more prominently as backdrop tint. Less neon overall.</p>
+  <div class="swatches">
+    <span class="sw"><span class="sw-chip" style="background:#5DA89C;"></span>--accent #5DA89C</span>
+    <span class="sw"><span class="sw-chip" style="background:#134836;"></span>--forest #134836</span>
+    <span class="sw"><span class="sw-chip" style="background:#050a0c;"></span>--bg #050a0c</span>
+    <span class="sw"><span class="sw-chip" style="background:#3FDDC9;"></span>was: #3FDDC9 (electric)</span>
+  </div>
+</header>
+
+<div class="section-label">Hero</div>
+<section class="stage">
+  <div class="hero">
+    <div class="hero-grade"></div>
+    <div class="hero-scrim"></div>
+    <div class="hero-vignette"></div>
+    <div class="hero-nav">
+      <span class="nav-logo">ORIGIN</span>
+      <div class="nav-links">
+        <span>Services</span><span>Approach</span><span>Team</span><span>Insights</span>
+      </div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-copy">
+        <span class="hero-mark">
+          <span class="hero-mark-dot"></span>
+          <span class="hero-mark-line"></span>
+        </span>
+        <h1>We build the AI your business runs on.</h1>
+        <p class="hero-sub">AI software, strategy, and operations, focused on measurable business outcomes.</p>
+        <div class="cta">
+          <a class="pill pill-pri">Book a discovery session →</a>
+          <a class="pill pill-sec">See our services</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-label">Services section (homepage)</div>
+<section class="services">
+  <header class="s-header">
+    <div>
+      <span class="eyebrow">Our services</span>
+      <h2 class="s-h2"><span>Build is the work.</span><span class="muted"> Strategy and operations sit on either side.</span></h2>
+    </div>
+    <p class="s-lede">Three ways in. Pick the one you need. We don't require a discovery session before you can buy a build, and we don't pretend a build ends when the code ships.</p>
+  </header>
+  <div class="svc-grid">
+    <article class="svc svc-feat">
+      <div class="svc-photo">
+        <span class="badge">Build</span>
+      </div>
+      <div class="svc-body">
+        <span class="svc-num">The work</span>
+        <h3 class="svc-title">AI Software &amp; Systems</h3>
+        <p class="svc-promise">Custom AI software, built for your business. Replace the SaaS stack you've been duct-taping together with a system shaped to how your team actually works.</p>
+        <a class="svc-link">Start a build conversation →</a>
+      </div>
+    </article>
+    <article class="svc">
+      <div class="svc-photo svc-photo-mini" style="background: linear-gradient(180deg, rgba(19,72,54,0.40), rgba(19,72,54,0.10));"></div>
+      <div class="svc-body">
+        <span class="svc-num">AI roadmap &amp; planning</span>
+        <h3 class="svc-title">AI Strategy</h3>
+        <p class="svc-promise">Get unstuck before you build. We help leadership pick the right AI bets and sequence them properly.</p>
+        <a class="svc-link">Learn more →</a>
+      </div>
+    </article>
+    <article class="svc">
+      <div class="svc-photo svc-photo-mini" style="background: linear-gradient(180deg, rgba(19,72,54,0.40), rgba(19,72,54,0.10));"></div>
+      <div class="svc-body">
+        <span class="svc-num">After we ship</span>
+        <h3 class="svc-title">Managed AI</h3>
+        <p class="svc-promise">We keep building. Continuous development on the AI we shipped, on a defined monthly scope.</p>
+        <a class="svc-link">Learn more →</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+</body>
+</html>

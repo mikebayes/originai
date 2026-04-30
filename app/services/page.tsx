@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicesHero from "@/components/ServicesHero";
-import ServicesBuildFeature from "@/components/ServicesBuildFeature";
+import ServicesCardsGrid from "@/components/ServicesCardsGrid";
 
 export const metadata: Metadata = {
   title: "AI Consulting Services in Canada | Origin AI",
@@ -12,19 +12,15 @@ export const metadata: Metadata = {
 /**
  * /services overview page.
  *
- * Body sections lined up: Build (centerpiece, stacked layout) →
- * Strategy (2-col) → Managed (2-col mirrored) → How we engage → Final CTA.
- * Currently building one at a time so we can iterate visually.
+ * Hero → three-card services grid → (How we engage + Final CTA still to come).
+ * The three cards replace the elaborate per-service feature sections. Each
+ * card links to its deep /services/{name} page where the depth lives.
  */
 export default function ServicesPage() {
   return (
     <main>
       <ServicesHero />
-      <ServicesBuildFeature />
-
-      {/* Strategy and Managed feature sections, How we engage, and the
-          final CTA come next. Placeholder removed since the Build feature
-          section now follows the hero. */}
+      <ServicesCardsGrid />
     </main>
   );
 }

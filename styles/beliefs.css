@@ -13,7 +13,7 @@
   content: '';
   position: absolute; inset: 0; z-index: 0;
   background:
-    radial-gradient(70% 50% at 18% 0%, rgba(63, 221, 201, 0.06) 0%, rgba(63, 221, 201, 0) 60%),
+    radial-gradient(70% 50% at 18% 0%, rgba(93, 168, 156, 0.06) 0%, rgba(93, 168, 156, 0) 60%),
     radial-gradient(80% 60% at 90% 100%, rgba(19, 72, 54, 0.20) 0%, rgba(19, 72, 54, 0) 65%),
     linear-gradient(180deg, #03070a 0%, #060c0e 100%);
 }
@@ -182,7 +182,7 @@
   font-family: 'JetBrains Mono', monospace;
   font-size: 13px;
   letter-spacing: 0.10em;
-  color: rgba(63, 221, 201, 0.75);
+  color: rgba(93, 168, 156, 0.75);
   align-self: start;
   padding-top: 4px;
 }

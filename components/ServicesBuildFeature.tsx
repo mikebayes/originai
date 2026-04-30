@@ -37,7 +37,7 @@ export default function ServicesBuildFeature() {
                 markerHeight="5"
                 orient="auto-start-reverse"
               >
-                <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(63, 221, 201, 0.7)" />
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(93, 168, 156, 0.7)" />
               </marker>
             </defs>
 

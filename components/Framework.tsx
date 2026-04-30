@@ -13,7 +13,7 @@ export default function Framework() {
         <path d="M 0 0 L 0 80 Q 720 -8 1440 80 L 1440 0 Z" fill="#050a0c" />
         <path
           d="M 0 80 Q 720 -8 1440 80"
-          stroke="rgba(63,221,201,0.18)"
+          stroke="rgba(93,168,156,0.18)"
           strokeWidth="0.6"
           fill="none"
         />
@@ -43,7 +43,7 @@ export default function Framework() {
                 <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="24" cy="24" r="18" />
                   <circle cx="24" cy="24" r="2" fill="currentColor" stroke="none" />
-                  <polygon points="24,10 28,24 24,38 20,24" fill="rgba(63,221,201,0.18)" />
+                  <polygon points="24,10 28,24 24,38 20,24" fill="rgba(93,168,156,0.18)" />
                   <line x1="24" y1="6" x2="24" y2="9" />
                   <line x1="24" y1="39" x2="24" y2="42" />
                   <line x1="6" y1="24" x2="9" y2="24" />
@@ -57,7 +57,7 @@ export default function Framework() {
             <div className="pillar">
               <div className="pillar-icon" aria-hidden="true">
                 <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M24 5 L40 11 V24 C40 33 33 40 24 43 C15 40 8 33 8 24 V11 Z" fill="rgba(63,221,201,0.10)" />
+                  <path d="M24 5 L40 11 V24 C40 33 33 40 24 43 C15 40 8 33 8 24 V11 Z" fill="rgba(93,168,156,0.10)" />
                   <polyline points="17,24 22,29 32,18" />
                 </svg>
               </div>
@@ -99,7 +99,7 @@ export default function Framework() {
         <path d="M 0 0 Q 720 88 1440 0 L 1440 80 L 0 80 Z" fill="#050a0c" />
         <path
           d="M 0 0 Q 720 88 1440 0"
-          stroke="rgba(63,221,201,0.14)"
+          stroke="rgba(93,168,156,0.14)"
           strokeWidth="0.6"
           fill="none"
         />
