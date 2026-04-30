@@ -88,28 +88,31 @@ export default function ServicesHeroSystemView() {
           />
         </g>
 
-        {/* Strategy deliverables checklist — done, done, active, pending */}
+        {/* Strategy deliverables checklist — done, done, active, pending.
+            Square notepad-style checkboxes (rather than circles) so the
+            visual reads as a real to-do list rather than a system status
+            display. Helps humanize the Strategy card. */}
         <g transform="translate(18, 80)">
           {/* Item 1: done */}
           <g transform="translate(0, 0)">
-            <circle cx="6" cy="6" r="5.5" className="sys-task-done-circle" />
+            <rect x="0.5" y="0.5" width="11" height="11" rx="2" className="sys-task-done-circle" />
             <path d="M 3 6 L 5.5 8.3 L 9 4.7" className="sys-task-check" />
             <text className="sys-task-label sys-task-label-done" x="20" y="10">Leadership alignment</text>
           </g>
           {/* Item 2: done */}
           <g transform="translate(0, 26)">
-            <circle cx="6" cy="6" r="5.5" className="sys-task-done-circle" />
+            <rect x="0.5" y="0.5" width="11" height="11" rx="2" className="sys-task-done-circle" />
             <path d="M 3 6 L 5.5 8.3 L 9 4.7" className="sys-task-check" />
             <text className="sys-task-label sys-task-label-done" x="20" y="10">AI workshops &amp; training</text>
           </g>
           {/* Item 3: active (pulsing teal dot, brighter label) */}
           <g transform="translate(0, 52)">
-            <circle cx="6" cy="6" r="6" className="sys-task-active-circle" />
+            <rect x="0" y="0" width="12" height="12" rx="2" className="sys-task-active-circle" />
             <text className="sys-task-label sys-task-label-active" x="20" y="10">AI policy</text>
           </g>
           {/* Item 4: pending */}
           <g transform="translate(0, 78)">
-            <circle cx="6" cy="6" r="5.5" className="sys-task-pending-circle" />
+            <rect x="0.5" y="0.5" width="11" height="11" rx="2" className="sys-task-pending-circle" />
             <text className="sys-task-label sys-task-label-pending" x="20" y="10">AI governance</text>
           </g>
         </g>

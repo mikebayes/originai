@@ -119,9 +119,15 @@
 .svc-featured .svc-promise { font-size: 16px; }
 
 .svc-supporting {
-  /* Right column, smaller scale, quieter visual weight */
+  /* Right column, smaller scale, quieter visual weight.
+     Subtle forest green tint added so the card has visual presence
+     without competing with the featured Build card. */
   display: flex;
   flex-direction: column;
+  background:
+    linear-gradient(180deg, rgba(19, 72, 54, 0.18) 0%, rgba(19, 72, 54, 0.04) 100%),
+    rgba(15, 15, 15, 0.72);
+  border-color: rgba(255, 255, 255, 0.12);
 }
 .svc-supporting .svc-body {
   padding: 22px 26px 24px;
