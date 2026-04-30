@@ -36,7 +36,7 @@ export default function ServicesHero() {
           </span>
           <span className="eyebrow services-hero-eyebrow">Services</span>
           <h1 className="services-hero-h1 display">
-            From AI ambition to working systems.
+            From <span className="services-hero-ai-ambition">AI ambition</span> to working systems.
           </h1>
           <p className="services-hero-sub">
             Modern software and end-to-end AI services. Designed, built, and run by senior development teams in Winnipeg.
@@ -52,6 +52,14 @@ export default function ServicesHero() {
         <div className="services-hero-visual">
           <ServicesHeroSystemView />
         </div>
+      </div>
+
+      {/* Page-load animation overlay. A faint teal "comet" leaves the
+          words "AI ambition" in the H1, arcs up over the Strategy card,
+          and "zaps" the Build card to light up its teal accent. Plays
+          once on mount. Respects prefers-reduced-motion. */}
+      <div className="services-hero-comet" aria-hidden="true">
+        <span className="comet-dot" />
       </div>
     </section>
   );

@@ -422,6 +422,92 @@
   .sys-task-active-circle { animation: none; }
 }
 
+/* ─────────────────────────  PAGE-LOAD COMET INTRO  ─────────────────────────
+   On mount, the words "AI ambition" pulse a brief teal glow while a small
+   faint teal dot ("comet") leaves their position, arcs up over the Strategy
+   card, and lands at the Build card. As the comet arrives, Build's teal
+   stroke and halo flash bright then settle into their normal lit state.
+   Plays once. Skipped entirely under prefers-reduced-motion (Build stays
+   in its lit base state). */
+
+/* "AI ambition" word — brief teal glow at the moment the comet leaves */
+.services-hero-ai-ambition {
+  position: relative;
+  display: inline-block;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .services-hero-ai-ambition {
+    animation: ai-ambition-glow 0.9s ease-out 0.4s both;
+  }
+}
+@keyframes ai-ambition-glow {
+  0%   { text-shadow: 0 0 0 rgba(63, 221, 201, 0); color: var(--ink); }
+  35%  {
+    text-shadow: 0 0 24px rgba(63, 221, 201, 0.7), 0 0 8px rgba(63, 221, 201, 0.5);
+    color: rgba(180, 240, 230, 1);
+  }
+  100% { text-shadow: 0 0 0 rgba(63, 221, 201, 0); color: var(--ink); }
+}
+
+/* Comet overlay — full-hero absolutely positioned layer */
+.services-hero-comet {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9;
+  overflow: hidden;
+}
+.comet-dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow:
+    0 0 10px rgba(63, 221, 201, 0.55),
+    0 0 22px rgba(63, 221, 201, 0.25);
+  opacity: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .comet-dot {
+    /* Curved path approximated through 5 keyframe waypoints. Coordinates
+       are viewport-relative so the comet roughly hits the H1 area on the
+       left and the Build card on the right at typical desktop sizes. */
+    animation: comet-fly 1.6s cubic-bezier(0.4, 0.1, 0.2, 1) 0.7s forwards;
+  }
+}
+@keyframes comet-fly {
+  0%   { transform: translate(22vw, 45vh) scale(0.4);  opacity: 0;    }
+  10%  { transform: translate(26vw, 42vh) scale(0.85); opacity: 0.85; }
+  50%  { transform: translate(50vw, 26vh) scale(1);    opacity: 0.95; }
+  85%  { transform: translate(70vw, 40vh) scale(1.1);  opacity: 0.95; }
+  100% { transform: translate(72vw, 44vh) scale(2);    opacity: 0;    }
+}
+
+/* Build "zap" — Build's stroke starts dimmed (white-grey), animation
+   flashes bright teal then settles to the standard lit teal stroke.
+   Halo follows the same timing, fading in from invisible to lit. */
+@media (prefers-reduced-motion: no-preference) {
+  .sys-node-bg-build {
+    animation: build-zap-stroke 0.8s ease-out 2.0s both;
+  }
+  .sys-node-halo {
+    animation: build-zap-halo 0.8s ease-out 2.0s both;
+  }
+}
+@keyframes build-zap-stroke {
+  0%   { stroke: rgba(255, 255, 255, 0.18); stroke-width: 1.2; }
+  10%  { stroke: rgba(63, 221, 201, 1.0);   stroke-width: 2.4; }
+  100% { stroke: rgba(63, 221, 201, 0.55);  stroke-width: 1.2; }
+}
+@keyframes build-zap-halo {
+  0%   { fill: rgba(63, 221, 201, 0);    stroke: rgba(63, 221, 201, 0);    }
+  10%  { fill: rgba(63, 221, 201, 0.18); stroke: rgba(63, 221, 201, 0.45); }
+  100% { fill: rgba(63, 221, 201, 0.05); stroke: rgba(63, 221, 201, 0.15); }
+}
+
 /* ─────────────────────────  PLACEHOLDER NEXT SECTION  ─────────────────────────
    Just enough visual to show the transition from hero into body content.
    Will be replaced with real "how the three services work together" content
