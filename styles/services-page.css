@@ -1020,14 +1020,16 @@
    slightly toward the upper portion of the photo so faces around
    the table are visible. */
 .svc-photo-strategy-meeting {
-  background-image: url("/images/meeting_table.png");
-  /* Source image (1448x1086) composition: ceiling and pendant light
-     occupy the top ~45%, the meeting table with people sits at ~45-75%,
-     and the floor takes the bottom ~25%. To land the meeting at the
-     vertical center of the 180px crop, we need to bias the position
-     down to ~70%. The trip from 38% → 60% → 70% reflects iteratively
-     measuring where the actual subject sits in this specific photo. */
-  background-position: center 70%;
+  /* Pre-cropped variant of meeting_table.png. The original photo had
+     the subject (table + people) composed in the lower-middle of the
+     frame, so percentage-based crop positions kept missing. Instead,
+     the source image was cropped at the file level (1448x1086 → 1448x603)
+     so the meeting is the geometric center. With that, plain
+     background-position: center reliably lands the subject in the
+     middle of the card crop. Bonus: the JPEG is ~12x smaller than the
+     original PNG. */
+  background-image: url("/images/meeting_table_crop.jpg");
+  background-position: center;
 }
 
 @media (max-width: 720px) {
