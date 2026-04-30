@@ -42,7 +42,7 @@ export default function ServicesCardsGrid() {
           </p>
         </header>
 
-        <div className="services-grid svc-grid-featured-left" data-reveal-stagger>
+        <div className="services-grid svc-grid-featured-left svc-grid-services-page" data-reveal-stagger>
 
           {/* Featured: AI Software & Systems (Build) — left column, full height */}
           <article className="svc svc-featured">

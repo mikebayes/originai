@@ -1021,11 +1021,68 @@
    the table are visible. */
 .svc-photo-strategy-meeting {
   background-image: url("/images/meeting_table.png");
-  background-position: center 38%;
+  background-position: center;
 }
 
 @media (max-width: 720px) {
   .svc-photo-real {
     height: 150px;
+  }
+}
+
+/* ─── /services-only grid overrides ───────────────────────────────────
+   Default .svc-grid-featured-left uses 1fr 1fr equal rows on the right
+   column, which works on the homepage where Strategy and Managed both
+   carry small mini-SVGs. On /services, Strategy now hosts a real meeting
+   photo (180px) while Managed still has the 92px sparkline, so equal
+   rows would force Build to stretch tall to match the right column,
+   leaving white space inside Build below its content.
+
+   Fix: the right column gets an asymmetric split (~65/35) so Strategy
+   takes the larger share for the photo and Managed compacts to fit the
+   smaller share. To make 35% actually feasible, the Managed mini gets
+   trimmed (smaller sparkline, no caption, tighter padding).
+*/
+.svc-grid-services-page {
+  /* 1.85fr : 1fr ≈ 65 : 35. Tune if Build still has white space or if
+     Managed feels too cramped after seeing it live. */
+  grid-template-rows: 1.85fr 1fr;
+}
+
+/* Managed is the second .svc-supporting on /services. Compact its
+   mini-sparkline section so Managed fits comfortably in its smaller
+   row. The Strategy photo (.svc-photo-real) is unaffected. */
+.svc-grid-services-page .svc-supporting .svc-photo-mini {
+  height: 56px;
+  padding-top: 10px;
+  padding-bottom: 14px;
+}
+
+.svc-grid-services-page .svc-supporting .svc-photo-mini .mini-caption {
+  /* Caption removed visually on /services: 35% row doesn't have room
+     for both the sparkline and the caption. The sparkline alone still
+     reads as "live monitoring". */
+  display: none;
+}
+
+/* Slightly tighter body padding on the compacted Managed card so the
+   text stack doesn't crowd the smaller mini area. */
+.svc-grid-services-page .svc-supporting:nth-of-type(3) .svc-body {
+  padding-top: 18px;
+  padding-bottom: 18px;
+  gap: 10px;
+}
+
+@media (max-width: 720px) {
+  /* Mobile collapses to a single column anyway via the parent grid's
+     responsive rules, so the asymmetric rows aren't needed. */
+  .svc-grid-services-page {
+    grid-template-rows: auto;
+  }
+  .svc-grid-services-page .svc-supporting .svc-photo-mini .mini-caption {
+    display: inline-flex;
+  }
+  .svc-grid-services-page .svc-supporting .svc-photo-mini {
+    height: 92px;
   }
 }
