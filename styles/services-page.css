@@ -943,3 +943,39 @@
     margin-bottom: 40px;
   }
 }
+
+/* ─── Stacked section header variant ──────────────────────────────────
+   The default .s-header is a 2-column grid (H2 left, sub right). On the
+   /services overview, we stack them: headline on top with room to extend
+   to ~2 lines, sub below with a wider measure. Reads more like an
+   editorial section opener and gives the cards proper room to breathe.
+*/
+.s-header-stacked {
+  display: block;
+  margin-bottom: 64px;
+}
+.s-header-stacked .s-h2 {
+  /* 22ch encourages a 2-line wrap at the desktop font size while still
+     letting longer alternate copy breathe to 3 lines without overflowing. */
+  max-width: 22ch;
+  margin: 0;
+}
+.s-header-stacked .s-lede {
+  /* Wider measure than the side-by-side variant since we have the full
+     content width to play with now. ~58ch keeps line length readable. */
+  max-width: 58ch;
+  margin: 28px 0 0;
+  padding-bottom: 0;
+}
+
+@media (max-width: 720px) {
+  .s-header-stacked {
+    margin-bottom: 48px;
+  }
+  .s-header-stacked .s-h2 {
+    max-width: 100%;
+  }
+  .s-header-stacked .s-lede {
+    margin-top: 20px;
+  }
+}

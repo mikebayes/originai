@@ -28,12 +28,13 @@ export default function ServicesCardsGrid() {
         {/* Light accent divider — lifts the transition out of the hero. */}
         <div className="section-accent-divider" aria-hidden="true" />
 
-        <header className="s-header" data-reveal>
-          <div>
-            <h2 className="s-h2 display">
-              AI services built around how your business actually works.
-            </h2>
-          </div>
+        {/* Stacked variant of .s-header — headline on top, sub below.
+            Lets the headline extend to ~2 lines and the sub take wider
+            measure than the side-by-side homepage version. */}
+        <header className="s-header s-header-stacked" data-reveal>
+          <h2 className="s-h2 display">
+            AI services built around how your business actually works.
+          </h2>
           <p className="s-lede">
             We help leadership teams move from AI interest to working capability,
             with strategy, custom software, and ongoing support shaped around
