@@ -8,16 +8,39 @@
  * and /services so users get the same expression of the three services
  * on both surfaces.
  *
- * Differences from the homepage version: no section header (the hero
- * above does that work), and links point to deep service pages
- * (/services/build, /services/strategy, /services/managed) instead of
- * the homepage's anchor links to /services.
+ * Differences from the homepage version: a section header sits above
+ * the cards (positioning the three services as how we move clients
+ * from AI interest to working capability), and links point to deep
+ * service pages (/services/build, /services/strategy, /services/managed)
+ * instead of the homepage anchor links to /services.
+ *
+ * A small teal accent divider sits at the top of the section. With the
+ * forest-green-leaning page backdrop, the page was reading a touch dark
+ * coming out of the hero. The divider adds a light beat between the two
+ * sections without being heavy.
  */
 export default function ServicesCardsGrid() {
   return (
     <section className="stage" data-screen-label="Services cards">
       <div className="stage-grain" aria-hidden="true" />
       <div className="stage-inner">
+
+        {/* Light accent divider — lifts the transition out of the hero. */}
+        <div className="section-accent-divider" aria-hidden="true" />
+
+        <header className="s-header" data-reveal>
+          <div>
+            <h2 className="s-h2 display">
+              AI services built around how your business actually works.
+            </h2>
+          </div>
+          <p className="s-lede">
+            We help leadership teams move from AI interest to working capability,
+            with strategy, custom software, and ongoing support shaped around
+            your workflows, your people, and the way decisions actually get made.
+          </p>
+        </header>
+
         <div className="services-grid svc-grid-featured-left" data-reveal-stagger>
 
           {/* Featured: AI Software & Systems (Build) — left column, full height */}
