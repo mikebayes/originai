@@ -764,3 +764,98 @@
   .svcs-v2 .footer-cols{ grid-template-columns: 1fr; gap: 40px; }
   .svcs-v2 .engage-foot{ flex-direction: column; align-items: flex-start; }
 }
+
+/* ─── Mobile overflow fixes ───────────────────────────────────────────
+   Mike reported "almost the entire page is too wide in mobile. text falls
+   off the right." Adds an extra mobile breakpoint with a sweep of
+   tightening fixes for the elements most likely to overflow at narrow
+   widths: .svc-diagram, the phase-rail, the wordmark row, the trio cards,
+   and the proof-feature. Also tightens .wrap padding from 20 to 16 on
+   small phones. */
+
+@media (max-width: 720px) {
+
+  .svcs-v2 .wrap{ padding: 0 16px; }
+
+  /* Engagement-model diagram on the hero — tighten internal padding,
+     loosen the rigid 84px first column so text can shrink to fit, and
+     allow the foot caption to wrap if both halves don't fit on one line. */
+  .svcs-v2 .svc-diagram{ padding: 20px; }
+  .svcs-v2 .svc-row{
+    grid-template-columns: minmax(64px, max-content) minmax(0, 1fr) auto;
+    gap: 10px;
+    padding: 12px 14px;
+  }
+  .svcs-v2 .svc-row-name{ font-size: 15px; }
+  .svcs-v2 .svc-diagram-head{ flex-wrap: wrap; gap: 8px; }
+  .svcs-v2 .svc-diagram-foot{ flex-wrap: wrap; gap: 6px 12px; }
+
+  /* Trio cards — reduce body padding so 16px wrap padding plus card
+     padding doesn't crowd the text. */
+  .svcs-v2 .svc-card-body{ padding: 22px 22px 24px; }
+  .svcs-v2 .svc-card-foot{ flex-wrap: wrap; gap: 8px; }
+
+  /* Engage section — reduce vertical and horizontal breathing room. */
+  .svcs-v2 .engage{ padding: 64px 0; }
+  .svcs-v2 .engage-foot{
+    margin-top: 40px;
+    padding-top: 28px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .svcs-v2 .phase-deliver .item{
+    /* Long bullet phrases can extend past the card on narrow widths
+       without an explicit overflow-wrap. */
+    overflow-wrap: anywhere;
+  }
+
+  /* Proof feature — single column, tighter padding. */
+  .svcs-v2 .proof-feature{
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 32px 0;
+  }
+  .svcs-v2 .proof-quote{ font-size: 22px; line-height: 1.4; max-width: 100%; }
+
+  /* Wordmark strip — single column, with the row of wordmarks wrapping
+     onto multiple lines and left-aligned (the centered space-between
+     pattern made the names rip apart awkwardly on small widths). */
+  .svcs-v2 .wordmark-strip{
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 20px 0;
+  }
+  .svcs-v2 .wordmark-row{
+    gap: 16px 22px;
+    row-gap: 8px;
+    justify-content: flex-start;
+  }
+  .svcs-v2 .wordmark{ font-size: 16px; }
+
+  /* General safety: ensure flex/grid descendants of the V2 wrapper can
+     shrink below their content's intrinsic minimum. Without this, a long
+     word or a fixed-size child can force its parent (and the page) to
+     extend beyond the viewport. */
+  .svcs-v2 .s-h2,
+  .svcs-v2 .s-hero-h1,
+  .svcs-v2 .s-hero-sub,
+  .svcs-v2 .s-lede,
+  .svcs-v2 .svc-card-title,
+  .svcs-v2 .svc-card-promise,
+  .svcs-v2 .phase-name,
+  .svcs-v2 .phase-body,
+  .svcs-v2 .engage-foot p{
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    min-width: 0;
+  }
+}
+
+/* Catch-all on really narrow phones: prevent any horizontal page scroll
+   by clipping anything that escapes .svcs-v2's box. */
+@media (max-width: 480px) {
+  .svcs-v2 .wrap{ padding: 0 14px; }
+  .svcs-v2 .svc-card-visual{ aspect-ratio: 16 / 11; }
+  .svcs-v2 .s-hero-actions{ flex-wrap: wrap; gap: 10px; }
+  .svcs-v2 .s-hero-actions .pill{ width: 100%; justify-content: center; }
+}
