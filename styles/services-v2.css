@@ -276,7 +276,13 @@
 }
 
 .svcs-v2 .dash{
-  position: absolute; inset: 22px; z-index: 2;
+  position: absolute;
+  /* Top inset bumped from 22px to 52px so the dash header row sits
+     BELOW the "The work" badge and "In production" tag in the upper
+     corners. Was overlapping previously. Image content (chart, stats)
+     is unchanged — only the text layout shifts down. */
+  inset: 52px 22px 22px 22px;
+  z-index: 2;
   display: flex; flex-direction: column; gap: 10px;
   font-family: 'Inter Tight', sans-serif;
 }
