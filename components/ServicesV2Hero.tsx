@@ -1,3 +1,5 @@
+import HeroNav from "./HeroNav";
+
 /**
  * /services V2 hero — left-side copy + right-side engagement-model diagram.
  *
@@ -6,10 +8,20 @@
  * Decide / Ship / Run tags. Build is the centerpiece (forest green tinted).
  *
  * All styling lives in styles/services-v2.css under the .svcs-v2 scope.
+ *
+ * Includes the shared HeroNav at the top of the section (same pattern the
+ * homepage and V1 services page use). The StickyNav only slides in after
+ * the user scrolls past ~70vh, so without HeroNav the page would have no
+ * visible nav while in the hero.
  */
 export default function ServicesV2Hero() {
   return (
-    <section className="wrap s-hero" data-screen-label="Services hero">
+    <>
+      {/* Floating top nav — same component the homepage uses. Sits as a
+          sibling above the hero section so its layout isn't affected by
+          .s-hero's 88px top padding. */}
+      <HeroNav />
+      <section className="wrap s-hero" data-screen-label="Services hero">
       <div className="s-hero-grid">
         <div>
           <div className="s-hero-eyebrow">
@@ -64,5 +76,6 @@ export default function ServicesV2Hero() {
         </aside>
       </div>
     </section>
+    </>
   );
 }
