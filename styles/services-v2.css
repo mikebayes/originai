@@ -751,11 +751,11 @@
     /* Leave ~280px under the hero on mobile for the bridge plus a peek
        of the AI Software & Systems card straddling the fold. */
     min-height: calc(100vh - 280px);
-    padding: 56px 20px 32px;
-    /* Push the hero copy stack to the bottom of the section so the H1
-       sits lower in the viewport (closer to the bridge), with the empty
-       space sitting above the H1 below the nav. */
-    align-items: flex-end;
+    /* Bumped top padding (56→96) to push the hero content down a touch.
+       align-items: flex-end didn't take effect on mobile because the
+       diagram aside stacks below the copy and the grid naturally fills
+       the section. Top padding is the reliable knob here. */
+    padding: 96px 20px 40px;
   }
   .svcs-v2 .s-hero-grid{ grid-template-columns: 1fr; gap: 48px; }
   .svcs-v2 .s-head{ grid-template-columns: 1fr; gap: 24px; margin-bottom: 40px; }
