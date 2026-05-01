@@ -888,3 +888,81 @@
     margin-top: 32px;
   }
 }
+
+/* ─── Diagonal accent band between hero and trio ─────────────────────
+   Replaces the bare margin-top with an actual visual transition. A
+   100-140px tall band with a soft fade from the hero's dark backdrop
+   into the trio's, with a single thin teal hairline cutting across on
+   a slight angle. Suggests forward motion and breaks the page into
+   beats without copying the homepage's curved-divider pattern. */
+.svcs-v2 .s-hero + .section{
+  /* Override the +64 margin-top added earlier with a positioned-and-
+     decorated transition band. Margin still pushes the section down,
+     but the visual transition lives in the ::before pseudo above. */
+  margin-top: 0;
+  padding-top: 200px;
+}
+.svcs-v2 .s-hero + .section::before{
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 140px;
+  pointer-events: none;
+  /* Vertical fade band: hero-dark at top → trio-dark at bottom. */
+  background:
+    /* Subtle teal wash so the band reads as branded, not neutral. */
+    radial-gradient(120% 100% at 50% 50%, rgba(93, 168, 156, 0.04) 0%, rgba(93, 168, 156, 0) 60%),
+    linear-gradient(180deg, rgba(8, 14, 16, 0.0) 0%, rgba(6, 12, 14, 0.55) 50%, rgba(6, 12, 14, 0) 100%);
+}
+.svcs-v2 .s-hero + .section::after{
+  /* The diagonal teal hairline. 4deg tilt, full-width with radial
+     fade-out at both ends so the line doesn't hit the page edges. */
+  content: '';
+  position: absolute;
+  top: 64px; left: 0; right: 0;
+  height: 1px;
+  pointer-events: none;
+  transform: rotate(-2.5deg);
+  transform-origin: 50% 50%;
+  background: linear-gradient(
+    90deg,
+    rgba(93, 168, 156, 0) 0%,
+    rgba(93, 168, 156, 0.35) 22%,
+    rgba(93, 168, 156, 0.7) 50%,
+    rgba(93, 168, 156, 0.35) 78%,
+    rgba(93, 168, 156, 0) 100%
+  );
+  box-shadow: 0 0 18px rgba(93, 168, 156, 0.35);
+}
+.svcs-v2 .section{ position: relative; }
+
+@media (max-width: 720px){
+  .svcs-v2 .s-hero + .section{
+    padding-top: 132px;
+  }
+  .svcs-v2 .s-hero + .section::before{ height: 90px; }
+  .svcs-v2 .s-hero + .section::after{ top: 42px; }
+}
+
+/* ─── Card typography density on mobile ──────────────────────────────
+   Cards on V2 felt under-filled compared to the homepage cards because
+   the title and body sizes were smaller. Bumping closer to the homepage
+   feel: title 24, body 15.5, with a touch less horizontal padding so
+   the text gets a wider measure within the same card. */
+@media (max-width: 720px){
+  .svcs-v2 .svc-card-body{
+    padding: 22px 20px 22px;
+    gap: 12px;
+  }
+  .svcs-v2 .svc-card-title{
+    font-size: 24px;
+    line-height: 1.22;
+  }
+  .svcs-v2 .svc-card-promise{
+    font-size: 15.5px;
+    line-height: 1.55;
+  }
+  .svcs-v2 .svc-card-num{
+    font-size: 10.5px;
+  }
+}
