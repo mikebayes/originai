@@ -776,7 +776,7 @@
        and the 200 first attempt, which Mike said pushed too far.
        Selector chained (.wrap.s-hero, 0,3,0) so this beats the
        @media .wrap shorthand at 0,2,0. */
-    padding-top: 105px;
+    padding-top: 100px;
     padding-bottom: 32px;
     align-items: flex-start;
   }
@@ -1273,5 +1273,21 @@
   .svcs-v2 .managed-peak-value {
     font-size: 12px;
     padding: 2px 7px;
+  }
+}
+
+
+/* Mobile-only: lift the "— SERVICES" eyebrow out of the hero copy
+   stack and pin it just below the floating Origin logo. The H1 + sub
+   stay in flow with the existing 100px padding-top. The eyebrow
+   floats up near the nav while the H1 still sits a comfortable
+   distance below it. Desktop layout is untouched. */
+@media (max-width: 720px) {
+  .svcs-v2 .wrap.s-hero .s-hero-eyebrow {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    margin-bottom: 0;
+    z-index: 2;
   }
 }
