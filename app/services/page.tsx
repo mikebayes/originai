@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import ServicesHero from "@/components/ServicesHero";
-import ServicesCardsGrid from "@/components/ServicesCardsGrid";
-import ServicesEngage from "@/components/ServicesEngage";
+import ServicesV2Hero from "@/components/ServicesV2Hero";
+import ServicesV2Trio from "@/components/ServicesV2Trio";
+import ServicesV2Engage from "@/components/ServicesV2Engage";
+import ServicesV2Proof from "@/components/ServicesV2Proof";
+import FinalCTA from "@/components/FinalCTA";
 
 export const metadata: Metadata = {
   title: "AI Consulting Services in Canada | Origin AI",
@@ -11,21 +13,32 @@ export const metadata: Metadata = {
 };
 
 /**
- * /services overview page.
+ * /services page — V2 redesign.
  *
- * Hero → three-card services grid → How we engage anchor section →
- * (Proof + Final CTA still to come).
- * The three cards replace the elaborate per-service feature sections. Each
- * card links to its deep /services/{name} page where the depth lives.
- * The engage section anchors the page in humans (photo + statement) before
- * the proof and CTA close it out.
+ * Built off claude_design_files/Services V2/. Sections:
+ *   1. Hero with engagement-model diagram aside
+ *   2. Trio of service cards (Build centerpiece with operations dashboard)
+ *   3. How we engage — phase rail (Discover / Frame / Build / Operate)
+ *   4. Proof — featured Doug Darling testimonial + selected clients strip
+ *   5. Final CTA + Footer (reused from homepage via FinalCTA component,
+ *      so the bottom of the page stays consistent across the site)
+ *
+ * The four V2 sections are wrapped in a .svcs-v2 div so the V2 stylesheet
+ * (which is scoped under that class) can take effect without leaking into
+ * any other route. The site-wide StickyNav comes from app/layout.tsx and
+ * the FinalCTA + footer are unscoped so they stay visually consistent
+ * with the homepage.
  */
 export default function ServicesPage() {
   return (
     <main>
-      <ServicesHero />
-      <ServicesCardsGrid />
-      <ServicesEngage />
+      <div className="svcs-v2">
+        <ServicesV2Hero />
+        <ServicesV2Trio />
+        <ServicesV2Engage />
+        <ServicesV2Proof />
+      </div>
+      <FinalCTA />
     </main>
   );
 }
