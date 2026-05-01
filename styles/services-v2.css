@@ -1075,3 +1075,165 @@
     max-height: 28px;
   }
 }
+
+/* ─── Managed AI card: uptime trend chart visual ──────────────────────
+   Replaces the gradient placeholder with a real SVG chart inside the
+   .svc-card-visual. Trending line up to 99.7% peak, with status caption
+   at the bottom and a "30 days" timeframe in the upper-right. Matches
+   the original Claude Design "After we ship" card spec.
+*/
+
+/* Top-right "30 days" timeframe label — small mono text, no pill. */
+.svcs-v2 .managed-timeframe {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 5;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* Chart wrap — fills the visual area minus a small inset, similar to
+   the .dash mock on the Build card. */
+.svcs-v2 .managed-chart-wrap {
+  position: absolute;
+  inset: 44px 22px 38px 22px;
+  z-index: 2;
+}
+.svcs-v2 .managed-chart {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+/* Subtle grid lines */
+.svcs-v2 .managed-grid {
+  stroke: rgba(255, 255, 255, 0.05);
+  stroke-width: 0.5;
+  stroke-dasharray: 2 4;
+}
+
+/* Area fill under the line — soft teal gradient via CSS, but since we
+   can't gradient-fill a path with a single-color attribute easily,
+   we use a low-alpha teal solid for simplicity. */
+.svcs-v2 .managed-area {
+  fill: rgba(93, 168, 156, 0.10);
+}
+
+/* The trending line itself */
+.svcs-v2 .managed-line {
+  stroke: var(--accent);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 6px rgba(93, 168, 156, 0.45));
+}
+
+/* Intermediate data points — small dots along the line */
+.svcs-v2 .managed-pt {
+  fill: var(--accent);
+  filter: drop-shadow(0 0 4px rgba(93, 168, 156, 0.4));
+}
+
+/* Peak endpoint — small solid teal dot inside a pulsing teal ring */
+.svcs-v2 .managed-peak-dot {
+  fill: var(--accent);
+  filter: drop-shadow(0 0 8px rgba(93, 168, 156, 0.85));
+}
+.svcs-v2 .managed-peak-ring {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1;
+  opacity: 0.55;
+  transform-origin: 277px 14px;
+  animation: managed-peak-pulse 2.4s ease-in-out infinite;
+}
+@keyframes managed-peak-pulse {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50%      { opacity: 0.15; transform: scale(1.4); }
+}
+
+/* "99.7%" peak value label — sits just to the left of the endpoint */
+.svcs-v2 .managed-peak-value {
+  position: absolute;
+  top: -8px;
+  right: 4px;
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  background: rgba(15, 15, 15, 0.65);
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 0.5px solid rgba(93, 168, 156, 0.35);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+/* Bottom caption row — "Live · 14 systems running" / "99.7% uptime" */
+.svcs-v2 .managed-caption {
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 16px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+}
+.svcs-v2 .managed-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent);
+}
+.svcs-v2 .managed-status .dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px rgba(93, 168, 156, 0.7);
+  animation: managed-pulse 2s ease-in-out infinite;
+}
+@keyframes managed-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.4; }
+}
+.svcs-v2 .managed-uptime {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* Reduce-motion users: drop the chart animations */
+@media (prefers-reduced-motion: reduce) {
+  .svcs-v2 .managed-peak-ring,
+  .svcs-v2 .managed-status .dot {
+    animation: none;
+  }
+}
+
+/* Mobile — slightly smaller chart insets and caption text */
+@media (max-width: 720px) {
+  .svcs-v2 .managed-chart-wrap {
+    inset: 38px 16px 32px 16px;
+  }
+  .svcs-v2 .managed-caption {
+    left: 16px;
+    right: 16px;
+    bottom: 12px;
+    font-size: 8.5px;
+  }
+  .svcs-v2 .managed-peak-value {
+    font-size: 12px;
+    padding: 2px 7px;
+  }
+}
