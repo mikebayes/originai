@@ -29,21 +29,21 @@
 }
 .svcs-v2 .wrap{ max-width: 1200px; margin: 0 auto; padding: 0 56px; position: relative; z-index: 1; }
 
-.svcs-v2 .s-hero{
+.svcs-v2 .wrap.s-hero{
   position: relative;
   /* Fill the viewport so the trio section below stays out of view until
-     the user scrolls. The 80px subtraction is approximate clearance for
-     the floating HeroNav above the section. */
+     the user scrolls. */
   min-height: calc(100vh - 160px);
-  padding: 64px 56px 96px;
-  /* No border-bottom — was showing through the bridge's transparent
-     edges and appearing as a stray line above the "What we do" pill. */
-  /* Flex centering so the H1 + sub stack sits vertically in the middle
-     of the hero rather than packed against the top. */
+  /* Padding split into longhand: top/bottom owned by .s-hero, sides
+     owned by the .wrap rule. Chained selector .wrap.s-hero (specificity
+     0,3,0) beats the .wrap shorthand padding (0,2,0) that was silently
+     zeroing out our top/bottom on mobile via the @media .wrap override. */
+  padding-top: 64px;
+  padding-bottom: 96px;
   display: flex;
   align-items: center;
 }
-.svcs-v2 .s-hero > .s-hero-grid{ width: 100%; }
+.svcs-v2 .wrap.s-hero > .s-hero-grid{ width: 100%; }
 .svcs-v2 .s-hero-grid{
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
@@ -768,17 +768,16 @@
 @media (max-width: 900px) {
   .svcs-v2 .wrap{ padding: 0 20px; }
   .svcs-v2 .nav-links a:not(.nav-pill){ display: none; }
-  .svcs-v2 .s-hero{
+  .svcs-v2 .wrap.s-hero{
     /* Same min-height target — leaves the hero filling most of the
        viewport with content extending below the fold. */
     min-height: calc(100vh - 280px);
-    /* Top padding bumped 140 → 200 so the H1 sits noticeably lower in
-       the viewport (Mike's "showstopper" feedback after testing on his
-       daughter's phone — confirmed not a caching issue). Combined with
-       align-items: flex-start (overriding the desktop center), content
-       starts at the padding-top boundary instead of being re-centered
-       higher in the available space. */
-    padding: 200px 20px 32px;
+    /* Top padding bumped to 200 so the H1 sits noticeably lower in
+       the viewport. Padding-left/right left to the .wrap rule below
+       in source. Selector chained (.wrap.s-hero, 0,3,0) so this beats
+       the @media .wrap shorthand at 0,2,0. */
+    padding-top: 200px;
+    padding-bottom: 32px;
     align-items: flex-start;
   }
   .svcs-v2 .s-hero-grid{ grid-template-columns: 1fr; gap: 48px; }
