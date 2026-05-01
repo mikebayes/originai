@@ -182,8 +182,11 @@
 .svcs-v2 .trio{
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+  gap: 28px;
   align-items: stretch;
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .svcs-v2 .svc-card{
   position: relative;
@@ -351,7 +354,7 @@
 .svcs-v2 .svc-card .svc-card-visual.strategy-photo{
   background:
     linear-gradient(165deg, rgba(19, 72, 54, 0.32) 0%, rgba(19, 72, 54, 0) 45%, rgba(0, 0, 0, 0.45) 100%),
-    url('/images/meeting_table_crop.jpg') center 42% / cover no-repeat;
+    url('/images/meeting_table_crop.jpg') center center / cover no-repeat;
 }
 
 .svcs-v2 .svc-card .svc-card-visual.managed-photo{
@@ -740,7 +743,13 @@
   .svcs-v2 .s-head{ grid-template-columns: 1fr; gap: 24px; margin-bottom: 40px; }
   .svcs-v2 .section{ padding: 80px 0; }
   .svcs-v2 .engage{ padding: 80px 0; }
-  .svcs-v2 .trio{ grid-template-columns: 1fr; gap: 16px; }
+  .svcs-v2 .trio{
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
   .svcs-v2 .svc-card.center{ transform: none; }
   .svcs-v2 .svc-card.center:hover{ transform: translateY(-2px); }
   .svcs-v2 .phase-rail{ grid-template-columns: 1fr; gap: 40px; }
