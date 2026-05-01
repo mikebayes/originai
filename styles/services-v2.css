@@ -999,7 +999,14 @@
 }
 
 @media (max-width: 700px){
-  .svcs-v2 .hero-bridge{ padding: 44px 0 16px; }
+  /* Mobile bridge — give it real breathing room. The 44/16 padding
+     and 10px label felt cramped because the pill, rules, and label
+     compete for very little vertical space. Bumps padding generously,
+     loosens the pill's own internal padding, and bumps the label back
+     up to a readable size. */
+  .svcs-v2 .hero-bridge{ padding: 64px 0 40px; }
   .svcs-v2 .hero-bridge-inner{ gap: 16px; }
-  .svcs-v2 .hb-label{ font-size: 10px; letter-spacing: 0.10em; }
+  .svcs-v2 .hb-marker{ padding: 10px 16px; gap: 10px; }
+  .svcs-v2 .hb-label{ font-size: 11px; letter-spacing: 0.12em; }
+  .svcs-v2 .hb-dot{ width: 5px; height: 5px; }
 }
