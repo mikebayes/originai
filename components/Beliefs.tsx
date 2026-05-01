@@ -49,7 +49,6 @@ export default function Beliefs() {
           <ol className="beliefs-list" data-reveal-stagger>
 
             <li className="belief">
-              <span className="belief-num">01</span>
               <h3 className="belief-claim">
                 AI executes. People decide.
               </h3>
@@ -60,7 +59,6 @@ export default function Beliefs() {
             </li>
 
             <li className="belief">
-              <span className="belief-num">02</span>
               <h3 className="belief-claim">
                 Stop paying for software that almost fits.
               </h3>
@@ -71,7 +69,6 @@ export default function Beliefs() {
             </li>
 
             <li className="belief">
-              <span className="belief-num">03</span>
               <h3 className="belief-claim">
                 We own the outcome, not the deliverable.
               </h3>
