@@ -469,7 +469,10 @@
 }
 
 .svcs-v2 .svc-card-body{
-  padding: 26px 28px 28px;
+  /* Sides reduced 28→16 so the title and body text fill more of the
+     visible card width on desktop. The original 28 was leaving the
+     text feeling narrow even though it was wrapping correctly. */
+  padding: 24px 16px 24px;
   display: flex; flex-direction: column; gap: 14px; flex: 1;
 }
 .svcs-v2 .svc-card-num{
