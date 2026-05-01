@@ -1020,56 +1020,58 @@
   /* Pill, dot, and gap — left at the desktop/spec defaults. */
 }
 
-/* ─── Customer Spotlight: logo treatments ─────────────────────────────
-   The proof section now uses real client logos instead of text wordmarks.
-   We reuse the homepage's .client-logo-card chip style (white background,
-   subtle shadow, brand-colored logo). Two adjustments:
-
-   1) The spotlight logo (next to the Doug Darling quote) is made smaller
-      and tighter so it reads as a "premium accent" rather than a banner.
-   2) The Selected Clients wordmark row gets the chip cards laid out in a
-      flex grid that matches the existing .wordmark-row spacing.
+/* ─── Customer Spotlight: layout for two-row right column ────────────
+   Right column structure:
+     Row 1: Engagement label + value
+     Row 2: Doug avatar + meta on the left, Tripwire logo on the right
+            (spaced apart via space-between)
+   The Tripwire logo sits as a small premium chip aligned with Doug's
+   metadata; not a banner.
 */
-.svcs-v2 .client-logo-card.spotlight-logo {
-  /* Smaller card for the spotlight context — ~60px tall, narrower max-width
-     so it sits as a small premium chip near the quote rather than dominating
-     the column. */
-  flex: 0 0 auto;
-  min-width: 140px;
-  max-width: 200px;
-  height: 60px;
-  padding: 10px 18px;
-}
 
-.svcs-v2 .client-logo-card.spotlight-logo img {
-  max-height: 36px;
-}
-
-/* The wordmark row is now a row of logo chips, not text. Override the
-   existing .wordmark-row flex behavior so chip cards (which have their
-   own min/max widths) lay out cleanly. */
-.svcs-v2 .wordmark-strip .wordmark-row {
+/* Top row (engagement) sits naturally above with a thin divider. The
+   bottom row pushes the logo to the far right. */
+.svcs-v2 .proof-attr {
+  justify-content: space-between;
   gap: 16px;
-  align-items: center;
-  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
+/* Tripwire logo chip on the bottom row. Smaller than the homepage's
+   client-logo-card so it reads as a discrete spotlight accent. */
+.svcs-v2 .client-logo-card.spotlight-logo {
+  flex: 0 0 auto;
+  min-width: 140px;
+  max-width: 200px;
+  height: 56px;
+  padding: 10px 18px;
+}
+.svcs-v2 .client-logo-card.spotlight-logo img {
+  max-height: 32px;
+}
+
+/* The proof-attr-logo wrapper just holds the chip; align it nicely
+   against the Doug meta column. */
+.svcs-v2 .proof-attr-logo {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
 @media (max-width: 720px){
+  .svcs-v2 .proof-attr {
+    flex-wrap: wrap;
+  }
+  .svcs-v2 .proof-attr-logo {
+    margin-left: 0;
+    margin-top: 8px;
+  }
   .svcs-v2 .client-logo-card.spotlight-logo {
     min-width: 120px;
-    height: 52px;
+    height: 50px;
     padding: 8px 14px;
   }
   .svcs-v2 .client-logo-card.spotlight-logo img {
-    max-height: 32px;
-  }
-  /* On small phones, make Selected Clients chips wrap nicely without
-     each card stretching too wide. */
-  .svcs-v2 .wordmark-strip .wordmark-row .client-logo-card {
-    min-width: 130px;
-    max-width: 180px;
-    height: 64px;
-    padding: 10px 16px;
+    max-height: 28px;
   }
 }

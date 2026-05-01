@@ -43,21 +43,17 @@ export default function ServicesV2Proof() {
           </p>
         </div>
         <div className="proof-attr-col">
-          {/* Real Tripwire logo as a small premium chip — same client-logo-card
-              treatment the homepage Proof section uses, sized down for the
-              spotlight context via .spotlight-logo class. */}
-          <div className="proof-client">
-            <div className="client-logo-card spotlight-logo">
-              <img
-                src="/logos/clients/tripwire.png"
-                alt="Tripwire Media Group"
-              />
-            </div>
-          </div>
+
+          {/* Row 1 — Engagement type. Sits at the top of the right
+              column on its own. */}
           <div className="proof-engagement">
             <span className="label">Engagement</span>
             <span className="value">AI Strategy + Training</span>
           </div>
+
+          {/* Row 2 — Doug avatar + meta on the left, Tripwire logo on
+              the right, spaced apart. Replaces the previous standalone
+              client-logo block above the engagement. */}
           <div className="proof-attr">
             <div className="proof-avatar">
               <img
@@ -77,30 +73,31 @@ export default function ServicesV2Proof() {
                 tripwiremedia.com ↗
               </a>
             </div>
+            <div className="proof-attr-logo">
+              <div className="client-logo-card spotlight-logo">
+                <img
+                  src="/logos/clients/tripwire.png"
+                  alt="Tripwire Media Group"
+                />
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
 
-      {/* Selected Clients row — real logos, same chip treatment as the
-          homepage Proof section. ClickLogiq and AAA omitted because the
-          assets aren't in /logos/clients/ yet. */}
+      {/* Selected Clients row — back to text wordmarks per Mike's
+          feedback. The logo-chip version felt too heavy below the
+          spotlight; plain wordmarks read as a quieter client roster. */}
       <div className="wordmark-strip">
         <span className="wordmark-strip-label">
           <span className="bar" />Selected clients
         </span>
         <div className="wordmark-row">
-          <div className="client-logo-card">
-            <img src="/logos/clients/tripwire.png" alt="Tripwire Media Group" />
-          </div>
-          <div className="client-logo-card">
-            <img src="/logos/clients/direct-focus.jpg" alt="Direct Focus" />
-          </div>
-          <div className="client-logo-card">
-            <img src="/logos/clients/thor.png" alt="Thor Plumbing &amp; Heating" />
-          </div>
-          <div className="client-logo-card">
-            <img src="/logos/clients/equipco.png" alt="Equipco Ltd." />
-          </div>
+          <span className="wordmark">Tripwire Media Group</span>
+          <span className="wordmark">Direct Focus</span>
+          <span className="wordmark">Thor Plumbing &amp; Heating</span>
+          <span className="wordmark">Equipco Ltd.</span>
         </div>
       </div>
     </section>
