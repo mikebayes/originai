@@ -790,6 +790,11 @@
   .svcs-v2 .svc-diagram-head{ flex-wrap: wrap; gap: 8px; }
   .svcs-v2 .svc-diagram-foot{ flex-wrap: wrap; gap: 6px 12px; }
 
+  /* Card photo aspect ratio: shorter on mobile so cards feel less
+     tall and skinny. The 4:3 default works on desktop where the
+     photo can breathe in width. */
+  .svcs-v2 .svc-card-visual{ aspect-ratio: 16 / 11; }
+
   /* Trio cards — reduce body padding so 16px wrap padding plus card
      padding doesn't crowd the text. */
   .svcs-v2 .svc-card-body{ padding: 22px 22px 24px; }
@@ -855,7 +860,6 @@
    by clipping anything that escapes .svcs-v2's box. */
 @media (max-width: 480px) {
   .svcs-v2 .wrap{ padding: 0 14px; }
-  .svcs-v2 .svc-card-visual{ aspect-ratio: 16 / 11; }
   .svcs-v2 .s-hero-actions{ flex-wrap: wrap; gap: 10px; }
   .svcs-v2 .s-hero-actions .pill{ width: 100%; justify-content: center; }
 }
@@ -889,60 +893,7 @@
   }
 }
 
-/* ─── Diagonal accent band between hero and trio ─────────────────────
-   Replaces the bare margin-top with an actual visual transition. A
-   100-140px tall band with a soft fade from the hero's dark backdrop
-   into the trio's, with a single thin teal hairline cutting across on
-   a slight angle. Suggests forward motion and breaks the page into
-   beats without copying the homepage's curved-divider pattern. */
-.svcs-v2 .s-hero + .section{
-  /* Override the +64 margin-top added earlier with a positioned-and-
-     decorated transition band. Margin still pushes the section down,
-     but the visual transition lives in the ::before pseudo above. */
-  margin-top: 0;
-  padding-top: 200px;
-}
-.svcs-v2 .s-hero + .section::before{
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 140px;
-  pointer-events: none;
-  /* Vertical fade band: hero-dark at top → trio-dark at bottom. */
-  background:
-    /* Subtle teal wash so the band reads as branded, not neutral. */
-    radial-gradient(120% 100% at 50% 50%, rgba(93, 168, 156, 0.04) 0%, rgba(93, 168, 156, 0) 60%),
-    linear-gradient(180deg, rgba(8, 14, 16, 0.0) 0%, rgba(6, 12, 14, 0.55) 50%, rgba(6, 12, 14, 0) 100%);
-}
-.svcs-v2 .s-hero + .section::after{
-  /* The diagonal teal hairline. 4deg tilt, full-width with radial
-     fade-out at both ends so the line doesn't hit the page edges. */
-  content: '';
-  position: absolute;
-  top: 64px; left: 0; right: 0;
-  height: 1px;
-  pointer-events: none;
-  transform: rotate(-2.5deg);
-  transform-origin: 50% 50%;
-  background: linear-gradient(
-    90deg,
-    rgba(93, 168, 156, 0) 0%,
-    rgba(93, 168, 156, 0.35) 22%,
-    rgba(93, 168, 156, 0.7) 50%,
-    rgba(93, 168, 156, 0.35) 78%,
-    rgba(93, 168, 156, 0) 100%
-  );
-  box-shadow: 0 0 18px rgba(93, 168, 156, 0.35);
-}
-.svcs-v2 .section{ position: relative; }
 
-@media (max-width: 720px){
-  .svcs-v2 .s-hero + .section{
-    padding-top: 132px;
-  }
-  .svcs-v2 .s-hero + .section::before{ height: 90px; }
-  .svcs-v2 .s-hero + .section::after{ top: 42px; }
-}
 
 /* ─── Card typography density on mobile ──────────────────────────────
    Cards on V2 felt under-filled compared to the homepage cards because
@@ -951,7 +902,7 @@
    the text gets a wider measure within the same card. */
 @media (max-width: 720px){
   .svcs-v2 .svc-card-body{
-    padding: 22px 20px 22px;
+    padding: 20px 16px 22px;
     gap: 12px;
   }
   .svcs-v2 .svc-card-title{
@@ -959,10 +910,84 @@
     line-height: 1.22;
   }
   .svcs-v2 .svc-card-promise{
-    font-size: 15.5px;
+    font-size: 16px;
     line-height: 1.55;
   }
   .svcs-v2 .svc-card-num{
     font-size: 10.5px;
   }
+}
+
+
+/* ─── Hero → Trio bridge ──────────────────────────────────────────────
+   Replaces the earlier diagonal accent band with the spec'd transition
+   from claude_design_files (hero-bridge.md): two thin teal hairlines
+   flanking a centered pulsing "What we do" pill. The bridge is pulled
+   slightly up into the hero's bottom via negative margin so it reads
+   as a transition rather than as its own padded section. */
+.svcs-v2 .hero-bridge{
+  position: relative;
+  margin-top: -28px;
+  padding: 56px 0 24px;
+  isolation: isolate;
+}
+.svcs-v2 .hero-bridge::before{
+  content: ''; position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(60% 100% at 50% 50%, rgba(93, 168, 156, 0.10) 0%, rgba(93, 168, 156, 0) 70%),
+    radial-gradient(80% 70% at 50% 0%, rgba(19, 72, 54, 0.30) 0%, rgba(19, 72, 54, 0) 70%);
+  pointer-events: none;
+}
+.svcs-v2 .hero-bridge-inner{
+  position: relative; z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 28px;
+}
+.svcs-v2 .hb-rule{
+  display: block; height: 0.5px; width: 100%;
+  background: linear-gradient(90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(93, 168, 156, 0.45) 45%,
+    rgba(93, 168, 156, 0.55) 50%,
+    rgba(93, 168, 156, 0.45) 55%,
+    rgba(255,255,255,0) 100%);
+  box-shadow: 0 0 12px rgba(93, 168, 156, 0.15);
+}
+.svcs-v2 .hb-marker{
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background:
+    radial-gradient(80% 100% at 50% 0%, rgba(93, 168, 156, 0.10) 0%, rgba(93, 168, 156, 0) 70%),
+    rgba(15, 15, 15, 0.65);
+  border: 0.5px solid rgba(93, 168, 156, 0.30);
+  -webkit-backdrop-filter: blur(8px) saturate(140%);
+  backdrop-filter: blur(8px) saturate(140%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    0 0 24px -8px rgba(93, 168, 156, 0.35);
+  white-space: nowrap;
+}
+.svcs-v2 .hb-dot{
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px rgba(93, 168, 156, 0.7);
+  animation: hb-pulse 2.4s ease-in-out infinite;
+}
+@keyframes hb-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+.svcs-v2 .hb-label{
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.78);
+}
+
+@media (max-width: 700px){
+  .svcs-v2 .hero-bridge{ padding: 44px 0 16px; }
+  .svcs-v2 .hero-bridge-inner{ gap: 16px; }
+  .svcs-v2 .hb-label{ font-size: 10px; letter-spacing: 0.10em; }
 }

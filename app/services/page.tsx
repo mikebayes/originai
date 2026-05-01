@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ServicesV2Hero from "@/components/ServicesV2Hero";
+import ServicesV2HeroBridge from "@/components/ServicesV2HeroBridge";
 import ServicesV2Trio from "@/components/ServicesV2Trio";
 import ServicesV2Engage from "@/components/ServicesV2Engage";
 import ServicesV2Proof from "@/components/ServicesV2Proof";
@@ -34,6 +35,7 @@ export default function ServicesPage() {
     <main>
       <div className="svcs-v2">
         <ServicesV2Hero />
+        <ServicesV2HeroBridge />
         <ServicesV2Trio />
         <ServicesV2Engage />
         <ServicesV2Proof />
