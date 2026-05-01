@@ -772,11 +772,11 @@
     /* Same min-height target — leaves the hero filling most of the
        viewport with content extending below the fold. */
     min-height: calc(100vh - 280px);
-    /* Top padding bumped to 200 so the H1 sits noticeably lower in
-       the viewport. Padding-left/right left to the .wrap rule below
-       in source. Selector chained (.wrap.s-hero, 0,3,0) so this beats
-       the @media .wrap shorthand at 0,2,0. */
-    padding-top: 200px;
+    /* Top padding tuned to 130 — halfway between the original 56
+       and the 200 first attempt, which Mike said pushed too far.
+       Selector chained (.wrap.s-hero, 0,3,0) so this beats the
+       @media .wrap shorthand at 0,2,0. */
+    padding-top: 130px;
     padding-bottom: 32px;
     align-items: flex-start;
   }
