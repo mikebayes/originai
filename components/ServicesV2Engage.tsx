@@ -58,7 +58,7 @@ export default function ServicesV2Engage() {
               <span className="phase-num">Define</span>
               <span className="phase-duration">2–3 weeks</span>
             </div>
-            <h3 className="phase-name">Choose the first build.</h3>
+            <h3 className="phase-name">Define the build.</h3>
             <p className="phase-body">
               We narrow the work to one or two systems with a clear owner, a
               defined outcome, and a budget that matches the value. This is

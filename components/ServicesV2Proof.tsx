@@ -1,20 +1,29 @@
 /**
- * /services V2 proof — featured Doug Darling testimonial + selected
- * client wordmark strip.
+ * /services V2 Customer Spotlight (was Proof).
  *
- * The Tripwire client logo isn't in our public assets yet, so the proof
- * row uses just the engagement label + avatar + name + role until a
- * real logo is supplied (see notes on tripwire.png in the design files).
+ * Reframed from a broad "proof" claim to a customer spotlight:
+ *   - Eyebrow: Customer Spotlight
+ *   - H2: How leaders are putting AI to work.
+ *   - Featured Tripwire spotlight: small premium logo card + the
+ *     Doug Darling quote + engagement label "AI Strategy + Training".
+ *   - Selected Clients row underneath using real client logos
+ *     (Tripwire, Direct Focus, Thor, Equipco). Same logo set used on
+ *     the homepage Proof section so the brand reads consistently.
+ *
+ * The Tripwire logo intentionally appears in BOTH the spotlight chip
+ * and the Selected Clients row. Per Mike's direction this is OK; both
+ * placements serve different purposes (one anchors the testimonial,
+ * the other rounds out the client roster).
  */
 export default function ServicesV2Proof() {
   return (
-    <section className="wrap section" data-screen-label="Proof">
+    <section className="wrap section" data-screen-label="Customer Spotlight">
       <div className="s-head">
         <div>
-          <span className="s-eyebrow">Proof</span>
+          <span className="s-eyebrow">Customer Spotlight</span>
           <h2 className="s-h2">
-            Companies betting{" "}
-            <span className="muted">their AI on us.</span>
+            How leaders are{" "}
+            <span className="muted">putting AI to work.</span>
           </h2>
         </div>
         <p className="s-lede">
@@ -34,24 +43,20 @@ export default function ServicesV2Proof() {
           </p>
         </div>
         <div className="proof-attr-col">
+          {/* Real Tripwire logo as a small premium chip — same client-logo-card
+              treatment the homepage Proof section uses, sized down for the
+              spotlight context via .spotlight-logo class. */}
+          <div className="proof-client">
+            <div className="client-logo-card spotlight-logo">
+              <img
+                src="/logos/clients/tripwire.png"
+                alt="Tripwire Media Group"
+              />
+            </div>
+          </div>
           <div className="proof-engagement">
             <span className="label">Engagement</span>
-            <span className="value">Strategy + Build</span>
-          </div>
-          {/* Tripwire logo placeholder — once we have tripwire.png in
-              public/images we can swap this for the proper image element. */}
-          <div className="proof-client">
-            <span
-              style={{
-                fontFamily: "'Inter Tight', sans-serif",
-                fontWeight: 500,
-                fontSize: "16px",
-                letterSpacing: "0.02em",
-                color: "rgba(255,255,255,0.85)",
-              }}
-            >
-              Tripwire Media Group
-            </span>
+            <span className="value">AI Strategy + Training</span>
           </div>
           <div className="proof-attr">
             <div className="proof-avatar">
@@ -76,15 +81,26 @@ export default function ServicesV2Proof() {
         </div>
       </div>
 
+      {/* Selected Clients row — real logos, same chip treatment as the
+          homepage Proof section. ClickLogiq and AAA omitted because the
+          assets aren't in /logos/clients/ yet. */}
       <div className="wordmark-strip">
         <span className="wordmark-strip-label">
           <span className="bar" />Selected clients
         </span>
         <div className="wordmark-row">
-          <span className="wordmark">Tripwire Media Group</span>
-          <span className="wordmark">Direct Focus</span>
-          <span className="wordmark">Thor Plumbing &amp; Heating</span>
-          <span className="wordmark">Equipco Ltd.</span>
+          <div className="client-logo-card">
+            <img src="/logos/clients/tripwire.png" alt="Tripwire Media Group" />
+          </div>
+          <div className="client-logo-card">
+            <img src="/logos/clients/direct-focus.jpg" alt="Direct Focus" />
+          </div>
+          <div className="client-logo-card">
+            <img src="/logos/clients/thor.png" alt="Thor Plumbing &amp; Heating" />
+          </div>
+          <div className="client-logo-card">
+            <img src="/logos/clients/equipco.png" alt="Equipco Ltd." />
+          </div>
         </div>
       </div>
     </section>
