@@ -277,13 +277,13 @@
 
 .svcs-v2 .dash{
   position: absolute;
-  /* Top inset bumped from 22px to 52px so the dash header row sits
-     BELOW the "The work" badge and "In production" tag in the upper
-     corners. Was overlapping previously. Image content (chart, stats)
-     is unchanged — only the text layout shifts down. */
-  inset: 52px 22px 22px 22px;
+  /* dash-head row removed (its content moved into the corner pills),
+     so the dash content can use the full inset again. Top inset is a
+     bit larger (40px) to clear the corner pills, but the chart and
+     stats can occupy more vertical space than before. */
+  inset: 40px 22px 22px 22px;
   z-index: 2;
-  display: flex; flex-direction: column; gap: 10px;
+  display: flex; flex-direction: column; gap: 12px;
   font-family: 'Inter Tight', sans-serif;
 }
 .svcs-v2 .dash-head{
@@ -822,7 +822,7 @@
 
   /* Trio cards — reduce body padding so 16px wrap padding plus card
      padding doesn't crowd the text. */
-  .svcs-v2 .svc-card-body{ padding: 22px 22px 24px; }
+  .svcs-v2 .svc-card-body{ padding: 22px 14px 24px; }
   .svcs-v2 .svc-card-foot{ flex-wrap: wrap; gap: 8px; }
 
   /* Engage section — reduce vertical and horizontal breathing room. */
@@ -927,9 +927,12 @@
    the text gets a wider measure within the same card. */
 @media (max-width: 720px){
   .svcs-v2 .svc-card-body{
-    /* Tighter horizontal padding on mobile so text actually fills the
-       card width instead of leaving big margins on either side. */
-    padding: 20px 12px 22px;
+    /* Aggressive horizontal padding (8px) on mobile so the title and
+     body copy truly fill the card edge to edge. The previous 12px
+     wasn't reading as enough — Mike said the cards still felt narrow
+     and weak. 8px is the minimum that doesn't have text touching the
+     card border. */
+    padding: 20px 8px 22px;
     gap: 12px;
   }
   .svcs-v2 .svc-card-title{

@@ -51,16 +51,14 @@ export default function ServicesV2Trio() {
           </div>
         </article>
 
-        {/* Build — centerpiece with an inline operations dashboard mock */}
+        {/* Build — centerpiece with an inline operations dashboard mock.
+            Top-corner pills double as the dashboard's product label and
+            live status — replaces the redundant inner dash-head row. */}
         <article className="svc-card center" id="build">
           <div className="svc-card-visual">
-            <span className="svc-card-badge">The work</span>
-            <span className="svc-card-tag">In production</span>
+            <span className="svc-card-badge">Origin · Operations</span>
+            <span className="svc-card-tag">Live</span>
             <div className="dash">
-              <div className="dash-head">
-                <span>Origin · Operations</span>
-                <span className="live"><span className="dot" />Live</span>
-              </div>
               <div className="dash-q">Where are we losing time this week?</div>
               <div className="dash-a">
                 Intake is the bottleneck. 14 hrs/week recoverable by routing
