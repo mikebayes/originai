@@ -748,8 +748,14 @@
   .svcs-v2 .wrap{ padding: 0 20px; }
   .svcs-v2 .nav-links a:not(.nav-pill){ display: none; }
   .svcs-v2 .s-hero{
-    min-height: calc(100vh - 140px);
-    padding: 40px 20px 64px;
+    /* Leave ~280px under the hero on mobile for the bridge plus a peek
+       of the AI Software & Systems card straddling the fold. */
+    min-height: calc(100vh - 280px);
+    padding: 56px 20px 32px;
+    /* Push the hero copy stack to the bottom of the section so the H1
+       sits lower in the viewport (closer to the bridge), with the empty
+       space sitting above the H1 below the nav. */
+    align-items: flex-end;
   }
   .svcs-v2 .s-hero-grid{ grid-template-columns: 1fr; gap: 48px; }
   .svcs-v2 .s-head{ grid-template-columns: 1fr; gap: 24px; margin-bottom: 40px; }
