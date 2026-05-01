@@ -34,8 +34,8 @@
   /* Fill the viewport so the trio section below stays out of view until
      the user scrolls. The 80px subtraction is approximate clearance for
      the floating HeroNav above the section. */
-  min-height: calc(100vh - 80px);
-  padding: 64px 56px 120px;
+  min-height: calc(100vh - 160px);
+  padding: 64px 56px 96px;
   border-bottom: 0.5px solid rgba(255,255,255,0.06);
   /* Flex centering so the H1 + sub stack sits vertically in the middle
      of the hero rather than packed against the top. */
@@ -748,8 +748,8 @@
   .svcs-v2 .wrap{ padding: 0 20px; }
   .svcs-v2 .nav-links a:not(.nav-pill){ display: none; }
   .svcs-v2 .s-hero{
-    min-height: calc(100vh - 64px);
-    padding: 40px 20px 80px;
+    min-height: calc(100vh - 140px);
+    padding: 40px 20px 64px;
   }
   .svcs-v2 .s-hero-grid{ grid-template-columns: 1fr; gap: 48px; }
   .svcs-v2 .s-head{ grid-template-columns: 1fr; gap: 24px; margin-bottom: 40px; }
