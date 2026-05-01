@@ -19,9 +19,17 @@
     linear-gradient(165deg, #1a5a45 0%, #134836 50%, #0e3528 100%);
   border: 0.5px solid rgba(93, 168, 156, 0.22);
   box-shadow:
+    /* Tight teal glow tracing the panel border. */
     0 0 100px -20px rgba(93, 168, 156, 0.22),
+    /* Wide forest-green halo extending below the panel — softens the
+       bottom edge into the page so the green doesn't read as cutting
+       off abruptly. */
+    0 80px 140px -30px rgba(19, 72, 54, 0.55),
+    0 130px 200px -40px rgba(19, 72, 54, 0.28),
+    /* Standard depth drop shadows. */
     0 40px 80px -20px rgba(0, 0, 0, 0.65),
     0 12px 32px -8px rgba(0, 0, 0, 0.45),
+    /* 1px highlight on the panel's top edge. */
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 .cta-panel::before {

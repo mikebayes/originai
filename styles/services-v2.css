@@ -859,3 +859,18 @@
   .svcs-v2 .s-hero-actions{ flex-wrap: wrap; gap: 10px; }
   .svcs-v2 .s-hero-actions .pill{ width: 100%; justify-content: center; }
 }
+
+
+/* Extra breathing room between the trio cards and the engage section.
+   Without this, the trio section's bottom padding (120px desktop, 80px
+   mobile) plus the engage section's top padding can still feel too
+   close because the engage section has its own teal border-top + dark
+   background that visually "starts" the next thing immediately. */
+.svcs-v2 .section + .engage{
+  margin-top: 40px;
+}
+@media (max-width: 720px){
+  .svcs-v2 .section + .engage{
+    margin-top: 24px;
+  }
+}
