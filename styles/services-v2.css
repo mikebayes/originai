@@ -766,14 +766,17 @@
   .svcs-v2 .wrap{ padding: 0 20px; }
   .svcs-v2 .nav-links a:not(.nav-pill){ display: none; }
   .svcs-v2 .s-hero{
-    /* Leave ~280px under the hero on mobile for the bridge plus a peek
-       of the AI Software & Systems card straddling the fold. */
+    /* Same min-height target — leaves the hero filling most of the
+       viewport with content extending below the fold. */
     min-height: calc(100vh - 280px);
-    /* Top padding takes the H1 noticeably below the floating nav.
-       Earlier 96px was too subtle to register; 140px gives the hero a
-       clear "settled lower in the viewport" feel. Bottom padding 32px
-       keeps the diagram aside close to the bridge below. */
-    padding: 140px 20px 32px;
+    /* Top padding bumped 140 → 200 so the H1 sits noticeably lower in
+       the viewport (Mike's "showstopper" feedback after testing on his
+       daughter's phone — confirmed not a caching issue). Combined with
+       align-items: flex-start (overriding the desktop center), content
+       starts at the padding-top boundary instead of being re-centered
+       higher in the available space. */
+    padding: 200px 20px 32px;
+    align-items: flex-start;
   }
   .svcs-v2 .s-hero-grid{ grid-template-columns: 1fr; gap: 48px; }
   .svcs-v2 .s-head{ grid-template-columns: 1fr; gap: 24px; margin-bottom: 40px; }

@@ -806,24 +806,11 @@
 .svc-card-build .svc-card-num {
   color: var(--accent);
 }
-.svc-card-title {
-  font-family: 'Inter Tight', sans-serif;
-  font-size: 22px;
-  font-weight: 500;
-  letter-spacing: -0.005em;
-  line-height: 1.25;
-  color: var(--ink);
-  margin: 0 0 14px;
-}
-.svc-card-promise {
-  font-family: 'Inter', sans-serif;
-  font-size: 14.5px;
-  line-height: 1.55;
-  color: rgba(255, 255, 255, 0.78);
-  margin: 0 0 22px;
-  flex: 1;
-  text-wrap: pretty;
-}
+/* .svc-card-title rule removed — was leaking into V2 cards. V2's
+   own scoped rule (.svcs-v2 .svc-card-title) is the single source. */
+/* .svc-card-promise rule removed — text-wrap: pretty was the actual
+   reason desktop V2 cards looked balance-wrapped instead of greedy.
+   V2's scoped .svcs-v2 .svc-card-promise rule is the single source. */
 .svc-card-placeholder {
   border: 1px dashed rgba(255, 255, 255, 0.12);
   border-radius: 8px;
