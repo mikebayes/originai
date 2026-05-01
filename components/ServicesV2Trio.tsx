@@ -14,10 +14,10 @@ export default function ServicesV2Trio() {
     <section className="wrap section" data-screen-label="Services trio">
       <div className="s-head">
         <div>
-          <span className="s-eyebrow">Three services. One team.</span>
+          <span className="s-eyebrow">Strategy, software, and support under one roof.</span>
           <h2 className="s-h2">
             AI services built around{" "}
-            <span className="muted">how your business actually works.</span>
+            <span className="muted">how companies actually adopt AI.</span>
           </h2>
         </div>
         <p className="s-lede">
@@ -39,8 +39,8 @@ export default function ServicesV2Trio() {
             <h3 className="svc-card-title">AI Strategy &amp; Training</h3>
             <p className="svc-card-promise">
               Workshops, advisory, and AI training for leadership teams. We
-              help you pick the right AI bets and get your people confident
-              putting them to work.
+              help you decide where AI fits, what to build first, and how to
+              bring your people along.
             </p>
             <div className="svc-card-foot">
               <a href="/services/strategy" className="tlink">
@@ -95,9 +95,9 @@ export default function ServicesV2Trio() {
             <span className="svc-card-num">Build · The work</span>
             <h3 className="svc-card-title">AI Software &amp; Systems</h3>
             <p className="svc-card-promise">
-              Custom AI software, built for your business. Replace the SaaS
-              stack you&rsquo;ve been duct-taping together with a system shaped
-              to how your team actually works.
+              Custom AI software, built for your business. Extend, connect, or
+              replace the tools you&rsquo;ve been duct-taping together with
+              systems shaped to how your team actually works.
             </p>
             <div className="svc-card-foot">
               <a href="/services/build" className="tlink">
@@ -117,8 +117,9 @@ export default function ServicesV2Trio() {
             <span className="svc-card-num">After we ship</span>
             <h3 className="svc-card-title">Managed AI</h3>
             <p className="svc-card-promise">
-              We keep building. Continuous development on the AI we shipped, on
-              a defined monthly scope. One team. One accountability line.
+              We keep improving the AI systems we ship through a defined
+              monthly scope. New workflows, fixes, optimization, and one team
+              accountable for keeping it useful.
             </p>
             <div className="svc-card-foot">
               <a href="/services/managed" className="tlink">
