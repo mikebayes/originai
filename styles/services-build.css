@@ -1,0 +1,542 @@
+/*
+ * /services/build — AI Software & Systems deep service page styles.
+ *
+ * Scoped under .svcs-v2 (reused as the design system wrapper) plus an
+ * additional .svcs-build modifier so build-specific rules can target
+ * just this page when needed. Reuses primitives from services-v2.css
+ * (.s-hero, .s-h2, .s-eyebrow, .s-lede, .stage, .wordmark-strip-label,
+ * the chip card pattern). Adds build-specific patterns for: the hero's
+ * gradient strata visual, the 4×2 categories grid, the selected-work
+ * thumbnail row, the qualifier and deliverables grids, the scenario
+ * list, and the FAQ accordion.
+ */
+
+/* ─── Hero gradient field (right side of build hero) ──────────────── */
+
+.svcs-build .build-hero-visual {
+  position: relative;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 420px;
+}
+
+.svcs-build .bh-field {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 4 / 3;
+  border-radius: 18px;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(80% 60% at 70% 0%, rgba(93, 168, 156, 0.10) 0%, rgba(93, 168, 156, 0) 60%),
+    radial-gradient(80% 60% at 20% 100%, rgba(19, 72, 54, 0.30) 0%, rgba(19, 72, 54, 0) 60%),
+    linear-gradient(165deg, #0a1416 0%, #0c1a18 50%, #060a0c 100%);
+  border: 0.5px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 30px 60px -20px rgba(0, 0, 0, 0.7),
+    0 8px 24px -8px rgba(0, 0, 0, 0.45);
+}
+
+/* Subtle diagonal grid texture as a background detail */
+.svcs-build .bh-field::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0.022) 0 1px,
+    transparent 1px 56px
+  );
+}
+
+/* Three horizontal "strata" — soft gradient bands evoking layers
+   of a system without showing a literal screenshot. */
+.svcs-build .bh-stratum {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  border-radius: 2px;
+  pointer-events: none;
+}
+.svcs-build .bh-stratum-1 {
+  top: 22%;
+  height: 14%;
+  background: linear-gradient(
+    90deg,
+    rgba(93, 168, 156, 0) 0%,
+    rgba(93, 168, 156, 0.10) 30%,
+    rgba(93, 168, 156, 0.18) 60%,
+    rgba(93, 168, 156, 0.05) 100%
+  );
+}
+.svcs-build .bh-stratum-2 {
+  top: 44%;
+  height: 18%;
+  background: linear-gradient(
+    90deg,
+    rgba(19, 72, 54, 0.10) 0%,
+    rgba(19, 72, 54, 0.35) 50%,
+    rgba(19, 72, 54, 0.15) 100%
+  );
+}
+.svcs-build .bh-stratum-3 {
+  top: 70%;
+  height: 10%;
+  background: linear-gradient(
+    90deg,
+    rgba(93, 168, 156, 0.08) 0%,
+    rgba(93, 168, 156, 0.16) 50%,
+    rgba(93, 168, 156, 0) 100%
+  );
+}
+
+/* Thin teal accent lines slicing across the field at gentle angles */
+.svcs-build .bh-line {
+  position: absolute;
+  height: 0.5px;
+  background: linear-gradient(
+    90deg,
+    rgba(93, 168, 156, 0) 0%,
+    rgba(93, 168, 156, 0.55) 50%,
+    rgba(93, 168, 156, 0) 100%
+  );
+  pointer-events: none;
+  box-shadow: 0 0 6px rgba(93, 168, 156, 0.3);
+}
+.svcs-build .bh-line-1 {
+  top: 30%;
+  left: 4%;
+  right: 4%;
+  transform: rotate(-1.5deg);
+  transform-origin: 50% 50%;
+}
+.svcs-build .bh-line-2 {
+  top: 60%;
+  left: 4%;
+  right: 4%;
+  transform: rotate(1deg);
+  transform-origin: 50% 50%;
+}
+
+/* Pulsing teal accent dot — a single point of interest in the field */
+.svcs-build .bh-pulse {
+  position: absolute;
+  top: 28%;
+  right: 14%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 12px rgba(93, 168, 156, 0.7);
+  animation: bh-pulse 2.6s ease-in-out infinite;
+}
+@keyframes bh-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.45; transform: scale(1.4); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .svcs-build .bh-pulse { animation: none; }
+}
+
+@media (max-width: 900px) {
+  .svcs-build .build-hero-visual { min-height: 280px; }
+  .svcs-build .bh-field { max-width: 100%; aspect-ratio: 5 / 3; }
+}
+
+/* ─── Manifesto section (the software market changed) ─────────────── */
+
+.svcs-build .build-manifesto {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.svcs-build .manifesto-block {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.svcs-build .build-manifesto-h2 {
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 500;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.08;
+  letter-spacing: -0.012em;
+  color: var(--ink);
+  margin: 0 0 32px;
+  text-wrap: balance;
+}
+.svcs-build .build-manifesto-h2 .muted {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.svcs-build .build-manifesto-body p {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.78);
+  margin: 0 0 18px;
+}
+.svcs-build .build-manifesto-body p:last-child { margin-bottom: 0; }
+
+.svcs-build .build-manifesto-rule {
+  width: 80px;
+  height: 1.5px;
+  margin: 40px 0 0;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(93, 168, 156, 0.6) 0%,
+    rgba(93, 168, 156, 0) 100%
+  );
+}
+
+@media (max-width: 720px) {
+  .svcs-build .build-manifesto {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+}
+
+/* ─── What we build (8 categories grid + selected work row) ─────── */
+
+.svcs-build .build-what-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 24px;
+}
+
+.svcs-build .build-cat {
+  position: relative;
+  padding-left: 16px;
+  /* Teal accent line on the left of each category, same convention as
+     the Beliefs section. */
+}
+.svcs-build .build-cat::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 2px;
+  background: var(--accent);
+  border-radius: 1px;
+  box-shadow: 0 0 10px rgba(93, 168, 156, 0.3);
+}
+.svcs-build .build-cat-title {
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  margin: 0 0 10px;
+}
+.svcs-build .build-cat-body {
+  font-family: 'Inter', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0;
+}
+
+@media (max-width: 1100px) {
+  .svcs-build .build-what-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+}
+@media (max-width: 600px) {
+  .svcs-build .build-what-grid { grid-template-columns: 1fr; gap: 24px; }
+}
+
+/* Selected work row */
+.svcs-build .build-work-row {
+  margin-top: 72px;
+  padding-top: 28px;
+  border-top: 0.5px solid rgba(255, 255, 255, 0.08);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 32px;
+  align-items: start;
+}
+.svcs-build .build-work-thumbs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.svcs-build .build-thumb {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.svcs-build .build-thumb-img {
+  aspect-ratio: 16 / 10;
+  border-radius: 10px;
+  border: 0.5px solid rgba(255, 255, 255, 0.10);
+  background:
+    radial-gradient(80% 60% at 50% 0%, rgba(93, 168, 156, 0.10) 0%, rgba(93, 168, 156, 0) 60%),
+    linear-gradient(165deg, #0c1416 0%, #0a1012 50%, #060a0c 100%);
+  isolation: isolate;
+  position: relative;
+  overflow: hidden;
+}
+.svcs-build .build-thumb-img::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(115deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 48px);
+  pointer-events: none;
+}
+.svcs-build .build-thumb-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+@media (max-width: 900px) {
+  .svcs-build .build-work-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .svcs-build .build-work-thumbs {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+/* ─── When custom software makes sense (qualifier grid) ───────────── */
+
+.svcs-build .build-when-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px 56px;
+  margin-top: 16px;
+}
+.svcs-build .build-when-item {
+  position: relative;
+  padding-left: 18px;
+}
+.svcs-build .build-when-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 1.5px;
+  background: var(--accent);
+  border-radius: 1px;
+  box-shadow: 0 0 8px rgba(93, 168, 156, 0.25);
+}
+.svcs-build .build-when-lead {
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  margin: 0 0 8px;
+  text-wrap: balance;
+}
+.svcs-build .build-when-body {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .svcs-build .build-when-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* ─── What you get (deliverables grid) ────────────────────────────── */
+
+.svcs-build .build-deliver-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px 48px;
+  margin-top: 16px;
+}
+.svcs-build .build-deliver-item {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  column-gap: 14px;
+  align-items: start;
+}
+.svcs-build .build-deliver-check {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(93, 168, 156, 0.12);
+  border: 0.5px solid rgba(93, 168, 156, 0.45);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3px;
+  color: var(--accent);
+}
+.svcs-build .build-deliver-check svg { width: 10px; height: 10px; }
+.svcs-build .build-deliver-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.svcs-build .build-deliver-title {
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 500;
+  font-size: 16.5px;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+}
+.svcs-build .build-deliver-body {
+  font-family: 'Inter', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .svcs-build .build-deliver-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+}
+
+/* ─── Scenarios (vertical numbered list) ──────────────────────────── */
+
+.svcs-build .build-scenarios {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+}
+.svcs-build .build-scenario {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 24px;
+  align-items: start;
+  padding: 28px 0;
+  border-top: 0.5px solid rgba(255, 255, 255, 0.10);
+}
+.svcs-build .build-scenario:first-child { border-top: 0; padding-top: 0; }
+.svcs-build .build-scenario-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.10em;
+  color: var(--accent);
+  padding-top: 4px;
+}
+.svcs-build .build-scenario-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.svcs-build .build-scenario-title {
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  margin: 0;
+  text-wrap: balance;
+}
+.svcs-build .build-scenario-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .svcs-build .build-scenario {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 22px 0;
+  }
+  .svcs-build .build-scenario-title { font-size: 19px; }
+}
+
+/* ─── FAQ accordion ───────────────────────────────────────────────── */
+
+.svcs-build .build-faq {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+}
+.svcs-build .build-faq-item {
+  border-top: 0.5px solid rgba(255, 255, 255, 0.10);
+}
+.svcs-build .build-faq-item:last-of-type {
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.10);
+}
+.svcs-build .build-faq-summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 22px 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: center;
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  transition: color 200ms ease;
+}
+.svcs-build .build-faq-summary::-webkit-details-marker { display: none; }
+.svcs-build .build-faq-summary:hover { color: var(--accent); }
+.svcs-build .build-faq-toggle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 0.5px solid rgba(93, 168, 156, 0.4);
+  background: rgba(93, 168, 156, 0.08);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex: 0 0 auto;
+}
+.svcs-build .build-faq-toggle::before,
+.svcs-build .build-faq-toggle::after {
+  content: '';
+  position: absolute;
+  background: var(--accent);
+  transition: transform 220ms ease;
+}
+.svcs-build .build-faq-toggle::before {
+  width: 10px; height: 1px;
+}
+.svcs-build .build-faq-toggle::after {
+  width: 1px; height: 10px;
+}
+.svcs-build .build-faq-item[open] .build-faq-toggle::after {
+  transform: scaleY(0);
+}
+.svcs-build .build-faq-body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.75);
+  padding: 0 0 22px;
+  margin: 0;
+  max-width: 60ch;
+}
+
+/* ─── Section spacing inside .svcs-build ──────────────────────────── */
+
+.svcs-build .section + .section {
+  /* Sections naturally have 120px vertical padding from the V2 .section
+     rule, so consecutive sections get 240px between content blocks. */
+}

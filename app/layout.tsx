@@ -16,6 +16,8 @@ import "../styles/cta-footer.css";
 import "../styles/services-page.css";
 // Services V2 page redesign. Scoped under .svcs-v2 so it only affects /services.
 import "../styles/services-v2.css";
+// Deep service page: /services/build (AI Software & Systems).
+import "../styles/services-build.css";
 // Dynamic motion: reveal animations, sticky nav, scroll indicator, hover, continuity
 import "../styles/dynamics.css";
 
