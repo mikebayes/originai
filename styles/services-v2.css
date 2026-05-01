@@ -36,7 +36,8 @@
      the floating HeroNav above the section. */
   min-height: calc(100vh - 160px);
   padding: 64px 56px 96px;
-  border-bottom: 0.5px solid rgba(255,255,255,0.06);
+  /* No border-bottom — was showing through the bridge's transparent
+     edges and appearing as a stray line above the "What we do" pill. */
   /* Flex centering so the H1 + sub stack sits vertically in the middle
      of the hero rather than packed against the top. */
   display: flex;
@@ -920,11 +921,15 @@
    the text gets a wider measure within the same card. */
 @media (max-width: 720px){
   .svcs-v2 .svc-card-body{
-    padding: 20px 16px 22px;
+    /* Tighter horizontal padding on mobile so text actually fills the
+       card width instead of leaving big margins on either side. */
+    padding: 20px 12px 22px;
     gap: 12px;
   }
   .svcs-v2 .svc-card-title{
-    font-size: 24px;
+    /* Bumped 24→26 on mobile so the title carries more visual weight
+       relative to the card width and reads as the dominant element. */
+    font-size: 26px;
     line-height: 1.22;
   }
   .svcs-v2 .svc-card-promise{
@@ -950,11 +955,21 @@
   isolation: isolate;
 }
 .svcs-v2 .hero-bridge::before{
-  content: ''; position: absolute; inset: 0; z-index: 0;
+  content: '';
+  position: absolute;
+  /* Centered strip rather than full-width gradient so there's clear
+     black space around the "What we do" pill on both desktop and
+     mobile. min() ensures the strip never gets wider than the viewport
+     minus a comfortable side margin. */
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0; bottom: 0;
+  width: min(640px, 100% - 96px);
+  z-index: 0;
+  pointer-events: none;
   background:
     radial-gradient(60% 100% at 50% 50%, rgba(93, 168, 156, 0.10) 0%, rgba(93, 168, 156, 0) 70%),
     radial-gradient(80% 70% at 50% 0%, rgba(19, 72, 54, 0.30) 0%, rgba(19, 72, 54, 0) 70%);
-  pointer-events: none;
 }
 .svcs-v2 .hero-bridge-inner{
   position: relative; z-index: 1;
@@ -1005,19 +1020,17 @@
 }
 
 @media (max-width: 700px){
-  /* Mobile bridge — keep the banner pill itself at its spec'd small
-     size, but add real space around it so it transitions in/out of the
-     surrounding sections instead of feeling packed against them. */
+  /* Mobile bridge — keep small and contained. The earlier 88/72
+     padding made the green gradient feel too tall on mobile. Now the
+     gradient is a contained strip (see .hero-bridge::before width) and
+     padding is tight around it. Breathing room before the trio header
+     comes from the trio's own padding-top below. */
   .svcs-v2 .hero-bridge{
-    /* Less aggressive negative margin on mobile — only a slight pull
-       into the hero's bottom, so the breathing room above the banner
-       actually reads as space. */
     margin-top: -12px;
-    padding: 88px 0 72px;
+    padding: 40px 0 24px;
   }
   .svcs-v2 .hero-bridge-inner{ gap: 16px; }
   .svcs-v2 .hb-label{ font-size: 10px; letter-spacing: 0.12em; }
-  /* Pill, dot, and gap — left at the desktop/spec defaults. */
 }
 
 /* ─── Customer Spotlight: layout for two-row right column ────────────
