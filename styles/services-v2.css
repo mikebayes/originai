@@ -874,3 +874,17 @@
     margin-top: 24px;
   }
 }
+
+/* Extra breathing room between the hero and the trio section. The
+   hero's 120px bottom padding plus the section's 120px top padding
+   wasn't reading as enough separation, especially since the hero ends
+   in a subtle border-line that immediately abuts the trio section's
+   eyebrow. Adds 64px more on desktop, 32px on mobile. */
+.svcs-v2 .s-hero + .section{
+  margin-top: 64px;
+}
+@media (max-width: 720px){
+  .svcs-v2 .s-hero + .section{
+    margin-top: 32px;
+  }
+}
