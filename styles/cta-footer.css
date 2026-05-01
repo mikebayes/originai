@@ -4,7 +4,7 @@
    panel treatment — large, centered, with a forest-green wash and the brand
    teal stroke. */
 
-.cta-stage { padding: 120px 0 0; }
+.cta-stage { padding: 120px 0 120px; }
 
 .cta-panel {
   position: relative;
@@ -101,7 +101,6 @@
   background: #03070a;
   border-top: 0.5px solid rgba(255,255,255,0.08);
   padding: 80px 0 32px;
-  margin-top: 120px;
   isolation: isolate;
 }
 .footer::before {
