@@ -277,11 +277,10 @@
 
 .svcs-v2 .dash{
   position: absolute;
-  /* dash-head row removed (its content moved into the corner pills),
-     so the dash content can use the full inset again. Top inset is a
-     bit larger (40px) to clear the corner pills, but the chart and
-     stats can occupy more vertical space than before. */
-  inset: 40px 22px 22px 22px;
+  /* Top inset 56px so the dashboard question ("Where are we losing
+     time this week?") has clear breathing room below the corner pills
+     above it. 40px was bumping the question right against them. */
+  inset: 56px 22px 22px 22px;
   z-index: 2;
   display: flex; flex-direction: column; gap: 12px;
   font-family: 'Inter Tight', sans-serif;
@@ -481,12 +480,24 @@
 .svcs-v2 .svc-card-title{
   font-family: 'Inter Tight', sans-serif; font-weight: 500;
   font-size: 22px; line-height: 1.25; letter-spacing: -0.005em;
-  color: var(--ink); margin: 0;
+  color: var(--ink);
+  /* Explicit margin: 0 to override V1 services-page.css unscoped
+     .svc-card-title { margin: 0 0 14px } leaking in. */
+  margin: 0;
 }
 .svcs-v2 .svc-card-promise{
   font-family: 'Inter', sans-serif;
   font-size: 14.5px; line-height: 1.55;
-  color: var(--ink-muted); margin: 0;
+  color: var(--ink-muted);
+  /* Explicit overrides for V1 services-page.css unscoped rule
+     leaking in:
+       margin: 0 0 22px       → reset to 0
+       flex: 1                → reset (V2 uses gap on the flex parent)
+       text-wrap: pretty      → wrap (greedy) so text fills the line
+                                width instead of balancing short lines */
+  margin: 0;
+  flex: 0 0 auto;
+  text-wrap: wrap;
 }
 .svcs-v2 .svc-card-foot{
   margin-top: auto; padding-top: 14px;
