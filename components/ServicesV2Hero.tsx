@@ -34,14 +34,10 @@ export default function ServicesV2Hero() {
             Modern software and end-to-end AI services. Designed, built, and run
             by senior development teams in Winnipeg.
           </p>
-          <div className="s-hero-actions">
-            <a href="/contact" className="pill pill-primary">
-              Book a discovery session<span className="arrow" aria-hidden="true">→</span>
-            </a>
-            <a href="#engage" className="pill pill-secondary">
-              How we engage
-            </a>
-          </div>
+          {/* Hero CTAs removed at Mike's direction. The page is long enough
+              that the engage section CTA + the bottom FinalCTA carry the
+              conversion path. Less visual noise up top, more weight on the
+              hero copy + diagram. */}
         </div>
 
         {/* Right rail — three-service strategy/build/operate card */}
