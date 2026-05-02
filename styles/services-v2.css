@@ -1291,3 +1291,34 @@
     z-index: 2;
   }
 }
+
+/* ─── Mobile section spacing pass ─────────────────────────────────────
+   Mike: on mobile the page felt cramped between sections. Specifically:
+     - bridge sits too tight against the hero above and the trio below
+     - sections (trio → engage → customer spotlight) feel pushed
+       against each other
+   Desktop spacing reads fine; this is mobile-only padding bumps.
+*/
+@media (max-width: 720px) {
+
+  /* Black space around the "What we do" bridge — without making the
+     banner itself bigger. Margin-top/bottom add space outside the
+     bridge box, padding stays compact inside. */
+  .svcs-v2 .hero-bridge {
+    margin-top: 24px;
+    margin-bottom: 24px;
+    padding: 40px 0 40px;
+  }
+
+  /* Generous section padding on mobile so consecutive sections breathe. */
+  .svcs-v2 .section { padding: 96px 0; }
+  .svcs-v2 .engage { padding: 96px 0; }
+
+  /* Extra gap between the engage section and the Customer Spotlight
+     section after it. Without this, the customer spotlight eyebrow
+     sits too close to the engage section's bottom edge. */
+  .svcs-v2 .engage + .section { margin-top: 32px; }
+
+  /* Slightly more breathing room between trio cards on mobile (was 16). */
+  .svcs-v2 .trio { gap: 24px; }
+}

@@ -67,7 +67,6 @@ export default function ServicesV2Hero() {
           </div>
           <div className="svc-diagram-foot">
             <span>Senior team · Winnipeg</span>
-            <span>One accountability line</span>
           </div>
         </aside>
       </div>
