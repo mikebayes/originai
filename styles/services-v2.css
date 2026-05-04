@@ -504,7 +504,12 @@
 }
 .svcs-v2 .svc-card-foot{
   margin-top: auto; padding-top: 14px;
-  display: flex; align-items: center; justify-content: space-between;
+  /* Stacked layout (link on top, anchor below) — applied at every
+     viewport width per Mike's request, not just mobile. The previous
+     space-between row layout couldn't hold longer link labels like
+     "Explore what we build" alongside the anchor on a single row,
+     and the new stacked layout reads cleaner everywhere. */
+  display: flex; flex-direction: column; align-items: flex-start; gap: 6px;
   border-top: 0.5px solid rgba(255,255,255,0.08);
 }
 .svcs-v2 .tlink{
