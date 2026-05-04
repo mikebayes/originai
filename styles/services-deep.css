@@ -185,16 +185,19 @@
   font-size: 16px; color: #fff; line-height: 1.4;
 }
 
-/* Hero → Intro fade band */
+/* Hero → Intro fade band. Stretched and smoothed so the transition
+   from forest-green hero to near-black intro reads as a gradual ease
+   rather than a hard band at 40% opacity. */
 .bp-fade-down {
   position: relative;
-  height: 180px;
-  margin-top: -120px;
+  height: 220px;
+  margin-top: -150px;
   pointer-events: none;
   background: linear-gradient(180deg,
     rgba(8, 35, 26, 0) 0%,
-    rgba(5, 18, 13, 0.85) 40%,
-    #050a08 90%,
+    rgba(8, 30, 22, 0.35) 28%,
+    rgba(5, 18, 13, 0.78) 62%,
+    #050a08 92%,
     #050a08 100%);
 }
 
@@ -1908,4 +1911,42 @@
 .bp-page--strategy .bp-cta-eyebrow .dot {
   background: var(--svc-accent);
   box-shadow: 0 0 12px rgba(150, 133, 96, 0.7);
+}
+
+/* Strategy page: shrink H1 max font so "Get clear on where AI fits."
+   stays on one line at desktop, matching the design file. The default
+   clamp(56px, 8.6vw, 132px) overflows; this ceiling at ~88px fits the
+   1200px wrap with the standard letter-spacing. */
+.bp-page--strategy .bp-hero-h1 {
+  font-size: clamp(48px, 6.4vw, 88px);
+  line-height: 1.02;
+}
+
+/* Strategy page: hero eyebrow ("AI Strategy & Training") uses brass
+   instead of the global teal so the eyebrow accent matches the
+   service signal and the design view. */
+.bp-page--strategy .bp-hero-eyebrow {
+  color: var(--svc-accent);
+}
+.bp-page--strategy .bp-hero-eyebrow .dot {
+  background: var(--svc-accent);
+  box-shadow: 0 0 10px rgba(150, 133, 96, 0.55);
+}
+.bp-page--strategy .bp-hero-eyebrow .bar {
+  background: var(--svc-accent);
+}
+
+/* Strategy page: nav active underline uses brass too, for consistency
+   with the rest of the brass service signal. The earlier .nav-links
+   a.active::after rule in the bp-page--strategy block sets it to teal;
+   override here. */
+.bp-page--strategy .bp-hero-shell .nav-links a.active::after {
+  background: var(--svc-accent);
+}
+
+/* Strategy page: nav mark "O" uses brass gradient instead of teal. */
+.bp-page--strategy .bp-hero-shell .nav-mark {
+  background: linear-gradient(135deg, var(--svc-accent) 0%, #6e6042 100%);
+  color: #1a1408;
+  box-shadow: 0 0 14px rgba(150, 133, 96, 0.32);
 }
