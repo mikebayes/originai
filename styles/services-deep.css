@@ -109,7 +109,7 @@
 
 .bp-hero {
   position: relative;
-  padding: 80px 0 140px;
+  padding: 140px 0 160px;
 }
 
 /* faint horizon line + grid wash */
@@ -192,21 +192,25 @@
   font-size: 16px; color: #fff; line-height: 1.4;
 }
 
-/* Hero → Intro fade band. Sits below the hero with a small overlap so
-   the rail content above stays fully readable, then ramps gradually
-   into the solid intro background. The previous spec geometry pulled
-   the dark portion of the gradient over the Engagement / Format /
-   Outputs row, washing out the white text. */
+/* Hero → Intro fade band.
+   Geometry: hero has 160px bottom padding below the rail; fade-down
+   pulls up 110px so its TOP edge sits 50px BELOW the rail content
+   (rail breathes clean), then the band extends 110px past the bottom
+   of the hero shell. The alpha curve stays near transparent through
+   the upper portion (rail-adjacent area), only ramping to mid-tone by
+   the time we cross the hero shell edge — that prevents both the
+   "wash over the rail" problem and the "hard cliff at the green/black
+   boundary" problem. */
 .bp-fade-down {
   position: relative;
   height: 220px;
-  margin-top: -40px;
+  margin-top: -110px;
   pointer-events: none;
   background: linear-gradient(180deg,
     rgba(8, 35, 26, 0) 0%,
-    rgba(8, 30, 22, 0.25) 30%,
-    rgba(5, 18, 13, 0.70) 60%,
-    #050a08 92%,
+    rgba(8, 30, 22, 0.12) 28%,
+    rgba(6, 22, 16, 0.55) 52%,
+    rgba(5, 14, 10, 0.92) 80%,
     #050a08 100%);
 }
 
