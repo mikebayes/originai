@@ -1966,43 +1966,12 @@
    The .bp-hero <section> has class="wrap bp-hero". The rule
    `.bp-page .wrap { padding: 0 56px }` (specificity 0,0,2,0) wins over
    the base `.bp-hero` selector (specificity 0,0,1,0) and silently
-   zeroes out top/bottom padding — making every change to .bp-hero
-   padding invisible. This is the same cascade bug we hit on the V2
-   /services page (task #99). Bump specificity here AND position after
-   the .bp-page .wrap rule so the vertical padding actually lands. */
+   zeroes out top/bottom padding. Bump specificity here AND position
+   after the .bp-page .wrap rule so the vertical padding actually
+   lands. */
 .bp-page .bp-hero {
   padding-top: 104px;
   padding-bottom: 320px;
-}
-
-/* Mobile: drop the hero top padding hard so the H1 sits in view
-   immediately after the nav, instead of pushing the headline below
-   the first viewport. Selector chained as `section.bp-hero` for
-   specificity (0,0,2,1) so it cleanly beats the `.bp-page .wrap`
-   rule (0,0,2,0) that sets padding: 0 56px and zeros out top/bottom. */
-@media (max-width: 720px) {
-  .bp-page section.bp-hero {
-    padding-top: 24px;
-    padding-bottom: 200px;
-  }
-
-  /* Hide the breadcrumb meta line ("← Services / AI Software & Systems"
-     + "01 / 03 — Build") on mobile — it's cramped at narrow widths and
-     the eyebrow below takes over as the section indicator. Desktop
-     keeps the meta as-is. */
-  .bp-page .bp-hero-meta { display: none; }
-
-  /* Restyle the eyebrow on mobile to match the services overview's
-     s-hero-eyebrow look: a short horizontal bar followed by the
-     section name in the page accent color, sitting just below the
-     nav. Hide the dot, reorder the bar to render BEFORE the text
-     using flex order, tighten the gap. */
-  .bp-page .bp-hero-eyebrow {
-    margin-bottom: 28px;
-    gap: 10px;
-  }
-  .bp-page .bp-hero-eyebrow .dot { display: none; }
-  .bp-page .bp-hero-eyebrow .bar { order: -1; }
 }
 
 /* ─── Per-page bp-work-grid column counts ───────────────────────────
@@ -2016,17 +1985,28 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-/* Strategy page: nav active underline uses brass too, for consistency
-   with the rest of the brass service signal. The earlier .nav-links
-   a.active::after rule in the bp-page--strategy block sets it to teal;
-   override here. */
-.bp-page--strategy .bp-hero-shell .nav-links a.active::after {
-  background: var(--svc-accent);
-}
+/* Mobile: drop the hero top padding hard so the H1 sits in view
+   immediately after the nav, instead of pushing the headline below
+   the first viewport. Selector chained as `section.bp-hero` for
+   specificity (0,0,2,1) so it cleanly beats the `.bp-page .wrap`
+   rule (0,0,2,0) that sets padding: 0 56px and zeros out top/bottom. */
+@media (max-width: 720px) {
+  .bp-page section.bp-hero {
+    padding-top: 24px;
+    padding-bottom: 200px;
+  }
 
-/* Strategy page: nav mark "O" uses brass gradient instead of teal. */
-.bp-page--strategy .bp-hero-shell .nav-mark {
-  background: linear-gradient(135deg, var(--svc-accent) 0%, #6e6042 100%);
-  color: #1a1408;
-  box-shadow: 0 0 14px rgba(150, 133, 96, 0.32);
+  /* Hide the breadcrumb meta line on mobile — it's cramped at narrow
+     widths and the eyebrow below takes over as the section indicator. */
+  .bp-page .bp-hero-meta { display: none; }
+
+  /* Restyle the eyebrow on mobile to match the services overview's
+     s-hero-eyebrow look: short horizontal bar followed by the section
+     name. Hide the dot, reorder the bar before the text. */
+  .bp-page .bp-hero-eyebrow {
+    margin-bottom: 28px;
+    gap: 10px;
+  }
+  .bp-page .bp-hero-eyebrow .dot { display: none; }
+  .bp-page .bp-hero-eyebrow .bar { order: -1; }
 }
