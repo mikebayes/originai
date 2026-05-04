@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Logo from "./Logo";
+import NavServicesDropdown from "./NavServicesDropdown";
+import NavServicesAccordion from "./NavServicesAccordion";
 
 /**
  * Hero nav.
@@ -53,7 +55,7 @@ export default function HeroNav() {
           <Logo />
         </a>
         <div className="nav-links">
-          <a href="/services">Services</a>
+          <NavServicesDropdown />
           <a href="/approach">Approach</a>
           <a href="/team">Team</a>
           <a href="/insights">Insights</a>
@@ -78,7 +80,7 @@ export default function HeroNav() {
         className={`hero-nav-drawer ${menuOpen ? "is-open" : ""}`}
         aria-hidden={!menuOpen}
       >
-        <a href="/services" onClick={closeMenu}>Services</a>
+        <NavServicesAccordion onLinkClick={closeMenu} />
         <a href="/approach" onClick={closeMenu}>Approach</a>
         <a href="/team" onClick={closeMenu}>Team</a>
         <a href="/insights" onClick={closeMenu}>Insights</a>

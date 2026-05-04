@@ -476,3 +476,206 @@ html, body {
   .hero-corner-right { left: 20px; right: 20px; bottom: 20px; }
   .hero-corner-right { display: none; }
 }
+
+
+/* ═════════════════════════════════════════════════════════════════════
+   NAV SERVICES DROPDOWN (desktop) — used inside .nav-links and
+   .sticky-nav-links. Hover on the parent reveals a panel with the
+   three deep service pages. The trigger anchor still goes to /services
+   on click. */
+
+.nav-services {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-services-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.95);
+  text-decoration: none;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.55);
+  transition: color 150ms ease-out;
+  font: inherit;
+}
+.nav-services-trigger:hover { color: #fff; }
+
+.nav-services-chevron {
+  display: inline-flex;
+  align-items: center;
+  opacity: 0.7;
+  transition: transform 200ms ease-out;
+}
+.nav-services.is-open .nav-services-chevron {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+/* The hover bridge — a transparent 8px tall band between the trigger
+   and the panel — so moving the cursor down doesn't trip the
+   onMouseLeave and snap the panel shut mid-traversal. */
+.nav-services::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 12px;
+  pointer-events: none;
+}
+.nav-services.is-open::after { pointer-events: auto; }
+
+.nav-services-panel {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  min-width: 340px;
+  padding: 10px;
+  background: rgba(8, 12, 11, 0.94);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
+  border: 0.5px solid rgba(255, 255, 255, 0.10);
+  border-radius: 14px;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 30px 60px -10px rgba(0, 0, 0, 0.55);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 180ms ease-out,
+    transform 180ms ease-out,
+    visibility 0s linear 180ms;
+  z-index: 50;
+}
+.nav-services.is-open .nav-services-panel {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+  transition:
+    opacity 180ms ease-out,
+    transform 180ms ease-out,
+    visibility 0s linear 0s;
+}
+
+.nav-services-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #fff;
+  transition: background 150ms ease-out;
+}
+.nav-services-item:hover {
+  background: rgba(93, 168, 156, 0.10);
+}
+
+.nav-services-item-title {
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.005em;
+  color: #fff;
+}
+
+.nav-services-item-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.55);
+  transition: color 150ms ease-out;
+}
+.nav-services-item:hover .nav-services-item-desc {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+
+/* ═════════════════════════════════════════════════════════════════════
+   NAV SERVICES ACCORDION (mobile) — inside .hero-nav-drawer and
+   .sticky-nav-drawer. Tap the chevron to expand the three sub-items;
+   tapping "Services" itself still navigates to /services. */
+
+.nav-services-mobile {
+  width: 100%;
+}
+
+.nav-services-mobile-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* The main link inside the row inherits the drawer anchor styling
+   (.hero-nav-drawer a:not(.pill) / .sticky-nav-drawer a:not(.pill)),
+   but flex: 1 makes sure it takes the remaining width so the toggle
+   button sits at the right edge. */
+.nav-services-mobile-main {
+  flex: 1;
+}
+
+.nav-services-mobile-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-right: -10px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.85);
+}
+.nav-services-mobile-toggle:hover { color: #fff; }
+
+.nav-services-mobile-toggle .nav-services-chevron {
+  transition: transform 220ms ease-out;
+}
+.nav-services-mobile.is-open .nav-services-mobile-toggle .nav-services-chevron {
+  transform: rotate(180deg);
+}
+
+/* Accordion expand/collapse via grid-template-rows trick — animates
+   from 0 to auto height without a JS-measured value. */
+.nav-services-mobile-sub {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 240ms ease-out;
+  width: 100%;
+}
+.nav-services-mobile.is-open .nav-services-mobile-sub {
+  grid-template-rows: 1fr;
+}
+.nav-services-mobile-sub > * {
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Sub-link styling. Override the drawer's default a:not(.pill) styles
+   so sub-items read as smaller, indented children with a teal accent
+   line on the left rather than the same weight as top-level items. */
+.nav-services-mobile-sub a {
+  display: block;
+  padding: 10px 0 10px 16px;
+  margin-left: 4px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.78);
+  text-decoration: none;
+  border-bottom: 0;
+  border-left: 1.5px solid rgba(93, 168, 156, 0.4);
+  width: auto;
+}
+.nav-services-mobile-sub a:hover { color: #fff; }
+.nav-services-mobile-sub a:first-child { padding-top: 14px; }
+.nav-services-mobile-sub a:last-child { padding-bottom: 14px; }

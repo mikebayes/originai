@@ -1,0 +1,80 @@
+"use client";
+
+import { useState } from "react";
+
+/**
+ * Desktop hover dropdown for the Services nav item.
+ *
+ * Hovering the parent reveals a panel below it with the three deep
+ * service pages (Build, Strategy, Managed), each with a one-line
+ * description so visitors can decide where to go without first
+ * landing on the /services overview. Clicking "Services" itself
+ * still navigates to /services — the panel is purely additive.
+ *
+ * Used in both HeroNav and StickyNav. Mobile uses the sibling
+ * NavServicesAccordion component instead (this one is hidden on
+ * narrow viewports via CSS).
+ */
+export default function NavServicesDropdown() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div
+      className={`nav-services ${isOpen ? "is-open" : ""}`}
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
+      onFocus={() => setIsOpen(true)}
+      onBlur={(e) => {
+        // Close only when focus leaves the entire dropdown subtree
+        if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+          setIsOpen(false);
+        }
+      }}
+    >
+      <a
+        href="/services"
+        className="nav-services-trigger"
+        aria-haspopup="true"
+        aria-expanded={isOpen}
+      >
+        Services
+        <span className="nav-services-chevron" aria-hidden="true">
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
+            <path
+              d="M1 1L5 5L9 1"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </span>
+      </a>
+
+      <div
+        className="nav-services-panel"
+        role="menu"
+        aria-hidden={!isOpen}
+      >
+        <a href="/services/build" className="nav-services-item" role="menuitem">
+          <span className="nav-services-item-title">AI Software &amp; Systems</span>
+          <span className="nav-services-item-desc">
+            Custom AI software, internal apps, and AI-enabled websites.
+          </span>
+        </a>
+        <a href="/services/strategy" className="nav-services-item" role="menuitem">
+          <span className="nav-services-item-title">AI Strategy &amp; Training</span>
+          <span className="nav-services-item-desc">
+            Leadership advisory, training, and use-case discovery.
+          </span>
+        </a>
+        <a href="/services/managed" className="nav-services-item" role="menuitem">
+          <span className="nav-services-item-title">Managed AI</span>
+          <span className="nav-services-item-desc">
+            Ongoing development and support for what we build with you.
+          </span>
+        </a>
+      </div>
+    </div>
+  );
+}

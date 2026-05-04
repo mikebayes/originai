@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Logo from "./Logo";
+import NavServicesDropdown from "./NavServicesDropdown";
+import NavServicesAccordion from "./NavServicesAccordion";
 
 /**
  * Compact sticky nav.
@@ -60,7 +62,7 @@ export default function StickyNav() {
           <Logo />
         </a>
         <nav className="sticky-nav-links" aria-label="Primary">
-          <a href="/services">Services</a>
+          <NavServicesDropdown />
           <a href="/approach">Approach</a>
           <a href="/team">Team</a>
           <a href="/insights">Insights</a>
@@ -88,7 +90,7 @@ export default function StickyNav() {
         className="sticky-nav-drawer"
         aria-hidden={!menuOpen}
       >
-        <a href="/services" onClick={closeMenu}>Services</a>
+        <NavServicesAccordion onLinkClick={closeMenu} />
         <a href="/approach" onClick={closeMenu}>Approach</a>
         <a href="/team" onClick={closeMenu}>Team</a>
         <a href="/insights" onClick={closeMenu}>Insights</a>
