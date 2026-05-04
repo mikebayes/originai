@@ -821,7 +821,7 @@
      low-opacity brass glow tucked into one corner as a subtle service signal.
      Brass softened ~20%; teal lift kept. */
   background:
-    radial-gradient(38% 50% at 78% 18%, rgba(184, 153, 104, 0.055) 0%, rgba(184, 153, 104, 0) 70%),
+    radial-gradient(38% 50% at 78% 18%, rgba(150, 133, 96, 0.055) 0%, rgba(184, 153, 104, 0) 70%),
     radial-gradient(50% 60% at 18% 30%, rgba(93, 168, 156, 0.20) 0%, rgba(93, 168, 156, 0) 65%),
     radial-gradient(40% 50% at 82% 85%, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 65%),
     linear-gradient(180deg, #134836 0%, #0e3528 55%, #08231a 100%);
@@ -877,10 +877,10 @@
   /* Brass accent — used SPARINGLY for service signal,
      never for full page atmosphere. Muted, never orange/yellow.
      Tuned ~20% softer than first pass. */
-  --svc-accent: #B89968;          /* slightly desaturated brass */
-  --svc-accent-soft: #C9A86A;     /* hover lift */
-  --svc-glow: rgba(184, 153, 104, 0.08);
-  --svc-glow-strong: rgba(184, 153, 104, 0.24);
+  --svc-accent: #968560;          /* slightly desaturated brass */
+  --svc-accent-soft: #A89570;     /* hover lift */
+  --svc-glow: rgba(150, 133, 96, 0.08);
+  --svc-glow-strong: rgba(150, 133, 96, 0.24);
   --svc-rule: rgba(184, 153, 104, 0.22);
 }
 
@@ -948,7 +948,7 @@
 
 
 .bp-program-card:hover {
-  border-color: rgba(184,153,104,0.24);
+  border-color: rgba(150,133,96,0.24);
   transform: translateY(-2px);
 }
 
@@ -1891,3 +1891,9 @@
 
 .bp-page .f-bottom-links a:hover { color: var(--ink); }
 
+/* Strategy page: italic H1 accent uses the brass token (#968560)
+   instead of the global teal. Switches the word "fits." in
+   "Get clear on where AI fits." to brass. */
+.bp-page--strategy .bp-hero-h1 .accent {
+  color: var(--svc-accent);
+}
