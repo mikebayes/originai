@@ -511,6 +511,11 @@
   display: inline-flex; align-items: center; gap: 8px;
   font-family: 'Inter', sans-serif; font-size: 13.5px; font-weight: 500;
   color: var(--accent); text-decoration: none;
+  /* Keep the link label and arrow on a single line — without this,
+     longer labels like "Explore what we build" wrap and push the
+     arrow onto a second line, breaking horizontal alignment with the
+     /services/* anchor on the right side of the card foot. */
+  white-space: nowrap;
   transition: color 150ms ease-out;
 }
 .svcs-v2 .tlink:hover{ color: var(--accent-hover); }
@@ -816,7 +821,10 @@
 
 @media (max-width: 720px) {
 
-  .svcs-v2 .wrap{ padding: 0 16px; }
+  /* Bumped 16→24 so the trio cards (and other content) have a clearly
+     visible gap from the viewport edges on phones, instead of running
+     edge-to-edge. */
+  .svcs-v2 .wrap{ padding: 0 24px; }
 
   /* Engagement-model diagram on the hero — tighten internal padding,
      loosen the rigid 84px first column so text can shrink to fit, and
@@ -900,7 +908,9 @@
 /* Catch-all on really narrow phones: prevent any horizontal page scroll
    by clipping anything that escapes .svcs-v2's box. */
 @media (max-width: 480px) {
-  .svcs-v2 .wrap{ padding: 0 14px; }
+  /* Bumped 14→20 so even on very narrow phones the trio cards keep
+     a visible gap from each viewport edge instead of feeling 100% wide. */
+  .svcs-v2 .wrap{ padding: 0 20px; }
   .svcs-v2 .s-hero-actions{ flex-wrap: wrap; gap: 10px; }
   .svcs-v2 .s-hero-actions .pill{ width: 100%; justify-content: center; }
 }
