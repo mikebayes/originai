@@ -35,7 +35,10 @@
 
 /* ─── Page chrome ─────────────────────────────────────────── */
 .bp-page {
-  background: #000;
+  /* Match the intro section's color so when the hero fades out at its
+     bottom there's no green-vs-black step between the hero shell and
+     whatever sits below it. */
+  background: #050a08;
   min-height: 100vh;
   isolation: isolate;
   overflow: clip;
@@ -50,12 +53,22 @@
 /* ═════════════════════════════════════════════════════════════
    HERO — gradient backdrop, type-led, no abstract art
 ═════════════════════════════════════════════════════════════ */
-/* Full-bleed forest-green hero shell — nav + hero */
+/* Full-bleed forest-green hero shell — nav + hero.
+   Top layer (listed first, painted last) is a bottom-fade that resolves
+   the green into the intro color (#050a08) by the bottom edge of the
+   shell. With .bp-page's background also set to #050a08, the boundary
+   between hero and what follows becomes invisible — no color step, no
+   hard cliff. */
 .bp-hero-shell {
   position: relative;
   isolation: isolate;
   overflow: hidden;
   background:
+    linear-gradient(to bottom,
+      transparent 0%,
+      transparent 65%,
+      rgba(5, 10, 8, 0.55) 85%,
+      #050a08 100%),
     radial-gradient(50% 60% at 18% 30%, rgba(93, 168, 156, 0.18) 0%, rgba(93, 168, 156, 0) 65%),
     radial-gradient(40% 50% at 82% 85%, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 65%),
     linear-gradient(180deg, #134836 0%, #0e3528 55%, #08231a 100%);
@@ -192,26 +205,17 @@
   font-size: 16px; color: #fff; line-height: 1.4;
 }
 
-/* Hero → Intro fade band.
-   Geometry: hero has 160px bottom padding below the rail; fade-down
-   pulls up 110px so its TOP edge sits 50px BELOW the rail content
-   (rail breathes clean), then the band extends 110px past the bottom
-   of the hero shell. The alpha curve stays near transparent through
-   the upper portion (rail-adjacent area), only ramping to mid-tone by
-   the time we cross the hero shell edge — that prevents both the
-   "wash over the rail" problem and the "hard cliff at the green/black
-   boundary" problem. */
+/* Hero → Intro fade band. Now mostly redundant since the hero shell
+   itself fades its green to the intro color at its bottom edge and
+   .bp-page's background matches. Keeping a thin spacer here so the
+   intro section has a small breath of clean intro color before its
+   own padding kicks in, but no gradient overlay is needed. */
 .bp-fade-down {
   position: relative;
-  height: 220px;
-  margin-top: -110px;
+  height: 40px;
+  margin-top: 0;
   pointer-events: none;
-  background: linear-gradient(180deg,
-    rgba(8, 35, 26, 0) 0%,
-    rgba(8, 30, 22, 0.12) 28%,
-    rgba(6, 22, 16, 0.55) 52%,
-    rgba(5, 14, 10, 0.92) 80%,
-    #050a08 100%);
+  background: transparent;
 }
 
 /* ═════════════════════════════════════════════════════════════
