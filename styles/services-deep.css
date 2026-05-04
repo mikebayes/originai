@@ -1959,6 +1959,19 @@
   background: var(--svc-accent);
 }
 
+/* ─── Deep service hero vertical padding ────────────────────────────
+   The .bp-hero <section> has class="wrap bp-hero". The rule
+   `.bp-page .wrap { padding: 0 56px }` (specificity 0,0,2,0) wins over
+   the base `.bp-hero` selector (specificity 0,0,1,0) and silently
+   zeroes out top/bottom padding — making every change to .bp-hero
+   padding invisible. This is the same cascade bug we hit on the V2
+   /services page (task #99). Bump specificity here AND position after
+   the .bp-page .wrap rule so the vertical padding actually lands. */
+.bp-page .bp-hero {
+  padding-top: 260px;
+  padding-bottom: 320px;
+}
+
 /* Strategy page: nav active underline uses brass too, for consistency
    with the rest of the brass service signal. The earlier .nav-links
    a.active::after rule in the bp-page--strategy block sets it to teal;
