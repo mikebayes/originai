@@ -1,4 +1,4 @@
-import DeepServiceNav from "./DeepServiceNav";
+import HeroNav from "./HeroNav";
 
 /**
  * /services/managed — Managed AI deep service page.
@@ -15,7 +15,7 @@ export default function ServicesManagedPage() {
       <div className="bp-grain" aria-hidden="true" />
 
       <div className="bp-hero-shell">
-        <DeepServiceNav />
+        <HeroNav />
 
         <section className="wrap bp-hero" data-screen-label="Managed hero">
           <div className="bp-hero-meta">

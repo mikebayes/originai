@@ -1,4 +1,4 @@
-import DeepServiceNav from "./DeepServiceNav";
+import HeroNav from "./HeroNav";
 
 /**
  * /services/strategy — AI Strategy & Training deep service page.
@@ -15,7 +15,7 @@ export default function ServicesStrategyPage() {
       <div className="bp-grain" aria-hidden="true" />
 
       <div className="bp-hero-shell">
-        <DeepServiceNav />
+        <HeroNav />
 
         <section className="wrap bp-hero" data-screen-label="Strategy hero">
           <div className="bp-hero-meta">

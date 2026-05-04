@@ -1,4 +1,4 @@
-import DeepServiceNav from "./DeepServiceNav";
+import HeroNav from "./HeroNav";
 
 /**
  * /services/build — full page from Claude Design spec.
@@ -17,7 +17,7 @@ export default function ServicesBuildPage() {
 
       {/* HERO SHELL (full-bleed forest gradient: nav + hero) */}
       <div className="bp-hero-shell">
-        <DeepServiceNav />
+        <HeroNav />
 
         <section className="wrap bp-hero" data-screen-label="Build hero">
           <div className="bp-hero-meta">
