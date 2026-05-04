@@ -1991,14 +1991,18 @@
    specificity (0,0,2,1) so it cleanly beats the `.bp-page .wrap`
    rule (0,0,2,0) that sets padding: 0 56px and zeros out top/bottom. */
 @media (max-width: 720px) {
+  /* !important applied below because some cascade interaction we
+     haven't been able to pin down was leaving the desktop padding
+     active even when this @media block was clearly being parsed
+     (other rules in the block were working). Force the issue. */
   .bp-page section.bp-hero {
-    padding-top: 24px;
-    padding-bottom: 200px;
+    padding-top: 24px !important;
+    padding-bottom: 200px !important;
   }
 
   /* Hide the breadcrumb meta line on mobile — it's cramped at narrow
      widths and the eyebrow below takes over as the section indicator. */
-  .bp-page .bp-hero-meta { display: none; }
+  .bp-page .bp-hero-meta { display: none !important; }
 
   /* Restyle the eyebrow on mobile to match the services overview's
      s-hero-eyebrow look: short horizontal bar followed by the section
