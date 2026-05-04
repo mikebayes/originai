@@ -1968,7 +1968,7 @@
    /services page (task #99). Bump specificity here AND position after
    the .bp-page .wrap rule so the vertical padding actually lands. */
 .bp-page .bp-hero {
-  padding-top: 130px;
+  padding-top: 104px;
   padding-bottom: 320px;
 }
 
