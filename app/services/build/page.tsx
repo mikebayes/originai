@@ -1,11 +1,5 @@
-﻿import type { Metadata } from "next";
-import ServicesBuildHero from "@/components/ServicesBuildHero";
-import ServicesBuildManifesto from "@/components/ServicesBuildManifesto";
-import ServicesBuildWhat from "@/components/ServicesBuildWhat";
-import ServicesBuildWhen from "@/components/ServicesBuildWhen";
-import ServicesBuildDeliverables from "@/components/ServicesBuildDeliverables";
-import ServicesBuildScenarios from "@/components/ServicesBuildScenarios";
-import ServicesBuildFAQ from "@/components/ServicesBuildFAQ";
+import type { Metadata } from "next";
+import ServicesBuildPage from "@/components/ServicesBuildPage";
 import FinalCTA from "@/components/FinalCTA";
 
 export const metadata: Metadata = {
@@ -15,18 +9,10 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.originai.ca/services/build" },
 };
 
-export default function ServicesBuildPage() {
+export default function BuildRoute() {
   return (
     <main>
-      <div className="svcs-v2 svcs-build">
-        <ServicesBuildHero />
-        <ServicesBuildManifesto />
-        <ServicesBuildWhat />
-        <ServicesBuildWhen />
-        <ServicesBuildDeliverables />
-        <ServicesBuildScenarios />
-        <ServicesBuildFAQ />
-      </div>
+      <ServicesBuildPage />
       <FinalCTA />
     </main>
   );
