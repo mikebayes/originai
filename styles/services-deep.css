@@ -1975,15 +1975,34 @@
   padding-bottom: 320px;
 }
 
-/* Mobile: drop the hero top padding hard so the H1 ("Get clear on
-   where AI fits.", "Considered, then shipped.", "Keep improving
-   what you've built.") sits in view immediately after the nav,
-   instead of pushing the headline below the first viewport. */
+/* Mobile: drop the hero top padding hard so the H1 sits in view
+   immediately after the nav, instead of pushing the headline below
+   the first viewport. Selector chained as `section.bp-hero` for
+   specificity (0,0,2,1) so it cleanly beats the `.bp-page .wrap`
+   rule (0,0,2,0) that sets padding: 0 56px and zeros out top/bottom. */
 @media (max-width: 720px) {
-  .bp-page .bp-hero {
-    padding-top: 32px;
+  .bp-page section.bp-hero {
+    padding-top: 24px;
     padding-bottom: 200px;
   }
+
+  /* Hide the breadcrumb meta line ("← Services / AI Software & Systems"
+     + "01 / 03 — Build") on mobile — it's cramped at narrow widths and
+     the eyebrow below takes over as the section indicator. Desktop
+     keeps the meta as-is. */
+  .bp-page .bp-hero-meta { display: none; }
+
+  /* Restyle the eyebrow on mobile to match the services overview's
+     s-hero-eyebrow look: a short horizontal bar followed by the
+     section name in the page accent color, sitting just below the
+     nav. Hide the dot, reorder the bar to render BEFORE the text
+     using flex order, tighten the gap. */
+  .bp-page .bp-hero-eyebrow {
+    margin-bottom: 28px;
+    gap: 10px;
+  }
+  .bp-page .bp-hero-eyebrow .dot { display: none; }
+  .bp-page .bp-hero-eyebrow .bar { order: -1; }
 }
 
 /* ─── Per-page bp-work-grid column counts ───────────────────────────
