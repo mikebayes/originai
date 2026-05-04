@@ -313,10 +313,10 @@
 
 .bp-work-grid {
   display: grid;
-  /* Spec uses 3 columns. Was incorrectly set to 4, which produced the
-     4-on-top / 2-on-bottom orphan layout for the managed page's six
-     monthly-scope cards. */
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  /* Default 4 columns — matches Build page's 8 categories (4×2 grid).
+     Strategy and Managed each have 6 cards and override to 3 columns
+     in their scoped rules below so they get a clean 3×2 fit. */
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1px;
   background: rgba(255,255,255,0.08);
   border: 0.5px solid rgba(255,255,255,0.08);
@@ -1973,6 +1973,17 @@
 .bp-page .bp-hero {
   padding-top: 104px;
   padding-bottom: 320px;
+}
+
+/* ─── Per-page bp-work-grid column counts ───────────────────────────
+   Card counts differ per deep service page, so the grid layout has to
+   match the content count to avoid orphan rows:
+   - Build: 8 categories → 4 columns (default)
+   - Strategy: 6 work areas → 3 columns
+   - Managed: 6 monthly-scope items → 3 columns */
+.bp-page--strategy .bp-work-grid,
+.bp-page--managed .bp-work-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 /* Strategy page: nav active underline uses brass too, for consistency
