@@ -55,15 +55,21 @@ export default function NavServicesAccordion({ onLinkClick }: Props) {
         </button>
       </div>
       <div className="nav-services-mobile-sub" aria-hidden={!isOpen}>
-        <a href="/services/build" onClick={handleSubLinkClick}>
-          AI Software &amp; Systems
-        </a>
-        <a href="/services/strategy" onClick={handleSubLinkClick}>
-          AI Strategy &amp; Training
-        </a>
-        <a href="/services/managed" onClick={handleSubLinkClick}>
-          Managed AI
-        </a>
+        {/* Inner wrapper is required for the grid-template-rows: 0fr→1fr
+            accordion technique. With multiple direct children, each gets
+            its own auto-sized row and the collapse never reaches zero
+            height. A single inner element collapses cleanly. */}
+        <div className="nav-services-mobile-sub-inner">
+          <a href="/services/build" onClick={handleSubLinkClick}>
+            AI Software &amp; Systems
+          </a>
+          <a href="/services/strategy" onClick={handleSubLinkClick}>
+            AI Strategy &amp; Training
+          </a>
+          <a href="/services/managed" onClick={handleSubLinkClick}>
+            Managed AI
+          </a>
+        </div>
       </div>
     </div>
   );

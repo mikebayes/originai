@@ -645,7 +645,11 @@ html, body {
 }
 
 /* Accordion expand/collapse via grid-template-rows trick — animates
-   from 0 to auto height without a JS-measured value. */
+   from 0 to auto height without a JS-measured value. The inner wrapper
+   (.nav-services-mobile-sub-inner) is required: with multiple direct
+   children inside the grid container, each gets its own auto row and
+   the collapse never reaches zero. With a single inner wrapper, the
+   one row collapses cleanly. */
 .nav-services-mobile-sub {
   display: grid;
   grid-template-rows: 0fr;
@@ -655,17 +659,22 @@ html, body {
 .nav-services-mobile.is-open .nav-services-mobile-sub {
   grid-template-rows: 1fr;
 }
-.nav-services-mobile-sub > * {
+.nav-services-mobile-sub-inner {
   min-height: 0;
   overflow: hidden;
+  /* Reserve a small top buffer so the first sub-item doesn't tuck
+     directly against the main row's bottom border when expanded. */
+  padding-top: 4px;
 }
 
 /* Sub-link styling. Override the drawer's default a:not(.pill) styles
    so sub-items read as smaller, indented children with a teal accent
    line on the left rather than the same weight as top-level items. */
-.nav-services-mobile-sub a {
+.nav-services-mobile-sub-inner a {
   display: block;
-  padding: 10px 0 10px 16px;
+  /* Padding-left bumped from 16 to 22 so there's a clearer gap
+     between the teal accent line on the left edge and the link text. */
+  padding: 10px 0 10px 22px;
   margin-left: 4px;
   font-family: 'Inter', sans-serif;
   font-size: 16px;
@@ -676,6 +685,6 @@ html, body {
   border-left: 1.5px solid rgba(93, 168, 156, 0.4);
   width: auto;
 }
-.nav-services-mobile-sub a:hover { color: #fff; }
-.nav-services-mobile-sub a:first-child { padding-top: 14px; }
-.nav-services-mobile-sub a:last-child { padding-bottom: 14px; }
+.nav-services-mobile-sub-inner a:hover { color: #fff; }
+.nav-services-mobile-sub-inner a:first-child { padding-top: 12px; }
+.nav-services-mobile-sub-inner a:last-child { padding-bottom: 14px; }
