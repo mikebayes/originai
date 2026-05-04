@@ -792,7 +792,12 @@
   .svcs-v2 .trio{
     grid-template-columns: 1fr;
     gap: 16px;
-    max-width: 480px;
+    /* On phones the cards previously rendered visually edge-to-edge
+       even with the wrap's horizontal padding. Forcing the trio's
+       max-width to leave a guaranteed 24px gap on each viewport edge
+       (calc(100% - 48px)) regardless of which breakpoint applies, and
+       ALSO clamping at 480px on tablets where space allows. */
+    max-width: min(480px, calc(100% - 48px));
     margin-left: auto;
     margin-right: auto;
   }
