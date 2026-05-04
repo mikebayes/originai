@@ -102,7 +102,10 @@
 
 .bp-hero {
   position: relative;
-  padding: 140px 0 220px;
+  /* Spec uses 40px top, but the spec's nav has 24px top + 24px bottom
+     padding while HeroNav has 28px + 0; bumping top here so the meta
+     line clears HeroNav by the same effective gap as the design view. */
+  padding: 120px 0 130px;
 }
 
 /* faint horizon line + grid wash */
@@ -185,19 +188,21 @@
   font-size: 16px; color: #fff; line-height: 1.4;
 }
 
-/* Hero → Intro fade band. Stretched and smoothed so the transition
-   from forest-green hero to near-black intro reads as a gradual ease
-   rather than a hard band at 40% opacity. */
+/* Hero → Intro fade band. Restored to design-spec geometry: the band
+   overlaps the bottom 120px of the hero so the dark wash starts inside
+   the hero (where the rail breathes ~10px below the rail border line)
+   and resolves into the black intro 60px below the hero shell. Pulling
+   margin-top back to -60 made the bottom of the rail feel chopped off
+   into a hard black floor. */
 .bp-fade-down {
   position: relative;
-  height: 220px;
-  margin-top: -60px;
+  height: 180px;
+  margin-top: -120px;
   pointer-events: none;
   background: linear-gradient(180deg,
     rgba(8, 35, 26, 0) 0%,
-    rgba(8, 30, 22, 0.35) 32%,
-    rgba(5, 18, 13, 0.78) 65%,
-    #050a08 92%,
+    rgba(5, 18, 13, 0.85) 40%,
+    #050a08 90%,
     #050a08 100%);
 }
 
