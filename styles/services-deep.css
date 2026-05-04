@@ -1975,6 +1975,17 @@
   padding-bottom: 320px;
 }
 
+/* Mobile: drop the hero top padding hard so the H1 ("Get clear on
+   where AI fits.", "Considered, then shipped.", "Keep improving
+   what you've built.") sits in view immediately after the nav,
+   instead of pushing the headline below the first viewport. */
+@media (max-width: 720px) {
+  .bp-page .bp-hero {
+    padding-top: 32px;
+    padding-bottom: 200px;
+  }
+}
+
 /* ─── Per-page bp-work-grid column counts ───────────────────────────
    Card counts differ per deep service page, so the grid layout has to
    match the content count to avoid orphan rows:

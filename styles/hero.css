@@ -127,7 +127,14 @@ html, body {
 /* ─────────────────────────  NAV (floating)  ───────────────────────── */
 .hero-nav {
   position: relative;
-  z-index: 10;
+  /* Bumped 10→30 so the Services dropdown panel (positioned inside
+     .hero-nav's stacking context) renders above .hero-content (also
+     z-index 10). At equal z-index, DOM order had hero-content painting
+     on top, which made the dropdown panel visually obscured — and
+     because mouseenter/leave follow visual stacking, hovering into
+     the panel area was triggering hover on hero-content (not a
+     descendant of .nav-services), causing the panel to snap shut. */
+  z-index: 30;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -667,14 +674,17 @@ html, body {
   padding-top: 4px;
 }
 
-/* Sub-link styling. Override the drawer's default a:not(.pill) styles
-   so sub-items read as smaller, indented children with a teal accent
-   line on the left rather than the same weight as top-level items. */
-.nav-services-mobile-sub-inner a {
+/* Sub-link styling. Scoped under the drawer parents so specificity
+   beats the drawer's own `a:not(.pill)` rule (0,0,2,1) — without
+   this scope, the drawer rule's `padding: 12px 0` was overriding
+   our padding-left and pushing the link text flush against the
+   teal accent line. */
+.hero-nav-drawer .nav-services-mobile-sub-inner a,
+.sticky-nav-drawer .nav-services-mobile-sub-inner a {
   display: block;
-  /* Padding-left bumped from 16 to 22 so there's a clearer gap
-     between the teal accent line on the left edge and the link text. */
-  padding: 10px 0 10px 22px;
+  /* 28px padding-left = clear visible gap between the teal accent
+     line and the start of the link text. */
+  padding: 10px 0 10px 28px;
   margin-left: 4px;
   font-family: 'Inter', sans-serif;
   font-size: 16px;
@@ -685,6 +695,9 @@ html, body {
   border-left: 1.5px solid rgba(93, 168, 156, 0.4);
   width: auto;
 }
-.nav-services-mobile-sub-inner a:hover { color: #fff; }
-.nav-services-mobile-sub-inner a:first-child { padding-top: 12px; }
-.nav-services-mobile-sub-inner a:last-child { padding-bottom: 14px; }
+.hero-nav-drawer .nav-services-mobile-sub-inner a:hover,
+.sticky-nav-drawer .nav-services-mobile-sub-inner a:hover { color: #fff; }
+.hero-nav-drawer .nav-services-mobile-sub-inner a:first-child,
+.sticky-nav-drawer .nav-services-mobile-sub-inner a:first-child { padding-top: 12px; }
+.hero-nav-drawer .nav-services-mobile-sub-inner a:last-child,
+.sticky-nav-drawer .nav-services-mobile-sub-inner a:last-child { padding-bottom: 14px; }

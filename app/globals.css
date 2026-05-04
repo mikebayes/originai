@@ -13,6 +13,16 @@ html, body {
   max-width: 100%;
 }
 
+/* Reserve space for the vertical scrollbar so the viewport width is
+   identical between long pages (which have a scrollbar) and short
+   pages (which might not). Without this, nav-links shift ~17px to
+   the right on shorter pages because the page is wider when no
+   scrollbar is present. Modern browsers (Chrome/Firefox/Safari) all
+   support this. */
+html {
+  scrollbar-gutter: stable;
+}
+
 /* Reset margin/padding on common elements that might receive default browser styles */
 h1, h2, h3, h4, h5, h6, p, ul, ol, li, figure, blockquote {
   margin: 0;
