@@ -313,7 +313,10 @@
 
 .bp-work-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  /* Spec uses 3 columns. Was incorrectly set to 4, which produced the
+     4-on-top / 2-on-bottom orphan layout for the managed page's six
+     monthly-scope cards. */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1px;
   background: rgba(255,255,255,0.08);
   border: 0.5px solid rgba(255,255,255,0.08);
