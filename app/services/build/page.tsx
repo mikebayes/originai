@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicesBuildPage from "@/components/ServicesBuildPage";
-import FinalCTA from "@/components/FinalCTA";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "AI Software & Systems | Origin AI",
@@ -13,7 +13,7 @@ export default function BuildRoute() {
   return (
     <main>
       <ServicesBuildPage />
-      <FinalCTA />
+      <Footer />
     </main>
   );
 }

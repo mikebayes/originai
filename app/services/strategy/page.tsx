@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicesStrategyPage from "@/components/ServicesStrategyPage";
-import FinalCTA from "@/components/FinalCTA";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "AI Strategy & Training | Origin AI",
@@ -13,7 +13,7 @@ export default function StrategyRoute() {
   return (
     <main>
       <ServicesStrategyPage />
-      <FinalCTA />
+      <Footer />
     </main>
   );
 }

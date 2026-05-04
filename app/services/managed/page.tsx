@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ServicesManagedPage from "@/components/ServicesManagedPage";
-import FinalCTA from "@/components/FinalCTA";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Managed AI | Origin AI",
@@ -13,7 +13,7 @@ export default function ManagedRoute() {
   return (
     <main>
       <ServicesManagedPage />
-      <FinalCTA />
+      <Footer />
     </main>
   );
 }

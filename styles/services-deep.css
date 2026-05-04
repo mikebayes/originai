@@ -1897,3 +1897,15 @@
 .bp-page--strategy .bp-hero-h1 .accent {
   color: var(--svc-accent);
 }
+
+/* Strategy page: Final CTA "GET STARTED" eyebrow + dot use the brass
+   token instead of the global teal, matching the design view's bronze
+   accent. Only the strategy page uses the bronze; build and managed
+   keep the teal. */
+.bp-page--strategy .bp-cta-eyebrow {
+  color: var(--svc-accent);
+}
+.bp-page--strategy .bp-cta-eyebrow .dot {
+  background: var(--svc-accent);
+  box-shadow: 0 0 12px rgba(150, 133, 96, 0.7);
+}
