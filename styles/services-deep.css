@@ -2586,6 +2586,17 @@
    the H1) because previous attempts using just padding-top kept getting
    beaten by a cascade rule we couldn't pin down. Belt and braces. */
 @media (max-width: 720px) {
+  /* Match services overview's mobile wrap padding (24px). The
+     `.bp-page .wrap` rule (specificity 0,0,2,0) was silently winning
+     against the bare `.wrap { padding: 0 24px }` at @media (max-width: 640px)
+     because of specificity, leaving deep pages stuck at desktop's 56px
+     side padding on phones. This explicit override matches services
+     overview's pattern (.svcs-v2 .wrap { padding: 0 24px } at the same
+     breakpoint) so Build, Strategy, Managed, and Approach line up
+     visually with the overview page. Originally added in commit 5f83728,
+     dropped during commit f8a9c59 (approach build), restored 2026-05-05. */
+  .bp-page .wrap { padding: 0 24px !important; }
+
   /* Zero out the desktop bottom padding on the nav. */
   .bp-hero-shell .hero-nav { padding-bottom: 0 !important; }
 
