@@ -235,8 +235,8 @@
    own padding kicks in, but no gradient overlay is needed. */
 .bp-fade-down {
   position: relative;
-  /* Trimmed 40 -> 28 alongside the hero/intro padding reductions. */
-  height: 28px;
+  /* Trimmed again 28 -> 20 for tighter hero-to-section transition. */
+  height: 20px;
   margin-top: 0;
   pointer-events: none;
   background: transparent;
@@ -248,9 +248,9 @@
 .bp-intro {
   position: relative;
   background: #050a08;
-  /* Top trimmed 120 -> 90 for tighter hero-to-intro transition.
-     Bottom unchanged. */
-  padding: 90px 0 140px;
+  /* Top trimmed again 90 -> 70 for even tighter hero-to-intro
+     transition. Bottom unchanged. */
+  padding: 70px 0 140px;
 }
 
 /* .bp-intro::before removed 2026-05-05.
@@ -1911,11 +1911,10 @@
    file and use even higher specificity to win there. */
 .bp-page .bp-hero {
   padding-top: 130px;
-  /* Bottom padding tuned 2026-05-05: was 320, reduced to 220 so the
-     gap between the hero footer rail (Engagement/Team/Outputs) and
-     the next section is tighter. Mike still wants breathing room
-     here, just less of it. */
-  padding-bottom: 220px;
+  /* Bottom padding tuned again 2026-05-05: 220 still left too much
+     air between the hero footer rail and the next section, so trim
+     to 170. Cumulative reduction from original 320 is ~47%. */
+  padding-bottom: 170px;
 }
 
 
@@ -2224,12 +2223,11 @@
   display: grid;
   grid-template-columns: 1.05fr 1fr;
   gap: 80px;
-  /* Top-aligned so the right-side lede starts at the same y as the
-     H2 on the left, instead of bottom-aligning (which floated it
-     halfway down the row). Mike asked 2026-05-05. */
-  align-items: start;
-  /* Trimmed 72 -> 48 so the framework cards + diagram below sit
-     closer to the head, tightening the section overall. */
+  /* Vertically center the right-side lede against the H2 so it sits
+     at the H2's visual midpoint instead of clinging to top or bottom.
+     Top-align floated the lede high; bottom-align floated it low.
+     Center reads balanced. Mike asked 2026-05-05. */
+  align-items: center;
   margin-bottom: 48px;
 }
 
@@ -2246,11 +2244,12 @@
   position: relative;
   width: 100%;
   max-width: 600px;
-  /* Left-aligned within its column so the circle's left edge sits
-     under the start of the H2 above it. Was margin:0 auto which
-     centered the diagram in its wider column and made it look
-     drifted right of the headline. Mike asked 2026-05-05. */
-  margin: 0 auto 0 0;
+  /* Pinned to left edge of column AND nudged ~32px further left with
+     negative margin-left, because the SVG has internal padding (the
+     leftmost node sits ~22-30px in from the SVG's own left edge).
+     Without the nudge the diagram still read as centered relative to
+     the H2 above. Mike asked 2026-05-05 to push it harder left. */
+  margin: 0 auto 0 -32px;
   aspect-ratio: 1 / 1;
   overflow: visible;
 }
@@ -2787,8 +2786,9 @@
 .bp-team {
   position: relative;
   background: #050a08;
-  /* Top trimmed 130 -> 100 for tighter hero-to-team transition. */
-  padding: 100px 0 130px;
+  /* Top trimmed again 100 -> 80 for even tighter hero-to-team
+     transition, matching .bp-intro. */
+  padding: 80px 0 130px;
 }
 
 .bp-team-head {
@@ -3153,12 +3153,12 @@
   /* Zero out the desktop bottom padding on the nav. */
   .bp-hero-shell .hero-nav { padding-bottom: 0 !important; }
 
-  /* Lever 1: padding on the section. Mobile bottom trimmed 200 -> 150
-     in line with the desktop reduction Mike asked for 2026-05-05. */
+  /* Lever 1: padding on the section. Mobile bottom trimmed again
+     150 -> 120 in line with the second desktop reduction. */
   .bp-page section.bp-hero,
   .bp-page .bp-hero {
     padding-top: 100px !important;
-    padding-bottom: 150px !important;
+    padding-bottom: 120px !important;
   }
 
   /* Lever 2: margin directly on the H1. Bulletproof against any
