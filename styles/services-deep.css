@@ -2127,6 +2127,76 @@
   --svc-rule: rgba(93, 168, 156, 0.22);
 }
 
+
+/* ═════════════════════════════════════════════════════════════
+   HERO — Approach variant: dark/black atmospheric treatment
+   ═════════════════════════════════════════════════════════════
+   Mike asked for the same family of dark hero as services overview,
+   slightly offset so the two pages feel related but not identical.
+   Approach mirrors the overview's radial positions horizontally:
+     - Bright teal hint moves from TOP-RIGHT (overview) to TOP-LEFT
+     - Soft teal halo moves from TOP-LEFT to TOP-RIGHT
+     - Forest green wash moves from BOTTOM-RIGHT to BOTTOM-LEFT
+   Same alphas as the strengthened overview rules so it matches the
+   visible weight, just flipped. Bottom fade resolves into .bp-intro
+   (#050a08) so the section change reads cleanly. */
+.bp-page--approach .bp-hero-shell {
+  background:
+    /* Bottom fade so the dark hero resolves into .bp-intro cleanly. */
+    linear-gradient(to bottom,
+      transparent 0,
+      transparent calc(100% - 220px),
+      rgba(5, 10, 8, 0.55) calc(100% - 70px),
+      #050a08 100%),
+    /* Top-LEFT bright teal hint (mirrored from overview's top-right). */
+    radial-gradient(55% 45% at 12% 4%, rgba(63, 221, 201, 0.12) 0%, rgba(63, 221, 201, 0) 65%),
+    /* Top-RIGHT soft teal halo (mirrored from overview's top-left). */
+    radial-gradient(65% 60% at 88% 8%, rgba(93, 168, 156, 0.18) 0%, rgba(93, 168, 156, 0) 60%),
+    /* Bottom-LEFT forest green wash (mirrored from overview's bottom-right). */
+    radial-gradient(95% 75% at 10% 95%, rgba(19, 72, 54, 0.40) 0%, rgba(19, 72, 54, 0) 65%),
+    /* Same near-black multi-stop base as services overview, with a
+       very faint green tint at the bottom so the fade-out matches
+       .bp-intro's #050a08 instead of resolving to pure gray. */
+    linear-gradient(180deg,
+      #07090c 0%,
+      #060809 35%,
+      #04070a 70%,
+      #050a08 100%);
+}
+
+/* Diagonal grid pattern — same alpha as the strengthened overview rule
+   so the texture reads at the same weight. */
+.bp-page--approach .bp-hero-shell::before {
+  content: '';
+  position: absolute; inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    repeating-linear-gradient(115deg, rgba(255,255,255,0.038) 0 1px, transparent 1px 80px);
+}
+
+/* Vertical column grid wash — same as overview's strengthened version. */
+.bp-page--approach .bp-hero-shell::after {
+  content: '';
+  position: absolute; inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.065) 1px, transparent 1px);
+  background-size: 80px 100%;
+  mask-image: linear-gradient(180deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
+  opacity: 0.85;
+}
+
+.bp-page--approach .bp-hero-shell > *:not(.hero-nav-drawer) { position: relative; z-index: 1; }
+.bp-page--approach .bp-hero-shell > nav.hero-nav { z-index: 100; }
+.bp-page--approach .bp-hero-shell .nav-logo { color: #fff; }
+.bp-page--approach .bp-hero-shell .nav-links a { color: rgba(255,255,255,0.95); }
+.bp-page--approach .bp-hero-shell .nav-links a:hover,
+.bp-page--approach .bp-hero-shell .nav-links a.active { color: #fff; }
+.bp-page--approach .bp-hero-shell .nav-links a.active::after { background: var(--teal); }
+
 /* ═════════════════════════════════════════════════════════════
    APPROACH — Page-specific modules
    ═════════════════════════════════════════════════════════════ */
