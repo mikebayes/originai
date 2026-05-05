@@ -488,6 +488,9 @@
 }
 .bp-selected-card.has-image .bp-selected-text {
   margin-top: auto;
+  /* Reserve a clear gap between the thumbnail and the headline so the
+     two read as distinct elements instead of crowding each other. */
+  padding-top: 28px;
 }
 
 /* Stretch placeholder cards in the same row to match the has-image
