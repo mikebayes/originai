@@ -921,6 +921,18 @@
   /* Bumped 14→20 so even on very narrow phones the trio cards keep
      a visible gap from each viewport edge instead of feeling 100% wide. */
   .svcs-v2 .wrap{ padding: 0 20px; }
+
+  /* The trio cards have an extra ~24px inset via min(480px, calc(100% - 48px)),
+     so they sit at ~44px from each viewport edge. The other sections inside
+     the wrap (section heads, customer-spotlight blocks, selected-clients
+     wordmark strip) don't have that inset, so they read as too far left
+     compared to the cards. Match the same effective inset by adding 24px
+     of padding-inline on those specific elements on mobile. */
+  .svcs-v2 .s-head,
+  .svcs-v2 .proof-feature,
+  .svcs-v2 .wordmark-strip {
+    padding-inline: 24px;
+  }
   .svcs-v2 .s-hero-actions{ flex-wrap: wrap; gap: 10px; }
   .svcs-v2 .s-hero-actions .pill{ width: 100%; justify-content: center; }
 }
