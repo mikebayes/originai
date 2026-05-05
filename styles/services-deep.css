@@ -2224,8 +2224,13 @@
   display: grid;
   grid-template-columns: 1.05fr 1fr;
   gap: 80px;
-  align-items: end;
-  margin-bottom: 72px;
+  /* Top-aligned so the right-side lede starts at the same y as the
+     H2 on the left, instead of bottom-aligning (which floated it
+     halfway down the row). Mike asked 2026-05-05. */
+  align-items: start;
+  /* Trimmed 72 -> 48 so the framework cards + diagram below sit
+     closer to the head, tightening the section overall. */
+  margin-bottom: 48px;
 }
 
 .bp-frame-head .lede { color: rgba(255,255,255,0.72); }
