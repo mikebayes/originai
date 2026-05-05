@@ -1997,12 +1997,11 @@
      The @media block is being parsed (the eyebrow rules below work),
      but for some reason previous attempts at .bp-page section.bp-hero
      wouldn't land. Spraying selectors so at least one definitely wins. */
-  /* Mobile padding-top set to 68 so the eyebrow lands at the same
-     vertical position as the services overview page's eyebrow on
-     mobile. Services overview adds 100px on top of a barebones nav;
-     deep service nav has an extra 32px below it (.bp-hero-shell
-     .hero-nav padding-bottom), so 68 here = same total ~152px from
-     top of viewport to eyebrow on mobile. */
+  /* Mobile: eyebrow needs to sit right below the logo, like the
+     services overview eyebrow does. Drop padding-top to 8 and zero
+     out the .bp-hero-shell .hero-nav bottom padding (handled in the
+     rule below) so there's almost no gap between the bottom of the
+     nav and the eyebrow. */
   .bp-page section.bp-hero,
   .bp-page .bp-hero,
   section.bp-hero,
@@ -2010,9 +2009,15 @@
   .bp-page--strategy section.bp-hero,
   .bp-page--managed section.bp-hero,
   .bp-page section.wrap.bp-hero {
-    padding-top: 68px !important;
+    padding-top: 8px !important;
     padding-bottom: 200px !important;
   }
+
+  /* Remove the desktop bottom-of-nav 32px breathing room on mobile —
+     it was added to space the breadcrumb meta below the nav, but the
+     breadcrumb is hidden on mobile and we want the eyebrow tight to
+     the nav like services overview. */
+  .bp-hero-shell .hero-nav { padding-bottom: 0 !important; }
 
   /* Hide the breadcrumb meta line on mobile only — desktop keeps it
      visible. The eyebrow below takes over as the section indicator. */
