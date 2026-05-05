@@ -251,7 +251,7 @@ export default function TeamPage() {
               <div className="bp-backed-cell">
                 <img
                   className="bp-backed-logo"
-                  src="/images/webwizards-horizontal-dark.svg"
+                  src="/images/webwizards-horizontal-dark-cropped.svg"
                   alt="Web Wizards"
                   loading="lazy"
                 />
