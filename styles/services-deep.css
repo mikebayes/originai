@@ -235,7 +235,8 @@
    own padding kicks in, but no gradient overlay is needed. */
 .bp-fade-down {
   position: relative;
-  height: 40px;
+  /* Trimmed 40 -> 28 alongside the hero/intro padding reductions. */
+  height: 28px;
   margin-top: 0;
   pointer-events: none;
   background: transparent;
@@ -247,7 +248,9 @@
 .bp-intro {
   position: relative;
   background: #050a08;
-  padding: 120px 0 140px;
+  /* Top trimmed 120 -> 90 for tighter hero-to-intro transition.
+     Bottom unchanged. */
+  padding: 90px 0 140px;
 }
 
 .bp-intro::before {
@@ -1903,7 +1906,11 @@
    file and use even higher specificity to win there. */
 .bp-page .bp-hero {
   padding-top: 130px;
-  padding-bottom: 320px;
+  /* Bottom padding tuned 2026-05-05: was 320, reduced to 220 so the
+     gap between the hero footer rail (Engagement/Team/Outputs) and
+     the next section is tighter. Mike still wants breathing room
+     here, just less of it. */
+  padding-bottom: 220px;
 }
 
 
@@ -2746,7 +2753,8 @@
 .bp-team {
   position: relative;
   background: #050a08;
-  padding: 130px 0 130px;
+  /* Top trimmed 130 -> 100 for tighter hero-to-team transition. */
+  padding: 100px 0 130px;
 }
 
 .bp-team-head {
@@ -3111,11 +3119,12 @@
   /* Zero out the desktop bottom padding on the nav. */
   .bp-hero-shell .hero-nav { padding-bottom: 0 !important; }
 
-  /* Lever 1: padding on the section. */
+  /* Lever 1: padding on the section. Mobile bottom trimmed 200 -> 150
+     in line with the desktop reduction Mike asked for 2026-05-05. */
   .bp-page section.bp-hero,
   .bp-page .bp-hero {
     padding-top: 100px !important;
-    padding-bottom: 200px !important;
+    padding-bottom: 150px !important;
   }
 
   /* Lever 2: margin directly on the H1. Bulletproof against any
