@@ -464,22 +464,21 @@
   position: relative; z-index: 1;
 }
 
-/* Card variant with a screenshot image. The card keeps the same
-   border + base background as the placeholder cards (so the section
-   stays visually consistent), and adds:
-     - .bp-selected-glow — soft teal radial glow at top-center for
-       atmospheric depth (low opacity, large blur, brand teal).
-     - .bp-selected-image — the screenshot, positioned so it bleeds
-       off the bottom-right edge of the card. The img inside scales
-       larger than its container so a portion gets clipped by the
-       card's overflow:hidden, creating the tilted/cropped look.
-     - .top + .bp-selected-text — sit above the image visually via
-       z-index so they read cleanly over the screenshot. */
+/* Card variant with a screenshot image. The card needs more vertical
+   space than the 4/3 aspect-ratio placeholder cards allow — the image
+   bleeds in the middle, with the badge row at top and the headline +
+   meta at the bottom. Override aspect-ratio with a min-height so the
+   card stretches to fit. CSS grid will stretch the placeholder cards
+   in the same row to match this taller height, which keeps the row
+   visually consistent. */
 .bp-selected-card.has-image {
-  display: block;
-  padding: 22px 22px 24px;
+  aspect-ratio: auto;
+  min-height: 480px;
   position: relative;
 }
+
+/* Push the headline + meta to the bottom of the card while keeping
+   the .top badge row at the top. */
 .bp-selected-card.has-image .top,
 .bp-selected-card.has-image .bp-selected-text {
   position: relative;
@@ -489,13 +488,22 @@
   margin-top: auto;
 }
 
-/* Atmospheric teal glow at top-center, behind the image. */
+/* Stretch placeholder cards in the same row to match the has-image
+   height. Without this, the placeholders stay short and the row
+   looks asymmetric. */
+.bp-selected-grid:has(.has-image) .bp-selected-card:not(.has-image) {
+  aspect-ratio: auto;
+  min-height: 480px;
+}
+
+/* Atmospheric teal glow at top-center, behind the image. Low opacity,
+   wide spread — adds depth without becoming a heavy effect. */
 .bp-selected-glow {
   position: absolute;
   top: -10%;
   left: 50%;
   transform: translateX(-50%);
-  width: 110%;
+  width: 120%;
   height: 70%;
   background: radial-gradient(
     50% 50% at 50% 30%,
@@ -506,37 +514,31 @@
   z-index: 0;
 }
 
-/* Image container — fills the card so img can be positioned absolutely
-   relative to the card. Bleeds off bottom-right by translating + scaling
-   the inner img so the card's overflow:hidden clips the edges naturally. */
+/* Image container — fills the middle/lower portion of the card. The
+   img inside is sized larger than its container and pushed toward the
+   bottom-right so it bleeds off those edges naturally (clipped by the
+   card's overflow:hidden). */
 .bp-selected-image {
   position: absolute;
   inset: 0;
   z-index: 1;
   pointer-events: none;
+  overflow: hidden;
+  border-radius: inherit;
 }
 .bp-selected-image img {
   position: absolute;
-  /* Sit in the upper-half of the card. The image is generous in size
-     (~1500px wide) so we scale it so the dashboard occupies a useful
-     portion of the card, then push toward the bottom-right so the
-     edges bleed off naturally. */
-  top: 18%;
-  left: 14%;
-  width: 110%;
+  /* Push the image down so the .top badge row stays clear above it.
+     Push right so the right edge bleeds off the card. The image is
+     scaled to ~115% width so the dashboard occupies a substantial
+     portion of the card area while leaving the upper-left corner
+     and the bottom-text area uncluttered. */
+  top: 20%;
+  right: -12%;
+  width: 115%;
   height: auto;
   max-width: none;
   display: block;
-}
-
-/* Layout adjustments: the .top row sits at the top, the text content
-   (h4 + meta) sits at the bottom, and the image fills the middle area
-   between them while bleeding off the bottom-right. The
-   `display: block` + `position` setup overrides the base flex layout. */
-.bp-selected-card.has-image {
-  /* Base aspect ratio kept (4/3) but a touch taller can be used if we
-     want a richer image area. Keep at 4/3 for now to match the other
-     two placeholder cards. */
 }
 
 /* ═════════════════════════════════════════════════════════════
