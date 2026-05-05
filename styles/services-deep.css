@@ -1819,8 +1819,13 @@
 
 .bp-page .nav-links {
   display: flex;
+  /* Match the homepage's .nav-links values exactly so the nav reads
+     identical across pages: gap 36, font-size 15. Was 28/14 in the
+     deep service pages, which made the nav links subtly tighter and
+     smaller than the homepage and shifted layout when navigating
+     between pages. */
   gap: 36px;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
 }
 
@@ -1914,13 +1919,21 @@
 
 
 
-.bp-page .nav-links { display: flex; align-items: center; gap: 28px; }
+/* Bumped gap 28 → 36 to match the homepage's .nav-links (otherwise
+   the deep service nav reads visibly tighter than the rest of the
+   site). align-items: center retained so the nav-pill (when present)
+   sits centered with the text links. */
+.bp-page .nav-links { display: flex; align-items: center; gap: 36px; }
 
 
 
 .bp-page .nav-links a {
-  font-family: 'Inter', sans-serif; font-size: 14px;
-  color: rgba(255,255,255,0.78); text-decoration: none;
+  /* Font-size 14 → 15 and color 0.78 → 0.95 to match the homepage's
+     .nav-links a values exactly. Together with the matching gap above,
+     the nav now renders identically across homepage, services overview,
+     and the deep service pages — no visible shift when navigating. */
+  font-family: 'Inter', sans-serif; font-size: 15px;
+  color: rgba(255,255,255,0.95); text-decoration: none;
   transition: color 150ms ease-out;
 }
 
