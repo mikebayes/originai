@@ -265,7 +265,11 @@
   display: grid;
   grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.4fr);
   gap: 80px;
-  align-items: start;
+  /* Vertically center the two columns against each other. The left
+     column (eyebrow + big H2 + tag) is taller than the right (body
+     paragraphs), so center alignment shifts the right column down to
+     line up with the H2's vertical midpoint. Mike asked 2026-05-05. */
+  align-items: center;
 }
 
 .bp-intro-eyebrow {
@@ -2237,7 +2241,11 @@
   position: relative;
   width: 100%;
   max-width: 600px;
-  margin: 0 auto;
+  /* Left-aligned within its column so the circle's left edge sits
+     under the start of the H2 above it. Was margin:0 auto which
+     centered the diagram in its wider column and made it look
+     drifted right of the headline. Mike asked 2026-05-05. */
+  margin: 0 auto 0 0;
   aspect-ratio: 1 / 1;
   overflow: visible;
 }
