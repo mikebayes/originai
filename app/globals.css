@@ -36,3 +36,25 @@ ul, ol {
 a { color: inherit; }
 img { max-width: 100%; display: block; }
 button { font: inherit; cursor: pointer; }
+
+/* ─── MOBILE DEEP SERVICE HERO OVERRIDES ────────────────────────────
+   Last-resort override location. globals.css imports LAST in
+   app/layout.tsx so anything written here wins source order against
+   every other stylesheet. Combined with high-specificity selectors
+   and !important, this should land regardless of any cascade or
+   build pipeline weirdness happening upstream. The same rules in
+   services-deep.css mysteriously weren't applying despite being
+   syntactically correct, so duplicating here as belt-and-suspenders. */
+@media (max-width: 720px) {
+  html body div.bp-page section.bp-hero,
+  html body div.bp-page--strategy section.bp-hero,
+  html body div.bp-page--managed section.bp-hero {
+    padding-top: 24px !important;
+    padding-bottom: 200px !important;
+  }
+  html body div.bp-page div.bp-hero-meta,
+  html body div.bp-page--strategy div.bp-hero-meta,
+  html body div.bp-page--managed div.bp-hero-meta {
+    display: none !important;
+  }
+}
