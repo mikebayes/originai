@@ -2546,43 +2546,43 @@
 
 
 /* ─── Mobile-only hero pattern (match services overview) ──────────────
-   Mike: on mobile he wants the eyebrow pinned at the top-left under
-   the logo, just like the services overview page does it. The H1, sub,
-   CTAs, and footer rail stay in normal flow at their previous positions.
-   This mirrors the @media block in services-v2.css that does the same
-   for .s-hero-eyebrow. Desktop is untouched. */
+   Mike: on mobile, the eyebrow pinned at the top-left under the logo
+   (matching services overview's pattern), then a clean gap, then the
+   H1. We use TWO levers (padding-top on the section AND margin-top on
+   the H1) because previous attempts using just padding-top kept getting
+   beaten by a cascade rule we couldn't pin down. Belt and braces. */
 @media (max-width: 720px) {
-  /* Zero out the desktop bottom padding on the nav so there's no
-     extra gap between nav and hero content. */
+  /* Zero out the desktop bottom padding on the nav. */
   .bp-hero-shell .hero-nav { padding-bottom: 0 !important; }
 
-  /* Mobile padding-top tuned to leave roughly 2 to 3 lines of breathing
-     room between the absolutely-positioned eyebrow at top:16 and the
-     H1. 100 was too tight (eyebrow hugged the headline); 170 gives
-     the eyebrow its own row and pushes the H1 down to a comfortable
-     start position. Mike confirmed via screencap on 2026-05-05. */
+  /* Lever 1: padding on the section. */
   .bp-page section.bp-hero,
   .bp-page .bp-hero {
-    padding-top: 170px !important;
+    padding-top: 100px !important;
     padding-bottom: 200px !important;
   }
 
-  /* Hide the breadcrumb meta line on mobile — it's cramped at narrow
-     widths and the eyebrow below takes over as the section indicator. */
+  /* Lever 2: margin directly on the H1. Bulletproof against any
+     wrap/section padding rule that wins the cascade. Combined with
+     the absolute eyebrow above, gives ~3 lines of breathing room
+     between eyebrow and H1. */
+  .bp-page .bp-hero-h1,
+  .bp-page section.bp-hero .bp-hero-h1 {
+    margin-top: 80px !important;
+  }
+
+  /* Hide the breadcrumb meta on mobile (cramped at narrow widths). */
   .bp-page .bp-hero-meta,
   .bp-page--strategy .bp-hero-meta,
   .bp-page--managed .bp-hero-meta { display: none !important; }
 
-  /* Pin the eyebrow absolutely at top-left, matching the services
-     overview's `.svcs-v2 .wrap.s-hero .s-hero-eyebrow` pattern.
-     Position values match services overview exactly so the eyebrow
-     lands at the same coordinates relative to the logo across all
-     pages on mobile. */
-  .bp-page .bp-hero-eyebrow {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    margin: 0;
+  /* Pin the eyebrow absolutely at top-left, matching services overview. */
+  .bp-page .bp-hero-eyebrow,
+  .bp-page section.bp-hero .bp-hero-eyebrow {
+    position: absolute !important;
+    top: 16px !important;
+    left: 16px !important;
+    margin: 0 !important;
     z-index: 5;
     gap: 10px;
   }
