@@ -1071,6 +1071,23 @@
 /* ═════════════════════════════════════════════════════════════
    Responsive
 ═════════════════════════════════════════════════════════════ */
+
+/* ─── Per-page bp-work-grid column counts (desktop-only) ─────────────
+   Strategy and Managed each render 6 cards in this section, not 8.
+   At desktop widths, the default 4-col grid leaves an awkward 4×2
+   layout with two trailing orphans. Scope these pages to a 3-col grid
+   so they read as a clean 3×2.
+   Wrapped in min-width: 1025px so it doesn't fight the tablet (≤1024)
+   2-col rule or the mobile (≤640) 1-col rule. Mike confirmed this is
+   desktop-only on 2026-05-05. Originally introduced in commit b4a73f2
+   then dropped during commit f8a9c59 (approach page rewrite). */
+@media (min-width: 1025px) {
+  .bp-page--strategy .bp-work-grid,
+  .bp-page--managed .bp-work-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 1024px) {
   .bp-work-grid { grid-template-columns: repeat(2, 1fr); }
   .bp-fit-grid { grid-template-columns: repeat(2, 1fr); }
