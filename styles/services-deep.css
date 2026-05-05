@@ -2540,6 +2540,26 @@
   opacity: 1;
 }
 
+/* ─── Section padding for "From philosophy to practice" ──────────
+   .bp-bridge had no padding rule so the headline + lede sat too close
+   to the neighboring sections, and the progression dots crowded the
+   lede. Match the 130/130 padding pattern used by .bp-contrast and
+   .bp-principles, then add a margin-bottom on .bp-bridge-head so the
+   dots line gets visible breathing room below the text. Mike asked
+   2026-05-05. */
+.bp-bridge {
+  position: relative;
+  padding: 130px 0 130px;
+  background: #000;
+}
+
+.bp-bridge-head {
+  margin-bottom: 96px;
+  max-width: 880px;
+}
+
+.bp-bridge-head .section-lede { margin-top: 16px; }
+
 .bp-progression {
   position: relative;
   padding: 0 0 8px;
