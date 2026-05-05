@@ -2790,13 +2790,14 @@
   background: #061b14;
 }
 
-/* Photo placeholder — gradient panel with initials. Mike spec: don't
-   use AI-generated headshots. Real photos can be swapped in by adding
-   an <img> inside .bp-team-photo and the initials span will hide via
-   CSS (any descendant img makes the wrapper full-bleed). */
+/* Photo wrapper. Real partner headshots are 512x445/459 (~1.15:1, near
+   square), so the wrapper uses a 1:1 ratio for clean object-cover fit
+   without aggressive cropping. If a card has no photo prop, the
+   <span class="initials"> placeholder shows instead. Mike spec: never
+   use AI-generated headshots. */
 .bp-team-photo {
   position: relative;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1 / 1;
   margin-bottom: 24px;
   background:
     radial-gradient(60% 60% at 50% 35%, rgba(93, 168, 156, 0.10) 0%, rgba(93, 168, 156, 0) 65%),
@@ -3044,6 +3045,21 @@
   color: rgba(255,255,255,0.52);
 }
 
+/* Web Wizards horizontal logo inside the Web Wizards formula cell.
+   The SVG is 1037x232 (~4.47:1) and includes a built-in dark
+   #231F20 background plus the wordmark + tagline. Sized at a width
+   that matches the visual weight of "Origin AI" text in the
+   adjacent cell — about 200px wide on desktop, scales down on
+   mobile. The dark background of the SVG sits cleanly on the dark
+   cell. */
+.bp-backed-logo {
+  display: block;
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  margin: 0 auto;
+}
+
 .bp-backed-op {
   display: flex; align-items: center; justify-content: center;
   font-family: 'Inter Tight', sans-serif;
@@ -3122,8 +3138,4 @@
     position: absolute !important;
     top: 16px !important;
     left: 16px !important;
-    margin: 0 !important;
-    z-index: 5;
-    gap: 10px;
-  }
-}
+    margin: 0 !important

@@ -114,6 +114,7 @@ export default function TeamPage() {
               {
                 name: "Mike Bayes",
                 initials: "MB",
+                photo: "/images/MB.avif",
                 role: "President & Lead AI Strategist",
                 bio:
                   "Mike works with leadership teams to clarify where AI fits, identify the right opportunities, and move from interest to implementation. He brings executive experience across technology, operations, connectivity, cloud, and cybersecurity.",
@@ -127,6 +128,7 @@ export default function TeamPage() {
               {
                 name: "Chad Beauchamp",
                 initials: "CB",
+                photo: "/images/CB.avif",
                 role: "Co-Founder & CEO",
                 bio:
                   "Chad leads product thinking, delivery discipline, and the build capability behind Origin AI. As founder of Web Wizards, he brings deep experience turning business needs into software, websites, and digital systems.",
@@ -140,6 +142,7 @@ export default function TeamPage() {
               {
                 name: "Taylor Crawford",
                 initials: "TC",
+                photo: "/images/TC.avif",
                 role: "Co-Founder, Growth & Partnerships",
                 bio:
                   "Taylor brings commercial strategy, marketing, and partnership experience to Origin AI. He helps connect AI opportunities to market realities, client needs, and business growth.",
@@ -152,8 +155,12 @@ export default function TeamPage() {
               },
             ].map((p) => (
               <article className="bp-team-card" key={p.name}>
-                <div className="bp-team-photo" aria-hidden="true">
-                  <span className="initials">{p.initials}</span>
+                <div className="bp-team-photo">
+                  {p.photo ? (
+                    <img src={p.photo} alt={p.name} loading="lazy" />
+                  ) : (
+                    <span className="initials" aria-hidden="true">{p.initials}</span>
+                  )}
                 </div>
                 <h3 className="bp-team-name">{p.name}</h3>
                 <div className="bp-team-role">{p.role}</div>
@@ -242,7 +249,12 @@ export default function TeamPage() {
               </div>
               <div className="bp-backed-op" aria-hidden="true">+</div>
               <div className="bp-backed-cell">
-                <div className="bp-backed-mark">Web Wizards</div>
+                <img
+                  className="bp-backed-logo"
+                  src="/images/webwizards-horizontal-dark.svg"
+                  alt="Web Wizards"
+                  loading="lazy"
+                />
                 <div className="bp-backed-sub">Delivery bench</div>
               </div>
               <div className="bp-backed-op" aria-hidden="true">=</div>
