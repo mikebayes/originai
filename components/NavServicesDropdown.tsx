@@ -56,6 +56,15 @@ export default function NavServicesDropdown() {
         role="menu"
         aria-hidden={!isOpen}
       >
+        {/* Parent-page link at the top of the panel — explicitly signals
+            that "Services" itself is a real page (the overview) and not
+            just a category label for the three children below. */}
+        <a href="/services" className="nav-services-overview" role="menuitem">
+          <span>View all services</span>
+          <span className="nav-services-overview-arrow" aria-hidden="true">→</span>
+        </a>
+        <div className="nav-services-divider" aria-hidden="true" />
+
         <a href="/services/build" className="nav-services-item" role="menuitem">
           <span className="nav-services-item-title">AI Software &amp; Systems</span>
           <span className="nav-services-item-desc">
