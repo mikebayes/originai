@@ -2031,247 +2031,462 @@
 
 
 
-.bp-page .bp-patterns-head .eyebrow { justify-content: center; display: inline-flex; }
+.bp-page .bp-patterns-head .eyebrow { justify-content: center; display: inline-flex; 
 
+/* ═════════════════════════════════════════════════════════════════
+   APPROACH page — page modifier + framework, principles, contrast,
+   progression rail, bridge note. Pulled from the Claude Design spec
+   for /approach. Page uses .bp-page--approach modifier on the root.
+═════════════════════════════════════════════════════════════════ */
 
+/* ─── Service tokens (page-scoped) ──────────────────── */
+.bp-page--managed,
+.bp-page--approach {
+  /* Origin teal stays the brand primary. */
+  --teal: #3FDDC9;
+  --teal-soft: #5DEAD8;
+  --teal-deep: #5DA89C;
 
-.bp-page .bp-patterns-head .lede { margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.78); }
+  /* Approach is BRAND-NEUTRAL — no service signal layer.
+     Tokens point straight at the Origin teal so eyebrows,
+     numerals, glows, and accents read as the core brand voice. */
+  --svc-accent: #5DA89C;          /* Origin muted teal */
+  --svc-accent-soft: #6CB8AC;     /* hover lift */
+  --svc-glow: rgba(93, 168, 156, 0.08);
+  --svc-glow-strong: rgba(93, 168, 156, 0.24);
+  --svc-rule: rgba(93, 168, 156, 0.22);
+}
 
+/* ═════════════════════════════════════════════════════════════
+   APPROACH — Page-specific modules
+   ═════════════════════════════════════════════════════════════ */
 
-
-.bp-page /* ═════════════════════════════════════════════════════════════
-   FOOTER (matches Services)
-═════════════════════════════════════════════════════════════ */
-.footer {
+/* ─── 03. Core framework ─────────────────────────────────── */
+.bp-frame {
+  position: relative;
+  padding: 130px 0 120px;
   background: #000;
-  border-top: 0.5px solid rgba(255,255,255,0.08);
-  padding: 72px 0 36px;
 }
 
-
-
-.bp-page .footer-cols {
+.bp-frame-head {
   display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr;
+  grid-template-columns: 1.05fr 1fr;
   gap: 80px;
-  margin-bottom: 56px;
+  align-items: end;
+  margin-bottom: 72px;
 }
 
+.bp-frame-head .lede { color: rgba(255,255,255,0.72); }
 
+.bp-frame-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 72px;
+  align-items: center;
+}
 
-.bp-page .f-logo {
-  display: inline-flex; align-items: center; gap: 10px;
+.bp-frame-diagram {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  aspect-ratio: 1 / 1;
+  overflow: visible;
+}
+
+.bp-frame-diagram svg {
+  width: 100%; height: 100%;
+  display: block;
+  filter: drop-shadow(0 0 60px rgba(93,168,156,0.05));
+}
+
+.bp-frame-list {
+  list-style: none;
+  margin: 0; padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 24px;
+  counter-reset: framecount;
+}
+
+.bp-frame-item {
+  border: 0.5px solid rgba(255,255,255,0.13);
+  background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(0,0,0,0.18));
+  padding: 22px 22px 24px;
+  border-radius: 2px;
+  position: relative;
+  transition: border-color 220ms ease, background 220ms ease;
+}
+
+.bp-frame-item:hover {
+  border-color: var(--svc-rule);
+  background: linear-gradient(180deg, rgba(93,168,156,0.04), rgba(0,0,0,0.22));
+}
+
+.bp-frame-item .num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--svc-accent);
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.bp-frame-item h3 {
   font-family: 'Inter Tight', sans-serif; font-weight: 500;
-  font-size: 17px; color: var(--ink); text-decoration: none;
-  margin-bottom: 18px;
+  font-size: 17px; line-height: 1.25;
+  color: #fff;
+  margin: 0 0 8px;
 }
 
-
-
-.bp-page .f-logo-mark {
-  width: 24px; height: 24px; border-radius: 5px;
-  background: linear-gradient(135deg, var(--accent), #3a7a6f);
-  display: flex; align-items: center; justify-content: center;
-  color: #03110d; font-weight: 700; font-size: 12px;
-}
-
-
-
-.bp-page .f-tagline {
+.bp-frame-item p {
   font-family: 'Inter', sans-serif;
   font-size: 14px; line-height: 1.55;
-  color: var(--ink-muted);
-  max-width: 36ch; margin: 0 0 20px;
+  color: rgba(255,255,255,0.62);
+  margin: 0;
 }
 
-
-
-.bp-page .f-social {
-  display: inline-flex; align-items: center; gap: 8px;
-  color: var(--ink-muted); text-decoration: none; font-size: 13px;
+.bp-frame-aside {
+  margin-top: 72px;
+  border-top: 0.5px solid rgba(255,255,255,0.12);
+  padding-top: 36px;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 56px;
+  align-items: start;
 }
 
-
-
-.bp-page .f-social svg { width: 16px; height: 16px; }
-
-
-
-.bp-page .f-col-title {
+.bp-frame-aside-mark {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--accent);
-  margin: 0 0 18px;
+  font-size: 11px; letter-spacing: 0.14em;
+  color: var(--svc-accent);
 }
 
-
-
-.bp-page .f-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
-
-
-
-.bp-page .f-col a { color: var(--ink-muted); text-decoration: none; font-size: 14px; }
-
-
-
-.bp-page .f-col a:hover { color: var(--ink); }
-
-
-
-.bp-page .f-contact {
+.bp-frame-aside p {
   font-family: 'Inter', sans-serif;
-  font-size: 14px; color: var(--ink-muted); line-height: 1.55;
+  font-size: 18px; line-height: 1.55;
+  color: rgba(255,255,255,0.78);
+  margin: 0;
+  max-width: 64ch;
 }
 
-
-
-.bp-page .f-contact .label {
-  display: block;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
-  color: rgba(255,255,255,0.40); margin-top: 14px; margin-bottom: 4px;
+.bp-frame-aside p strong {
+  color: #fff; font-weight: 500;
 }
 
-
-
-.bp-page .f-contact .label:first-child { margin-top: 0; }
-
-
-
-.bp-page .f-contact a { color: var(--ink); text-decoration: none; }
-
-
-
-.bp-page .f-bottom {
-  display: flex; justify-content: space-between;
-  padding-top: 24px;
-  border-top: 0.5px solid rgba(255,255,255,0.08);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px; letter-spacing: 0.06em;
-  color: rgba(255,255,255,0.40);
+/* ─── 04. Principles ─────────────────────────────────────── */
+.bp-principles {
+  position: relative;
+  padding: 130px 0 130px;
+  background:
+    linear-gradient(180deg, #04140e 0%, #061b14 60%, #04140e 100%);
+  overflow: hidden;
 }
 
-
-
-.bp-page .f-bottom-links a { color: rgba(255,255,255,0.40); text-decoration: none; margin-left: 24px; }
-
-
-
-.bp-page .f-bottom-links a:hover { color: var(--ink); }
-
-/* Strategy page: italic H1 accent uses the brass token (#968560)
-   instead of the global teal. Switches the word "fits." in
-   "Get clear on where AI fits." to brass. */
-.bp-page--strategy .bp-hero-h1 .accent {
-  color: var(--svc-accent);
+.bp-principles::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    repeating-linear-gradient(115deg, rgba(255,255,255,0.022) 0 1px, transparent 1px 80px);
 }
 
-/* Strategy page: Final CTA "GET STARTED" eyebrow + dot use the brass
-   token instead of the global teal, matching the design view's bronze
-   accent. Only the strategy page uses the bronze; build and managed
-   keep the teal. */
-.bp-page--strategy .bp-cta-eyebrow {
-  color: var(--svc-accent);
-}
-.bp-page--strategy .bp-cta-eyebrow .dot {
-  background: var(--svc-accent);
-  box-shadow: 0 0 12px rgba(150, 133, 96, 0.7);
+.bp-principles-head {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 80px;
+  align-items: end;
+  margin-bottom: 64px;
 }
 
-/* Strategy page: shrink H1 max font so "Get clear on where AI fits."
-   stays on one line at desktop, matching the design file. The default
-   clamp(56px, 8.6vw, 132px) overflows; this ceiling at ~88px fits the
-   1200px wrap with the standard letter-spacing. */
-.bp-page--strategy .bp-hero-h1 {
-  font-size: clamp(48px, 6.4vw, 88px);
-  line-height: 1.02;
-}
+.bp-principles-head .lede { color: rgba(255,255,255,0.72); }
 
-/* Strategy page: hero eyebrow keeps the soft white text from the
-   base rule (so it matches build/managed and reads cleanly on the
-   forest-green hero), but the BAR is overridden to brass to carry
-   the strategy page's service-signal accent. */
-.bp-page--strategy .bp-hero-eyebrow .bar {
-  background: var(--svc-accent);
-}
-
-/* ─── Deep service hero vertical padding ────────────────────────────
-   The .bp-hero <section> has class="wrap bp-hero". The rule
-   `.bp-page .wrap { padding: 0 56px }` (specificity 0,0,2,0) wins over
-   the base `.bp-hero` selector (specificity 0,0,1,0) and silently
-   zeroes out top/bottom padding. Bump specificity here AND position
-   after the .bp-page .wrap rule so the vertical padding actually
-   lands. */
-.bp-page .bp-hero {
-  padding-top: 104px;
-  padding-bottom: 320px;
-}
-
-/* ─── Per-page bp-work-grid column counts ───────────────────────────
-   Card counts differ per deep service page, so the grid layout has to
-   match the content count to avoid orphan rows:
-   - Build: 8 categories → 4 columns (default)
-   - Strategy: 6 work areas → 3 columns
-   - Managed: 6 monthly-scope items → 3 columns */
-.bp-page--strategy .bp-work-grid,
-.bp-page--managed .bp-work-grid {
+.bp-principles-grid {
+  display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: rgba(255,255,255,0.10);
+  border: 0.5px solid rgba(255,255,255,0.10);
 }
 
-/* Mobile: drop the hero top padding hard so the H1 sits in view
-   immediately after the nav, instead of pushing the headline below
-   the first viewport. Selector chained as `section.bp-hero` for
-   specificity (0,0,2,1) so it cleanly beats the `.bp-page .wrap`
-   rule (0,0,2,0) that sets padding: 0 56px and zeros out top/bottom. */
-@media (max-width: 720px) {
-  /* !important + every plausible selector variant for the same target.
-     The @media block is being parsed (the eyebrow rules below work),
-     but for some reason previous attempts at .bp-page section.bp-hero
-     wouldn't land. Spraying selectors so at least one definitely wins. */
-  /* Mobile: eyebrow needs to sit right below the logo, like the
-     services overview eyebrow does. Drop padding-top to 8 and zero
-     out the .bp-hero-shell .hero-nav bottom padding (handled in the
-     rule below) so there's almost no gap between the bottom of the
-     nav and the eyebrow. */
-  .bp-page section.bp-hero,
-  .bp-page .bp-hero,
-  section.bp-hero,
-  .bp-hero,
-  .bp-page--strategy section.bp-hero,
-  .bp-page--managed section.bp-hero,
-  .bp-page section.wrap.bp-hero {
-    padding-top: 8px !important;
-    padding-bottom: 200px !important;
-  }
+.bp-principle {
+  background: #04140e;
+  padding: 32px 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 0;
+  position: relative;
+  transition: background 240ms ease;
+}
 
-  /* Remove the desktop bottom-of-nav 32px breathing room on mobile —
-     it was added to space the breadcrumb meta below the nav, but the
-     breadcrumb is hidden on mobile and we want the eyebrow tight to
-     the nav like services overview. */
-  .bp-hero-shell .hero-nav { padding-bottom: 0 !important; }
+.bp-principle:hover { background: #061f17; }
 
-  /* Hide the breadcrumb meta line on mobile only — desktop keeps it
-     visible. The eyebrow below takes over as the section indicator. */
-  .bp-page .bp-hero-meta,
-  .bp-page--strategy .bp-hero-meta,
-  .bp-page--managed .bp-hero-meta { display: none !important; }
+.bp-principle-icon {
+  font-size: 32px;
+  line-height: 1;
+  margin-bottom: 6px;
+  filter: drop-shadow(0 0 18px rgba(93,168,156,0.18));
+  user-select: none;
+}
 
-  /* Mobile eyebrow margin-bottom bumped to ~76 so the H1 sits where
-     it was BEFORE the eyebrow was pulled up tight against the nav.
-     Net: eyebrow ~60px from top of viewport (right under logo), H1
-     stays at its original ~158px position.
-     No negative margin-left needed now — the wrap below sets mobile
-     padding to 20px, same as logo's x-position, so the eyebrow
-     naturally aligns with the logo. */
-  .bp-page .bp-hero-eyebrow {
-    margin-bottom: 76px;
-    gap: 10px;
-  }
+.bp-principle .num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.16em;
+  color: var(--svc-accent);
+}
 
-  /* Align deep service mobile content width with the services overview
-     page. Without this override, .bp-page .wrap stays at desktop's 56px
-     padding (the .wrap @media rule at 24px doesn't beat .bp-page .wrap
-     on specificity), so deep service content was 72px narrower than
-     services overview content on phones. Match services overview's 20px. */
-  .bp-page .wrap { padding: 0 20px; }
+.bp-principle h3 {
+  font-family: 'Inter Tight', sans-serif; font-weight: 500;
+  font-size: 21px; line-height: 1.25;
+  color: #fff;
+  margin: 0 0 10px;
+  text-wrap: balance;
+}
+
+.bp-principle p {
+  font-family: 'Inter', sans-serif;
+  font-size: 14.5px; line-height: 1.55;
+  color: rgba(255,255,255,0.66);
+  margin: 0;
+  max-width: 32ch;
+}
+
+.bp-principle::before {
+  content: '';
+  position: absolute;
+  top: 32px; left: 28px;
+  width: 24px; height: 1px;
+  background: var(--svc-accent);
+  opacity: 0.6;
+}
+
+.bp-principle h3 { padding-top: 18px; }
+
+.bp-principle p--legacy { display: none; }
+
+/* ─── 05. Contrast — believe / avoid ─────────────────────── */
+.bp-contrast {
+  position: relative;
+  padding: 130px 0 130px;
+  background: #000;
+}
+
+.bp-contrast-head {
+  text-align: center;
+  margin-bottom: 64px;
+  max-width: 720px;
+  margin-left: auto; margin-right: auto;
+}
+
+.bp-contrast-head .eyebrow {
+  display: inline-flex; justify-content: center;
+}
+
+.bp-contrast-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 0.5px solid rgba(255,255,255,0.14);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bp-contrast-grid::before {
+  content: '';
+  position: absolute; top: 0; bottom: 0; left: 50%;
+  width: 0.5px;
+  background: rgba(255,255,255,0.14);
+}
+
+.bp-contrast-col {
+  padding: 56px 56px 64px;
+  position: relative;
+}
+
+.bp-contrast-col--believe {
+  background:
+    radial-gradient(70% 80% at 50% 0%, rgba(93,168,156,0.06), transparent 70%),
+    #04140e;
+}
+
+.bp-contrast-col--avoid {
+  background:
+    radial-gradient(70% 80% at 50% 0%, rgba(255,255,255,0.025), transparent 70%),
+    #07090a;
+}
+
+.bp-contrast-label {
+  display: inline-flex;
+  align-items: center; gap: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--svc-accent);
+  margin-bottom: 32px;
+}
+
+.bp-contrast-label .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--svc-accent);
+  box-shadow: 0 0 10px var(--svc-glow-strong);
+}
+
+.bp-contrast-label--neg {
+  color: rgba(255,255,255,0.52);
+}
+
+.bp-contrast-label--neg .x {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 14px; height: 14px;
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 18px; line-height: 1;
+  color: rgba(255,255,255,0.52);
+}
+
+.bp-contrast-col ul {
+  list-style: none;
+  margin: 0; padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.bp-contrast-col li {
+  font-family: 'Inter Tight', sans-serif; font-weight: 500;
+  font-size: 19px; line-height: 1.4;
+  color: #fff;
+  padding: 20px 0;
+  border-bottom: 0.5px solid rgba(255,255,255,0.07);
+  text-wrap: balance;
+  position: relative;
+  padding-left: 28px;
+}
+
+.bp-contrast-col li:last-child { border-bottom: 0; }
+
+.bp-contrast-col li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 32px;
+  width: 12px; height: 0.5px;
+  background: var(--svc-accent);
+  opacity: 0.7;
+}
+
+.bp-contrast-col--avoid li {
+  color: rgba(255,255,255,0.55);
+  text-decoration: line-through;
+  text-decoration-color: rgba(255,255,255,0.20);
+  text-decoration-thickness: 0.5px;
+}
+
+.bp-contrast-col--avoid li::before {
+  background: rgba(255,255,255,0.30);
+  opacity: 1;
+}
+
+.bp-progression {
+  position: relative;
+  padding: 0 0 8px;
+}
+
+.bp-prog-track {
+  position: absolute;
+  left: 4%; right: 4%;
+  top: 18px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.bp-prog-track .line {
+  display: block;
+  width: 100%; height: 1px;
+  background: linear-gradient(
+    to right,
+    rgba(93,168,156,0.08) 0%,
+    rgba(93,168,156,0.42) 25%,
+    rgba(93,168,156,0.55) 50%,
+    rgba(93,168,156,0.42) 75%,
+    rgba(93,168,156,0.08) 100%
+  );
+}
+
+.bp-prog-stops {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px;
+  position: relative;
+}
+
+.bp-prog-stop {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding-top: 56px;
+}
+
+.bp-prog-marker {
+  position: absolute;
+  top: 0; left: 0;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: #04140e;
+  border: 0.5px solid var(--svc-rule);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 0 0 6px rgba(4,20,14,0.9);
+}
+
+.bp-prog-marker span {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--svc-accent);
+  box-shadow: 0 0 12px var(--svc-glow-strong);
+}
+
+.bp-prog-stop .phase {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 14px;
+}
+
+.bp-prog-stop h4 {
+  font-family: 'Inter Tight', sans-serif; font-weight: 500;
+  font-size: 32px; line-height: 1.05;
+  color: #fff;
+  margin: 0 0 14px;
+  letter-spacing: -0.01em;
+}
+
+.bp-prog-stop p {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px; line-height: 1.5;
+  color: rgba(255,255,255,0.70);
+  margin: 0 0 20px;
+  max-width: 30ch;
+}
+
+.bp-prog-svc {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.10em;
+  color: var(--svc-accent);
+  text-decoration: none;
+  border-bottom: 0.5px solid var(--svc-rule);
+  padding-bottom: 4px;
+  transition: color 200ms, border-color 200ms;
+}
+
+.bp-prog-svc:hover {
+  color: #fff;
+  border-bottom-color: rgba(255,255,255,0.6);
+}
+
+.bp-bridge-note {
+  margin: 80px auto 0;
+  text-align: center;
+  max-width: 56ch;
+  font-family: 'Inter', sans-serif;
+  font-size: 14.5px; line-height: 1.55;
+  color: rgba(255,255,255,0.55);
 }
