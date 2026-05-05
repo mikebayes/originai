@@ -148,17 +148,27 @@
 .bp-hero-eyebrow {
   display: inline-flex; align-items: center; gap: 12px;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 32px;
+  font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase;
+  /* Soft white reads cleaner against the forest-green hero than a
+     teal-on-teal eyebrow. The bar still uses the page accent color
+     (teal on build/managed, brass on strategy) so the service signal
+     comes through the bar, not the text. Matches the services
+     overview's eyebrow layout (bar + name, no dot). */
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 32px;
 }
 
-.bp-hero-eyebrow .dot {
-  width: 6px; height: 6px; border-radius: 50%;
+/* Hide the dot on all viewports — services overview pattern is just
+   bar + text. */
+.bp-hero-eyebrow .dot { display: none; }
+
+/* Reorder the bar to render BEFORE the text on all viewports, matching
+   services overview. */
+.bp-hero-eyebrow .bar {
+  order: -1;
+  display: inline-block; width: 22px; height: 1px;
   background: var(--accent);
-  box-shadow: 0 0 10px rgba(93,168,156,0.55);
 }
-
-.bp-hero-eyebrow .bar { display: inline-block; width: 22px; height: 1px; background: var(--accent); }
 
 .bp-hero-h1 {
   font-family: 'Inter Tight', sans-serif;
@@ -1948,16 +1958,10 @@
   line-height: 1.02;
 }
 
-/* Strategy page: hero eyebrow ("AI Strategy & Training") uses brass
-   instead of the global teal so the eyebrow accent matches the
-   service signal and the design view. */
-.bp-page--strategy .bp-hero-eyebrow {
-  color: var(--svc-accent);
-}
-.bp-page--strategy .bp-hero-eyebrow .dot {
-  background: var(--svc-accent);
-  box-shadow: 0 0 10px rgba(150, 133, 96, 0.55);
-}
+/* Strategy page: hero eyebrow keeps the soft white text from the
+   base rule (so it matches build/managed and reads cleanly on the
+   forest-green hero), but the BAR is overridden to brass to carry
+   the strategy page's service-signal accent. */
 .bp-page--strategy .bp-hero-eyebrow .bar {
   background: var(--svc-accent);
 }
@@ -2013,13 +2017,11 @@
   .bp-page--strategy .bp-hero-meta,
   .bp-page--managed .bp-hero-meta { display: none !important; }
 
-  /* Restyle the eyebrow on mobile to match the services overview's
-     s-hero-eyebrow look: short horizontal bar followed by the section
-     name. Hide the dot, reorder the bar before the text. */
+  /* Mobile-specific eyebrow tweaks: tighter margin and gap. The
+     dot-hide and bar-reorder are now in the base rule so they apply
+     to all viewports. */
   .bp-page .bp-hero-eyebrow {
     margin-bottom: 28px;
     gap: 10px;
   }
-  .bp-page .bp-hero-eyebrow .dot { display: none; }
-  .bp-page .bp-hero-eyebrow .bar { order: -1; }
 }
