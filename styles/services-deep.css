@@ -2543,3 +2543,44 @@
   font-size: 14.5px; line-height: 1.55;
   color: rgba(255,255,255,0.55);
 }
+
+
+/* ─── Mobile-only hero pattern (match services overview) ──────────────
+   Mike: on mobile he wants the eyebrow pinned at the top-left under
+   the logo, just like the services overview page does it. The H1, sub,
+   CTAs, and footer rail stay in normal flow at their previous positions.
+   This mirrors the @media block in services-v2.css that does the same
+   for .s-hero-eyebrow. Desktop is untouched. */
+@media (max-width: 720px) {
+  /* Zero out the desktop bottom padding on the nav so there's no
+     extra gap between nav and hero content. */
+  .bp-hero-shell .hero-nav { padding-bottom: 0 !important; }
+
+  /* Match services overview's mobile padding-top so the H1 sits at
+     the same comfortable distance below the nav. */
+  .bp-page section.bp-hero,
+  .bp-page .bp-hero {
+    padding-top: 100px !important;
+    padding-bottom: 200px !important;
+  }
+
+  /* Hide the breadcrumb meta line on mobile — it's cramped at narrow
+     widths and the eyebrow below takes over as the section indicator. */
+  .bp-page .bp-hero-meta,
+  .bp-page--strategy .bp-hero-meta,
+  .bp-page--managed .bp-hero-meta { display: none !important; }
+
+  /* Pin the eyebrow absolutely at top-left, matching the services
+     overview's `.svcs-v2 .wrap.s-hero .s-hero-eyebrow` pattern.
+     Position values match services overview exactly so the eyebrow
+     lands at the same coordinates relative to the logo across all
+     pages on mobile. */
+  .bp-page .bp-hero-eyebrow {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    margin: 0;
+    z-index: 5;
+    gap: 10px;
+  }
+}
