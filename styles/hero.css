@@ -127,14 +127,12 @@ html, body {
 /* ─────────────────────────  NAV (floating)  ───────────────────────── */
 .hero-nav {
   position: relative;
-  /* Bumped 10→30 so the Services dropdown panel (positioned inside
-     .hero-nav's stacking context) renders above .hero-content (also
-     z-index 10). At equal z-index, DOM order had hero-content painting
-     on top, which made the dropdown panel visually obscured — and
-     because mouseenter/leave follow visual stacking, hovering into
-     the panel area was triggering hover on hero-content (not a
-     descendant of .nav-services), causing the panel to snap shut. */
-  z-index: 30;
+  /* Bumped 10 → 100 so the .hero-nav stacking context (and the
+     dropdown panel inside it) sits above any other stacking context
+     in the page hero — including .bp-hero-shell's isolated context
+     where the deep service pages were having text leak through the
+     panel. Was z-index 30 which still got beaten on those pages. */
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -560,7 +558,12 @@ html, body {
     opacity 180ms ease-out,
     transform 180ms ease-out,
     visibility 0s linear 180ms;
-  z-index: 50;
+  /* Bumped 50 → 9999 to force the panel above any stacking-context
+     weirdness on deep service pages (bp-hero-shell creates an
+     `isolation: isolate` context that was apparently causing some
+     hero text to paint above the panel). At 9999 the panel wins
+     unconditionally. */
+  z-index: 9999;
 }
 .nav-services.is-open .nav-services-panel {
   opacity: 1;
@@ -740,3 +743,35 @@ html, body {
 .sticky-nav-drawer .nav-services-mobile-sub-inner a:first-child { padding-top: 12px; }
 .hero-nav-drawer .nav-services-mobile-sub-inner a:last-child,
 .sticky-nav-drawer .nav-services-mobile-sub-inner a:last-child { padding-bottom: 14px; }
+
+/* "View all services →" inside the mobile accordion. Styled in teal to
+   match the desktop dropdown's overview link, with a small arrow that
+   nudges right on tap to confirm interaction. */
+.hero-nav-drawer .nav-services-mobile-overview,
+.sticky-nav-drawer .nav-services-mobile-overview {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0 14px 16px !important;
+  margin-left: 4px;
+  border-left: 1.5px solid rgba(93, 168, 156, 0.4);
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.06) !important;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--accent) !important;
+  text-decoration: none;
+  width: auto !important;
+}
+.hero-nav-drawer .nav-services-mobile-overview:hover,
+.sticky-nav-drawer .nav-services-mobile-overview:hover {
+  color: var(--accent-hover) !important;
+}
+.nav-services-mobile-overview-arrow {
+  font-size: 14px;
+  transition: transform 180ms ease-out;
+}
+.nav-services-mobile-overview:hover .nav-services-mobile-overview-arrow {
+  transform: translateX(3px);
+}

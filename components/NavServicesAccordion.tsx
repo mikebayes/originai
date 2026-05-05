@@ -60,6 +60,17 @@ export default function NavServicesAccordion({ onLinkClick }: Props) {
             its own auto-sized row and the collapse never reaches zero
             height. A single inner element collapses cleanly. */}
         <div className="nav-services-mobile-sub-inner">
+          {/* Parent-page link at the top of the expanded section, mirroring
+              the desktop dropdown's "View all services →" header so the
+              services overview page is unmissable on mobile too. */}
+          <a
+            href="/services"
+            className="nav-services-mobile-overview"
+            onClick={handleSubLinkClick}
+          >
+            <span>View all services</span>
+            <span className="nav-services-mobile-overview-arrow" aria-hidden="true">→</span>
+          </a>
           <a href="/services/build" onClick={handleSubLinkClick}>
             AI Software &amp; Systems
           </a>
