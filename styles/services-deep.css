@@ -1877,7 +1877,7 @@
    live in the @media (max-width: 720px) block at the bottom of the
    file and use even higher specificity to win there. */
 .bp-page .bp-hero {
-  padding-top: 340px;
+  padding-top: 200px;
   padding-bottom: 320px;
 }
 
