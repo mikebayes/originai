@@ -183,15 +183,15 @@ export default function ServicesBuildPage() {
               </div>
               <a
                 className="bp-selected-thumb"
-                href="/images/pulse-3d.png"
+                href="/images/pulse-no-tilt.png"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Open the Pulse dashboard screenshot in a new tab"
               >
                 <span className="bp-selected-glow" aria-hidden="true" />
                 <img
-                  src="/images/pulse-3d.png"
-                  alt="Tilted dashboard screenshot of an internal platform that replaced multiple SaaS tools."
+                  src="/images/pulse-no-tilt.png"
+                  alt="Dashboard screenshot of an internal platform that replaced multiple SaaS tools."
                 />
                 <span className="bp-selected-thumb-cue" aria-hidden="true">
                   View full image →
