@@ -116,7 +116,7 @@
   box-shadow: 0 0 14px rgba(93, 168, 156, 0.3);
 }
 
-.bp-hero-shell .nav-links a { color: rgba(255,255,255,0.78); }
+.bp-hero-shell .nav-links a { color: rgba(255,255,255,0.95); }
 
 .bp-hero-shell .nav-links a:hover,
 .bp-hero-shell .nav-links a.active { color: #fff; }
@@ -1142,7 +1142,10 @@
 
 .bp-page--strategy .bp-hero-shell .nav-logo { color: #fff; }
 
-.bp-page--strategy .bp-hero-shell .nav-links a { color: rgba(255,255,255,0.78); }
+.bp-page--strategy .bp-hero-shell .nav-links a { color: rgba(255,255,255,0.95); }
+/* Strategy/Managed/etc. pages now use the homepage's 0.95 white for
+   nav-links so the nav reads identically across every page (was 0.78
+   which made the deep-service nav look subtly muted vs. homepage). */
 
 .bp-page--strategy .bp-hero-shell .nav-links a:hover,
 .bp-page--strategy .bp-hero-shell .nav-links a.active { color: #fff; }
@@ -1410,7 +1413,7 @@
 
 .bp-page--managed .bp-hero-shell .nav-logo { color: #fff; }
 
-.bp-page--managed .bp-hero-shell .nav-links a { color: rgba(255,255,255,0.78); }
+.bp-page--managed .bp-hero-shell .nav-links a { color: rgba(255,255,255,0.95); }
 
 .bp-page--managed .bp-hero-shell .nav-links a:hover,
 .bp-page--managed .bp-hero-shell .nav-links a.active { color: #fff; }
@@ -1992,7 +1995,7 @@
 
 
 
-.bp-page .bp-hero-shell .nav-links a { color: rgba(255,255,255,0.78); }
+.bp-page .bp-hero-shell .nav-links a { color: rgba(255,255,255,0.95); }
 
 
 
