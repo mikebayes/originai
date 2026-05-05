@@ -918,10 +918,9 @@
 /* Catch-all on really narrow phones: prevent any horizontal page scroll
    by clipping anything that escapes .svcs-v2's box. */
 @media (max-width: 480px) {
-  /* Bumped 20→32 so the services overview content (eyebrow, H1, sub,
-     CTAs, cards) sits inset from the viewport edges with a clearly
-     visible margin on mobile. Was reading as edge-to-edge before. */
-  .svcs-v2 .wrap{ padding: 0 32px; }
+  /* Bumped 14→20 so even on very narrow phones the trio cards keep
+     a visible gap from each viewport edge instead of feeling 100% wide. */
+  .svcs-v2 .wrap{ padding: 0 20px; }
   .svcs-v2 .s-hero-actions{ flex-wrap: wrap; gap: 10px; }
   .svcs-v2 .s-hero-actions .pill{ width: 100%; justify-content: center; }
 }
