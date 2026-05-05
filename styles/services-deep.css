@@ -569,6 +569,16 @@
   filter: brightness(1.0) contrast(1.04);
 }
 
+/* `--wide` modifier for cards whose image is a wide multi-panel
+   composition (e.g. the AI collage with three panels). Uses
+   `object-fit: contain` so all panels stay visible — no cropping into
+   a single panel — and centers the composition so the center panel
+   reads as the visual anchor with the side panels framing it. */
+.bp-selected-card.has-image--wide .bp-selected-thumb img {
+  object-fit: contain;
+  object-position: center;
+}
+
 /* Atmospheric teal glow behind the thumbnail — low opacity, wide
    spread. Provides a touch of brand depth, not a heavy effect. */
 .bp-selected-glow {

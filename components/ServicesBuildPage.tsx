@@ -214,32 +214,63 @@ export default function ServicesBuildPage() {
               </div>
             </article>
 
-            {/* Placeholders — left as-is until we apply the same image
-                treatment after Mike approves the first tile. */}
-            {[
-              { tinted: true, year: "2025", title: "Customer portal", meta: ["Professional services", "·", "8 weeks"] },
-              { tinted: false, year: "2024", title: "Internal scheduling tool", meta: ["Logistics", "·", "6 weeks"] },
-            ].map((c, i) => (
-              <article
-                className={`bp-selected-card${c.tinted ? " tinted" : ""}`}
-                key={i}
+            {/* Second card — Embedded AI workflow assistant. Three-panel
+                collage shows Notes Assist (center, the visual anchor)
+                with supporting AI Assist + AI Widget panels framing it. */}
+            <article className="bp-selected-card has-image has-image--wide">
+              <div className="top">
+                <span>
+                  <span className="dot" /> Live
+                </span>
+                <span>2025</span>
+              </div>
+              <ImageLightbox
+                src="/images/ai_project_collage.png"
+                alt="Three-panel collage of embedded AI features inside an existing operations platform — Notes Assist in the center, supporting AI panels on either side."
+                className="bp-selected-thumb"
+                ariaLabel="View the embedded AI workflow assistant collage at full size"
               >
-                <div className="top">
-                  <span>
-                    <span className="dot" /> Live
-                  </span>
-                  <span>{c.year}</span>
+                <span className="bp-selected-glow" aria-hidden="true" />
+                <img
+                  src="/images/ai_project_collage.png"
+                  alt="Three-panel collage of embedded AI features — Notes Assist anchored in the center, supporting AI panels on either side."
+                />
+                <span className="bp-selected-thumb-fade" aria-hidden="true" />
+                <span className="bp-selected-thumb-cue" aria-hidden="true">
+                  View full image
+                </span>
+              </ImageLightbox>
+              <div className="bp-selected-text">
+                <h4>Embedded AI workflow assistant</h4>
+                <p className="bp-selected-lede">
+                  Added notes, data queries, and field guidance inside an
+                  existing operations platform.
+                </p>
+                <div className="meta-row" style={{ marginTop: 14 }}>
+                  <span>AI enhancement</span>
+                  <span>·</span>
+                  <span>Field service</span>
                 </div>
-                <div>
-                  <h4>{c.title}</h4>
-                  <div className="meta-row" style={{ marginTop: 14 }}>
-                    {c.meta.map((m, j) => (
-                      <span key={j}>{m}</span>
-                    ))}
-                  </div>
+              </div>
+            </article>
+
+            {/* Placeholder — third tile stays plain until we have content. */}
+            <article className="bp-selected-card">
+              <div className="top">
+                <span>
+                  <span className="dot" /> Live
+                </span>
+                <span>2024</span>
+              </div>
+              <div>
+                <h4>Internal scheduling tool</h4>
+                <div className="meta-row" style={{ marginTop: 14 }}>
+                  <span>Logistics</span>
+                  <span>·</span>
+                  <span>6 weeks</span>
                 </div>
-              </article>
-            ))}
+              </div>
+            </article>
           </div>
         </div>
       </section>
