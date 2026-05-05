@@ -186,21 +186,28 @@ export default function ServicesBuildPage() {
                 href="/images/pulse-no-tilt.png"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Open the Pulse dashboard screenshot in a new tab"
+                aria-label="Open the dashboard screenshot in a new tab"
               >
                 <span className="bp-selected-glow" aria-hidden="true" />
                 <img
                   src="/images/pulse-no-tilt.png"
-                  alt="Dashboard screenshot of an internal platform that replaced multiple SaaS tools."
+                  alt="Client management platform — dashboard and left navigation."
                 />
+                {/* Subtle bottom-fade overlay so the screenshot blends into
+                    the card body rather than reading as a hard rectangle
+                    pasted onto the card. */}
+                <span className="bp-selected-thumb-fade" aria-hidden="true" />
                 <span className="bp-selected-thumb-cue" aria-hidden="true">
                   View full image →
                 </span>
               </a>
               <div className="bp-selected-text">
-                <h4>Replaced four SaaS tools with one custom platform</h4>
+                <h4>Client management platform</h4>
+                <p className="bp-selected-lede">
+                  Replaced four SaaS tools with one custom internal system.
+                </p>
                 <div className="meta-row" style={{ marginTop: 14 }}>
-                  <span>Internal build</span>
+                  <span>Custom software</span>
                   <span>·</span>
                   <span>8 weeks</span>
                 </div>
