@@ -481,10 +481,7 @@
     radial-gradient(60% 60% at 0% 100%, rgba(19,72,54,0.45) 0%, transparent 65%);
 }
 
-/* Loosened from 800 to 1080 so the "When this fits"/"When this makes
-   sense" heading + lede stretch closer to the full wrap width, matching
-   the more open feel of the services overview page. */
-.bp-fit-head { margin-bottom: 72px; max-width: 1080px; }
+.bp-fit-head { margin-bottom: 72px; max-width: 800px; }
 
 .bp-fit-grid {
   display: grid;
@@ -609,9 +606,7 @@
 .bp-patterns-head {
   text-align: center;
   margin-bottom: 80px;
-  /* Loosened 760 → 920 so the centered patterns intro sits in a
-     wider block, reading as more of the full wrap width. */
-  max-width: 920px;
+  max-width: 760px;
   margin-left: auto; margin-right: auto;
 }
 
@@ -1441,9 +1436,7 @@
 .bp-rail-head {
   text-align: center;
   margin-bottom: 64px;
-  /* Loosened 760 → 920 so the centered rail header reads as a wider
-     block on the page (consistency with .bp-patterns-head bump). */
-  max-width: 920px;
+  max-width: 760px;
   margin-left: auto; margin-right: auto;
 }
 
