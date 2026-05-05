@@ -1972,20 +1972,9 @@
    after the .bp-page .wrap rule so the vertical padding actually
    lands. */
 .bp-page .bp-hero {
-  /* Tight top so the eyebrow sits right below the nav, matching the
-     services overview's hero. Was 104px which pushed the eyebrow down
-     ~3 lines below the logo. */
-  padding-top: 32px;
+  padding-top: 104px;
   padding-bottom: 320px;
 }
-
-/* Hide the breadcrumb meta ("← Services / AI Software & Systems" +
-   "01 / 03 — Build") on ALL viewports. The eyebrow below it serves
-   as the section indicator instead, matching the services overview's
-   "— SERVICES" treatment that sits right under the logo. */
-.bp-page .bp-hero-meta,
-.bp-page--strategy .bp-hero-meta,
-.bp-page--managed .bp-hero-meta { display: none !important; }
 
 /* ─── Per-page bp-work-grid column counts ───────────────────────────
    Card counts differ per deep service page, so the grid layout has to
@@ -2008,6 +1997,12 @@
      The @media block is being parsed (the eyebrow rules below work),
      but for some reason previous attempts at .bp-page section.bp-hero
      wouldn't land. Spraying selectors so at least one definitely wins. */
+  /* Mobile padding-top set to 68 so the eyebrow lands at the same
+     vertical position as the services overview page's eyebrow on
+     mobile. Services overview adds 100px on top of a barebones nav;
+     deep service nav has an extra 32px below it (.bp-hero-shell
+     .hero-nav padding-bottom), so 68 here = same total ~152px from
+     top of viewport to eyebrow on mobile. */
   .bp-page section.bp-hero,
   .bp-page .bp-hero,
   section.bp-hero,
@@ -2015,13 +2010,17 @@
   .bp-page--strategy section.bp-hero,
   .bp-page--managed section.bp-hero,
   .bp-page section.wrap.bp-hero {
-    padding-top: 24px !important;
+    padding-top: 68px !important;
     padding-bottom: 200px !important;
   }
 
-  /* Mobile-specific eyebrow tweaks: tighter margin and gap. The
-     bp-hero-meta hide is in the base rule (applies on all viewports),
-     so we don't repeat it here. */
+  /* Hide the breadcrumb meta line on mobile only — desktop keeps it
+     visible. The eyebrow below takes over as the section indicator. */
+  .bp-page .bp-hero-meta,
+  .bp-page--strategy .bp-hero-meta,
+  .bp-page--managed .bp-hero-meta { display: none !important; }
+
+  /* Mobile-specific eyebrow tweaks: tighter margin and gap. */
   .bp-page .bp-hero-eyebrow {
     margin-bottom: 28px;
     gap: 10px;
