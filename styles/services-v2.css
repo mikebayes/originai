@@ -9,7 +9,16 @@
  */
 
 .svcs-v2{
-  background: #050a0c;
+  /* Multi-stop near-black gradient instead of a flat #050a0c. Reads
+     as "still black" but the slight lift at the top and deepening
+     toward the bottom gives the page a sense of atmospheric lighting
+     and prevents the hero from feeling like a hard wall. */
+  background:
+    linear-gradient(180deg,
+      #07090c 0%,
+      #050708 40%,
+      #030506 80%,
+      #020405 100%);
   min-height: 100vh;
   isolation: isolate;
   position: relative;
@@ -19,8 +28,31 @@
   content: '';
   position: absolute; inset: 0; z-index: 0; pointer-events: none;
   background:
-    radial-gradient(60% 50% at 12% 8%, rgba(93, 168, 156, 0.05) 0%, rgba(93, 168, 156, 0) 60%),
-    radial-gradient(80% 60% at 90% 95%, rgba(19, 72, 54, 0.18) 0%, rgba(19, 72, 54, 0) 65%);
+    /* Diagonal grid pattern at near-zero opacity — same atmospheric
+       texture used on .bp-hero-shell. Adds organic structure that
+       reads as "designed dark" rather than flat dark. */
+    repeating-linear-gradient(115deg, rgba(255,255,255,0.018) 0 1px, transparent 1px 80px),
+    /* Top-left teal accent — bumped 0.05 → 0.09 so the brand color
+       has more presence in the hero area. */
+    radial-gradient(55% 50% at 12% 8%, rgba(93, 168, 156, 0.09) 0%, rgba(93, 168, 156, 0) 60%),
+    /* New: small bright-teal hint at top-right for asymmetric balance. */
+    radial-gradient(45% 35% at 88% 4%, rgba(63, 221, 201, 0.05) 0%, rgba(63, 221, 201, 0) 65%),
+    /* Bottom-right forest green wash — bumped 0.18 → 0.22 to tie
+       the dark hero to the deep service pages' forest treatment. */
+    radial-gradient(80% 60% at 90% 95%, rgba(19, 72, 54, 0.22) 0%, rgba(19, 72, 54, 0) 65%);
+}
+/* Vertical grid wash, fades at top and bottom edges. Same technique
+   as .bp-hero-shell::after — adds quiet structure without being a
+   visible decoration. */
+.svcs-v2::after{
+  content: '';
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.040) 1px, transparent 1px);
+  background-size: 80px 100%;
+  mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  opacity: 0.55;
 }
 .svcs-v2 .page-grain{
   position: absolute; inset: 0; z-index: 0; pointer-events: none;
