@@ -95,7 +95,7 @@
   opacity: 0.55;
 }
 
-.bp-hero-shell > * { position: relative; z-index: 1; }
+.bp-hero-shell > *:not(.hero-nav-drawer) { position: relative; z-index: 1; }
 
 /* Nav inside dark forest hero shell */
 .bp-hero-shell .nav-logo { color: #fff; }
@@ -874,7 +874,7 @@
   opacity: 0.55;
 }
 
-.bp-page--strategy .bp-hero-shell > * { position: relative; z-index: 1; }
+.bp-page--strategy .bp-hero-shell > *:not(.hero-nav-drawer) { position: relative; z-index: 1; }
 
 .bp-page--strategy .bp-hero-shell .nav-logo { color: #fff; }
 
@@ -1142,7 +1142,7 @@
   opacity: 0.55;
 }
 
-.bp-page--managed .bp-hero-shell > * { position: relative; z-index: 1; }
+.bp-page--managed .bp-hero-shell > *:not(.hero-nav-drawer) { position: relative; z-index: 1; }
 
 .bp-page--managed .bp-hero-shell .nav-logo { color: #fff; }
 
