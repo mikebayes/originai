@@ -253,12 +253,13 @@
   padding: 90px 0 140px;
 }
 
-.bp-intro::before {
-  content: '';
-  position: absolute; left: 0; right: 0; top: 0;
-  height: 1px;
-  background: linear-gradient(to right, transparent, rgba(93,168,156,0.25) 50%, transparent);
-}
+/* .bp-intro::before removed 2026-05-05.
+   The hero shell's bottom fade gradient already provides enough
+   visual separation between hero and intro, so the extra 1px teal
+   gradient line on top of that read as redundant. Mike flagged it
+   as an "extra teal line at the bottom of the divider" on Build,
+   Strategy, Managed, and Approach pages (the four that use
+   .bp-intro). Team uses .bp-team and was already clean. */
 
 .bp-intro-grid {
   display: grid;
