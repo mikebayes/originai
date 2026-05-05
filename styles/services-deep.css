@@ -2556,11 +2556,14 @@
      extra gap between nav and hero content. */
   .bp-hero-shell .hero-nav { padding-bottom: 0 !important; }
 
-  /* Match services overview's mobile padding-top so the H1 sits at
-     the same comfortable distance below the nav. */
+  /* Mobile padding-top tuned to leave roughly 2 to 3 lines of breathing
+     room between the absolutely-positioned eyebrow at top:16 and the
+     H1. 100 was too tight (eyebrow hugged the headline); 170 gives
+     the eyebrow its own row and pushes the H1 down to a comfortable
+     start position. Mike confirmed via screencap on 2026-05-05. */
   .bp-page section.bp-hero,
   .bp-page .bp-hero {
-    padding-top: 100px !important;
+    padding-top: 170px !important;
     padding-bottom: 200px !important;
   }
 
