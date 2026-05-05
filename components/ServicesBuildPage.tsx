@@ -175,19 +175,28 @@ export default function ServicesBuildPage() {
                 past the card edge. Subtle teal radial glow at top-center
                 adds atmospheric depth without becoming a heavy effect. */}
             <article className="bp-selected-card has-image">
-              <div className="bp-selected-glow" aria-hidden="true" />
-              <div className="bp-selected-image">
-                <img
-                  src="/images/pulse-3d.png"
-                  alt="Tilted dashboard screenshot of an internal platform that replaced multiple SaaS tools."
-                />
-              </div>
               <div className="top">
                 <span>
                   <span className="dot" /> Live
                 </span>
                 <span>2025</span>
               </div>
+              <a
+                className="bp-selected-thumb"
+                href="/images/pulse-3d.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open the Pulse dashboard screenshot in a new tab"
+              >
+                <span className="bp-selected-glow" aria-hidden="true" />
+                <img
+                  src="/images/pulse-3d.png"
+                  alt="Tilted dashboard screenshot of an internal platform that replaced multiple SaaS tools."
+                />
+                <span className="bp-selected-thumb-cue" aria-hidden="true">
+                  View full image →
+                </span>
+              </a>
               <div className="bp-selected-text">
                 <h4>Replaced four SaaS tools with one custom platform</h4>
                 <div className="meta-row" style={{ marginTop: 14 }}>
