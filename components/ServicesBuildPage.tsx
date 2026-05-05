@@ -158,19 +158,49 @@ export default function ServicesBuildPage() {
         </div>
       </section>
 
-      {/* SELECTED WORK */}
-      <section className="bp-selected" data-screen-label="Selected work">
+      {/* EXAMPLE BUILDS */}
+      <section className="bp-selected" data-screen-label="Example builds">
         <div className="wrap">
           <div className="bp-selected-head">
-            <span className="label">— Selected work</span>
+            <span className="label">— Example builds</span>
             <span className="nav-arrows">
               <span>←</span>
               <span>→</span>
             </span>
           </div>
           <div className="bp-selected-grid">
+            {/* First card — Pulse internal platform with screenshot. The
+                image is positioned to bleed off the bottom-right corner
+                so the dashboard reads as a tilted screenshot extending
+                past the card edge. Subtle teal radial glow at top-center
+                adds atmospheric depth without becoming a heavy effect. */}
+            <article className="bp-selected-card has-image">
+              <div className="bp-selected-glow" aria-hidden="true" />
+              <div className="bp-selected-image">
+                <img
+                  src="/images/pulse-3d.png"
+                  alt="Tilted dashboard screenshot of an internal platform that replaced multiple SaaS tools."
+                />
+              </div>
+              <div className="top">
+                <span>
+                  <span className="dot" /> Live
+                </span>
+                <span>2025</span>
+              </div>
+              <div className="bp-selected-text">
+                <h4>Replaced four SaaS tools with one custom platform</h4>
+                <div className="meta-row" style={{ marginTop: 14 }}>
+                  <span>Internal build</span>
+                  <span>·</span>
+                  <span>8 weeks</span>
+                </div>
+              </div>
+            </article>
+
+            {/* Placeholders — left as-is until we apply the same image
+                treatment after Mike approves the first tile. */}
             {[
-              { tinted: false, year: "2025", title: "Operations dashboard", meta: ["Manufacturing", "·", "10 weeks"] },
               { tinted: true, year: "2025", title: "Customer portal", meta: ["Professional services", "·", "8 weeks"] },
               { tinted: false, year: "2024", title: "Internal scheduling tool", meta: ["Logistics", "·", "6 weeks"] },
             ].map((c, i) => (

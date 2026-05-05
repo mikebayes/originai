@@ -464,6 +464,81 @@
   position: relative; z-index: 1;
 }
 
+/* Card variant with a screenshot image. The card keeps the same
+   border + base background as the placeholder cards (so the section
+   stays visually consistent), and adds:
+     - .bp-selected-glow — soft teal radial glow at top-center for
+       atmospheric depth (low opacity, large blur, brand teal).
+     - .bp-selected-image — the screenshot, positioned so it bleeds
+       off the bottom-right edge of the card. The img inside scales
+       larger than its container so a portion gets clipped by the
+       card's overflow:hidden, creating the tilted/cropped look.
+     - .top + .bp-selected-text — sit above the image visually via
+       z-index so they read cleanly over the screenshot. */
+.bp-selected-card.has-image {
+  display: block;
+  padding: 22px 22px 24px;
+  position: relative;
+}
+.bp-selected-card.has-image .top,
+.bp-selected-card.has-image .bp-selected-text {
+  position: relative;
+  z-index: 2;
+}
+.bp-selected-card.has-image .bp-selected-text {
+  margin-top: auto;
+}
+
+/* Atmospheric teal glow at top-center, behind the image. */
+.bp-selected-glow {
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110%;
+  height: 70%;
+  background: radial-gradient(
+    50% 50% at 50% 30%,
+    rgba(93, 168, 156, 0.10) 0%,
+    rgba(93, 168, 156, 0) 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Image container — fills the card so img can be positioned absolutely
+   relative to the card. Bleeds off bottom-right by translating + scaling
+   the inner img so the card's overflow:hidden clips the edges naturally. */
+.bp-selected-image {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+.bp-selected-image img {
+  position: absolute;
+  /* Sit in the upper-half of the card. The image is generous in size
+     (~1500px wide) so we scale it so the dashboard occupies a useful
+     portion of the card, then push toward the bottom-right so the
+     edges bleed off naturally. */
+  top: 18%;
+  left: 14%;
+  width: 110%;
+  height: auto;
+  max-width: none;
+  display: block;
+}
+
+/* Layout adjustments: the .top row sits at the top, the text content
+   (h4 + meta) sits at the bottom, and the image fills the middle area
+   between them while bleeding off the bottom-right. The
+   `display: block` + `position` setup overrides the base flex layout. */
+.bp-selected-card.has-image {
+  /* Base aspect ratio kept (4/3) but a touch taller can be used if we
+     want a richer image area. Keep at 4/3 for now to match the other
+     two placeholder cards. */
+}
+
 /* ═════════════════════════════════════════════════════════════
    WHEN THIS FITS — forest-tinted band
 ═════════════════════════════════════════════════════════════ */
