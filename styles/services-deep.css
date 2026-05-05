@@ -2025,9 +2025,24 @@
   .bp-page--strategy .bp-hero-meta,
   .bp-page--managed .bp-hero-meta { display: none !important; }
 
-  /* Mobile-specific eyebrow tweaks: tighter margin and gap. */
+  /* Mobile eyebrow margin-bottom bumped to ~76 so the H1 sits where
+     it was BEFORE the eyebrow was pulled up tight against the nav.
+     Net: eyebrow ~60px from top of viewport (right under logo), H1
+     stays at its original ~158px position. */
   .bp-page .bp-hero-eyebrow {
-    margin-bottom: 28px;
+    margin-bottom: 76px;
     gap: 10px;
+  }
+
+  /* Reduce the wrap horizontal padding on mobile so the eyebrow, H1,
+     and other hero content align with the LOGO's left edge (~20px
+     from viewport) instead of being indented to ~56px. The nav uses
+     20px horizontal padding on mobile (.hero-nav rule), so 20px here
+     puts the wrap content on the same vertical axis as the logo. */
+  .bp-page section.wrap.bp-hero,
+  .bp-page--strategy section.wrap.bp-hero,
+  .bp-page--managed section.wrap.bp-hero {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
   }
 }
