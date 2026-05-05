@@ -2545,6 +2545,23 @@
 }
 
 
+
+/* ─── Strategy: brass tints lost in commit f8a9c59 (approach build) ───
+   Re-instated 2026-05-05. Strategy is the brass-accented page in the
+   service trio. The italic H1 accent ("fits.") and the Final CTA eyebrow
+   dot both pull the brass --svc-accent token instead of the global teal.
+   Build and Managed keep teal. */
+.bp-page--strategy .bp-hero-h1 .accent {
+  color: var(--svc-accent);
+}
+.bp-page--strategy .bp-cta-eyebrow {
+  color: var(--svc-accent);
+}
+.bp-page--strategy .bp-cta-eyebrow .dot {
+  background: var(--svc-accent);
+  box-shadow: 0 0 12px rgba(150, 133, 96, 0.7);
+}
+
 /* ─── Mobile-only hero pattern (match services overview) ──────────────
    Mike: on mobile, the eyebrow pinned at the top-left under the logo
    (matching services overview's pattern), then a clean gap, then the
