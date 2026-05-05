@@ -97,6 +97,16 @@
 
 .bp-hero-shell > *:not(.hero-nav-drawer) { position: relative; z-index: 1; }
 
+/* Elevate the hero-nav above the hero section so the dropdown panel
+   inside it renders ABOVE the hero text. The catch-all rule above
+   forces every shell child to z-index 1, putting the nav and section
+   at the same level — DOM order then makes the section paint over the
+   nav, causing the dropdown text-bleed-through. Specificity (0,0,2,1)
+   beats the catch-all (0,0,2,0). */
+.bp-hero-shell > nav.hero-nav { z-index: 100; }
+.bp-page--strategy .bp-hero-shell > nav.hero-nav,
+.bp-page--managed .bp-hero-shell > nav.hero-nav { z-index: 100; }
+
 /* Nav inside dark forest hero shell */
 .bp-hero-shell .nav-logo { color: #fff; }
 
@@ -122,7 +132,12 @@
 
 .bp-hero {
   position: relative;
-  padding: 260px 0 320px;
+  /* Bumped 260 → 340 on desktop so the eyebrow + meta line drop
+     to ~30% from the top of the viewport on a standard desktop
+     screen, with the rail (Engagement / Format / Outputs) landing
+     near the bottom of the first fold. Mobile @media at the bottom
+     of this file overrides this — DO NOT change mobile values. */
+  padding: 340px 0 320px;
 }
 
 /* faint horizon line + grid wash */
