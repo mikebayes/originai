@@ -539,10 +539,17 @@ html, body {
   transform: translateX(-50%) translateY(-6px);
   min-width: 340px;
   padding: 10px;
-  /* Fully opaque so text from the hero doesn't bleed through. !important
-     to force the issue past whatever cascade interaction was leaving the
-     panel see-through despite the plain rule being correct on disk. */
-  background: #080c0b !important;
+  /* Fully opaque so text from the hero doesn't bleed through. Using
+     LONGHAND background-color + explicit background-image: none to
+     defeat any rule that might be setting a transparent background
+     via a different shorthand. The `background:` shorthand in the
+     previous attempt apparently wasn't winning despite !important. */
+  background-color: #080c0b !important;
+  background-image: none !important;
+  /* Own stacking context so z-index inside is fully self-contained,
+     and child elements can't accidentally render on top via parent
+     stacking context bleed. */
+  isolation: isolate;
   border: 0.5px solid rgba(255, 255, 255, 0.10);
   border-radius: 14px;
   box-shadow:

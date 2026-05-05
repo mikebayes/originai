@@ -2029,13 +2029,18 @@
      it was BEFORE the eyebrow was pulled up tight against the nav.
      Net: eyebrow ~60px from top of viewport (right under logo), H1
      stays at its original ~158px position.
-     Negative margin-left pulls ONLY the eyebrow left to align with
-     the logo's x-position (logo at 20px from viewport, wrap content
-     at 56px, so -36 pulls just the eyebrow back to 20px while every
-     other hero element stays at 56px). */
+     No negative margin-left needed now — the wrap below sets mobile
+     padding to 20px, same as logo's x-position, so the eyebrow
+     naturally aligns with the logo. */
   .bp-page .bp-hero-eyebrow {
     margin-bottom: 76px;
-    margin-left: -36px;
     gap: 10px;
   }
+
+  /* Align deep service mobile content width with the services overview
+     page. Without this override, .bp-page .wrap stays at desktop's 56px
+     padding (the .wrap @media rule at 24px doesn't beat .bp-page .wrap
+     on specificity), so deep service content was 72px narrower than
+     services overview content on phones. Match services overview's 20px. */
+  .bp-page .wrap { padding: 0 20px; }
 }
