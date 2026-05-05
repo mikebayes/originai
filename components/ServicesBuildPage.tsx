@@ -1,4 +1,5 @@
 import HeroNav from "./HeroNav";
+import ImageLightbox from "./ImageLightbox";
 
 /**
  * /services/build — full page from Claude Design spec.
@@ -181,12 +182,11 @@ export default function ServicesBuildPage() {
                 </span>
                 <span>2025</span>
               </div>
-              <a
+              <ImageLightbox
+                src="/images/pulse-no-tilt.png"
+                alt="Client management platform — dashboard and left navigation."
                 className="bp-selected-thumb"
-                href="/images/pulse-no-tilt.png"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Open the dashboard screenshot in a new tab"
+                ariaLabel="View the client management platform screenshot at full size"
               >
                 <span className="bp-selected-glow" aria-hidden="true" />
                 <img
@@ -198,9 +198,9 @@ export default function ServicesBuildPage() {
                     pasted onto the card. */}
                 <span className="bp-selected-thumb-fade" aria-hidden="true" />
                 <span className="bp-selected-thumb-cue" aria-hidden="true">
-                  View full image →
+                  View full image
                 </span>
-              </a>
+              </ImageLightbox>
               <div className="bp-selected-text">
                 <h4>Client management platform</h4>
                 <p className="bp-selected-lede">
