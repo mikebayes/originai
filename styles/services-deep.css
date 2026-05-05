@@ -132,12 +132,12 @@
 
 .bp-hero {
   position: relative;
-  /* Bumped 260 → 340 on desktop so the eyebrow + meta line drop
-     to ~30% from the top of the viewport on a standard desktop
-     screen, with the rail (Engagement / Format / Outputs) landing
-     near the bottom of the first fold. Mobile @media at the bottom
-     of this file overrides this — DO NOT change mobile values. */
-  padding: 340px 0 320px;
+  /* Padding here is BEATEN on the cascade by `.bp-page .wrap` (0,0,2,0)
+     since the section has both class="wrap bp-hero". Real desktop
+     padding is set by the higher-specificity `.bp-page .bp-hero` rule
+     near the end of this file. Keeping a baseline here for any context
+     where the wrap class isn't on the section. */
+  padding: 0;
 }
 
 /* faint horizon line + grid wash */
@@ -1868,6 +1868,18 @@
 
 
 .bp-page .wrap { max-width: 1200px; margin: 0 auto; padding: 0 56px; position: relative; z-index: 1; }
+
+/* Desktop hero vertical padding — defined here AFTER `.bp-page .wrap`
+   so this rule (specificity 0,0,2,0) wins source-order against the
+   wrap's `padding: 0 56px` shorthand that was zeroing out top/bottom
+   padding on the section. Uses longhand padding-top/bottom so the
+   wrap's horizontal padding (0 56px) still applies. Mobile values
+   live in the @media (max-width: 720px) block at the bottom of the
+   file and use even higher specificity to win there. */
+.bp-page .bp-hero {
+  padding-top: 340px;
+  padding-bottom: 320px;
+}
 
 
 
