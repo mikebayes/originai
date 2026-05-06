@@ -1302,8 +1302,17 @@
   .bp-work-grid { grid-template-columns: repeat(2, 1fr); }
   .bp-fit-grid { grid-template-columns: repeat(2, 1fr); }
   .bp-selected-grid { grid-template-columns: repeat(2, 1fr); }
-  .bp-intro-grid, .bp-work-head, .bp-outputs-head, .bp-faq-head,
-  .bp-rhythm-head, .bp-coverage-head { grid-template-columns: 1fr; gap: 40px; }
+  /* Specificity bumped to .bp-page X 2026-05-06 because the desktop
+     .bp-rhythm-head and .bp-coverage-head rules live LATER in the
+     file than this @media block, so without the bump they were
+     winning on source order at mobile widths. The .bp-page class
+     adds a class to the selector chain (0,0,2,0 vs 0,0,1,0). */
+  .bp-page .bp-intro-grid,
+  .bp-page .bp-work-head,
+  .bp-page .bp-outputs-head,
+  .bp-page .bp-faq-head,
+  .bp-page .bp-rhythm-head,
+  .bp-page .bp-coverage-head { grid-template-columns: 1fr; gap: 40px; }
   .bp-outputs-list { grid-template-columns: 1fr; }
   .bp-hero-footer { grid-template-columns: 1fr; gap: 24px; }
   .footer-cols { grid-template-columns: 1fr 1fr; gap: 40px; }
