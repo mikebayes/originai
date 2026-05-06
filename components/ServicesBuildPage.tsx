@@ -200,6 +200,9 @@ export default function ServicesBuildPage() {
                 alt="Client management platform — dashboard and left navigation."
                 className="bp-selected-thumb"
                 ariaLabel="View the client management platform screenshot at full size"
+                meta="Custom software · 2026 · Marketing company"
+                title="Client management platform"
+                description="A browser-based operations platform built to keep client work, projects, quotes, scheduling, CRM, invoicing, and reporting in one place. The system replaced multiple disconnected SaaS tools with a focused internal workspace designed around how the team actually runs the business."
               >
                 <span className="bp-selected-glow" aria-hidden="true" />
                 <img
@@ -242,6 +245,9 @@ export default function ServicesBuildPage() {
                 alt="Three-panel collage of embedded AI features inside an existing operations platform — Notes Assist in the center, supporting AI panels on either side."
                 className="bp-selected-thumb"
                 ariaLabel="View the embedded AI workflow assistant collage at full size"
+                meta="AI enhancement · 2026 · Field service company"
+                title="Embedded AI workflow assistant"
+                description="AI enhancements added inside an existing field service platform to improve the technician experience, clean up job notes, and make troubleshooting easier in the flow of work. The system supports notes assistance, structured summaries, focused data queries, and field guidance without turning the product into a generic chatbot."
               >
                 <span className="bp-selected-glow" aria-hidden="true" />
                 <img

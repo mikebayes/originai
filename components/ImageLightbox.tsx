@@ -16,6 +16,13 @@ type Props = {
   className?: string;
   /** Optional aria-label for the trigger button. */
   ariaLabel?: string;
+  /** Optional small mono-caps metadata line shown above the title in the
+   *  caption block (e.g. "CUSTOM SOFTWARE · 2026 · MARKETING COMPANY"). */
+  meta?: string;
+  /** Optional caption title rendered as an h3 below the image. */
+  title?: string;
+  /** Optional caption description paragraph rendered below the title. */
+  description?: string;
 };
 
 /**
@@ -23,7 +30,10 @@ type Props = {
  * close button. Click backdrop, click ✕, or press Escape to close.
  *
  * Used by the example-builds cards on the build page so visitors can view
- * the screenshot in detail without leaving the page.
+ * the screenshot in detail without leaving the page. When meta/title/
+ * description props are supplied, a caption block renders below the image
+ * (museum-exhibit pattern) so the build is properly explained at full
+ * size, not just shown.
  */
 export default function ImageLightbox({
   src,
@@ -31,6 +41,9 @@ export default function ImageLightbox({
   children,
   className,
   ariaLabel,
+  meta,
+  title,
+  description,
 }: Props) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -50,6 +63,8 @@ export default function ImageLightbox({
       document.body.style.overflow = prevOverflow;
     };
   }, [isOpen]);
+
+  const hasCaption = Boolean(meta || title || description);
 
   return (
     <>
@@ -81,14 +96,26 @@ export default function ImageLightbox({
           >
             ✕
           </button>
-          <img
-            src={src}
-            alt={alt}
-            className="lightbox-image"
-            // Stop bubbling so clicking the image doesn't close — only the
-            // backdrop and ✕ button close the modal.
+          {/* Stop bubbling on the inner figure so clicking the image or
+              caption doesn't close the modal — only the backdrop and
+              ✕ button close it. */}
+          <figure
+            className="lightbox-figure"
             onClick={(e) => e.stopPropagation()}
-          />
+          >
+            <img src={src} alt={alt} className="lightbox-image" />
+            {hasCaption && (
+              <figcaption className="lightbox-caption">
+                {meta && <div className="lightbox-caption-meta">{meta}</div>}
+                {title && (
+                  <h3 className="lightbox-caption-title">{title}</h3>
+                )}
+                {description && (
+                  <p className="lightbox-caption-desc">{description}</p>
+                )}
+              </figcaption>
+            )}
+          </figure>
         </div>
       )}
     </>
