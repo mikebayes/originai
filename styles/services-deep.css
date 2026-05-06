@@ -1148,6 +1148,13 @@
   .bp-page--managed .bp-fit-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  /* Managed: bp-coverage-grid was originally 9 cells in 3x3. The
+     refined "What it can apply to" section has 4 compact cards, so
+     render as a single 4-col row at desktop instead of the default
+     3-col which would leave an orphan. */
+  .bp-page--managed .bp-coverage-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 1024px) {
@@ -3190,6 +3197,77 @@
   .bp-backed-tag { font-size: 17px !important; }
 }
 
+
+/* ─── Managed: "What Managed AI is" definitional block ─────────────
+   New section added 2026-05-05 to land what Managed AI actually is
+   right after "Launch is not the finish line". Single-column treatment
+   so it reads as a clean definition rather than another grid section.
+   Eyebrow + H2 + 3-paragraph body, max-width constrained for readable
+   line lengths. */
+.bp-define {
+  position: relative;
+  padding: 110px 0 110px;
+  background: #03100b;
+  border-top: 0.5px solid rgba(255,255,255,0.06);
+  border-bottom: 0.5px solid rgba(255,255,255,0.06);
+}
+
+.bp-define-inner {
+  max-width: 880px;
+}
+
+.bp-define-eyebrow {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 24px;
+}
+
+.bp-define-eyebrow .bar {
+  display: inline-block; width: 22px; height: 1px;
+  background: var(--accent);
+}
+
+.bp-define-h2 {
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 500;
+  font-size: clamp(36px, 4.4vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0 0 36px;
+  text-wrap: balance;
+}
+
+.bp-define-h2 .muted { color: rgba(255,255,255,0.45); font-weight: 500; }
+
+.bp-define-body {
+  max-width: 64ch;
+}
+
+.bp-define-body p {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.78);
+  margin: 0 0 20px;
+}
+
+.bp-define-body p:last-child { margin-bottom: 0; }
+
+.bp-define-emphasis {
+  margin-top: 8px !important;
+  padding-top: 20px;
+  border-top: 0.5px solid rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.86) !important;
+}
+
+@media (max-width: 720px) {
+  .bp-define { padding: 70px 0 80px; }
+  .bp-define-h2 { margin: 0 0 28px; }
+  .bp-define-body p { font-size: 16px; }
+}
 
 /* ─── Strategy: "Led by Mike Bayes" credibility callout ─────────────
    Compact horizontal card sitting between "Why this matters" and

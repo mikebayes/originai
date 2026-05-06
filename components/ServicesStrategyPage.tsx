@@ -431,17 +431,32 @@ export default function ServicesStrategyPage() {
               {
                 open: true,
                 q: "Is this only for executives?",
-                a: "No. The audience depends on who needs clarity and who will own the work. We engage leaders, managers, operators, and teams as the engagement requires.",
+                a: "No. We work with leaders, managers, operators, and teams depending on where clarity is needed. Some engagements start with the senior team. Others include broader training or working sessions with the people closest to the work.",
               },
               {
                 open: false,
-                q: "Do we need to commit to a build project?",
-                a: "No. Strategy and advisory work can stand on their own. When the right opportunity emerges, we can help define a scoped build, but we do not push toward one.",
+                q: "What happens in a strategy engagement?",
+                a: "We align leaders, assess readiness, surface use cases, discuss governance, and help define what should happen next. The shape depends on the client, but the goal is always the same: clearer decisions and a sharper path toward implementation.",
+              },
+              {
+                open: false,
+                q: "Do you provide AI training?",
+                a: "Yes. Training can be included when teams need shared language, better fluency, or hands-on support using AI in their work. Programs can be tailored for leaders, general teams, or more applied workflow-building sessions.",
               },
               {
                 open: false,
                 q: "Do you help with AI policy and governance?",
-                a: "Yes. We can help shape usage guidelines, policy direction, and decision guardrails that fit the organization. Pragmatic, not theoretical.",
+                a: "Yes. We help shape usage guidelines, policy direction, and decision guardrails that fit the organization. The goal is to create enough structure for people to use AI responsibly without slowing progress.",
+              },
+              {
+                open: false,
+                q: "Will this produce a roadmap or use-case list?",
+                a: "Yes, when that is part of the engagement. We can help identify, rank, and filter AI opportunities based on value, effort, fit, and readiness. The outcome should be a clearer view of what is worth doing first, not a long list of ideas.",
+              },
+              {
+                open: false,
+                q: "Do we need to commit to a build project?",
+                a: "No. Strategy and training work can stand on their own. If the right opportunity emerges, we can help define a scoped build, but the purpose of this engagement is clarity first, not forcing a project.",
               },
             ].map((it, i) => (
               <details className="bp-faq-item" key={i} open={it.open}>
