@@ -4058,6 +4058,72 @@
   .bp-direct-body { font-size: 16px; }
 }
 
+/* ─── Managed AI page mobile fixes (rhythm / rail / coverage) ──────
+   Mike flagged 2026-05-06: desktop is perfect, mobile breaks in three
+   places. (1) bp-rhythm-grid keeps the 2-col layout on mobile so the
+   stages get squeezed into a thin column while the cycle SVG takes
+   half the width. (2) bp-rail-track keeps 3-col so the Build + Managed
+   phase cards overflow at narrow widths. (3) bp-coverage-grid stays
+   3-col so the 4 system-type cards squeeze into single-word lines.
+   Fixes are mobile-only — desktop layout untouched. */
+
+@media (max-width: 1024px) {
+  /* Tablet-down: rhythm stacks (cycle SVG drops below stages or hides
+     entirely on phone, see 720 block). Rail track stacks. Coverage
+     grid drops to 2 columns to give cards reading room. */
+  .bp-rhythm-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .bp-rail-track {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-width: 480px;
+  }
+  /* Rail arrow: the line + label sit vertically between stacked cards
+     instead of horizontally between side-by-side cards. */
+  .bp-rail-arrow {
+    flex-direction: row;
+    justify-content: center;
+    gap: 12px;
+    padding: 4px 0;
+  }
+  .bp-rail-arrow .line {
+    width: 24px;
+  }
+  .bp-page--managed .bp-coverage-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  /* Phone: hide the cycle SVG entirely. Mike: "not sure if that
+     cadence graphic will work at all on mobile" — and the stages
+     deliver the same information without it. */
+  .bp-rhythm-cycle { display: none; }
+
+  /* Stages drop the side stagelabel (LISTEN / DECIDE / BUILD / GROW)
+     because at phone widths it crowds against the H3 + paragraph and
+     the labels mostly restate the heading. */
+  .bp-rhythm-stage {
+    grid-template-columns: 36px 1fr;
+    gap: 16px;
+    padding: 22px 0;
+  }
+  .bp-rhythm-stage .stagelabel { display: none; }
+  .bp-rhythm-stage h3 { font-size: 18px; }
+  .bp-rhythm-stage p { font-size: 14px; max-width: none; }
+
+  /* Coverage cards stack to 1-col on phones with comfortable padding. */
+  .bp-page--managed .bp-coverage-grid {
+    grid-template-columns: 1fr;
+  }
+  .bp-coverage-cell {
+    min-height: 0;
+    padding: 22px 20px;
+  }
+}
+
 /* ─── Mobile-only hero pattern (match services overview) ──────────────
    Mike: on mobile, the eyebrow pinned at the top-left under the logo
    (matching services overview's pattern), then a clean gap, then the
