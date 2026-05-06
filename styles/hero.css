@@ -728,8 +728,8 @@ html, body {
    this scope, the drawer rule's `padding: 12px 0` was overriding
    our padding-left and pushing the link text flush against the
    teal accent line. */
-.hero-nav-drawer .nav-services-mobile-sub-inner a,
-.sticky-nav-drawer .nav-services-mobile-sub-inner a {
+.hero-nav-drawer .nav-services-mobile .nav-services-mobile-sub-inner a,
+.sticky-nav-drawer .nav-services-mobile .nav-services-mobile-sub-inner a {
   display: block;
   /* 28px padding-left = clear visible gap between the teal accent
      line and the start of the link text. */
@@ -744,18 +744,18 @@ html, body {
   border-left: 1.5px solid rgba(93, 168, 156, 0.4);
   width: auto;
 }
-.hero-nav-drawer .nav-services-mobile-sub-inner a:hover,
-.sticky-nav-drawer .nav-services-mobile-sub-inner a:hover { color: #fff; }
-.hero-nav-drawer .nav-services-mobile-sub-inner a:first-child,
-.sticky-nav-drawer .nav-services-mobile-sub-inner a:first-child { padding-top: 12px; }
-.hero-nav-drawer .nav-services-mobile-sub-inner a:last-child,
-.sticky-nav-drawer .nav-services-mobile-sub-inner a:last-child { padding-bottom: 14px; }
+.hero-nav-drawer .nav-services-mobile .nav-services-mobile-sub-inner a:hover,
+.sticky-nav-drawer .nav-services-mobile .nav-services-mobile-sub-inner a:hover { color: #fff; }
+.hero-nav-drawer .nav-services-mobile .nav-services-mobile-sub-inner a:first-child,
+.sticky-nav-drawer .nav-services-mobile .nav-services-mobile-sub-inner a:first-child { padding-top: 12px; }
+.hero-nav-drawer .nav-services-mobile .nav-services-mobile-sub-inner a:last-child,
+.sticky-nav-drawer .nav-services-mobile .nav-services-mobile-sub-inner a:last-child { padding-bottom: 14px; }
 
 /* "View all services →" inside the mobile accordion. Styled in teal to
    match the desktop dropdown's overview link, with a small arrow that
    nudges right on tap to confirm interaction. */
-.hero-nav-drawer .nav-services-mobile-overview,
-.sticky-nav-drawer .nav-services-mobile-overview {
+.hero-nav-drawer .nav-services-mobile .nav-services-mobile-overview,
+.sticky-nav-drawer .nav-services-mobile .nav-services-mobile-overview {
   display: flex !important;
   align-items: center;
   justify-content: space-between;
@@ -771,8 +771,8 @@ html, body {
   text-decoration: none;
   width: auto !important;
 }
-.hero-nav-drawer .nav-services-mobile-overview:hover,
-.sticky-nav-drawer .nav-services-mobile-overview:hover {
+.hero-nav-drawer .nav-services-mobile .nav-services-mobile-overview:hover,
+.sticky-nav-drawer .nav-services-mobile .nav-services-mobile-overview:hover {
   color: var(--accent-hover) !important;
 }
 .nav-services-mobile-overview-arrow {
