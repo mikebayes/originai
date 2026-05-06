@@ -1090,9 +1090,16 @@
    desktop-only on 2026-05-05. Originally introduced in commit b4a73f2
    then dropped during commit f8a9c59 (approach page rewrite). */
 @media (min-width: 1025px) {
-  .bp-page--strategy .bp-work-grid,
-  .bp-page--managed .bp-work-grid {
+  /* Strategy: 6 work areas -> 3x2 grid. */
+  .bp-page--strategy .bp-work-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  /* Managed: 4 categories (Improve / Support / Extend / Optimize) ->
+     2x2 grid. Cards get more space which suits a smaller, more
+     focused set. Updated 2026-05-05 when the page was rewritten to
+     reduce overclaiming. */
+  .bp-page--managed .bp-work-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 

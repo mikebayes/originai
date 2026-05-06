@@ -3,11 +3,18 @@ import HeroNav from "./HeroNav";
 /**
  * /services/managed — Managed AI deep service page.
  *
- * Built from Claude Design spec. Reuses .bp-page system from
- * services-deep.css with .bp-page--managed modifier carrying the
- * cooler teal-leaning hero gradient. Page-specific sections include
- * the monthly rhythm cycle visual, the coverage 9-cell grid, and the
- * Build → Managed rail.
+ * Revised 2026-05-05 per Mike's direction to reduce overclaiming and
+ * remove AI-sounding filler. Managed AI is positioned as an emerging
+ * follow-on service for clients whose AI system or workflow we helped
+ * build — not a mature productized service with years of operating
+ * history. Language uses "may include" / "depending on" so clients
+ * don't read this as a fixed catalogue of monthly deliverables.
+ *
+ * Hero unchanged. "Launch is not the finish line" tightened to two
+ * paragraphs. "What's included" + "What we can keep improving" + "What
+ * you get each month" merged into a single "What Managed AI covers"
+ * section with four categories (Improve / Support / Extend / Optimize).
+ * Rhythm and rail kept; FAQ trimmed; CTA softened.
  */
 export default function ServicesManagedPage() {
   return (
@@ -17,6 +24,7 @@ export default function ServicesManagedPage() {
       <div className="bp-hero-shell">
         <HeroNav />
 
+        {/* HERO — unchanged per Mike's direction */}
         <section className="wrap bp-hero" data-screen-label="Managed hero">
           <div className="bp-hero-meta">
             <span>
@@ -71,7 +79,7 @@ export default function ServicesManagedPage() {
 
       <div className="bp-fade-down" aria-hidden="true" />
 
-      {/* AFTER LAUNCH, THE WORK CHANGES */}
+      {/* AFTER LAUNCH — tightened to two short paragraphs */}
       <section className="bp-intro" data-screen-label="Launch is not the finish line">
         <div className="wrap">
           <div className="bp-intro-grid">
@@ -83,20 +91,15 @@ export default function ServicesManagedPage() {
             <div className="bp-intro-body">
               <p>
                 <strong>
-                  The first version gets the system into the business. The next
-                  versions make it better.
+                  The first version gets a working AI system into the business.
+                  Once people start using it, the real opportunities and gaps
+                  show up in ways no plan could predict.
                 </strong>
               </p>
               <p>
-                Once people start using AI software, the real opportunities
-                become clearer. Workflows need adjustment. Users ask for new
-                features. Integrations change. Prompts, agents, data flows, and
-                interfaces need refinement.
-              </p>
-              <p>
-                Managed AI gives you a defined monthly path to keep improving
-                what is already live, without restarting a new project every
-                time something needs to change.
+                Managed AI gives clients a defined way to keep improving the
+                system after launch, without restarting a project every time
+                something needs to change.
               </p>
             </div>
           </div>
@@ -107,39 +110,56 @@ export default function ServicesManagedPage() {
         <div className="chapter-rule">
           <span className="pill-marker">
             <span className="dot" />
-            What&rsquo;s included — six work areas
+            What Managed AI covers
           </span>
         </div>
       </div>
 
-      {/* WHAT'S INCLUDED */}
-      <section className="bp-work" data-screen-label="What's included">
+      {/* WHAT MANAGED AI COVERS — replaces "What's included" + coverage 9-cell
+          + "What you get each month". Four simple categories with hedged
+          language so this doesn't read as a fixed monthly catalogue. */}
+      <section className="bp-work" data-screen-label="What Managed AI covers">
         <div className="wrap">
           <div className="bp-work-head">
             <div>
               <div className="eyebrow">
                 <span className="bar" />
-                What&rsquo;s included
+                What it covers
               </div>
               <h2 className="section-h2" style={{ marginTop: 24 }}>
-                A defined monthly scope{" "}
-                <span className="muted">for live AI systems.</span>
+                Four ways Managed AI{" "}
+                <span className="muted">keeps the system improving.</span>
               </h2>
             </div>
             <p className="section-lede lede">
-              Continuous development, support, and extension of the systems we
-              build with you, handled by the team that already knows them.
+              Each month&rsquo;s work is defined with the client. Depending on
+              the system and the agreed scope, it may include any of the
+              following.
             </p>
           </div>
 
           <div className="bp-work-grid">
             {[
-              ["01", "Continuous development", "New features, workflow improvements, interface changes, and extensions to systems already in use."],
-              ["02", "Fixes and support", "Issue resolution, adjustments, and support for the software, workflows, and AI components we have built."],
-              ["03", "Workflow additions", "New workflows, automations, agents, or user paths added as the business finds more valuable ways to use the system."],
-              ["04", "Optimization", "Refinement of prompts, agents, data flows, integrations, UX, and system performance based on real usage."],
-              ["05", "Backlog management", "A shared improvement backlog that keeps priorities visible and helps decide what gets worked on next."],
-              ["06", "Accountable team", "Continuity from the team that knows the system, the business context, and the decisions behind the build."],
+              [
+                "01",
+                "Improve",
+                "Refinements, workflow changes, feature adjustments, and usability improvements based on real use.",
+              ],
+              [
+                "02",
+                "Support",
+                "Issue resolution, small fixes, and adjustments that keep the system useful day to day.",
+              ],
+              [
+                "03",
+                "Extend",
+                "New workflows, integrations, automations, or capabilities, where there is a clear business case.",
+              ],
+              [
+                "04",
+                "Optimize",
+                "Improvements to prompts, agents, data flows, UX, integrations, and system performance over time.",
+              ],
             ].map(([num, title, body]) => (
               <div className="bp-work-cell" key={num}>
                 <div className="num">{num}</div>
@@ -151,33 +171,52 @@ export default function ServicesManagedPage() {
         </div>
       </section>
 
-      {/* THE MONTHLY RHYTHM */}
-      <section className="bp-rhythm" data-screen-label="Monthly rhythm">
+      {/* HOW THE MONTHLY RHYTHM WORKS — kept, with tightened copy */}
+      <section className="bp-rhythm" data-screen-label="How the monthly rhythm works">
         <div className="wrap">
           <div className="bp-rhythm-head">
             <div>
               <div className="eyebrow">
                 <span className="bar" />
-                The monthly rhythm
+                Monthly rhythm
               </div>
               <h2 className="section-h2" style={{ marginTop: 24 }}>
-                A monthly rhythm{" "}
-                <span className="muted">for continuous improvement.</span>
+                How the rhythm{" "}
+                <span className="muted">works each month.</span>
               </h2>
             </div>
             <p className="section-lede lede">
-              Managed AI gives the work structure without slowing it down. Not
-              a process funnel, an operating cadence.
+              Less process, more clarity on what is getting worked on and why.
             </p>
           </div>
 
           <div className="bp-rhythm-grid">
             <div className="bp-rhythm-stages">
               {[
-                ["01", "Review", "We look at usage, feedback, issues, and new opportunities surfacing in the live system.", "Listen"],
-                ["02", "Prioritize", "We agree on the highest-value fixes, changes, or additions for the month — together.", "Decide"],
-                ["03", "Improve", "Our team develops, tests, and releases updates within the defined monthly scope.", "Build"],
-                ["04", "Extend", "As the system proves value, we add new workflows, capabilities, and integrations.", "Grow"],
+                [
+                  "01",
+                  "Review",
+                  "We look at usage, feedback, and what surfaced over the past month.",
+                  "Listen",
+                ],
+                [
+                  "02",
+                  "Prioritize",
+                  "We agree together on what is worth working on next, within the agreed scope.",
+                  "Decide",
+                ],
+                [
+                  "03",
+                  "Improve",
+                  "Our team develops, tests, and releases updates as the work moves.",
+                  "Build",
+                ],
+                [
+                  "04",
+                  "Extend",
+                  "When a clear case appears, we add new workflows, capabilities, or integrations.",
+                  "Grow",
+                ],
               ].map(([num, h, p, label]) => (
                 <div className="bp-rhythm-stage" key={num}>
                   <div className="num">{num}</div>
@@ -239,76 +278,33 @@ export default function ServicesManagedPage() {
         </div>
       </section>
 
-      {/* WHAT WE CAN KEEP IMPROVING — coverage 9-cell grid */}
-      <section className="bp-coverage" data-screen-label="What we can keep improving">
-        <div className="wrap" style={{ paddingTop: 0 }}>
-          <div className="bp-coverage-head">
-            <div>
-              <div className="eyebrow">
-                <span className="bar" />
-                Coverage
-              </div>
-              <h2 className="section-h2" style={{ marginTop: 24 }}>
-                What we can <span className="muted">keep improving.</span>
-              </h2>
-            </div>
-            <p className="section-lede lede">
-              Managed AI applies to the systems, apps, workflows, and tools we
-              build with you, not abstract advice.
-            </p>
-          </div>
-
-          <div className="bp-coverage-grid">
-            {[
-              ["01", "Custom AI software", "Purpose-built AI products serving a specific business workflow."],
-              ["02", "Internal apps", "Tools used by employees to do faster, sharper, more consistent work."],
-              ["03", "AI-enabled websites", "Public-facing sites with AI features integrated into the experience."],
-              ["04", "Workflow systems", "Multi-step automations that move work through the business."],
-              ["05", "Agents and assistants", "AI agents that take action, retrieve, draft, and route on behalf of the team."],
-              ["06", "Custom GPTs", "Internal AI assistants tuned to specific roles, contexts, or processes."],
-              ["07", "Customer or employee portals", "Self-serve interfaces that surface the right information at the right time."],
-              ["08", "Data and integration layers", "The connective tissue keeping AI accurate, current, and grounded."],
-              ["09", "Dashboards and decision tools", "Interfaces that turn AI output into something a team can actually act on."],
-            ].map(([num, h, p]) => (
-              <div className="bp-coverage-cell" key={num}>
-                <span className="marker">{num}</span>
-                <h3>{h}</h3>
-                <p>{p}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* WHEN MANAGED MAKES SENSE */}
-      <section className="bp-fit" data-screen-label="When this makes sense">
+      {/* WHEN THIS FITS — reduced from 6 signals to 4, qualification-focused.
+          Dropped "Signal 0X" labels (read as productized AI catalogue). */}
+      <section className="bp-fit" data-screen-label="When this fits">
         <div className="wrap">
           <div className="bp-fit-head">
             <div className="eyebrow">
               <span className="bar" />
-              When this makes sense
+              When this fits
             </div>
             <h2 className="section-h2" style={{ marginTop: 24 }}>
-              This is the right call <span className="muted">when&hellip;</span>
+              Managed AI usually fits{" "}
+              <span className="muted">when&hellip;</span>
             </h2>
             <p className="section-lede">
-              Managed AI is useful when the system matters enough to keep
-              improving, but you do not want to restart a project every time a
-              new need appears.
+              For clients who want a defined way to keep improving a live AI
+              system, not a new project every time something changes.
             </p>
           </div>
 
           <div className="bp-fit-grid">
             {[
-              ["Signal 01", "You've launched an AI system and want it to keep improving."],
-              ["Signal 02", "Users are finding new workflows, gaps, and opportunities."],
-              ["Signal 03", "The first build proved value, and now the business wants more."],
-              ["Signal 04", "You need a team that already understands the system."],
-              ["Signal 05", "You want a defined monthly scope, not one-off requests."],
-              ["Signal 06", "You expect the system to evolve as the business changes."],
-            ].map(([sig, h]) => (
-              <div className="bp-fit-cell" key={sig}>
-                <span className="signal">{sig}</span>
+              "A system, workflow, or tool we built with you is now live and being used.",
+              "New needs, gaps, or edge cases are showing up in real use.",
+              "You would rather have a defined monthly scope than ad-hoc requests.",
+              "You want continuity with the team that already knows the system.",
+            ].map((h, i) => (
+              <div className="bp-fit-cell" key={i}>
                 <h3>{h}</h3>
               </div>
             ))}
@@ -316,55 +312,13 @@ export default function ServicesManagedPage() {
         </div>
       </section>
 
-      {/* WHAT YOU GET EACH MONTH */}
-      <section className="bp-outputs" data-screen-label="What you get each month">
-        <div className="wrap">
-          <div className="bp-outputs-head">
-            <div>
-              <div className="eyebrow">
-                <span className="bar" />
-                Outputs
-              </div>
-              <h2 className="section-h2" style={{ marginTop: 24 }}>
-                What you get <span className="muted">each month.</span>
-              </h2>
-            </div>
-            <p className="section-lede lede">
-              A clearer way to improve live AI systems without turning every
-              change into a new project.
-            </p>
-          </div>
-
-          <div className="bp-outputs-list">
-            {[
-              ["01", "A defined monthly scope.", "What's in scope for the month is agreed up front, written down, and visible to both teams."],
-              ["02", "A prioritized backlog.", "A shared list of fixes, improvements, and ideas — ordered by value and ready to draw from."],
-              ["03", "Fixes and refinements.", "Issues resolved, edges sanded down, and small adjustments applied as soon as they're useful."],
-              ["04", "New workflows or enhancements.", "Net-new capability added when the business finds a more valuable way to use the system."],
-              ["05", "A usage and feedback review.", "What people are actually doing, where they're getting stuck, and where the system is paying off."],
-              ["06", "System optimization.", "Prompts, agents, integrations, and UX tuned against real usage — not assumptions."],
-              ["07", "Support for the systems we build.", "Real coverage when something needs attention, from the team that knows what's behind the curtain."],
-              ["08", "A team that knows the context.", "The people, the architecture, the trade-offs, and the decisions stay in the same hands."],
-            ].map(([num, h, p]) => (
-              <div className="bp-output-row" key={num}>
-                <div className="num">{num}</div>
-                <div>
-                  <h3>{h}</h3>
-                  <p>{p}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* BUILT TO CONTINUE — Build → Managed rail */}
+      {/* BUILT TO CONTINUE — Build → Managed rail, kept */}
       <section className="bp-rail" data-screen-label="Built to continue">
         <div className="wrap">
           <div className="bp-rail-head">
             <div className="eyebrow">
               <span className="bar" />
-              Built to continue
+              Continuity
             </div>
             <h2 className="section-h2" style={{ marginTop: 24 }}>
               Built to <span className="muted">continue.</span>
@@ -372,12 +326,12 @@ export default function ServicesManagedPage() {
           </div>
 
           <p className="bp-rail-statement">
-            Managed AI works best when it follows a system we helped design
-            and build. The team already understands the architecture, the
-            workflow, the users, and the decisions behind it.{" "}
+            Managed AI works best when it follows a system the same team helped
+            design and build. The architecture, the workflows, the users, and
+            the decisions behind the build are already understood.{" "}
             <strong>
-              That continuity lets us move faster, make better trade-offs, and
-              keep improving without starting from zero.
+              That continuity reduces friction and helps the system keep
+              evolving with the business.
             </strong>
           </p>
 
@@ -397,24 +351,10 @@ export default function ServicesManagedPage() {
               <p>The same team keeps improving it, month over month.</p>
             </div>
           </div>
-
-          <p
-            style={{
-              textAlign: "center",
-              margin: "56px auto 0",
-              fontFamily: "'Inter', sans-serif",
-              fontSize: "14.5px",
-              color: "rgba(255,255,255,0.55)",
-              maxWidth: "50ch",
-            }}
-          >
-            This isn&rsquo;t a handoff. It&rsquo;s an ongoing relationship with
-            the work.
-          </p>
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* FAQ — trimmed from 4 to 3 */}
       <section className="bp-faq" data-screen-label="Common questions">
         <div className="wrap">
           <div className="bp-faq-head">
@@ -428,17 +368,27 @@ export default function ServicesManagedPage() {
               </h2>
             </div>
             <p className="section-lede lede">
-              What buyers ask before they sign on. Honest takes on the parts of
-              an ongoing engagement that usually go unwritten.
+              Practical questions clients tend to ask before they engage.
             </p>
           </div>
 
           <div className="bp-faq-list">
             {[
-              { open: true, q: "Is Managed AI required after a build?", a: "No. Some clients prefer a handoff after launch. Managed AI is for teams that want us to stay close, keep improving the system, and support new needs as they appear." },
-              { open: false, q: "What does the monthly scope include?", a: "The monthly scope is defined with the client. It can include fixes, improvements, new workflows, optimization, support, and small feature additions." },
-              { open: false, q: "Can we change priorities month to month?", a: "Yes. Priorities can shift as usage, feedback, and business needs change. The point is to keep the work focused without making every change a new project." },
-              { open: false, q: "What happens if we want to stop?", a: "We make ownership, access, and handoff clear. The goal is to avoid lock-in and make sure the client understands what they own and how the system can continue." },
+              {
+                open: true,
+                q: "Is Managed AI required after a build?",
+                a: "No. Some clients prefer a clean handoff at launch. Managed AI is for clients who want the same team to stay close to the system as it evolves.",
+              },
+              {
+                open: false,
+                q: "What does the monthly scope include?",
+                a: "The scope is defined together each month. Depending on the system, it may include fixes, refinements, new workflows, support, or optimization.",
+              },
+              {
+                open: false,
+                q: "What happens if we want to stop?",
+                a: "Engagements can end. Ownership, access, and handoff are clear from the start, so clients understand what they own and how the system can continue.",
+              },
             ].map((it, i) => (
               <details className="bp-faq-item" key={i} open={it.open}>
                 <summary>
@@ -453,18 +403,18 @@ export default function ServicesManagedPage() {
         </div>
       </section>
 
-      {/* FINAL CTA */}
+      {/* FINAL CTA — softened */}
       <section className="bp-cta" data-screen-label="Final CTA" id="contact">
         <div className="wrap">
           <div className="bp-cta-inner">
             <div className="bp-cta-eyebrow">
               <span className="dot" />
-              Get started
+              Talk to us
             </div>
-            <h2>Ready to keep improving what you&rsquo;ve built?</h2>
+            <h2>Want to keep improving what you&rsquo;ve built?</h2>
             <p>
-              Let&rsquo;s talk about the system, the backlog, and what an
-              ongoing improvement model could look like.
+              Let&rsquo;s talk through the system, the backlog, and whether an
+              ongoing improvement model fits.
             </p>
             <div className="bp-cta-actions">
               <a href="/contact" className="pill pill-primary">
