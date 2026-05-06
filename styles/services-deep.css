@@ -3191,6 +3191,113 @@
 }
 
 
+/* ─── Strategy: "Led by Mike Bayes" credibility callout ─────────────
+   Compact horizontal card sitting between "Why this matters" and
+   "What this work can include". Adds operator credibility without
+   turning the strategy page into a bio. Image left / body right on
+   desktop, stacked on mobile. Mike asked 2026-05-05. */
+.bp-leader {
+  position: relative;
+  padding: 80px 0 80px;
+  background: #050a08;
+}
+
+.bp-leader-card {
+  display: grid;
+  grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
+  gap: 48px;
+  align-items: center;
+  padding: 36px;
+  background: #04140e;
+  border: 0.5px solid rgba(255,255,255,0.10);
+}
+
+.bp-leader-photo {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background:
+    radial-gradient(60% 60% at 50% 35%, rgba(93, 168, 156, 0.10) 0%, rgba(93, 168, 156, 0) 65%),
+    linear-gradient(135deg, #0a1c17 0%, #061410 100%);
+  border: 0.5px solid rgba(255,255,255,0.08);
+  overflow: hidden;
+}
+
+.bp-leader-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.bp-leader-body { min-width: 0; }
+
+.bp-leader-eyebrow {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.bp-leader-eyebrow .bar {
+  display: inline-block; width: 22px; height: 1px;
+  background: var(--accent);
+}
+
+.bp-leader-name {
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1.18;
+  letter-spacing: -0.012em;
+  color: #fff;
+  margin: 0 0 16px;
+}
+
+.bp-leader-body p {
+  font-family: 'Inter', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.74);
+  margin: 0 0 12px;
+}
+
+.bp-leader-body p:last-of-type { margin-bottom: 22px; }
+
+.bp-leader-tags {
+  list-style: none;
+  margin: 0; padding: 0;
+  display: flex; flex-wrap: wrap; gap: 6px;
+}
+
+.bp-leader-tags li {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  background: rgba(93, 168, 156, 0.06);
+  color: var(--accent);
+  border: 0.5px solid rgba(93, 168, 156, 0.20);
+}
+
+@media (max-width: 900px) {
+  .bp-leader-card {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 28px;
+  }
+  .bp-leader-photo {
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 720px) {
+  .bp-leader { padding: 56px 0 60px; }
+  .bp-leader-card { padding: 22px; }
+  .bp-leader-photo { max-width: 140px; }
+  .bp-leader-name { font-size: 22px; }
+}
+
 /* ─── Strategy: training programs section (simplified) ──────────────
    Previously a 4-card grid with elaborate SVG visuals that read as
    a productized course catalogue. Mike rewrote 2026-05-05 to be
