@@ -159,15 +159,28 @@ export default function ServicesBuildPage() {
         </div>
       </section>
 
-      {/* EXAMPLE BUILDS */}
+      {/* EXAMPLE BUILDS — replaced minimal label-only header with the
+          canonical eyebrow+H2+lede pattern used elsewhere on the page
+          so this section has visual weight equal to its content.
+          Decorative left/right nav arrows removed (they weren't a real
+          carousel control). */}
       <section className="bp-selected" data-screen-label="Example builds">
         <div className="wrap">
-          <div className="bp-selected-head">
-            <span className="label">— Example builds</span>
-            <span className="nav-arrows">
-              <span>←</span>
-              <span>→</span>
-            </span>
+          <div className="bp-work-head">
+            <div>
+              <div className="eyebrow">
+                <span className="bar" />
+                Example builds
+              </div>
+              <h2 className="section-h2" style={{ marginTop: 24 }}>
+                A look at{" "}
+                <span className="muted">recent work.</span>
+              </h2>
+            </div>
+            <p className="section-lede lede">
+              A few recent builds across AI software, internal tools, and
+              AI-enabled experiences we have delivered with clients.
+            </p>
           </div>
           <div className="bp-selected-grid">
             {/* First card — Pulse internal platform with screenshot. The

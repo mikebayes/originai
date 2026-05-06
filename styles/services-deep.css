@@ -400,7 +400,12 @@
 .bp-selected {
   position: relative;
   background: #000;
-  padding: 0 0 140px;
+  /* Top padding bumped from 0 to 130 so the new section header has
+     room to breathe between the bp-work section above and the
+     example-build cards below. Was previously a barebones label-only
+     header so it sat flush against the prior section. Mike asked for
+     a proper section break 2026-05-05. */
+  padding: 130px 0 140px;
 }
 
 .bp-selected-head {
