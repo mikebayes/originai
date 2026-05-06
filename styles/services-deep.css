@@ -3574,6 +3574,421 @@
   }
 }
 
+/* ═════════════════════════════════════════════════════════════════
+   /contact (Get started) page — page modifier + sections
+   ═════════════════════════════════════════════════════════════════
+   Built 2026-05-05 per Mike's direction. Three layers: hero +
+   discovery-session calendar + write-first form. Reuses .bp-page
+   system with .bp-page--contact modifier (brand-neutral teal,
+   sister to .bp-page--approach and .bp-page--team). Hero uses the
+   same dark/near-black treatment as Approach so the contact page
+   sits visually in the same family. */
+
+/* ─── Service tokens (page-scoped) ──────────────────── */
+.bp-page--contact {
+  --teal: #3FDDC9;
+  --teal-soft: #5DEAD8;
+  --teal-deep: #5DA89C;
+  --svc-accent: #5DA89C;
+  --svc-accent-soft: #6CB8AC;
+  --svc-glow: rgba(93, 168, 156, 0.08);
+  --svc-glow-strong: rgba(93, 168, 156, 0.24);
+  --svc-rule: rgba(93, 168, 156, 0.22);
+}
+
+/* Hero shell — same dark family as Approach, mirror radials so the
+   two pages feel related but distinct. */
+.bp-page--contact .bp-hero-shell {
+  background:
+    linear-gradient(to bottom,
+      transparent 0,
+      transparent calc(100% - 220px),
+      rgba(5, 10, 8, 0.55) calc(100% - 70px),
+      #050a08 100%),
+    radial-gradient(50% 45% at 30% 4%, rgba(63, 221, 201, 0.10) 0%, rgba(63, 221, 201, 0) 65%),
+    radial-gradient(60% 55% at 75% 12%, rgba(93, 168, 156, 0.16) 0%, rgba(93, 168, 156, 0) 60%),
+    radial-gradient(95% 75% at 50% 95%, rgba(19, 72, 54, 0.36) 0%, rgba(19, 72, 54, 0) 65%),
+    linear-gradient(180deg,
+      #07090c 0%,
+      #060809 35%,
+      #04070a 70%,
+      #050a08 100%);
+}
+
+.bp-page--contact .bp-hero-shell::before {
+  content: '';
+  position: absolute; inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    repeating-linear-gradient(115deg, rgba(255,255,255,0.038) 0 1px, transparent 1px 80px);
+}
+
+.bp-page--contact .bp-hero-shell::after {
+  content: '';
+  position: absolute; inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.065) 1px, transparent 1px);
+  background-size: 80px 100%;
+  mask-image: linear-gradient(180deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
+  opacity: 0.85;
+}
+
+.bp-page--contact .bp-hero-shell > *:not(.hero-nav-drawer) { position: relative; z-index: 1; }
+.bp-page--contact .bp-hero-shell > nav.hero-nav { z-index: 100; }
+.bp-page--contact .bp-hero-shell .nav-logo { color: #fff; }
+.bp-page--contact .bp-hero-shell .nav-links a { color: rgba(255,255,255,0.95); }
+.bp-page--contact .bp-hero-shell .nav-links a:hover,
+.bp-page--contact .bp-hero-shell .nav-links a.active { color: #fff; }
+.bp-page--contact .bp-hero-shell .nav-links a.active::after { background: var(--teal); }
+
+
+/* ═════════════════════════════════════════════════════════════
+   BOOK A DISCOVERY SESSION — Calendly inline embed area
+   ═════════════════════════════════════════════════════════════ */
+.bp-book {
+  position: relative;
+  background: #050a08;
+  padding: 100px 0 100px;
+}
+
+.bp-book-stage {
+  background: #04140e;
+  border: 0.5px solid rgba(255,255,255,0.10);
+  padding: 24px;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Placeholder treatment until the Calendly embed lands. Quiet, dotted-line
+   panel with a small label so it's clearly a "wired-up later" surface. */
+.bp-book-placeholder {
+  width: 100%;
+  max-width: 640px;
+  text-align: center;
+  padding: 80px 24px;
+  border: 0.5px dashed rgba(93, 168, 156, 0.30);
+  border-radius: 4px;
+  background:
+    radial-gradient(60% 60% at 50% 35%, rgba(93, 168, 156, 0.06) 0%, rgba(93, 168, 156, 0) 65%),
+    rgba(255,255,255,0.015);
+}
+
+.bp-book-placeholder-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.bp-book-placeholder-mark .dot {
+  display: inline-block;
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(93,168,156,0.45);
+}
+
+.bp-book-placeholder p {
+  font-family: 'Inter', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.55);
+  margin: 0 auto;
+  max-width: 48ch;
+}
+
+
+/* ═════════════════════════════════════════════════════════════
+   WRITE FIRST — substantive contact form
+   ═════════════════════════════════════════════════════════════ */
+.bp-write {
+  position: relative;
+  background: #03100c;
+  padding: 100px 0 100px;
+  border-top: 0.5px solid rgba(255,255,255,0.06);
+  border-bottom: 0.5px solid rgba(255,255,255,0.06);
+}
+
+.bp-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 36px;
+  background: #04140e;
+  border: 0.5px solid rgba(255,255,255,0.10);
+}
+
+/* Stage radio group — labeled fieldset with horizontal-on-desktop,
+   vertical-on-mobile option layout. Larger tap targets than default. */
+.bp-contact-stage {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.bp-contact-stage legend {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+  padding: 0;
+}
+
+.bp-contact-stage-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.bp-contact-stage-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: rgba(255,255,255,0.018);
+  border: 0.5px solid rgba(255,255,255,0.10);
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 14.5px;
+  color: rgba(255,255,255,0.85);
+  transition: background 160ms ease-out, border-color 160ms ease-out;
+}
+
+.bp-contact-stage-option:hover {
+  background: rgba(93, 168, 156, 0.06);
+  border-color: rgba(93, 168, 156, 0.30);
+}
+
+.bp-contact-stage-option input[type="radio"] {
+  appearance: none;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.30);
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.bp-contact-stage-option input[type="radio"]:checked {
+  border-color: var(--accent);
+}
+
+.bp-contact-stage-option input[type="radio"]:checked::after {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 6px rgba(93,168,156,0.6);
+}
+
+.bp-contact-stage-option:has(input:checked) {
+  border-color: rgba(93, 168, 156, 0.40);
+  background: rgba(93, 168, 156, 0.04);
+}
+
+/* Field block — label + input in a stack. */
+.bp-contact-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bp-contact-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.bp-contact-label-hint {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: rgba(255,255,255,0.40);
+  margin-top: -4px;
+  margin-bottom: 4px;
+}
+
+.bp-contact-form input[type="text"],
+.bp-contact-form input[type="email"],
+.bp-contact-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(255,255,255,0.015);
+  border: 0.5px solid rgba(255,255,255,0.14);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  resize: vertical;
+  transition: border-color 160ms ease-out, background 160ms ease-out;
+}
+
+.bp-contact-form input:focus,
+.bp-contact-form textarea:focus {
+  outline: none;
+  border-color: rgba(93, 168, 156, 0.55);
+  background: rgba(93, 168, 156, 0.04);
+}
+
+.bp-contact-form textarea {
+  font-family: 'Inter', sans-serif;
+}
+
+.bp-contact-form textarea::placeholder,
+.bp-contact-form input::placeholder {
+  color: rgba(255,255,255,0.32);
+}
+
+/* Bottom contact block — name/email/company/role in 2x2. */
+.bp-contact-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+/* Submit row — pill on the left, small note on the right. */
+.bp-contact-form-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 4px;
+}
+
+.bp-contact-form-actions-note {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: rgba(255,255,255,0.48);
+}
+
+/* Thank-you state replaces the form on submit. */
+.bp-contact-form-thanks {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 56px 36px;
+  background: #04140e;
+  border: 0.5px solid rgba(93, 168, 156, 0.30);
+  text-align: center;
+}
+
+.bp-contact-form-thanks-mark {
+  width: 56px; height: 56px;
+  margin: 0 auto 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(93, 168, 156, 0.08);
+  border: 0.5px solid rgba(93, 168, 156, 0.40);
+  border-radius: 50%;
+  color: var(--accent);
+}
+
+.bp-contact-form-thanks h3 {
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  letter-spacing: -0.012em;
+  color: #fff;
+  margin: 0 0 12px;
+}
+
+.bp-contact-form-thanks p {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.74);
+  margin: 0 auto;
+  max-width: 48ch;
+}
+
+
+/* ═════════════════════════════════════════════════════════════
+   DIRECT — quiet fallback channels at the bottom
+   ═════════════════════════════════════════════════════════════ */
+.bp-direct {
+  position: relative;
+  background: #050a08;
+  padding: 80px 0 100px;
+}
+
+.bp-direct-inner {
+  max-width: 760px;
+}
+
+.bp-direct-eyebrow {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.bp-direct-eyebrow .bar {
+  display: inline-block; width: 22px; height: 1px;
+  background: var(--accent);
+}
+
+.bp-direct-body {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.74);
+  margin: 0;
+}
+
+.bp-direct-body a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 0.5px solid rgba(93, 168, 156, 0.30);
+  transition: color 160ms ease-out, border-color 160ms ease-out;
+}
+
+.bp-direct-body a:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.50);
+}
+
+
+/* ─── Tablet / mobile adjustments for /contact ──────────────── */
+@media (max-width: 900px) {
+  .bp-contact-stage-options { grid-template-columns: 1fr; }
+  .bp-contact-form-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+  .bp-book { padding: 70px 0 80px; }
+  .bp-book-stage { padding: 16px; min-height: 320px; }
+  .bp-book-placeholder { padding: 56px 20px; }
+  .bp-write { padding: 70px 0 80px; }
+  .bp-contact-form { padding: 24px; gap: 22px; }
+  .bp-contact-form-thanks { padding: 40px 24px; }
+  .bp-direct { padding: 60px 0 80px; }
+  .bp-direct-body { font-size: 16px; }
+}
+
 /* ─── Mobile-only hero pattern (match services overview) ──────────────
    Mike: on mobile, the eyebrow pinned at the top-left under the logo
    (matching services overview's pattern), then a clean gap, then the
