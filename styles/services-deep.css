@@ -1302,7 +1302,8 @@
   .bp-work-grid { grid-template-columns: repeat(2, 1fr); }
   .bp-fit-grid { grid-template-columns: repeat(2, 1fr); }
   .bp-selected-grid { grid-template-columns: repeat(2, 1fr); }
-  .bp-intro-grid, .bp-work-head, .bp-outputs-head, .bp-faq-head { grid-template-columns: 1fr; gap: 40px; }
+  .bp-intro-grid, .bp-work-head, .bp-outputs-head, .bp-faq-head,
+  .bp-rhythm-head, .bp-coverage-head { grid-template-columns: 1fr; gap: 40px; }
   .bp-outputs-list { grid-template-columns: 1fr; }
   .bp-hero-footer { grid-template-columns: 1fr; gap: 24px; }
   .footer-cols { grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -4056,6 +4057,26 @@
   .bp-contact-form-thanks { padding: 40px 24px; }
   .bp-direct { padding: 60px 0 80px; }
   .bp-direct-body { font-size: 16px; }
+}
+
+/* ─── Mobile section padding tightening ─────────────────────────
+   Mike flagged 2026-05-06 that there was a big block of black space
+   between sections on Managed AI mobile (esp. between bp-rail and
+   bp-faq). The desktop 130-140px paddings compound at phone widths.
+   Trim to ~70 each side mobile-only. Affects all .bp-page family. */
+@media (max-width: 720px) {
+  .bp-faq { padding: 70px 0 70px; }
+  .bp-rail { padding: 70px 0 70px; }
+  .bp-rhythm,
+  .bp-coverage,
+  .bp-fit,
+  .bp-outputs,
+  .bp-work,
+  .bp-programs,
+  .bp-frame,
+  .bp-principles,
+  .bp-contrast,
+  .bp-bridge { padding-top: 70px; padding-bottom: 70px; }
 }
 
 /* ─── Managed AI page mobile fixes (rhythm / rail / coverage) ──────
