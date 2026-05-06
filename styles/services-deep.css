@@ -780,16 +780,60 @@
 
 .bp-fit-cell h3 {
   font-family: 'Inter Tight', sans-serif; font-weight: 500;
-  font-size: 18px; line-height: 1.3; letter-spacing: -0.01em;
-  color: var(--ink); margin: 0;
+  font-size: 19px; line-height: 1.32; letter-spacing: -0.01em;
+  color: var(--ink); margin: 0 0 14px;
   text-wrap: balance;
 }
 
 .bp-fit-cell p {
   font-family: 'Inter', sans-serif;
-  font-size: 14.5px; line-height: 1.55;
-  color: var(--ink-muted);
+  font-size: 14px; line-height: 1.6;
+  color: rgba(255,255,255,0.62);
   margin: 0;
+  max-width: 36ch;
+}
+
+/* New 2026-05-05 — small teal mark (dot + bar) at the top of each cell.
+   Replaces the dropped "Signal 0X" labels with a quieter visual element
+   so cells don't read as hollow. Used on Strategy and Managed bp-fit
+   sections after both rewrites. */
+.bp-fit-cell .bp-fit-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.bp-fit-cell .bp-fit-mark .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+  box-shadow: 0 0 8px rgba(93,168,156,0.45);
+}
+
+.bp-fit-cell .bp-fit-mark .bar {
+  width: 22px; height: 1px;
+  background: var(--accent);
+  display: inline-block;
+  opacity: 0.7;
+}
+
+/* Subtle hover lift on bp-fit cells so the section feels active and
+   designed rather than static. The dot brightens, the bar widens
+   slightly. */
+.bp-fit-cell {
+  transition: background 200ms ease-out;
+}
+.bp-fit-cell:hover {
+  background: rgba(8, 24, 19, 0.96);
+}
+.bp-fit-cell:hover .bp-fit-mark .bar {
+  width: 32px;
+  transition: width 220ms ease-out;
+}
+.bp-fit-cell .bp-fit-mark .bar {
+  transition: width 220ms ease-out;
 }
 
 /* ═════════════════════════════════════════════════════════════

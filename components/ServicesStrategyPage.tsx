@@ -307,13 +307,30 @@ export default function ServicesStrategyPage() {
 
           <div className="bp-fit-grid">
             {[
-              "Your leadership team has interest in AI but not alignment.",
-              "Teams are using AI unevenly and you would like a clearer position.",
-              "You have more AI ideas than capacity, and need to prioritize.",
-              "You are considering a build but want to scope the right first opportunity.",
-            ].map((h, i) => (
+              [
+                "Your leadership team has interest in AI but not alignment.",
+                "Bring leaders to a shared view before scaling AI investment.",
+              ],
+              [
+                "Teams are using AI unevenly and you would like a clearer position.",
+                "Shape a position your people can actually work from.",
+              ],
+              [
+                "You have more AI ideas than capacity, and need to prioritize.",
+                "Filter the list to what is actually worth doing first.",
+              ],
+              [
+                "You are considering a build but want to scope the right first opportunity.",
+                "Define the first piece of work clearly enough to act on.",
+              ],
+            ].map(([h, sub], i) => (
               <div className="bp-fit-cell" key={i}>
+                <span className="bp-fit-mark" aria-hidden="true">
+                  <span className="dot" />
+                  <span className="bar" />
+                </span>
                 <h3>{h}</h3>
+                <p>{sub}</p>
               </div>
             ))}
           </div>

@@ -299,13 +299,30 @@ export default function ServicesManagedPage() {
 
           <div className="bp-fit-grid">
             {[
-              "A system, workflow, or tool we built with you is now live and being used.",
-              "New needs, gaps, or edge cases are showing up in real use.",
-              "You would rather have a defined monthly scope than ad-hoc requests.",
-              "You want continuity with the team that already knows the system.",
-            ].map((h, i) => (
+              [
+                "A system, workflow, or tool we built with you is now live and being used.",
+                "Stay close to it as the business finds new ways to use it.",
+              ],
+              [
+                "New needs, gaps, or edge cases are showing up in real use.",
+                "Address them within a defined monthly scope, not as one-off projects.",
+              ],
+              [
+                "You would rather have a defined monthly scope than ad-hoc requests.",
+                "Predictable cadence, predictable budget, ongoing improvement.",
+              ],
+              [
+                "You want continuity with the team that already knows the system.",
+                "Keep architecture, decisions, and context in the same hands.",
+              ],
+            ].map(([h, sub], i) => (
               <div className="bp-fit-cell" key={i}>
+                <span className="bp-fit-mark" aria-hidden="true">
+                  <span className="dot" />
+                  <span className="bar" />
+                </span>
                 <h3>{h}</h3>
+                <p>{sub}</p>
               </div>
             ))}
           </div>
