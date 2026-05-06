@@ -1090,14 +1090,10 @@
    desktop-only on 2026-05-05. Originally introduced in commit b4a73f2
    then dropped during commit f8a9c59 (approach page rewrite). */
 @media (min-width: 1025px) {
-  /* Strategy: 6 work areas -> 3x2 grid. */
-  .bp-page--strategy .bp-work-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-  /* Managed: 4 categories (Improve / Support / Extend / Optimize) ->
-     2x2 grid. Cards get more space which suits a smaller, more
-     focused set. Updated 2026-05-05 when the page was rewritten to
-     reduce overclaiming. */
+  /* Strategy and Managed pages were both rewritten 2026-05-05 to
+     reduce overclaiming. Both now have 4 cards in bp-work, so both
+     render as a clean 2x2 grid. */
+  .bp-page--strategy .bp-work-grid,
   .bp-page--managed .bp-work-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -3141,6 +3137,84 @@
   .bp-statement-points { gap: 16px; flex-direction: column; align-items: center; }
   .bp-backed { padding: 90px 0 100px; }
   .bp-backed-tag { font-size: 17px !important; }
+}
+
+
+/* ─── Strategy: training programs section (simplified) ──────────────
+   Previously a 4-card grid with elaborate SVG visuals that read as
+   a productized course catalogue. Mike rewrote 2026-05-05 to be
+   one possible component of a flexible engagement. New treatment:
+   short head + clean 4-row list, no illustrations, no card stacks. */
+.bp-training {
+  position: relative;
+  padding: 110px 0 110px;
+  background: #03100b;
+}
+
+.bp-training-head {
+  max-width: 760px;
+  margin-bottom: 56px;
+}
+
+.bp-training-head .eyebrow {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--accent);
+}
+
+.bp-training-head .eyebrow .bar {
+  display: inline-block; width: 22px; height: 1px;
+  background: var(--accent);
+}
+
+.bp-training-body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16.5px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.74);
+  margin: 24px 0 0;
+  max-width: 60ch;
+}
+
+.bp-training-list {
+  list-style: none;
+  margin: 0; padding: 0;
+  border-top: 0.5px solid rgba(255,255,255,0.08);
+}
+
+.bp-training-list li {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.45fr) minmax(0, 1fr);
+  gap: 48px;
+  padding: 26px 0;
+  border-bottom: 0.5px solid rgba(255,255,255,0.08);
+  align-items: baseline;
+}
+
+.bp-training-list .name {
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+
+.bp-training-list .desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.65);
+}
+
+@media (max-width: 720px) {
+  .bp-training { padding: 72px 0 80px; }
+  .bp-training-head { margin-bottom: 36px; }
+  .bp-training-list li {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 20px 0;
+  }
 }
 
 /* ─── Mobile-only hero pattern (match services overview) ──────────────
