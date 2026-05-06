@@ -3276,10 +3276,11 @@
    desktop, stacked on mobile. Mike asked 2026-05-05. */
 .bp-leader {
   position: relative;
-  /* Top padding tighter (closer to "Why this matters" above), bottom
-     padding looser (more breathing room before "What this work can
-     include" below). Mike's iteration on the previous halving. */
-  padding: 24px 0 72px;
+  /* Iterated again 2026-05-05. Top padding zeroed so the callout
+     sits right under "Why this matters" (which already has its own
+     140px padding-bottom). Bottom padding bumped to 120 for a clear
+     break before the chapter rule + "What this work can include". */
+  padding: 0 0 120px;
   background: #050a08;
 }
 
@@ -3373,7 +3374,7 @@
 }
 
 @media (max-width: 720px) {
-  .bp-leader { padding: 16px 0 56px; }
+  .bp-leader { padding: 0 0 88px; }
   .bp-leader-card { padding: 22px; }
   .bp-leader-photo { max-width: 140px; }
   .bp-leader-name { font-size: 22px; }
