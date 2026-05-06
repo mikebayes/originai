@@ -46,7 +46,7 @@ export default function ContactForm() {
   return (
     <form className="bp-contact-form" onSubmit={handleSubmit} noValidate>
       <fieldset className="bp-contact-stage">
-        <legend>Where are you in the process?</legend>
+        <legend>Where are you right now?</legend>
         <div className="bp-contact-stage-options">
           {[
             ["exploring", "Just exploring"],
@@ -63,22 +63,22 @@ export default function ContactForm() {
       </fieldset>
 
       <label className="bp-contact-field">
-        <span className="bp-contact-label">What are you trying to do?</span>
+        <span className="bp-contact-label">What are you working through?</span>
         <textarea
           name="goal"
           rows={4}
           required
-          placeholder="A few sentences is plenty. The problem you&rsquo;re working on, the system you&rsquo;re building, or the question you&rsquo;re sitting with."
+          placeholder="A few sentences is enough. Tell us about the problem, idea, workflow, system, or AI question on your mind."
         />
       </label>
 
       <label className="bp-contact-field">
-        <span className="bp-contact-label">Anything else we should know?</span>
+        <span className="bp-contact-label">Anything else that would help?</span>
         <span className="bp-contact-label-hint">Optional</span>
         <textarea
           name="notes"
           rows={3}
-          placeholder="Timing, budget shape, who is involved, anything that gives us better context for the call."
+          placeholder="Timing, people involved, current tools, budget shape, or anything else we should know."
         />
       </label>
 
@@ -116,7 +116,7 @@ export default function ContactForm() {
 
       <div className="bp-contact-form-actions">
         <button type="submit" className="pill pill-primary">
-          Send
+          Send note
           <span className="arrow" aria-hidden="true">→</span>
         </button>
         <span className="bp-contact-form-actions-note">

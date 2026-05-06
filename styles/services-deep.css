@@ -3748,31 +3748,110 @@
 
 
 /* ═════════════════════════════════════════════════════════════
-   BOOK A DISCOVERY SESSION — Calendly inline embed area
-   ═════════════════════════════════════════════════════════════ */
-.bp-book {
-  position: relative;
-  background: #050a08;
-  padding: 100px 0 100px;
+   COMPACT HERO — /contact
+   ═════════════════════════════════════════════════════════════
+   Mike asked 2026-05-06 to shrink the hero ~30-40% so the action
+   area shows up sooner. The .bp-hero--compact modifier reduces the
+   vertical padding without affecting the rest of the .bp-hero
+   system used elsewhere. Also disables the bp-hero-shell's bottom
+   fade gap padding via the --compact shell modifier so the hero
+   transitions cleanly into the action grid below. */
+.bp-page--contact .bp-hero--compact {
+  padding-top: 70px !important;
+  padding-bottom: 80px !important;
+}
+.bp-page--contact .bp-hero--compact .bp-hero-h1 {
+  font-size: clamp(40px, 5vw, 68px);
+  margin-bottom: 22px;
+}
+.bp-page--contact .bp-hero--compact .bp-hero-sub {
+  max-width: 56ch;
+  margin-top: 0;
 }
 
-.bp-book-stage {
+
+/* ═════════════════════════════════════════════════════════════
+   ACTION GRID — book + write, two-column on desktop
+   ═════════════════════════════════════════════════════════════
+   Single section that combines the v1 .bp-book and .bp-write
+   sections into a 2-col card grid. Stacks on mobile (calendar
+   first, then form per Mike's spec). */
+.bp-action {
+  position: relative;
+  background: #050a08;
+  padding: 72px 0 88px;
+}
+
+.bp-action-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.bp-action-card {
   background: #04140e;
   border: 0.5px solid rgba(255,255,255,0.10);
-  padding: 24px;
-  min-height: 420px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.bp-action-card-head {
+  margin-bottom: 24px;
+}
+
+.bp-action-card-head .eyebrow {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.bp-action-card-head .eyebrow .bar {
+  display: inline-block; width: 22px; height: 1px;
+  background: var(--accent);
+}
+
+.bp-action-card-head h2 {
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1.2;
+  letter-spacing: -0.012em;
+  color: #fff;
+  margin: 0 0 12px;
+  text-wrap: balance;
+}
+
+.bp-action-card-head p {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.74);
+  margin: 0;
+}
+
+/* Calendar embed area inside the left card. Uses the same
+   placeholder treatment from v1 with tightened proportions to fit
+   the card form factor. */
+.bp-action-card .bp-book-stage {
+  background: rgba(255,255,255,0.012);
+  border: 0.5px solid rgba(255,255,255,0.08);
+  padding: 16px;
+  min-height: 380px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex: 1;
 }
 
-/* Placeholder treatment until the Calendly embed lands. Quiet, dotted-line
-   panel with a small label so it's clearly a "wired-up later" surface. */
 .bp-book-placeholder {
   width: 100%;
-  max-width: 640px;
   text-align: center;
-  padding: 80px 24px;
+  padding: 56px 20px;
   border: 0.5px dashed rgba(93, 168, 156, 0.30);
   border-radius: 4px;
   background:
@@ -3789,7 +3868,7 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .bp-book-placeholder-mark .dot {
@@ -3802,34 +3881,48 @@
 
 .bp-book-placeholder p {
   font-family: 'Inter', sans-serif;
-  font-size: 14.5px;
-  line-height: 1.6;
+  font-size: 14px;
+  line-height: 1.55;
   color: rgba(255,255,255,0.55);
   margin: 0 auto;
-  max-width: 48ch;
+  max-width: 36ch;
 }
 
-
-/* ═════════════════════════════════════════════════════════════
-   WRITE FIRST — substantive contact form
-   ═════════════════════════════════════════════════════════════ */
-.bp-write {
-  position: relative;
-  background: #03100c;
-  padding: 100px 0 100px;
-  border-top: 0.5px solid rgba(255,255,255,0.06);
-  border-bottom: 0.5px solid rgba(255,255,255,0.06);
-}
-
-.bp-contact-form {
+/* Form lives directly inside the right card now (no outer .bp-write
+   section). Reset .bp-contact-form padding/border/bg since the card
+   provides those. */
+.bp-action-card .bp-contact-form {
   display: flex;
   flex-direction: column;
-  gap: 28px;
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 36px;
-  background: #04140e;
-  border: 0.5px solid rgba(255,255,255,0.10);
+  gap: 22px;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+
+/* Small note below the action grid replaces the v1 .bp-direct section. */
+.bp-action-note {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.55);
+  margin: 40px auto 0;
+  text-align: center;
+  max-width: 64ch;
+}
+
+.bp-action-note a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 0.5px solid rgba(93, 168, 156, 0.30);
+  transition: color 160ms ease-out, border-color 160ms ease-out;
+}
+
+.bp-action-note a:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.50);
 }
 
 /* Stage radio group — labeled fieldset with horizontal-on-desktop,
@@ -4026,68 +4119,35 @@
 }
 
 
-/* ═════════════════════════════════════════════════════════════
-   DIRECT — quiet fallback channels at the bottom
-   ═════════════════════════════════════════════════════════════ */
-.bp-direct {
-  position: relative;
-  background: #050a08;
-  padding: 80px 0 100px;
-}
-
-.bp-direct-inner {
-  max-width: 760px;
-}
-
-.bp-direct-eyebrow {
-  display: inline-flex; align-items: center; gap: 12px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 14px;
-}
-
-.bp-direct-eyebrow .bar {
-  display: inline-block; width: 22px; height: 1px;
-  background: var(--accent);
-}
-
-.bp-direct-body {
-  font-family: 'Inter', sans-serif;
-  font-size: 17px;
-  line-height: 1.65;
-  color: rgba(255,255,255,0.74);
-  margin: 0;
-}
-
-.bp-direct-body a {
-  color: var(--accent);
-  text-decoration: none;
-  border-bottom: 0.5px solid rgba(93, 168, 156, 0.30);
-  transition: color 160ms ease-out, border-color 160ms ease-out;
-}
-
-.bp-direct-body a:hover {
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.50);
-}
+/* .bp-direct section removed 2026-05-06 — replaced with .bp-action-note inline below the action grid. */
 
 
 /* ─── Tablet / mobile adjustments for /contact ──────────────── */
+@media (max-width: 1024px) {
+  /* Stack the action grid so the two cards become full-width.
+     Calendar card is first in DOM, so it shows first on mobile per
+     Mike's spec. */
+  .bp-action-grid { grid-template-columns: 1fr; gap: 20px; }
+}
+
 @media (max-width: 900px) {
   .bp-contact-stage-options { grid-template-columns: 1fr; }
   .bp-contact-form-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 720px) {
-  .bp-book { padding: 70px 0 80px; }
-  .bp-book-stage { padding: 16px; min-height: 320px; }
-  .bp-book-placeholder { padding: 56px 20px; }
-  .bp-write { padding: 70px 0 80px; }
-  .bp-contact-form { padding: 24px; gap: 22px; }
+  .bp-action { padding: 56px 0 72px; }
+  .bp-action-card { padding: 22px; }
+  .bp-action-card-head h2 { font-size: 22px; }
+  .bp-action-card .bp-book-stage { min-height: 280px; padding: 12px; }
+  .bp-book-placeholder { padding: 40px 16px; }
   .bp-contact-form-thanks { padding: 40px 24px; }
-  .bp-direct { padding: 60px 0 80px; }
-  .bp-direct-body { font-size: 16px; }
+  .bp-action-note { font-size: 13.5px; }
+  /* Keep the compact hero compact on phones too. */
+  .bp-page--contact .bp-hero--compact {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
 }
 
 /* ─── Mobile section padding tightening ─────────────────────────
