@@ -394,6 +394,127 @@
   color: rgba(93,168,156,0.35);
 }
 
+/* ─── 4-card variant of bp-work (Build page "What we build") ──────
+   Mike redesigned the section 2026-05-06 from 8 cells to 4. The
+   --four modifier styles a 2x2 premium grid with index + icon top
+   row, title + body, and example tags at the bottom. Used only when
+   .bp-work--four is on the section AND .bp-work-grid--four on the
+   grid. Default .bp-work styling above stays intact for any pages
+   that still use 8 cells. */
+.bp-work-grid--four {
+  /* Override the default 4-col + 1px gap grid to a clean 2x2 with
+     real gaps between cards (not gridlines). Each card becomes a
+     proper bordered surface rather than a cell in a sheet. */
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 20px !important;
+  background: transparent !important;
+  border: 0 !important;
+}
+
+.bp-work-cell--four {
+  background: #04140e;
+  border: 0.5px solid rgba(255,255,255,0.10);
+  padding: 36px 32px 32px;
+  min-height: 0;
+  display: flex; flex-direction: column;
+  transition: border-color 280ms ease-out, background 280ms ease-out, transform 280ms ease-out;
+}
+
+.bp-work-cell--four:hover {
+  background: #061b14;
+  border-color: rgba(93, 168, 156, 0.30);
+  transform: translateY(-2px);
+}
+
+/* Top row of each card — index on the left, icon on the right.
+   Same visual language as the eyebrow/icon pattern used elsewhere
+   on the site. */
+.bp-work-cell--four .bp-work-cell-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.bp-work-cell--four .num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--svc-accent);
+  margin: 0;
+}
+
+/* Icon — small line-stroke SVG, currentColor inherits the teal
+   accent. Subtle teal halo so it reads as a deliberate accent. */
+.bp-work-cell--four .bp-work-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px; height: 36px;
+  color: var(--svc-accent);
+  filter: drop-shadow(0 0 8px rgba(93, 168, 156, 0.20));
+}
+
+.bp-work-cell--four .bp-work-icon svg {
+  width: 100%; height: 100%;
+  display: block;
+}
+
+/* Title and body — cleaner, more breathable than the 8-cell variant. */
+.bp-work-cell--four h3 {
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.22;
+  letter-spacing: -0.012em;
+  color: #fff;
+  margin: 0 0 12px;
+  text-wrap: balance;
+}
+
+.bp-work-cell--four p {
+  font-family: 'Inter', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.70);
+  margin: 0 0 22px;
+  max-width: 42ch;
+}
+
+/* Example tags row at the bottom of each card. Quiet mono caps
+   chips with thin teal-tinted borders. Not pills, not buttons —
+   just labels that confirm what kinds of work fit the category. */
+.bp-work-cell--four .bp-work-tags {
+  list-style: none;
+  margin: auto 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-top: 18px;
+  border-top: 0.5px solid rgba(255,255,255,0.06);
+}
+
+.bp-work-cell--four .bp-work-tags li {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  background: rgba(93, 168, 156, 0.05);
+  color: var(--svc-accent);
+  border: 0.5px solid rgba(93, 168, 156, 0.18);
+}
+
+@media (max-width: 720px) {
+  .bp-work-grid--four {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+  .bp-work-cell--four { padding: 26px 22px 24px; }
+  .bp-work-cell--four h3 { font-size: 20px; }
+}
+
 /* ═════════════════════════════════════════════════════════════
    SELECTED WORK strip — placeholder cards
 ═════════════════════════════════════════════════════════════ */

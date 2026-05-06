@@ -113,46 +113,126 @@ export default function ServicesBuildPage() {
         <div className="chapter-rule">
           <span className="pill-marker">
             <span className="dot" />
-            The work — eight directions
+            What we build
           </span>
         </div>
       </div>
 
-      {/* THE WORK — 8 categories */}
-      <section className="bp-work" data-screen-label="The work — 8 categories">
+      {/* WHAT WE BUILD — 4 categories. Mike asked 2026-05-06 to
+          redesign this section: previous 8-cell grid was too dense
+          and text-heavy. Now 2x2 grid of premium cards each with an
+          index, simple line-stroke icon, title, tight body, and
+          example tags. */}
+      <section className="bp-work bp-work--four" data-screen-label="What we build — 4 directions">
         <div className="wrap">
           <div className="bp-work-head">
             <div>
               <div className="eyebrow">
                 <span className="bar" />
-                The work
+                What we build
               </div>
               <h2 className="section-h2" style={{ marginTop: 24 }}>
-                Eight directions, <span className="muted">all custom.</span>
+                Four common build directions.{" "}
+                <span className="muted">All custom.</span>
               </h2>
             </div>
             <p className="section-lede lede">
-              Most of what we build is software shaped to a specific business
-              problem. The categories below are the directions that work usually
-              takes.
+              Most of what we build is custom software shaped around a specific
+              business problem. These are four of the most common directions
+              the work takes.
             </p>
           </div>
 
-          <div className="bp-work-grid">
+          <div className="bp-work-grid bp-work-grid--four">
             {[
-              ["01", "AI-enabled websites", "Customer-facing experiences with AI woven into the surface. Search, copilots, dynamic content, conversation. Not a chatbot bolted on at the corner."],
-              ["02", "Custom business applications", "End-to-end software built around your operation. Not configurations of someone else's app, not low-code patchwork. Real software shaped to the actual work."],
-              ["03", "Internal workflow systems", "The unsexy backbone of most companies. Order intake, scheduling, approvals, dispatch. The daily friction nobody markets. We make it faster."],
-              ["04", "SaaS extensions and replacements", "Some tools you can build on top of. Some you should retire. We help you decide which, then deliver whatever the answer is."],
-              ["05", "AI assistants, copilots, and agents", "Sitting next to people doing real work, taking the cognitive overhead off the routine parts. Where AI actually moves the needle."],
-              ["06", "Data and integration layers", "Connecting the systems you've already paid for so they actually talk. Where most AI projects quietly die without this layer in place."],
-              ["07", "Customer and employee portals", "Login-gated experiences for clients, partners, or staff. Tailored to their workflow, not the same dashboard everyone else has."],
-              ["08", "Operational dashboards and decision tools", "When the business runs on judgment but the data lives in seven places. We pull it together, with AI doing the boring synthesis."],
-            ].map(([num, title, body]) => (
-              <div className="bp-work-cell" key={num}>
-                <div className="num">{num}</div>
+              {
+                num: "01",
+                title: "Custom business applications",
+                body: "Internal tools and business applications built around how the organization actually works. Not someone else's workflow forced onto your team.",
+                tags: ["Scheduling", "Approvals", "Operations"],
+                /* App window with stacked panels — internal tool. */
+                icon: (
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <rect x="4" y="6" width="24" height="20" rx="1.5" />
+                    <line x1="4" y1="11" x2="28" y2="11" />
+                    <circle cx="7" cy="8.5" r="0.6" fill="currentColor" />
+                    <circle cx="9.5" cy="8.5" r="0.6" fill="currentColor" />
+                    <line x1="7.5" y1="15" x2="14" y2="15" />
+                    <line x1="7.5" y1="18.5" x2="11" y2="18.5" />
+                    <rect x="17" y="14" width="8" height="9" rx="0.5" />
+                  </svg>
+                ),
+              },
+              {
+                num: "02",
+                title: "Websites and portals",
+                body: "Customer-facing or internal web experiences that guide people through a process, deliver information clearly, or support self-service access.",
+                tags: ["Client portals", "Intake", "Self-serve tools"],
+                /* Two connected screens — portal / web experience. */
+                icon: (
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <rect x="3.5" y="6" width="14" height="11" rx="1" />
+                    <line x1="3.5" y1="9" x2="17.5" y2="9" />
+                    <circle cx="5.5" cy="7.5" r="0.5" fill="currentColor" />
+                    <circle cx="7" cy="7.5" r="0.5" fill="currentColor" />
+                    <rect x="14" y="14" width="14" height="11" rx="1" />
+                    <line x1="14" y1="17" x2="28" y2="17" />
+                    <circle cx="16" cy="15.5" r="0.5" fill="currentColor" />
+                    <circle cx="17.5" cy="15.5" r="0.5" fill="currentColor" />
+                    <path d="M14 14 L17.5 11" strokeDasharray="1 2" />
+                  </svg>
+                ),
+              },
+              {
+                num: "03",
+                title: "AI assistants and agents",
+                body: "AI embedded into real workflows to help people search, draft, troubleshoot, summarize, or complete tasks faster.",
+                tags: ["Search", "Guidance", "Drafting"],
+                /* Spark over interface — AI assistant inside a surface. */
+                icon: (
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <rect x="4" y="11" width="24" height="15" rx="1.5" />
+                    <line x1="8" y1="17" x2="20" y2="17" />
+                    <line x1="8" y1="21" x2="16" y2="21" />
+                    <path d="M22 4 L22 9 M19.5 6.5 L24.5 6.5 M20.3 4.8 L23.7 8.2 M23.7 4.8 L20.3 8.2" />
+                  </svg>
+                ),
+              },
+              {
+                num: "04",
+                title: "Data and integrations",
+                body: "The connections and data layers that make software and AI actually useful. Systems need context, and this is often the layer that makes everything work.",
+                tags: ["APIs", "Sync", "Integrations"],
+                /* Connected nodes — pipeline / integration layer. */
+                icon: (
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <circle cx="6" cy="8" r="2.4" />
+                    <circle cx="26" cy="8" r="2.4" />
+                    <circle cx="6" cy="24" r="2.4" />
+                    <circle cx="26" cy="24" r="2.4" />
+                    <circle cx="16" cy="16" r="2.6" />
+                    <line x1="8" y1="9.4" x2="14" y2="14.6" />
+                    <line x1="24" y1="9.4" x2="18" y2="14.6" />
+                    <line x1="8" y1="22.6" x2="14" y2="17.4" />
+                    <line x1="24" y1="22.6" x2="18" y2="17.4" />
+                  </svg>
+                ),
+              },
+            ].map(({ num, title, body, tags, icon }) => (
+              <div className="bp-work-cell bp-work-cell--four" key={num}>
+                <div className="bp-work-cell-top">
+                  <span className="num">{num}</span>
+                  <span className="bp-work-icon" aria-hidden="true">
+                    {icon}
+                  </span>
+                </div>
                 <h3>{title}</h3>
                 <p>{body}</p>
+                <ul className="bp-work-tags" aria-label="Examples">
+                  {tags.map((t) => (
+                    <li key={t}>{t}</li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
