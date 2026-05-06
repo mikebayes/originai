@@ -4079,6 +4079,53 @@
   .bp-bridge { padding-top: 70px; padding-bottom: 70px; }
 }
 
+/* ─── Approach page mobile fixes ──────────────────────────────────
+   Mike flagged 2026-05-06 that Approach was a disaster on mobile.
+   Multiple sections kept their desktop multi-column layouts at phone
+   widths, leaving content cut off, squeezed, or overflowing. Desktop
+   is fine; everything below is in @media blocks only. */
+
+@media (max-width: 1024px) {
+  /* bp-frame: head was 2-col (h2 + lede), grid was 2-col (diagram +
+     list), list itself was 2-col, aside was 240+1fr. Stack all of
+     them on tablet-down. Reset the diagram's negative margin-left
+     (was -32px to nudge under desktop H2) since stacked layout
+     shouldn't pull the diagram into negative space. */
+  .bp-frame-head { grid-template-columns: 1fr; gap: 32px; }
+  .bp-frame-grid { grid-template-columns: 1fr; gap: 48px; }
+  .bp-frame-list { grid-template-columns: 1fr; gap: 14px; }
+  .bp-frame-aside { grid-template-columns: 1fr; gap: 16px; }
+  .bp-frame-diagram { margin: 0 auto; max-width: 480px; }
+
+  /* bp-principles: head 2-col stacks, grid 3-col drops to 2-col on
+     tablet, then 1-col on phone (see 720 block below). */
+  .bp-principles-head { grid-template-columns: 1fr; gap: 32px; }
+  .bp-principles-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  /* bp-contrast: believe/avoid 2-col stacks. Hide the vertical
+     center divider since it only makes sense when columns are
+     side-by-side. */
+  .bp-contrast-grid { grid-template-columns: 1fr; }
+  .bp-contrast-grid::before { display: none; }
+
+  /* bp-progression: 4 phases stack. Hide the horizontal track line
+     since it only makes sense across a horizontal row. */
+  .bp-prog-stops { grid-template-columns: 1fr; gap: 40px; }
+  .bp-prog-track { display: none; }
+}
+
+@media (max-width: 720px) {
+  /* Phone: principles drop to single column. Contrast columns get
+     tighter padding. Progression heading shrinks so it doesn't
+     overflow at narrow widths. */
+  .bp-principles-grid { grid-template-columns: 1fr; }
+  .bp-contrast-col { padding: 36px 28px 40px; }
+  .bp-prog-stop { padding-top: 48px; }
+  .bp-prog-stop h4 { font-size: 26px; }
+  .bp-prog-stop p { font-size: 14px; }
+  .bp-frame-aside p { font-size: 16px; }
+}
+
 /* ─── Managed AI page mobile fixes (rhythm / rail / coverage) ──────
    Mike flagged 2026-05-06: desktop is perfect, mobile breaks in three
    places. (1) bp-rhythm-grid keeps the 2-col layout on mobile so the
