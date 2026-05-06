@@ -273,20 +273,55 @@ export default function ServicesBuildPage() {
               </div>
             </article>
 
-            {/* Placeholder — third tile stays plain until we have content. */}
-            <article className="bp-selected-card">
+            {/* Third card — Odin AI marketing site as the "AI-assisted
+                website build" example. Thumb composes the desktop
+                screenshot as the main surface with a phone screenshot
+                overlapping the bottom-right corner so the responsive
+                nature of the build is visible at a glance. Lightbox
+                opens the desktop screenshot at full size. */}
+            <article className="bp-selected-card has-image has-image--wide">
               <div className="top">
                 <span>
                   <span className="dot" /> Live
                 </span>
-                <span>2024</span>
+                <span>2026</span>
               </div>
-              <div>
-                <h4>Internal scheduling tool</h4>
+              <ImageLightbox
+                src="/images/Odin SaaS 1.png"
+                alt="Odin AI marketing site — desktop view showing the hero, dashboard screenshots, and primary CTAs."
+                className="bp-selected-thumb bp-selected-thumb--device"
+                ariaLabel="View the Odin AI marketing site screenshot at full size"
+                meta="Concept build · 2026 · Website system"
+                title="AI-assisted website build"
+                description="A concept website built to demonstrate how modern AI-assisted development changes the speed and quality of website production. The workflow supports stronger content, sharper visual direction, faster build cycles, and cleaner deployment from idea to live site. The client outcome is a better digital experience delivered faster, with less compromise and more room to iterate after launch."
+              >
+                <span className="bp-selected-glow" aria-hidden="true" />
+                <img
+                  src="/images/Odin SaaS 1.png"
+                  alt="Odin AI marketing site — desktop view."
+                  className="bp-selected-thumb-desktop"
+                />
+                <img
+                  src="/images/Odin SaaS 2.png"
+                  alt="Odin AI marketing site — mobile view."
+                  className="bp-selected-thumb-phone"
+                  aria-hidden="true"
+                />
+                <span className="bp-selected-thumb-fade" aria-hidden="true" />
+                <span className="bp-selected-thumb-cue" aria-hidden="true">
+                  View full image
+                </span>
+              </ImageLightbox>
+              <div className="bp-selected-text">
+                <h4>AI-assisted website build</h4>
+                <p className="bp-selected-lede">
+                  Concept marketing site shipped end-to-end on a modern
+                  AI-assisted workflow.
+                </p>
                 <div className="meta-row" style={{ marginTop: 14 }}>
-                  <span>Logistics</span>
+                  <span>Website system</span>
                   <span>·</span>
-                  <span>6 weeks</span>
+                  <span>Concept build</span>
                 </div>
               </div>
             </article>
