@@ -1097,6 +1097,13 @@
   .bp-page--managed .bp-work-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  /* Both pages also have 4 "When this fits" signals after the rewrite,
+     so the bp-fit-grid default 3-col was leaving an orphan in row 2.
+     Match the work-grid: 2x2 for both. */
+  .bp-page--strategy .bp-fit-grid,
+  .bp-page--managed .bp-fit-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 1024px) {
