@@ -3198,9 +3198,10 @@
    desktop, stacked on mobile. Mike asked 2026-05-05. */
 .bp-leader {
   position: relative;
-  /* Padding halved 80 -> 40 so the callout sits closer to the
-     sections above and below. Mike asked 2026-05-05. */
-  padding: 40px 0 40px;
+  /* Top padding tighter (closer to "Why this matters" above), bottom
+     padding looser (more breathing room before "What this work can
+     include" below). Mike's iteration on the previous halving. */
+  padding: 24px 0 72px;
   background: #050a08;
 }
 
@@ -3294,7 +3295,7 @@
 }
 
 @media (max-width: 720px) {
-  .bp-leader { padding: 28px 0 32px; }
+  .bp-leader { padding: 16px 0 56px; }
   .bp-leader-card { padding: 22px; }
   .bp-leader-photo { max-width: 140px; }
   .bp-leader-name { font-size: 22px; }
