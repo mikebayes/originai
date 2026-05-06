@@ -129,29 +129,36 @@ export default function ServicesStrategyPage() {
               <img src="/images/MB.avif" alt="Mike Bayes" loading="lazy" />
             </div>
             <div className="bp-leader-body">
-              <div className="bp-leader-eyebrow">
-                <span className="bar" />
-                Led by senior operators
+              {/* Header block: eyebrow + h3. Pulled into its own div so
+                  on mobile we can pair it with the photo as a byline
+                  (photo + title side by side at the top of the card). */}
+              <div className="bp-leader-titles">
+                <div className="bp-leader-eyebrow">
+                  <span className="bar" />
+                  Led by senior operators
+                </div>
+                <h3 className="bp-leader-name">Led by Mike Bayes</h3>
               </div>
-              <h3 className="bp-leader-name">Led by Mike Bayes</h3>
-              <p>
-                Strategy and training engagements are led by Mike Bayes,
-                President and Lead AI Enablement Coach at Origin AI. Mike
-                brings 25+ years of senior technology and business leadership
-                experience across strategy, operations, cybersecurity, and
-                digital transformation.
-              </p>
-              <p>
-                His role is to help leadership teams separate AI noise from
-                useful opportunity, align around what matters, and define the
-                next step with enough clarity to act.
-              </p>
-              <ul className="bp-leader-tags" aria-label="Areas of focus">
-                <li>Technology strategy</li>
-                <li>Executive alignment</li>
-                <li>AI adoption</li>
-                <li>Cybersecurity</li>
-              </ul>
+              <div className="bp-leader-text">
+                <p>
+                  Strategy and training engagements are led by Mike Bayes,
+                  President and Lead AI Enablement Coach at Origin AI. Mike
+                  brings 25+ years of senior technology and business
+                  leadership experience across strategy, operations,
+                  cybersecurity, and digital transformation.
+                </p>
+                <p>
+                  His role is to help leadership teams separate AI noise from
+                  useful opportunity, align around what matters, and define
+                  the next step with enough clarity to act.
+                </p>
+                <ul className="bp-leader-tags" aria-label="Areas of focus">
+                  <li>Technology strategy</li>
+                  <li>Executive alignment</li>
+                  <li>AI adoption</li>
+                  <li>Cybersecurity</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

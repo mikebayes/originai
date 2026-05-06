@@ -3368,28 +3368,66 @@
   border: 0.5px solid rgba(93, 168, 156, 0.20);
 }
 
+/* New container blocks 2026-05-05 to support the mobile byline layout.
+   On desktop they are transparent — .bp-leader-titles and .bp-leader-text
+   stack normally inside .bp-leader-body. On mobile (under 900px), the
+   media block above breaks them out so titles sit next to the photo
+   and text wraps full-width below. */
+.bp-leader-titles { /* desktop: just stacks before body text */ }
+.bp-leader-text { min-width: 0; }
+
+
 @media (max-width: 900px) {
+  /* Mobile byline layout (single block 2026-05-05).
+     Card grid: row 1 = photo (col 1) + titles eyebrow/h3 (col 2),
+     row 2 = body text + tags spanning both columns full-width.
+     We use display: contents on .bp-leader-body so its children
+     (.bp-leader-titles and .bp-leader-text) become direct grid
+     items of the card and can be placed independently. Mike's
+     direction: photo reads as a byline next to the name, not
+     orphaned at top or bottom. */
   .bp-leader-card {
-    grid-template-columns: 1fr;
-    gap: 24px;
+    grid-template-columns: 110px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: 18px;
+    row-gap: 22px;
     padding: 28px;
+    align-items: start;
   }
-  /* On mobile, body comes first so the eyebrow + h3 (which together
-     act as the card's title) introduce the section before the photo
-     appears. Photo moves to the bottom and reads as a sign-off image
-     rather than an orphan. Mike asked 2026-05-05. */
-  .bp-leader-body { order: 1; }
   .bp-leader-photo {
-    order: 2;
-    max-width: 180px;
+    grid-row: 1;
+    grid-column: 1;
+    max-width: 110px;
+    width: 110px;
+    margin: 0;
   }
+  /* Dissolve .bp-leader-body so its children inherit the card's grid. */
+  .bp-leader-body { display: contents; }
+  .bp-leader-titles {
+    grid-row: 1;
+    grid-column: 2;
+    align-self: center;
+  }
+  .bp-leader-text {
+    grid-row: 2;
+    grid-column: 1 / span 2;
+    min-width: 0;
+  }
+  .bp-leader-eyebrow { margin-bottom: 10px; }
+  .bp-leader-name { margin-bottom: 0; }
 }
 
 @media (max-width: 720px) {
   .bp-leader { padding: 0 0 88px; }
-  .bp-leader-card { padding: 22px; }
-  .bp-leader-photo { max-width: 140px; }
-  .bp-leader-name { font-size: 22px; }
+  .bp-leader-card {
+    grid-template-columns: 96px minmax(0, 1fr);
+    column-gap: 16px;
+    row-gap: 18px;
+    padding: 22px;
+  }
+  .bp-leader-photo { max-width: 96px; width: 96px; }
+  .bp-leader-name { font-size: 21px; line-height: 1.2; }
+  .bp-leader-eyebrow { margin-bottom: 6px; font-size: 10px; }
 }
 
 /* ─── Strategy: training programs section (simplified) ──────────────
