@@ -287,7 +287,7 @@ export default function ServicesBuildPage() {
                 <span>2026</span>
               </div>
               <ImageLightbox
-                src="/images/Odin%20SaaS%201.png"
+                src="/images/odin-desktop.png"
                 alt="Odin AI marketing site — desktop view showing the hero, dashboard screenshots, and primary CTAs."
                 className="bp-selected-thumb bp-selected-thumb--device"
                 ariaLabel="View the Odin AI marketing site screenshot at full size"
@@ -297,12 +297,12 @@ export default function ServicesBuildPage() {
               >
                 <span className="bp-selected-glow" aria-hidden="true" />
                 <img
-                  src="/images/Odin%20SaaS%201.png"
+                  src="/images/odin-desktop.png"
                   alt="Odin AI marketing site — desktop view."
                   className="bp-selected-thumb-desktop"
                 />
                 <img
-                  src="/images/Odin%20SaaS%202.png"
+                  src="/images/odin-mobile.png"
                   alt="Odin AI marketing site — mobile view."
                   className="bp-selected-thumb-phone"
                   aria-hidden="true"
