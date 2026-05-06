@@ -183,8 +183,10 @@ export default function ServicesStrategyPage() {
               </h2>
             </div>
             <p className="section-lede lede">
-              Engagements are flexible. Depending on what the organization
-              needs, the work may include any of the following.
+              Engagements are flexible. Depending on where the organization is
+              starting from, the work may focus on leadership alignment,
+              readiness, training, governance, or turning AI opportunities
+              into scoped build projects.
             </p>
           </div>
 
@@ -198,17 +200,17 @@ export default function ServicesStrategyPage() {
               [
                 "02",
                 "Readiness and governance",
-                "An honest read on where the organization stands across leadership, fluency, data, and process, plus pragmatic guidance on usage policy and decision guardrails where it is needed.",
+                "A clear read on where the organization stands across leadership, team fluency, data, process, risk, and usage policy, with guardrails where they are needed.",
               ],
               [
                 "03",
-                "Use-case discovery",
-                "Workshops and advisory sessions to surface candidate AI opportunities, separate the useful ideas from the distractions, and rank what is actually worth doing.",
+                "Use-case discovery and project shaping",
+                "Workshops and advisory sessions to surface candidate AI opportunities, separate useful ideas from distractions, and turn the strongest ones into scoped projects.",
               ],
               [
                 "04",
-                "Build planning",
-                "A clear view of the first opportunity worth acting on: problem, owner, success criteria, and what to build first.",
+                "Training and enablement",
+                "Focused sessions that build AI fluency across leaders, managers, and teams so people understand the tools, the risks, and where AI can improve real work.",
               ],
             ].map(([num, title, body]) => (
               <div className="bp-work-cell" key={num}>
@@ -232,13 +234,14 @@ export default function ServicesStrategyPage() {
               Training
             </div>
             <h2 className="section-h2" style={{ marginTop: 24 }}>
-              Training can be part{" "}
-              <span className="muted">of the engagement.</span>
+              Training builds{" "}
+              <span className="muted">the capability to act.</span>
             </h2>
             <p className="bp-training-body">
-              When teams need fluency to put AI to work, training can be folded
-              into the engagement. We use focused programs depending on the
-              audience and what the work calls for.
+              AI strategy only works if people understand enough to use it. We
+              use focused training programs to build fluency, create shared
+              language, and help teams apply AI to real work, not just
+              experiment with tools.
             </p>
           </div>
 
@@ -335,32 +338,33 @@ export default function ServicesStrategyPage() {
               When this fits
             </div>
             <h2 className="section-h2" style={{ marginTop: 24 }}>
-              This is the right call{" "}
-              <span className="muted">when&hellip;</span>
+              When this work{" "}
+              <span className="muted">makes sense.</span>
             </h2>
             <p className="section-lede">
-              The work helps when the organization knows AI matters but needs
-              clarity before investing in tools, software, or internal change.
+              This work is for organizations that know AI matters, but need
+              clearer direction before investing heavily in tools, software,
+              or internal change.
             </p>
           </div>
 
           <div className="bp-fit-grid">
             {[
               [
-                "Your leadership team has interest in AI but not alignment.",
-                "Bring leaders to a shared view before scaling AI investment.",
+                "You need an AI strategy your leadership team can align around.",
+                "Clarify where AI fits, what matters most, and what decisions leaders need to make before the organization moves further.",
               ],
               [
-                "Teams are using AI unevenly and you would like a clearer position.",
-                "Shape a position your people can actually work from.",
+                "Your teams are using AI, but not consistently or confidently.",
+                "Create shared language, usage expectations, and training so people understand how to use AI responsibly in their work.",
               ],
               [
-                "You have more AI ideas than capacity, and need to prioritize.",
-                "Filter the list to what is actually worth doing first.",
+                "You have AI ideas, but no clear way to prioritize them.",
+                "Separate useful opportunities from distractions and identify which ideas are worth acting on first.",
               ],
               [
-                "You are considering a build but want to scope the right first opportunity.",
-                "Define the first piece of work clearly enough to act on.",
+                "You see build potential, but need to define the first project.",
+                "Turn the strongest opportunity into a clearer project shape, including the problem, owner, outcome, and first build path.",
               ],
             ].map(([h, sub], i) => (
               <div className="bp-fit-cell" key={i}>
