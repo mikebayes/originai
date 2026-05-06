@@ -3188,8 +3188,9 @@
 @media (max-width: 720px) {
   /* Mobile section top paddings tightened 2026-05-05 to bring
      section 1 closer to the hero footer rail. Bottom paddings
-     untouched. */
-  .bp-intro { padding-top: 50px; }
+     also tightened where they were inheriting desktop values that
+     read too generous on phones. */
+  .bp-intro { padding-top: 50px; padding-bottom: 72px; }
   .bp-team { padding: 60px 0 100px; }
   .bp-statement { padding: 80px 0; }
   .bp-statement-points { gap: 16px; flex-direction: column; align-items: center; }
@@ -3368,7 +3369,13 @@
     gap: 24px;
     padding: 28px;
   }
+  /* On mobile, body comes first so the eyebrow + h3 (which together
+     act as the card's title) introduce the section before the photo
+     appears. Photo moves to the bottom and reads as a sign-off image
+     rather than an orphan. Mike asked 2026-05-05. */
+  .bp-leader-body { order: 1; }
   .bp-leader-photo {
+    order: 2;
     max-width: 180px;
   }
 }
