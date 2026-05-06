@@ -3,24 +3,24 @@
 import { useState } from "react";
 
 /**
- * Contact form for the /contact page "write first" section.
+ * Contact form for the /contact page secondary "write first" section.
+ *
+ * Simplified 2026-05-06 per Mike's direction: the page is now
+ * book-dominant with this form as a small secondary fallback. Reduced
+ * to four fields total — name, email, company, and a single textarea
+ * for what they are working through. Stage radio, Role field, and
+ * second optional textarea are all removed to reduce friction.
  *
  * v1: form is fully interactive but submission is stubbed — on submit
  * we show a clean thank-you state instead of POSTing anywhere. Wire to
  * a real backend (Formspree, Resend, or a Next API route) as a next
  * step.
- *
- * Substantive fields per Mike's direction: instead of the generic
- * name/email/message triple, this form asks for the prospect's stage,
- * what they're trying to do, and any context that helps prep the
- * discovery call. Walks into the call already pre-qualified.
  */
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // v1: stub. Real submission to be wired up next pass.
     setSubmitted(true);
   };
 
@@ -45,22 +45,20 @@ export default function ContactForm() {
 
   return (
     <form className="bp-contact-form" onSubmit={handleSubmit} noValidate>
-      <fieldset className="bp-contact-stage">
-        <legend>Where are you right now?</legend>
-        <div className="bp-contact-stage-options">
-          {[
-            ["exploring", "Just exploring"],
-            ["planning", "Actively planning"],
-            ["ready", "Ready to build"],
-            ["maintaining", "Maintaining something live"],
-          ].map(([value, label]) => (
-            <label key={value} className="bp-contact-stage-option">
-              <input type="radio" name="stage" value={value} />
-              <span>{label}</span>
-            </label>
-          ))}
-        </div>
-      </fieldset>
+      <div className="bp-contact-form-grid">
+        <label className="bp-contact-field">
+          <span className="bp-contact-label">Name</span>
+          <input type="text" name="name" required autoComplete="name" />
+        </label>
+        <label className="bp-contact-field">
+          <span className="bp-contact-label">Email</span>
+          <input type="email" name="email" required autoComplete="email" />
+        </label>
+        <label className="bp-contact-field bp-contact-field--full">
+          <span className="bp-contact-label">Company</span>
+          <input type="text" name="company" autoComplete="organization" />
+        </label>
+      </div>
 
       <label className="bp-contact-field">
         <span className="bp-contact-label">What are you working through?</span>
@@ -71,48 +69,6 @@ export default function ContactForm() {
           placeholder="A few sentences is enough. Tell us about the problem, idea, workflow, system, or AI question on your mind."
         />
       </label>
-
-      <label className="bp-contact-field">
-        <span className="bp-contact-label">Anything else that would help?</span>
-        <span className="bp-contact-label-hint">Optional</span>
-        <textarea
-          name="notes"
-          rows={3}
-          placeholder="Timing, people involved, current tools, budget shape, or anything else we should know."
-        />
-      </label>
-
-      <div className="bp-contact-form-grid">
-        <label className="bp-contact-field">
-          <span className="bp-contact-label">Name</span>
-          <input type="text" name="name" required autoComplete="name" />
-        </label>
-        <label className="bp-contact-field">
-          <span className="bp-contact-label">Email</span>
-          <input
-            type="email"
-            name="email"
-            required
-            autoComplete="email"
-          />
-        </label>
-        <label className="bp-contact-field">
-          <span className="bp-contact-label">Company</span>
-          <input
-            type="text"
-            name="company"
-            autoComplete="organization"
-          />
-        </label>
-        <label className="bp-contact-field">
-          <span className="bp-contact-label">Role</span>
-          <input
-            type="text"
-            name="role"
-            autoComplete="organization-title"
-          />
-        </label>
-      </div>
 
       <div className="bp-contact-form-actions">
         <button type="submit" className="pill pill-primary">
