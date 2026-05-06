@@ -392,37 +392,87 @@ export default function ServicesManagedPage() {
 
           <div className="bp-outputs-list">
             {[
-              [
-                "01",
-                "Defined monthly scope.",
-                "The work for the month is agreed up front and visible to both teams.",
-              ],
-              [
-                "02",
-                "Prioritized backlog.",
-                "A shared list of fixes, improvements, and ideas, ordered by value.",
-              ],
-              [
-                "03",
-                "Development and support.",
-                "Updates, fixes, refinements, and support for the systems we built.",
-              ],
-              [
-                "04",
-                "New workflows and enhancements.",
-                "Additional capability added as users find better ways to use the system.",
-              ],
-              [
-                "05",
-                "A team that knows the context.",
-                "The people, architecture, trade-offs, and decisions stay connected.",
-              ],
-            ].map(([num, h, p]) => (
-              <div className="bp-output-row" key={num}>
-                <div className="num">{num}</div>
+              {
+                key: "scope",
+                /* Calendar with checkmark — "defined monthly scope". */
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <rect x="3" y="5" width="18" height="16" rx="2" />
+                    <line x1="3" y1="10" x2="21" y2="10" />
+                    <line x1="8" y1="3" x2="8" y2="7" />
+                    <line x1="16" y1="3" x2="16" y2="7" />
+                    <path d="M8.5 15.5l2 2 4-4" />
+                  </svg>
+                ),
+                title: "Defined monthly scope.",
+                body: "The work for the month is agreed up front and visible to both teams.",
+              },
+              {
+                key: "backlog",
+                /* Stacked rows with priority dots — "prioritized backlog". */
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <circle cx="5" cy="6" r="1.6" fill="currentColor" />
+                    <circle cx="5" cy="12" r="1.6" fill="currentColor" />
+                    <circle cx="5" cy="18" r="1.6" fill="currentColor" />
+                    <line x1="10" y1="6" x2="20" y2="6" />
+                    <line x1="10" y1="12" x2="18" y2="12" />
+                    <line x1="10" y1="18" x2="16" y2="18" />
+                  </svg>
+                ),
+                title: "Prioritized backlog.",
+                body: "A shared list of fixes, improvements, and ideas, ordered by value.",
+              },
+              {
+                key: "develop",
+                /* Code brackets — "development and support". */
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <polyline points="9 7 4 12 9 17" />
+                    <polyline points="15 7 20 12 15 17" />
+                  </svg>
+                ),
+                title: "Development and support.",
+                body: "Updates, fixes, refinements, and support for the systems we built.",
+              },
+              {
+                key: "workflow",
+                /* Branching nodes — "new workflows and enhancements". */
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <circle cx="6" cy="6" r="2" />
+                    <circle cx="18" cy="6" r="2" />
+                    <circle cx="12" cy="18" r="2" />
+                    <path d="M7.5 7.5L11 16" />
+                    <path d="M16.5 7.5L13 16" />
+                    <line x1="8" y1="6" x2="16" y2="6" />
+                  </svg>
+                ),
+                title: "New workflows and enhancements.",
+                body: "Additional capability added as users find better ways to use the system.",
+              },
+              {
+                key: "team",
+                /* Two figures — "team that knows the context". */
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <circle cx="9" cy="8" r="3" />
+                    <path d="M3 20v-1a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v1" />
+                    <circle cx="17" cy="9" r="2.2" />
+                    <path d="M14 16a3.2 3.2 0 0 1 2-1h1a4 4 0 0 1 4 4v1" />
+                  </svg>
+                ),
+                title: "A team that knows the context.",
+                body: "The people, architecture, trade-offs, and decisions stay connected.",
+              },
+            ].map(({ key, icon, title, body }) => (
+              <div className="bp-output-row" key={key}>
+                <div className="bp-output-icon" aria-hidden="true">
+                  {icon}
+                </div>
                 <div>
-                  <h3>{h}</h3>
-                  <p>{p}</p>
+                  <h3>{title}</h3>
+                  <p>{body}</p>
                 </div>
               </div>
             ))}

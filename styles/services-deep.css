@@ -1018,6 +1018,28 @@
   margin-top: 4px;
 }
 
+/* Icon variant of the output row leading column. Used on Managed AI's
+   "What you get each month" instead of 01/02/03 numbers — Mike asked
+   2026-05-06 to reduce numerical sequence noise on the page. SVGs are
+   stroke-only, currentColor inherits the teal --svc-accent. */
+.bp-output-row .bp-output-icon {
+  width: 28px; height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--svc-accent);
+  margin-top: 2px;
+  /* Slight glow so the icon reads as a deliberate accent rather than
+     a plain stroke. */
+  filter: drop-shadow(0 0 6px rgba(93, 168, 156, 0.20));
+}
+
+.bp-output-row .bp-output-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 .bp-output-row h3 {
   font-family: 'Inter Tight', sans-serif; font-weight: 500;
   font-size: 21px; line-height: 1.2; letter-spacing: -0.012em;
