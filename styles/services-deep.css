@@ -541,6 +541,10 @@
   color: rgba(255,255,255,0.74);
   margin: 0 0 22px;
   max-width: 56ch;
+  /* Reserve 3 lines of vertical space so shorter bodies (e.g. AI tab)
+     don't cause the mockup below to jump up vs. longer bodies (Data
+     tab). Prevents the layout shift Mike flagged 2026-05-06. */
+  min-height: calc(15.5px * 1.6 * 3);
 }
 
 .bp-directions-tags {
