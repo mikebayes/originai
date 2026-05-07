@@ -2,6 +2,9 @@
 
 import { useState } from "react";
 import MockupBusinessApp from "./MockupBusinessApp";
+import MockupWebsitesPortals from "./MockupWebsitesPortals";
+import MockupAIAssistant from "./MockupAIAssistant";
+import MockupDataIntegrations from "./MockupDataIntegrations";
 
 /**
  * "What we build" section for /services/build.
@@ -54,6 +57,7 @@ const items: Item[] = [
     body:
       "Customer-facing or internal web experiences that guide people through a process, deliver information clearly, or support self-serve access.",
     tags: ["Client portals", "Intake", "Self-serve tools"],
+    mockup: <MockupWebsitesPortals />,
   },
   {
     id: "ai",
@@ -63,6 +67,7 @@ const items: Item[] = [
     body:
       "AI embedded into real workflows to help people search, draft, troubleshoot, summarize, or complete tasks faster.",
     tags: ["Search", "Guidance", "Drafting"],
+    mockup: <MockupAIAssistant />,
   },
   {
     id: "data",
@@ -72,6 +77,7 @@ const items: Item[] = [
     body:
       "The connections and data layers that make software and AI actually useful. Systems need context, and this is often the layer that makes everything work.",
     tags: ["APIs", "Sync", "Integrations"],
+    mockup: <MockupDataIntegrations />,
   },
 ];
 
