@@ -402,13 +402,12 @@
    service catalogue. */
 .bp-directions {
   display: grid;
-  /* Wider left nav (0.55fr instead of 0.42fr) so the menu has more
-     visual weight. align-items stretch makes both columns the same
-     height as the taller one (the right panel). Combined with
-     flex:1 on the nav items below, this fills the left column with
-     four evenly-distributed nav items so the two columns are exactly
-     the same height. Mike asked 2026-05-06 for symmetry. */
-  grid-template-columns: minmax(0, 0.55fr) minmax(0, 1fr);
+  /* Narrower left nav now that the index numbers are removed and
+     the menu is just 4 short titles. 0.35/1 ratio gives the right
+     panel meaningfully more horizontal room (mockup gets ~19% wider).
+     align-items stretch + flex:1 on items still keeps heights
+     symmetrical. Updated 2026-05-06. */
+  grid-template-columns: minmax(0, 0.35fr) minmax(0, 1fr);
   gap: 56px;
   align-items: stretch;
   position: relative;
@@ -426,15 +425,12 @@
 
 .bp-directions-nav-item {
   position: relative;
-  display: grid;
-  grid-template-columns: 36px 1fr;
-  gap: 16px;
+  display: flex;
   align-items: center;
-  /* Padding kept as baseline. flex:1 lets each of the 4 items grow to
-     fill 1/4 of the nav's stretched height, so left + right columns
-     match exactly. Min-height ensures items still feel substantial
-     even if the right panel is short. */
-  padding: 28px 28px 28px 32px;
+  /* Single-column layout now that the index numbers are removed.
+     flex:1 still lets each of the 4 items grow to fill 1/4 of the
+     nav's stretched height so left + right columns match exactly. */
+  padding: 28px 24px 28px 28px;
   flex: 1 1 0;
   min-height: 96px;
   background: transparent;
@@ -655,7 +651,6 @@
      because content stacks). Keep left border so active indicator
      still reads. */
   .bp-directions-nav-item {
-    grid-template-columns: 36px 1fr;
     padding: 18px 22px 18px 26px;
     flex: 0 0 auto;
     min-height: 0;

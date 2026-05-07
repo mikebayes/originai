@@ -101,7 +101,6 @@ export default function BuildDirections() {
               id={`bp-directions-tab-${item.id}`}
             >
               <span className="bp-directions-nav-bar" aria-hidden="true" />
-              <span className="num">{item.num}</span>
               <span className="title">{item.title}</span>
             </button>
           );
