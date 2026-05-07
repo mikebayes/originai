@@ -394,125 +394,250 @@
   color: rgba(93,168,156,0.35);
 }
 
-/* ─── 4-card variant of bp-work (Build page "What we build") ──────
-   Mike redesigned the section 2026-05-06 from 8 cells to 4. The
-   --four modifier styles a 2x2 premium grid with index + icon top
-   row, title + body, and example tags at the bottom. Used only when
-   .bp-work--four is on the section AND .bp-work-grid--four on the
-   grid. Default .bp-work styling above stays intact for any pages
-   that still use 8 cells. */
-.bp-work-grid--four {
-  /* Override the default 4-col + 1px gap grid to a clean 2x2 with
-     real gaps between cards (not gridlines). Each card becomes a
-     proper bordered surface rather than a cell in a sheet. */
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 20px !important;
-  background: transparent !important;
-  border: 0 !important;
+/* ─── Build page "What we build" — interactive left-nav layout ────
+   Mike redesigned the section 2026-05-06. Replaces the v2 4-card
+   grid with a tabbed left-nav + right-panel pattern. Component
+   lives in BuildDirections.tsx (client component for the active
+   tab state). Section feels more product-oriented and less like a
+   service catalogue. */
+.bp-directions {
+  display: grid;
+  grid-template-columns: minmax(0, 0.42fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: start;
+  /* Stop hairlines from touching panel content edges. */
+  position: relative;
 }
 
-.bp-work-cell--four {
-  background: #04140e;
-  border: 0.5px solid rgba(255,255,255,0.10);
-  padding: 36px 32px 32px;
-  min-height: 0;
-  display: flex; flex-direction: column;
-  transition: border-color 280ms ease-out, background 280ms ease-out, transform 280ms ease-out;
-}
-
-.bp-work-cell--four:hover {
-  background: #061b14;
-  border-color: rgba(93, 168, 156, 0.30);
-  transform: translateY(-2px);
-}
-
-/* Top row of each card — index on the left, icon on the right.
-   Same visual language as the eyebrow/icon pattern used elsewhere
-   on the site. */
-.bp-work-cell--four .bp-work-cell-top {
+/* LEFT NAV ─────────────────────────────────────────────────── */
+.bp-directions-nav {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 28px;
+  flex-direction: column;
+  border-left: 0.5px solid rgba(255,255,255,0.10);
 }
 
-.bp-work-cell--four .num {
+.bp-directions-nav-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 16px;
+  align-items: center;
+  padding: 20px 24px 20px 28px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  color: rgba(255,255,255,0.55);
+  transition: color 220ms ease-out, background 220ms ease-out;
+}
+
+.bp-directions-nav-item:hover {
+  color: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.012);
+}
+
+.bp-directions-nav-item.is-active {
+  color: #fff;
+  background: rgba(93, 168, 156, 0.04);
+}
+
+.bp-directions-nav-item .num {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   letter-spacing: 0.16em;
-  color: var(--svc-accent);
-  margin: 0;
+  color: rgba(255,255,255,0.40);
+  transition: color 220ms ease-out;
 }
 
-/* Icon — small line-stroke SVG, currentColor inherits the teal
-   accent. Subtle teal halo so it reads as a deliberate accent. */
-.bp-work-cell--four .bp-work-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px; height: 36px;
-  color: var(--svc-accent);
-  filter: drop-shadow(0 0 8px rgba(93, 168, 156, 0.20));
-}
+.bp-directions-nav-item.is-active .num { color: var(--svc-accent); }
 
-.bp-work-cell--four .bp-work-icon svg {
-  width: 100%; height: 100%;
-  display: block;
-}
-
-/* Title and body — cleaner, more breathable than the 8-cell variant. */
-.bp-work-cell--four h3 {
+.bp-directions-nav-item .title {
   font-family: 'Inter Tight', sans-serif;
   font-weight: 500;
-  font-size: 22px;
-  line-height: 1.22;
-  letter-spacing: -0.012em;
+  font-size: 18px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+/* Active indicator — a thin teal bar that overlays the nav left
+   border for the active item. Slides cleanly between items. */
+.bp-directions-nav-item .bp-directions-nav-bar {
+  position: absolute;
+  left: -0.5px;
+  top: 12px; bottom: 12px;
+  width: 2px;
+  background: var(--svc-accent);
+  opacity: 0;
+  transform: scaleY(0.4);
+  transition: opacity 220ms ease-out, transform 220ms ease-out;
+}
+
+.bp-directions-nav-item.is-active .bp-directions-nav-bar {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+/* RIGHT PANEL ──────────────────────────────────────────────── */
+.bp-directions-panel {
+  background: #04140e;
+  border: 0.5px solid rgba(255,255,255,0.10);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  /* Smooth content swap when the active tab changes. */
+  animation: bp-directions-fade 280ms ease-out;
+}
+
+@keyframes bp-directions-fade {
+  from { opacity: 0.4; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.bp-directions-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--svc-accent);
+  margin-bottom: 16px;
+}
+
+.bp-directions-meta .bar {
+  display: inline-block;
+  width: 22px; height: 1px;
+  background: var(--svc-accent);
+}
+
+.bp-directions-title {
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 500;
+  font-size: clamp(28px, 3vw, 36px);
+  line-height: 1.15;
+  letter-spacing: -0.014em;
   color: #fff;
-  margin: 0 0 12px;
+  margin: 0 0 16px;
   text-wrap: balance;
 }
 
-.bp-work-cell--four p {
+.bp-directions-body {
   font-family: 'Inter', sans-serif;
-  font-size: 14.5px;
+  font-size: 15.5px;
   line-height: 1.6;
-  color: rgba(255,255,255,0.70);
+  color: rgba(255,255,255,0.74);
   margin: 0 0 22px;
-  max-width: 42ch;
+  max-width: 56ch;
 }
 
-/* Example tags row at the bottom of each card. Quiet mono caps
-   chips with thin teal-tinted borders. Not pills, not buttons —
-   just labels that confirm what kinds of work fit the category. */
-.bp-work-cell--four .bp-work-tags {
+.bp-directions-tags {
   list-style: none;
-  margin: auto 0 0;
+  margin: 0 0 32px;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  padding-top: 18px;
-  border-top: 0.5px solid rgba(255,255,255,0.06);
 }
 
-.bp-work-cell--four .bp-work-tags li {
+.bp-directions-tags li {
   font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
   letter-spacing: 0.10em;
   text-transform: uppercase;
   padding: 5px 10px;
-  background: rgba(93, 168, 156, 0.05);
+  background: rgba(93, 168, 156, 0.06);
   color: var(--svc-accent);
-  border: 0.5px solid rgba(93, 168, 156, 0.18);
+  border: 0.5px solid rgba(93, 168, 156, 0.20);
+}
+
+/* MOCKUP PLACEHOLDER ──────────────────────────────────────────
+   Designed empty surface for a future product mockup. Reads as a
+   deliberate frame, not a missing image. Subtle grid texture +
+   four corner brackets + a small label so it has presence even
+   without contents. */
+.bp-directions-mockup {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border: 0.5px dashed rgba(93, 168, 156, 0.22);
+  background:
+    radial-gradient(70% 60% at 50% 35%, rgba(93, 168, 156, 0.04) 0%, rgba(93, 168, 156, 0) 70%),
+    rgba(255,255,255,0.012);
+  overflow: hidden;
+}
+
+.bp-directions-mockup-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(80% 80% at 50% 50%, #000 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(80% 80% at 50% 50%, #000 40%, transparent 100%);
+}
+
+/* Four corner brackets — make the placeholder read as a designed
+   frame, like a viewfinder, not a borderless empty block. */
+.bp-directions-mockup-corner {
+  position: absolute;
+  width: 18px; height: 18px;
+  border: 1px solid rgba(93, 168, 156, 0.40);
+}
+.bp-directions-mockup-corner--tl { top: 12px; left: 12px; border-right: 0; border-bottom: 0; }
+.bp-directions-mockup-corner--tr { top: 12px; right: 12px; border-left: 0; border-bottom: 0; }
+.bp-directions-mockup-corner--bl { bottom: 12px; left: 12px; border-right: 0; border-top: 0; }
+.bp-directions-mockup-corner--br { bottom: 12px; right: 12px; border-left: 0; border-top: 0; }
+
+.bp-directions-mockup-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.40);
+}
+
+.bp-directions-mockup-label .dot {
+  display: inline-block;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--svc-accent);
+  box-shadow: 0 0 8px rgba(93, 168, 156, 0.50);
+}
+
+/* RESPONSIVE ───────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .bp-directions {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  /* Mobile: nav becomes a horizontal stack (still vertical visually
+     because content stacks). Keep left border so active indicator
+     still reads. */
+  .bp-directions-nav-item {
+    grid-template-columns: 36px 1fr;
+    padding: 16px 20px 16px 24px;
+  }
+  .bp-directions-panel { padding: 32px; }
+  .bp-directions-mockup { aspect-ratio: 16 / 10; }
 }
 
 @media (max-width: 720px) {
-  .bp-work-grid--four {
-    grid-template-columns: 1fr !important;
-    gap: 14px !important;
-  }
-  .bp-work-cell--four { padding: 26px 22px 24px; }
-  .bp-work-cell--four h3 { font-size: 20px; }
+  .bp-directions { gap: 22px; }
+  .bp-directions-nav-item .title { font-size: 16px; }
+  .bp-directions-panel { padding: 24px; }
+  .bp-directions-title { font-size: 24px; margin-bottom: 12px; }
+  .bp-directions-body { font-size: 14.5px; margin-bottom: 18px; }
+  .bp-directions-tags { margin-bottom: 24px; }
+  .bp-directions-mockup-label { font-size: 10px; }
 }
 
 /* ═════════════════════════════════════════════════════════════
