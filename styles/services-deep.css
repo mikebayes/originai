@@ -402,10 +402,12 @@
    service catalogue. */
 .bp-directions {
   display: grid;
-  grid-template-columns: minmax(0, 0.42fr) minmax(0, 1fr);
+  /* Wider left nav (0.55fr instead of 0.42fr) so the menu has more
+     visual weight and the right panel is less dominant. Mike asked
+     2026-05-06 to balance the two columns more symmetrically. */
+  grid-template-columns: minmax(0, 0.55fr) minmax(0, 1fr);
   gap: 56px;
   align-items: start;
-  /* Stop hairlines from touching panel content edges. */
   position: relative;
 }
 
@@ -422,7 +424,9 @@
   grid-template-columns: 36px 1fr;
   gap: 16px;
   align-items: center;
-  padding: 20px 24px 20px 28px;
+  /* Bumped padding 20/24 -> 28/28 so each nav item has more presence
+     and the nav stack height reads closer to the right panel height. */
+  padding: 28px 28px 28px 32px;
   background: transparent;
   border: 0;
   cursor: pointer;
@@ -455,7 +459,7 @@
 .bp-directions-nav-item .title {
   font-family: 'Inter Tight', sans-serif;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.25;
   letter-spacing: -0.01em;
 }
@@ -561,7 +565,10 @@
 .bp-directions-mockup {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  /* Aspect 16:10 was making the right panel much taller than the
+     left nav. 21:9 reads as a cinematic mockup frame and brings the
+     panel height down so the two columns feel symmetrical. */
+  aspect-ratio: 21 / 9;
   border: 0.5px dashed rgba(93, 168, 156, 0.22);
   background:
     radial-gradient(70% 60% at 50% 35%, rgba(93, 168, 156, 0.04) 0%, rgba(93, 168, 156, 0) 70%),
@@ -624,10 +631,10 @@
      still reads. */
   .bp-directions-nav-item {
     grid-template-columns: 36px 1fr;
-    padding: 16px 20px 16px 24px;
+    padding: 18px 22px 18px 26px;
   }
   .bp-directions-panel { padding: 32px; }
-  .bp-directions-mockup { aspect-ratio: 16 / 10; }
+  .bp-directions-mockup { aspect-ratio: 16 / 9; }
 }
 
 @media (max-width: 720px) {
