@@ -620,6 +620,21 @@
   box-shadow: 0 0 8px rgba(93, 168, 156, 0.50);
 }
 
+/* When a real mockup component is supplied (.has-mockup), drop the
+   dashed border and the soft tint background so the mockup SVG fills
+   the frame cleanly. The mockup itself provides its own surface. */
+.bp-directions-mockup.has-mockup {
+  border: 0.5px solid rgba(255, 255, 255, 0.08);
+  background: transparent;
+}
+
+/* SVG mockup fills the container. */
+.bp-directions-mockup .bp-mockup-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 /* RESPONSIVE ───────────────────────────────────────────────── */
 @media (max-width: 1024px) {
   .bp-directions {

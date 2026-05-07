@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import MockupBusinessApp from "./MockupBusinessApp";
 
 /**
  * "What we build" section for /services/build.
@@ -22,7 +23,19 @@ import { useState } from "react";
  * texture + small "Build mockup" label so it reads as deliberate, not
  * broken.
  */
-const items = [
+type Item = {
+  id: string;
+  num: string;
+  meta: string;
+  title: string;
+  body: string;
+  tags: string[];
+  /** Optional mockup component. When present, replaces the designed
+   *  placeholder frame inside .bp-directions-mockup. */
+  mockup?: React.ReactNode;
+};
+
+const items: Item[] = [
   {
     id: "apps",
     num: "01",
@@ -31,6 +44,7 @@ const items = [
     body:
       "Internal tools and business applications built around how the organization actually works. Not someone else's workflow forced onto your team.",
     tags: ["Scheduling", "Approvals", "Operations"],
+    mockup: <MockupBusinessApp />,
   },
   {
     id: "web",
@@ -116,19 +130,27 @@ export default function BuildDirections() {
           ))}
         </ul>
 
-        {/* MOCKUP PLACEHOLDER — designed empty surface. Future: replace
-            inner contents with a real product/UI mockup image. The
-            frame, grid, and label remain visual hints either way. */}
-        <div className="bp-directions-mockup" aria-hidden="true">
-          <div className="bp-directions-mockup-grid" />
-          <div className="bp-directions-mockup-corner bp-directions-mockup-corner--tl" />
-          <div className="bp-directions-mockup-corner bp-directions-mockup-corner--tr" />
-          <div className="bp-directions-mockup-corner bp-directions-mockup-corner--bl" />
-          <div className="bp-directions-mockup-corner bp-directions-mockup-corner--br" />
-          <div className="bp-directions-mockup-label">
-            <span className="dot" />
-            <span>Build mockup</span>
-          </div>
+        {/* MOCKUP — when an item supplies a mockup component, render
+            that as the visible content. Otherwise fall back to the
+            designed placeholder frame (corners + grid + label) so the
+            empty surface still reads as deliberate. */}
+        <div
+          className={`bp-directions-mockup ${active.mockup ? "has-mockup" : ""}`}
+          aria-hidden="true"
+        >
+          {active.mockup ?? (
+            <>
+              <div className="bp-directions-mockup-grid" />
+              <div className="bp-directions-mockup-corner bp-directions-mockup-corner--tl" />
+              <div className="bp-directions-mockup-corner bp-directions-mockup-corner--tr" />
+              <div className="bp-directions-mockup-corner bp-directions-mockup-corner--bl" />
+              <div className="bp-directions-mockup-corner bp-directions-mockup-corner--br" />
+              <div className="bp-directions-mockup-label">
+                <span className="dot" />
+                <span>Build mockup</span>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>
