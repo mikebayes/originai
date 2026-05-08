@@ -4037,7 +4037,9 @@
    transitions cleanly into the action grid below. */
 .bp-page--contact .bp-hero--compact {
   padding-top: 70px !important;
-  padding-bottom: 80px !important;
+  /* Bottom padding trimmed 80 -> 40 so the Mike card sits closer to
+     the hero. Mike asked 2026-05-06. */
+  padding-bottom: 40px !important;
 }
 .bp-page--contact .bp-hero--compact .bp-hero-h1 {
   font-size: clamp(40px, 5vw, 68px);
@@ -4062,7 +4064,9 @@
 .bp-advisor {
   position: relative;
   background: #03100b;
-  padding: 56px 0 56px;
+  /* Top padding trimmed 56 -> 32 alongside the hero reduction so
+     advisor card sits ~50px closer to the hero overall. */
+  padding: 32px 0 56px;
   border-top: 0.5px solid rgba(255,255,255,0.06);
 }
 
@@ -4216,6 +4220,41 @@
   max-width: 70ch;
 }
 
+
+/* ─── MEMBERSHIP — Chamber of Commerce badge ─── */
+.bp-membership {
+  position: relative;
+  background: #03100b;
+  padding: 8px 0 36px;
+}
+
+.bp-membership-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+  padding: 14px 24px;
+  background: #f4f0e6;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  border-radius: 4px;
+  /* Subtle warm tint so the light card doesn't feel like a hard
+     paper rectangle dropped onto the dark page. */
+  box-shadow: 0 0 0 1px rgba(93, 168, 156, 0.06);
+}
+
+.bp-membership-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(20, 30, 50, 0.55);
+  flex-shrink: 0;
+}
+
+.bp-membership-logo {
+  height: 36px;
+  width: auto;
+  display: block;
+}
 
 /* ─── OFFICE STRIP ─── */
 .bp-office {
@@ -4771,10 +4810,14 @@
 }
 
 @media (max-width: 720px) {
-  .bp-advisor { padding: 40px 0 40px; }
+  .bp-advisor { padding: 24px 0 36px; }
   .bp-advisor-card { padding: 22px; }
   .bp-advisor-name { font-size: 22px; }
   .bp-advisor-quote { font-size: 14px; padding: 18px 14px 4px; }
+
+  .bp-membership { padding: 4px 0 28px; }
+  .bp-membership-card { padding: 12px 18px; gap: 14px; }
+  .bp-membership-logo { height: 28px; }
 
   .bp-office { padding: 24px 0 32px; }
   .bp-office-line { font-size: 12px; }
