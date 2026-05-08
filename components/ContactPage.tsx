@@ -107,25 +107,10 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* MEMBERSHIP — quiet Chamber of Commerce credibility marker.
-          Sits between the advisor card and the office strip so the
-          local-credibility theme runs together: real advisor, real
-          Chamber member, real office. */}
-      <section className="bp-membership" data-screen-label="Chamber member">
-        <div className="wrap">
-          <div className="bp-membership-card">
-            <span className="bp-membership-label">Proud member</span>
-            <img
-              src="/images/winnipeg-chamber-logo.png"
-              alt="The Winnipeg Chamber of Commerce"
-              className="bp-membership-logo"
-              loading="lazy"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* OFFICE STRIP — quiet horizontal credibility note */}
+      {/* OFFICE STRIP — quiet horizontal credibility note. Chamber
+          membership badge nests inside the office info column,
+          directly under the address line, so the local-credibility
+          theme reads as one block: real address + real membership. */}
       <section className="bp-office" data-screen-label="Office">
         <div className="wrap">
           <div className="bp-office-grid">
@@ -157,6 +142,16 @@ export default function ContactPage() {
                 <span className="sep" aria-hidden="true">·</span>
                 <a href="tel:+12045151415">+1 (204) 515 1415</a>
               </p>
+
+              <div className="bp-office-membership">
+                <span className="bp-office-membership-label">Proud member</span>
+                <img
+                  src="/images/winnipeg-chamber-logo.png"
+                  alt="The Winnipeg Chamber of Commerce"
+                  className="bp-office-membership-logo"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
         </div>
