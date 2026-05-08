@@ -81,7 +81,7 @@ export default function ContactPage() {
                   <span className="arrow" aria-hidden="true">→</span>
                 </button>
                 <a
-                  href="https://www.linkedin.com/in/mikebayes"
+                  href="https://www.linkedin.com/in/mbayes"
                   target="_blank"
                   rel="noreferrer noopener"
                   className="bp-advisor-linkedin"
@@ -111,39 +111,20 @@ export default function ContactPage() {
       <section className="bp-office" data-screen-label="Office">
         <div className="wrap">
           <div className="bp-office-grid">
-            <div className="bp-office-map" aria-hidden="true">
-              {/* Stylized dark-themed abstract map. Marks the office
-                  location with a teal pin. Lightweight, on-brand, no
-                  third-party tracking. Swap for a real Google Maps
-                  embed later if needed. */}
-              <svg
-                viewBox="0 0 360 200"
-                preserveAspectRatio="xMidYMid slice"
-                aria-hidden="true"
-              >
-                <rect width="360" height="200" fill="#02100a" />
-                <g stroke="rgba(93,168,156,0.10)" strokeWidth="0.6" fill="none">
-                  <path d="M0 50 L360 30" />
-                  <path d="M0 100 L360 90" />
-                  <path d="M0 150 L360 160" />
-                  <path d="M0 190 L360 195" />
-                  <path d="M60 0 L80 200" />
-                  <path d="M150 0 L130 200" />
-                  <path d="M240 0 L260 200" />
-                  <path d="M320 0 L300 200" />
-                </g>
-                {/* Building blocks */}
-                <rect x="120" y="68" width="80" height="38" fill="rgba(93,168,156,0.06)" stroke="rgba(93,168,156,0.18)" strokeWidth="0.5" />
-                <rect x="220" y="108" width="60" height="50" fill="rgba(93,168,156,0.06)" stroke="rgba(93,168,156,0.18)" strokeWidth="0.5" />
-                <rect x="80" y="140" width="50" height="30" fill="rgba(93,168,156,0.06)" stroke="rgba(93,168,156,0.18)" strokeWidth="0.5" />
-                {/* Pin */}
-                <g transform="translate(180 110)">
-                  <circle r="14" fill="rgba(93,168,156,0.18)" />
-                  <circle r="8" fill="#5DA89C" />
-                  <circle r="3" fill="#fff" />
-                  <line x1="0" y1="8" x2="0" y2="22" stroke="#5DA89C" strokeWidth="1.5" />
-                </g>
-              </svg>
+            <div className="bp-office-map">
+              {/* Real Google Maps embed pinning 315 Pacific Avenue.
+                  CSS filter on the wrapper inverts colors so the
+                  default light Google Maps theme reads as a dark
+                  surface that fits the Origin AI palette. To upgrade
+                  to a true dark Google Maps theme later, swap to a
+                  Cloud-based map ID and remove the filter. */}
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2569.8038430688653!2d-97.1405357!3d49.902485899999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52ea7167834a34cd%3A0x2f4c94aa88f3f21b!2s315%20Pacific%20Ave%2C%20Winnipeg%2C%20MB%20R3A%200M2!5e0!3m2!1sen!2sca!4v1778266370228!5m2!1sen!2sca"
+                title="Origin AI office location, 315 Pacific Avenue, Winnipeg"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
             </div>
 
             <div className="bp-office-info">

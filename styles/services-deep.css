@@ -4241,6 +4241,23 @@
   aspect-ratio: 9 / 5;
 }
 
+/* Google Maps iframe in dark mode without a Cloud-based map ID:
+   invert the rendered colors and rotate hue so the light theme
+   becomes a dark surface that fits the Origin AI palette. Slightly
+   desaturated so red/yellow/green markers read as muted accents.
+   Trade-off: text/road labels lose a touch of contrast vs. a true
+   dark map style would deliver, but the visual integration with the
+   rest of the page is much better than dropping a stark white map
+   into a dark layout. To upgrade later: provision a Google Cloud
+   map ID with a custom dark style and remove the filter. */
+.bp-office-map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  filter: invert(0.92) hue-rotate(180deg) saturate(0.55) contrast(0.95);
+}
+
 .bp-office-map svg {
   width: 100%;
   height: 100%;

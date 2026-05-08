@@ -29,11 +29,11 @@ export default function Hero() {
             AI software, strategy, and operations, focused on measurable business outcomes.
           </p>
           <div className="cta-stack">
-            <a href="#contact" className="pill pill-primary">
+            <a href="/contact" className="pill pill-primary">
               Book a discovery session
               <span className="arrow" aria-hidden="true">→</span>
             </a>
-            <a href="#services" className="pill pill-secondary">
+            <a href="/services" className="pill pill-secondary">
               See our services
             </a>
           </div>
