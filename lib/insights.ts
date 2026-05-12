@@ -50,6 +50,9 @@ export interface Article {
   /** Loose category. Keep the set small. Used for filtering + visual
    *  accent. Add new ones sparingly. */
   category: "Adoption" | "Build" | "Strategy" | "Managed" | "Notes";
+  /** Abstract conceptual cover image. Path to a file in /public/.
+   *  Optional — if missing, the card shows a quiet placeholder. */
+  image?: string;
   content: Block[];
 }
 
@@ -90,6 +93,7 @@ export const articles: Article[] = [
     authorId: "mike-bayes",
     readingTime: "5 min read",
     category: "Adoption",
+    image: "/images/insights/human-centric-ai.jpg",
     content: [
       { type: "heading", level: 3, text: "Adoption matters more than automation" },
       {
@@ -190,6 +194,7 @@ export const articles: Article[] = [
     authorId: "chad-beauchamp",
     readingTime: "6 min read",
     category: "Adoption",
+    image: "/images/insights/curiosity-to-capability.jpg",
     content: [
       {
         type: "heading",
@@ -270,6 +275,7 @@ export const articles: Article[] = [
     authorId: "mike-bayes",
     readingTime: "6 min read",
     category: "Adoption",
+    image: "/images/insights/business-first-technology-second.jpg",
     content: [
       {
         type: "paragraph",
@@ -432,7 +438,7 @@ export function getAuthor(authorId: string): Author {
   return authors[authorId];
 }
 
-/** "2025-12-12" → "December 12, 2025" */
+/** "2025-12-12" -> "December 12, 2025" */
 export function formatDate(iso: string): string {
   const d = new Date(iso + "T00:00:00");
   return d.toLocaleDateString("en-US", {

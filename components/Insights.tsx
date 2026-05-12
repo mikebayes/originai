@@ -1,17 +1,16 @@
-import { getRecentArticles, getAuthor, formatDate } from "@/lib/insights";
+import { getRecentArticles, getAuthor } from "@/lib/insights";
 
 /**
  * Homepage Insights section — preview of recent articles.
  *
  * Pulls live from lib/insights.ts so the homepage and the /insights
- * page stay in sync. Shows the three most recent articles. To change
- * what appears here, add or reorder entries in lib/insights.ts —
- * articles[0..2] are always rendered first.
+ * page stay in sync. Shows the three most recent articles. Each card
+ * uses the article's `image` field if set; otherwise shows a quiet
+ * placeholder block.
  */
 export default function Insights() {
   const recent = getRecentArticles(undefined, 3);
 
-  // Short date for the homepage card (e.g. "Dec 12 · 2025")
   const shortDate = (iso: string) => {
     const d = new Date(iso + "T00:00:00");
     const month = d.toLocaleDateString("en-US", { month: "short" });
@@ -51,13 +50,16 @@ export default function Insights() {
             const { md, year } = shortDate(a.date);
             return (
               <a key={a.slug} className="insight" href={`/insights/${a.slug}`}>
-                <div className="insight-photo cphoto">
+                <div className="insight-photo">
+                  {a.image ? (
+                    <img src={a.image} alt="" loading="lazy" />
+                  ) : (
+                    <div
+                      className="insight-photo-placeholder"
+                      aria-hidden="true"
+                    />
+                  )}
                   <span className="insight-tag">{a.category}</span>
-                  <div className="cphoto-grain" aria-hidden="true" />
-                  <span className="cphoto-caption">
-                    <span className="bar" />
-                    Cover · {a.category}
-                  </span>
                 </div>
                 <div className="insight-body">
                   <div className="insight-meta">

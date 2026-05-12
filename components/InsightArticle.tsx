@@ -18,9 +18,6 @@ interface Props {
  * variant has its own visual treatment (see renderBlock below). The
  * page is intentionally narrow on desktop (~640px content column) to
  * keep line length in the ~70ch sweet spot for reading.
- *
- * The reader's frame mirrors other deep pages: HeroNav over a compact
- * dark band, then a parchment-toned body card, then a related row.
  */
 export default function InsightArticle({ article }: Props) {
   const author = getAuthor(article.authorId);
@@ -83,6 +80,18 @@ export default function InsightArticle({ article }: Props) {
       </div>
 
       <div className="bp-fade-down" aria-hidden="true" />
+
+      {/* HERO IMAGE — drops between hero band and article body */}
+      {article.image && (
+        <div
+          className="bp-ins-art-hero-image"
+          data-screen-label="Article hero image"
+        >
+          <div className="wrap">
+            <img src={article.image} alt="" loading="lazy" />
+          </div>
+        </div>
+      )}
 
       {/* BODY — narrow reading column */}
       <section className="bp-ins-art-body-wrap" data-screen-label="Article body">
