@@ -5564,3 +5564,230 @@
     font-size: 16px;
   }
 }
+
+
+/* ─── Insights MAGAZINE layout (Option 3) ─────────────────────────
+   Scoped under .bp-page--insights-magazine so it does not affect
+   the article reader (which keeps the bp-hero treatment).
+   ──────────────────────────────────────────────────────────────── */
+
+/* Top band: nav + strip. No big hero. */
+.bp-page--insights-magazine .bp-ins-top {
+  position: relative;
+  background: var(--bp-page-bg, #0E1311);
+  border-bottom: 1px solid rgba(245, 240, 228, 0.08);
+}
+
+/* Magazine strip header */
+.bp-page--insights-magazine .bp-ins-strip {
+  padding: 18px 0;
+  margin-top: 96px; /* clears the floating HeroNav */
+}
+.bp-page--insights-magazine .bp-ins-strip-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.bp-page--insights-magazine .bp-ins-strip-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.bp-page--insights-magazine .bp-ins-strip-title .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--svc-accent);
+  display: inline-block;
+}
+.bp-page--insights-magazine .bp-ins-strip-title .sep {
+  color: rgba(245, 240, 228, 0.36);
+}
+.bp-page--insights-magazine .bp-ins-strip-label {
+  color: #F5F0E4;
+}
+.bp-page--insights-magazine .bp-ins-strip-desc {
+  color: rgba(245, 240, 228, 0.66);
+  letter-spacing: 0.12em;
+}
+.bp-page--insights-magazine .bp-ins-strip-meta {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 228, 0.5);
+}
+
+/* FEATURED — cover + body, side by side */
+.bp-page--insights-magazine .bp-ins-mag-featured-wrap {
+  padding: 56px 0 64px;
+  border-bottom: 1px solid rgba(245, 240, 228, 0.08);
+}
+.bp-page--insights-magazine .bp-ins-mag-featured-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 228, 0.66);
+  margin-bottom: 26px;
+}
+.bp-page--insights-magazine .bp-ins-mag-featured-eyebrow .bar {
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: var(--svc-accent);
+}
+
+.bp-page--insights-magazine .bp-ins-mag-featured {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  transition: transform 0.2s ease;
+}
+.bp-page--insights-magazine .bp-ins-mag-featured:hover {
+  transform: none;
+  background: transparent;
+}
+
+.bp-page--insights-magazine .bp-ins-mag-featured-cover {
+  display: block;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(245, 240, 228, 0.08);
+  aspect-ratio: 5 / 4;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+.bp-page--insights-magazine .bp-ins-mag-featured-cover svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.bp-page--insights-magazine .bp-ins-mag-featured:hover .bp-ins-mag-featured-cover {
+  border-color: rgba(93, 168, 156, 0.36);
+  transform: translateY(-2px);
+}
+
+.bp-page--insights-magazine .bp-ins-mag-featured-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.bp-page--insights-magazine .bp-ins-mag-featured-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 228, 0.58);
+  margin-bottom: 18px;
+}
+
+.bp-page--insights-magazine .bp-ins-mag-featured-title {
+  font-family: "Inter Tight", "Inter", system-ui, sans-serif;
+  font-weight: 500;
+  font-size: clamp(34px, 4.2vw, 52px);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  color: #F5F0E4;
+  margin: 0 0 22px;
+  max-width: 18ch;
+  transition: color 0.2s ease;
+}
+.bp-page--insights-magazine .bp-ins-mag-featured:hover .bp-ins-mag-featured-title {
+  color: var(--svc-accent);
+}
+
+.bp-page--insights-magazine .bp-ins-mag-featured-excerpt {
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(245, 240, 228, 0.74);
+  margin: 0 0 32px;
+  max-width: 48ch;
+}
+
+.bp-page--insights-magazine .bp-ins-mag-featured-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+  padding-top: 24px;
+  border-top: 1px solid rgba(245, 240, 228, 0.08);
+}
+
+/* GRID cards — cover on top */
+.bp-page--insights-magazine .bp-ins-card--with-cover {
+  padding: 0;
+  overflow: hidden;
+}
+.bp-page--insights-magazine .bp-ins-card--with-cover:hover {
+  transform: translateY(-3px);
+}
+.bp-page--insights-magazine .bp-ins-card-cover {
+  display: block;
+  aspect-ratio: 16 / 9;
+  border-bottom: 1px solid rgba(245, 240, 228, 0.08);
+}
+.bp-page--insights-magazine .bp-ins-card-cover svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.bp-page--insights-magazine .bp-ins-card-body {
+  padding: 22px 24px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Mobile pass — stack featured and tighten paddings */
+@media (max-width: 860px) {
+  .bp-page.bp-page--insights-magazine .bp-ins-mag-featured {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .bp-page.bp-page--insights-magazine .bp-ins-mag-featured-title {
+    font-size: clamp(28px, 7vw, 36px);
+  }
+  .bp-page.bp-page--insights-magazine .bp-ins-strip {
+    margin-top: 88px;
+  }
+  .bp-page.bp-page--insights-magazine .bp-ins-strip-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .bp-page.bp-page--insights-magazine .bp-ins-strip-title {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 540px) {
+  .bp-page.bp-page--insights-magazine .bp-ins-mag-featured-wrap {
+    padding: 36px 0 48px;
+  }
+  .bp-page.bp-page--insights-magazine .bp-ins-mag-featured-foot {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+}

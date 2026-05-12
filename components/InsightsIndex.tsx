@@ -1,5 +1,7 @@
 import HeroNav from "./HeroNav";
+import InsightCover from "./InsightCover";
 import {
+  articles,
   getFeaturedArticle,
   getRecentArticles,
   getAuthor,
@@ -7,26 +9,23 @@ import {
 } from "@/lib/insights";
 
 /**
- * /insights — article index.
+ * /insights — magazine front page.
  *
- * Layout:
- *   Compact dark hero
- *   Featured article (most recent) — wide card
- *   Remaining articles — grid of compact cards
- *   Quiet CTA strip linking to /contact
+ * Layout (Option 3 from concept sketches):
+ *   1. Compact top: floating nav + thin magazine strip header
+ *   2. Featured article: abstract cover left, big copy right
+ *   3. Grid of remaining articles, each with its own cover
+ *   4. Quiet CTA strip linking to /contact
  *
- * All content is sourced from lib/insights.ts. To add a new article,
- * append it to the `articles` array in that file. No CMS, no DB, no
- * fetch — the data is bundled at build time, so navigating between
- * articles is instant.
+ * The page reads as a publication, not a marketing landing page.
+ * Covers come from <InsightCover/>, which generates an abstract SVG
+ * keyed off category + slug so every new article auto-gets a cover.
  */
 export default function InsightsIndex() {
   const featured = getFeaturedArticle();
   const rest = getRecentArticles(featured.slug);
-
   const featuredAuthor = getAuthor(featured.authorId);
 
-  // Build the author initials (e.g. "MB") for the avatar disc.
   const initials = (name: string) =>
     name
       .split(" ")
@@ -36,98 +35,108 @@ export default function InsightsIndex() {
       .toUpperCase();
 
   return (
-    <div className="bp-page bp-page--insights">
+    <div className="bp-page bp-page--insights bp-page--insights-magazine">
       <div className="bp-grain" aria-hidden="true" />
 
-      <div className="bp-hero-shell bp-hero-shell--compact">
+      {/* TOP — floating nav + magazine strip */}
+      <div className="bp-ins-top">
         <HeroNav />
 
-        <section
-          className="wrap bp-hero bp-hero--compact"
-          data-screen-label="Insights hero"
-        >
-          <div className="bp-hero-eyebrow">
-            <span className="dot" />
-            <span>Insights</span>
-            <span className="bar" />
+        <div className="bp-ins-strip">
+          <div className="wrap bp-ins-strip-inner">
+            <div className="bp-ins-strip-title">
+              <span className="dot" aria-hidden="true" />
+              <span className="bp-ins-strip-label">Insights</span>
+              <span className="sep" aria-hidden="true">·</span>
+              <span className="bp-ins-strip-desc">
+                Field notes from Origin AI
+              </span>
+            </div>
+            <div className="bp-ins-strip-meta">
+              Updated monthly · {articles.length} article
+              {articles.length === 1 ? "" : "s"}
+            </div>
           </div>
-
-          <h1 className="bp-hero-h1">
-            Notes on AI, what&rsquo;s worth building,{" "}
-            <span className="accent">and how to think about it.</span>
-          </h1>
-
-          <p className="bp-hero-sub">
-            Short, opinionated reads from the people doing the work. No
-            think-piece roundups, no AI hype cycle commentary. Just what
-            we&rsquo;ve learned helping teams move from curiosity to
-            capability.
-          </p>
-        </section>
+        </div>
       </div>
 
-      <div className="bp-fade-down" aria-hidden="true" />
-
-      {/* FEATURED — most recent article, foregrounded */}
-      <section className="bp-ins-featured" data-screen-label="Featured article">
+      {/* FEATURED — cover + body */}
+      <section
+        className="bp-ins-mag-featured-wrap"
+        data-screen-label="Featured article"
+      >
         <div className="wrap">
-          <div className="bp-ins-featured-eyebrow">
+          <div className="bp-ins-mag-featured-eyebrow">
             <span className="bar" aria-hidden="true" />
-            Latest
+            <span>Latest · {formatDate(featured.date)}</span>
           </div>
 
           <a
             href={`/insights/${featured.slug}`}
-            className="bp-ins-featured-card"
+            className="bp-ins-mag-featured"
           >
-            <div className="bp-ins-featured-meta">
-              <span className="bp-ins-tag">{featured.category}</span>
-              <span className="bp-ins-sep" aria-hidden="true">·</span>
-              <span className="bp-ins-date">{formatDate(featured.date)}</span>
-              <span className="bp-ins-sep" aria-hidden="true">·</span>
-              <span className="bp-ins-read">{featured.readingTime}</span>
+            <div className="bp-ins-mag-featured-cover">
+              <InsightCover
+                category={featured.category}
+                seed={featured.slug}
+                aspect="featured"
+              />
             </div>
 
-            <h2 className="bp-ins-featured-title">{featured.title}</h2>
+            <div className="bp-ins-mag-featured-body">
+              <div className="bp-ins-mag-featured-meta">
+                <span className="bp-ins-tag">{featured.category}</span>
+                <span className="bp-ins-sep" aria-hidden="true">·</span>
+                <span>{featured.readingTime}</span>
+              </div>
 
-            <p className="bp-ins-featured-excerpt">{featured.excerpt}</p>
+              <h1 className="bp-ins-mag-featured-title">{featured.title}</h1>
 
-            <div className="bp-ins-featured-foot">
-              <span className="bp-ins-author">
-                {featuredAuthor.photo ? (
-                  <img
-                    src={featuredAuthor.photo}
-                    alt={featuredAuthor.name}
-                    className="bp-ins-author-photo"
-                    loading="lazy"
-                  />
-                ) : (
-                  <span className="bp-ins-author-avatar" aria-hidden="true">
-                    {initials(featuredAuthor.name)}
-                  </span>
-                )}
-                <span className="bp-ins-author-meta">
-                  <span className="bp-ins-author-name">
-                    {featuredAuthor.name}
-                  </span>
-                  <span className="bp-ins-author-role">
-                    {featuredAuthor.role}
+              <p className="bp-ins-mag-featured-excerpt">{featured.excerpt}</p>
+
+              <div className="bp-ins-mag-featured-foot">
+                <span className="bp-ins-author">
+                  {featuredAuthor.photo ? (
+                    <img
+                      src={featuredAuthor.photo}
+                      alt={featuredAuthor.name}
+                      className="bp-ins-author-photo"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <span
+                      className="bp-ins-author-avatar"
+                      aria-hidden="true"
+                    >
+                      {initials(featuredAuthor.name)}
+                    </span>
+                  )}
+                  <span className="bp-ins-author-meta">
+                    <span className="bp-ins-author-name">
+                      {featuredAuthor.name}
+                    </span>
+                    <span className="bp-ins-author-role">
+                      {featuredAuthor.role}
+                    </span>
                   </span>
                 </span>
-              </span>
 
-              <span className="bp-ins-read-cta">
-                Read the article
-                <span className="arrow" aria-hidden="true">→</span>
-              </span>
+                <span className="bp-ins-read-cta">
+                  Read the article
+                  <span className="arrow" aria-hidden="true">→</span>
+                </span>
+              </div>
             </div>
           </a>
         </div>
       </section>
 
-      {/* GRID — remaining articles */}
+      {/* GRID — remaining articles, each with cover */}
       {rest.length > 0 && (
-        <section className="bp-ins-grid-wrap" data-screen-label="Recent articles">
+        <section
+          className="bp-ins-grid-wrap"
+          data-screen-label="Recent articles"
+        >
           <div className="wrap">
             <div className="bp-ins-grid-head">
               <span className="bar" aria-hidden="true" />
@@ -141,42 +150,54 @@ export default function InsightsIndex() {
                   <a
                     key={article.slug}
                     href={`/insights/${article.slug}`}
-                    className="bp-ins-card"
+                    className="bp-ins-card bp-ins-card--with-cover"
                   >
-                    <div className="bp-ins-card-meta">
-                      <span className="bp-ins-tag">{article.category}</span>
-                      <span className="bp-ins-sep" aria-hidden="true">·</span>
-                      <span className="bp-ins-date">
-                        {formatDate(article.date)}
-                      </span>
+                    <div className="bp-ins-card-cover">
+                      <InsightCover
+                        category={article.category}
+                        seed={article.slug}
+                        aspect="card"
+                      />
                     </div>
 
-                    <h3 className="bp-ins-card-title">{article.title}</h3>
-
-                    <p className="bp-ins-card-excerpt">{article.excerpt}</p>
-
-                    <div className="bp-ins-card-foot">
-                      <span className="bp-ins-author bp-ins-author--compact">
-                        {author.photo ? (
-                          <img
-                            src={author.photo}
-                            alt={author.name}
-                            className="bp-ins-author-photo"
-                            loading="lazy"
-                          />
-                        ) : (
-                          <span
-                            className="bp-ins-author-avatar"
-                            aria-hidden="true"
-                          >
-                            {initials(author.name)}
-                          </span>
-                        )}
-                        <span className="bp-ins-author-name">
-                          {author.name}
+                    <div className="bp-ins-card-body">
+                      <div className="bp-ins-card-meta">
+                        <span className="bp-ins-tag">{article.category}</span>
+                        <span className="bp-ins-sep" aria-hidden="true">·</span>
+                        <span className="bp-ins-date">
+                          {formatDate(article.date)}
                         </span>
-                      </span>
-                      <span className="bp-ins-read">{article.readingTime}</span>
+                      </div>
+
+                      <h3 className="bp-ins-card-title">{article.title}</h3>
+
+                      <p className="bp-ins-card-excerpt">{article.excerpt}</p>
+
+                      <div className="bp-ins-card-foot">
+                        <span className="bp-ins-author bp-ins-author--compact">
+                          {author.photo ? (
+                            <img
+                              src={author.photo}
+                              alt={author.name}
+                              className="bp-ins-author-photo"
+                              loading="lazy"
+                            />
+                          ) : (
+                            <span
+                              className="bp-ins-author-avatar"
+                              aria-hidden="true"
+                            >
+                              {initials(author.name)}
+                            </span>
+                          )}
+                          <span className="bp-ins-author-name">
+                            {author.name}
+                          </span>
+                        </span>
+                        <span className="bp-ins-read">
+                          {article.readingTime}
+                        </span>
+                      </div>
                     </div>
                   </a>
                 );
@@ -186,7 +207,7 @@ export default function InsightsIndex() {
         </section>
       )}
 
-      {/* QUIET CTA STRIP */}
+      {/* CTA strip */}
       <section className="bp-ins-cta" data-screen-label="Insights CTA">
         <div className="wrap">
           <div className="bp-ins-cta-row">
