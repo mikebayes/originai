@@ -6033,3 +6033,23 @@
     padding: 24px 0 32px;
   }
 }
+
+
+/* ─── Tighten hero-to-section-one gap (Mike: "just a touch") ────────
+   Adds up the three contributors to the visual gap between the
+   bottom of the hero rail and the start of the first content
+   section, and shaves each one back modestly. Applies site-wide
+   across all .bp-page deep pages.
+   ──────────────────────────────────────────────────────────────── */
+.bp-page .bp-page .bp-hero {
+  /* 170 -> 130 (24% trim). Single biggest contributor. */
+  padding-bottom: 130px;
+}
+.bp-page.bp-page .bp-intro {
+  /* 70 -> 50 (29% trim). Affects Build, Strategy, Managed, Approach. */
+  padding-top: 50px;
+}
+.bp-page.bp-page .bp-team {
+  /* 80 -> 60 (25% trim). Affects /team. */
+  padding-top: 60px;
+}
