@@ -6074,3 +6074,27 @@
     flex: 0 0 auto !important;
   }
 }
+
+
+/* ─── Insights page mobile: final two dials ─────────────────────────
+   Mike's read after the previous round:
+   (a) Still too much gap between the hero block and the first
+       article card on mobile. Reduce ~50%. The bulk of that gap
+       comes from .bp-hero's bottom padding, so trim that on mobile.
+   (b) CTA strip is now too tight against the last article. Add
+       breathing room back above it (top padding) without bringing
+       back the void below (bottom padding stays small).
+   ──────────────────────────────────────────────────────────────── */
+@media (max-width: 920px) {
+  /* Halve the bp-hero bottom padding on the insights page. The
+     scoped selector targets only /insights, not other deep pages. */
+  .bp-page.bp-page--insights .bp-hero {
+    padding-bottom: 56px !important;
+  }
+  /* Add air above the CTA so it doesn't slam into the last article.
+     Bottom stays tight so there's no void above the footer. */
+  .bp-page.bp-page--insights .bp-ins-cta {
+    padding-top: 48px !important;
+    padding-bottom: 24px !important;
+  }
+}
