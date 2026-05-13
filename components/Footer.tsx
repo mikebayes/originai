@@ -60,7 +60,6 @@ export default function Footer() {
           <span>© 2025 Origin AI Inc. All rights reserved.</span>
           <span className="f-bottom-links">
             <a href="/privacy">Privacy policy</a>
-            <a href="/terms">Terms</a>
           </span>
         </div>
       </div>

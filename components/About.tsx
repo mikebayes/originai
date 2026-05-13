@@ -99,7 +99,7 @@ export default function About() {
             <h3 className="about-title">How we operate.</h3>
             <p className="about-body">Standards we keep ourselves to. What we&rsquo;ll do, what we won&rsquo;t, and how we make the call when it&rsquo;s a coin toss.</p>
             <div className="about-foot">
-              <a className="tlink" href="/principles">How we operate <span className="arrow" aria-hidden="true">→</span></a>
+              <a className="tlink" href="/approach">How we operate <span className="arrow" aria-hidden="true">→</span></a>
             </div>
           </article>
         </div>
