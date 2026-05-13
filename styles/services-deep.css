@@ -6000,3 +6000,36 @@
   padding: 4px 10px;
   border-radius: 999px;
 }
+
+
+/* ─── Insights page mobile spacing fix ──────────────────────────────
+   Mike spotted two gaps on mobile + a milder one on desktop:
+   (1) The block between the hero text ("Practical notes on AI work."
+       + subtext) and the first article card was too tall, especially
+       on mobile.
+   (2) The CTA strip at the bottom had excessive bottom padding before
+       the footer, creating a visual void on mobile.
+   Both fixed below. Selectors are chained .bp-page so they win the
+   cascade against the original rules earlier in this file.
+   ──────────────────────────────────────────────────────────────── */
+
+/* Tighten the gap between the hero band and the article grid */
+.bp-page.bp-page--insights-simple .bp-ins-simple-wrap {
+  padding-top: 32px;
+  padding-bottom: 56px;
+}
+
+/* CTA strip — trim bottom padding so it doesn't leave a void on mobile */
+.bp-page.bp-page--insights .bp-ins-cta {
+  padding: 40px 0 48px;
+}
+
+@media (max-width: 720px) {
+  .bp-page.bp-page--insights-simple .bp-ins-simple-wrap {
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+  .bp-page.bp-page--insights .bp-ins-cta {
+    padding: 24px 0 32px;
+  }
+}
