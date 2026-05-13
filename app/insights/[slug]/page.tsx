@@ -58,8 +58,44 @@ export default async function InsightArticleRoute({ params }: RouteParams) {
     notFound();
   }
 
+  const author = getAuthor(article.authorId);
+  const articleUrl = `https://www.originai.ca/insights/${article.slug}`;
+
+  // BlogPosting JSON-LD. More specific than Article, and Google indexes
+  // BlogPosting markup for rich result candidacy (date, author, image).
+  // Publisher references the homepage ProfessionalService @id so the
+  // graph stays connected across the site.
+  const ARTICLE_JSON_LD = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${articleUrl}#article`,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": articleUrl,
+    },
+    headline: article.title,
+    description: article.excerpt,
+    image: article.image
+      ? `https://www.originai.ca${article.image}`
+      : undefined,
+    datePublished: article.date,
+    dateModified: article.date,
+    author: {
+      "@type": "Person",
+      name: author.name,
+      jobTitle: author.role,
+    },
+    publisher: { "@id": "https://www.originai.ca/#organization" },
+    url: articleUrl,
+    articleSection: article.category,
+  };
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(ARTICLE_JSON_LD) }}
+      />
       <InsightArticle article={article} />
       <Footer />
     </main>

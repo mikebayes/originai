@@ -43,8 +43,9 @@ export default function ServicesBuildPage() {
           </h1>
 
           <p className="bp-hero-sub">
-            We design and build custom AI software, websites, and internal
-            systems, taken from idea to production quickly and cleanly.
+            As a Winnipeg AI development company, we design and build custom
+            AI software, AI agents, and internal systems for Canadian
+            businesses, taken from idea to production quickly and cleanly.
           </p>
 
           <div className="bp-hero-actions">
@@ -137,9 +138,10 @@ export default function ServicesBuildPage() {
               </h2>
             </div>
             <p className="section-lede lede">
-              Most of what we build is custom software shaped around a specific
-              business problem. These are four of the most common directions
-              the work takes.
+              Most of our AI software development work is custom, shaped
+              around a specific business problem. From AI agents to internal
+              systems, these are four of the most common directions the work
+              takes.
             </p>
           </div>
 

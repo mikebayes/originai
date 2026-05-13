@@ -57,9 +57,10 @@ export default function ServicesStrategyPage() {
           </h1>
 
           <p className="bp-hero-sub">
-            Leadership sessions, training, and advisory work that help your team
-            understand AI, identify the right opportunities, and move toward real
-            implementation.
+            AI strategy consulting and roadmap development for Canadian
+            businesses. Leadership sessions, training, and advisory work that
+            help your team understand AI, build a roadmap, identify the right
+            opportunities, and move toward real implementation.
           </p>
 
           <div className="bp-hero-actions">
@@ -191,10 +192,11 @@ export default function ServicesStrategyPage() {
               </h2>
             </div>
             <p className="section-lede lede">
-              Engagements are flexible. Depending on where the organization is
-              starting from, the work may focus on leadership alignment,
-              readiness, training, governance, or turning AI opportunities
-              into scoped build projects.
+              AI strategy engagements are flexible. Depending on where the
+              organization is starting from, the work may focus on building
+              an AI roadmap, leadership alignment, readiness, training,
+              governance, or turning AI opportunities into scoped build
+              projects.
             </p>
           </div>
 
