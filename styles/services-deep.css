@@ -6098,3 +6098,22 @@
     padding-bottom: 24px !important;
   }
 }
+
+
+/* ─── Global mobile: tighten hero bottom across all deep pages ─────
+   Mike: the hero-to-section-one gap is too tall on /team, /approach,
+   and the service pages on mobile. The /insights specific rule was
+   already scoped tighter to 56px; this widens that treatment to
+   every .bp-page deep page on mobile, at 64px. /insights gets a
+   second rule below to keep its existing 56px. Desktop unchanged.
+   ──────────────────────────────────────────────────────────────── */
+@media (max-width: 920px) {
+  .bp-page.bp-page .bp-hero {
+    padding-bottom: 64px !important;
+  }
+  /* /insights stays slightly tighter since its compact hero is
+     already smaller than the full-bleed deep service heroes. */
+  .bp-page.bp-page--insights .bp-hero {
+    padding-bottom: 56px !important;
+  }
+}
