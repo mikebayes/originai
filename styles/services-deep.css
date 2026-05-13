@@ -6045,8 +6045,10 @@
    section, and shaves each one back modestly. Applies site-wide
    across all .bp-page deep pages.
    ──────────────────────────────────────────────────────────────── */
-.bp-page .bp-page .bp-hero {
-  /* 170 -> 130 (24% trim). Single biggest contributor. */
+.bp-page.bp-page .bp-hero {
+  /* 170 -> 130 (24% trim). Single biggest contributor. Selector
+     uses .bp-page.bp-page (compound, same element with class twice)
+     to win specificity over the original .bp-page .bp-hero rule. */
   padding-bottom: 130px;
 }
 .bp-page.bp-page .bp-intro {
@@ -6056,4 +6058,19 @@
 .bp-page.bp-page .bp-team {
   /* 80 -> 60 (25% trim). Affects /team. */
   padding-top: 60px;
+}
+
+
+/* ─── Insights CTA mobile: kill the flex-basis vertical stretch ────
+   The .bp-ins-cta-copy has `flex: 1 1 380px` so on desktop (row
+   layout) the copy column gets at least 380px wide. On mobile the
+   row flips to column and that 380px becomes a vertical MIN-HEIGHT,
+   creating a huge void between the text and the "Start a
+   conversation" button. Fix: reset flex to auto on mobile so the
+   copy block sits its natural height.
+   ──────────────────────────────────────────────────────────────── */
+@media (max-width: 920px) {
+  .bp-page.bp-page--insights .bp-ins-cta-copy {
+    flex: 0 0 auto !important;
+  }
 }
