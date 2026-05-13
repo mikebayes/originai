@@ -1390,3 +1390,19 @@
   /* Slightly more breathing room between trio cards on mobile (was 16). */
   .svcs-v2 .trio { gap: 24px; }
 }
+
+
+/* ─── Mobile reorder: lead with Build (AI Software & Systems) ───────
+   Desktop layout puts Build in the visually-elevated middle slot.
+   On mobile (stacked) the natural DOM order would lead with Strategy
+   first because that's how the cards appear in the source. Mike
+   wants mobile to lead with Build, then Strategy, then Managed.
+   Using flex/grid `order` keeps the DOM order intact (good for
+   accessibility and source semantics) and only reshuffles paint
+   order on mobile.
+   ──────────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .svcs-v2 .svc-card#build { order: 1; }
+  .svcs-v2 .svc-card#strategy { order: 2; }
+  .svcs-v2 .svc-card#managed { order: 3; }
+}

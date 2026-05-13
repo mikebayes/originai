@@ -185,175 +185,12 @@ export const articles: Article[] = [
     ],
   },
   {
-    slug: "why-internal-business-apps-are-about-to-explode",
-    title: "Why Internal Business Apps Are About to Explode",
-    excerpt:
-      "Custom internal applications used to fail the cost-benefit test for most SMBs. That equation is shifting. As AI-assisted development and modern deployment workflows reduce iteration friction, smaller targeted operational apps are becoming the more practical option.",
-    date: "2026-05-09",
-    authorId: "mike-bayes",
-    readingTime: "5 min read",
-    category: "Build",
-    image: "/images/insights/internal-business-apps-explosion.png",
-    content: [
-      {
-        type: "paragraph",
-        text: "For most of the last two decades, the economics around custom business software were fairly straightforward.",
-      },
-      {
-        type: "paragraph",
-        text: "Unless you were a large enterprise with a substantial technology budget, building internal applications usually carried more complexity, cost, and long-term overhead than most organizations wanted to take on. Even companies with very specific operational requirements often defaulted to SaaS platforms simply because custom development was difficult to justify financially.",
-      },
-      { type: "paragraph", text: "That shaped how a lot of businesses evolved operationally." },
-      {
-        type: "paragraph",
-        text: "Teams adapted their workflows around the software they purchased. Processes became constrained by platform limitations. Gaps were handled manually. Spreadsheets filled the spaces between disconnected systems. Everyone understood the tradeoff, but for the most part it was still the most practical option available.",
-      },
-      {
-        type: "paragraph",
-        text: "What seems to be changing now is not necessarily the need for SaaS platforms. Those are not going away. Most organizations are still not going to build their own accounting software, CRM, or payroll systems.",
-      },
-      {
-        type: "paragraph",
-        text: "What does appear to be changing is the viability of smaller, highly targeted operational applications that sit around those platforms and solve very specific business problems.",
-      },
-      { type: "paragraph", text: "That shift is being driven partly by AI, but probably not in the way most people think." },
-      {
-        type: "paragraph",
-        text: "The public conversation tends to focus heavily on AI generating code, which is certainly part of the story. In practice though, what feels more significant is the change happening around development workflows themselves. Modern AI-assisted development environments, connected repositories, streamlined deployment pipelines, and cloud-native infrastructure are dramatically reducing the amount of friction involved in building and evolving software.",
-      },
-      {
-        type: "paragraph",
-        text: "Historically, even relatively small internal applications could become operationally heavy. Requirements gathering took time. Development cycles stretched out. Small changes turned into backlog items. Enhancements became projects. Deployment carried enough complexity that businesses often delayed improvements simply to avoid disruption.",
-      },
-      { type: "paragraph", text: "That friction influenced software decisions for years." },
-      { type: "paragraph", text: "Now the process is becoming much more iterative." },
-      {
-        type: "paragraph",
-        text: "Applications can be prototyped quickly, refined continuously, deployed incrementally, and adjusted alongside the business itself instead of waiting for large future roadmap cycles. Once development and deployment environments become more fluid, the economics around internal software start to look very different than they did even a few years ago.",
-      },
-      { type: "paragraph", text: "That is where things get interesting for SMBs." },
-      {
-        type: "paragraph",
-        text: "A lot of businesses have operational workflows that are highly specific to how they function. Quoting processes, onboarding flows, customer communication systems, reporting layers, scheduling coordination, approval chains, inventory visibility, internal AI assistants, service workflows, and operational dashboards are rarely perfect fits inside off-the-shelf platforms.",
-      },
-      {
-        type: "paragraph",
-        text: "Historically, companies tolerated those inefficiencies because building custom operational tools often created even larger inefficiencies.",
-      },
-      { type: "paragraph", text: "Now there are situations where building the tailored workflow may actually be the more practical option." },
-      {
-        type: "paragraph",
-        text: "Not because custom software suddenly became simple, but because the cost and complexity of iteration have changed so significantly.",
-      },
-      {
-        type: "paragraph",
-        text: "That distinction matters because software projects have traditionally been evaluated as large upfront investments. Build everything, launch everything, and hope the requirements remain relatively stable over time.",
-      },
-      {
-        type: "paragraph",
-        text: "Increasingly, internal applications are becoming more evolutionary in nature. Businesses can start with a focused operational problem, deploy something relatively lightweight, gather feedback, refine the workflow, and continue iterating over time. In many cases, the first version no longer needs to be perfect because the system itself can evolve much more continuously.",
-      },
-      { type: "paragraph", text: "That changes the risk profile around internal software development quite a bit." },
-      {
-        type: "paragraph",
-        text: "There is also a broader strategic implication underneath all of this. For a long time, software increasingly standardized how companies operated. Businesses across industries ended up using largely the same platforms, the same workflows, and often the same operational structures because adapting to software constraints became part of normal business operations.",
-      },
-      {
-        type: "paragraph",
-        text: "As tailored operational software becomes more accessible, companies may begin differentiating themselves operationally again. Not necessarily through massive enterprise platforms, but through smaller systems that align more closely with how they actually work.",
-      },
-      { type: "paragraph", text: "Some organizations are going to move faster here than others." },
-      {
-        type: "paragraph",
-        text: "The companies that benefit most probably will not be the ones trying to build everything themselves. More likely, they will be the organizations that become better at identifying operational friction points and building focused systems that improve how work actually gets done internally.",
-      },
-      { type: "paragraph", text: "That feels like a fairly meaningful shift from where the market has been for a long time." },
-    ],
-  },
-  {
-    slug: "how-ai-is-changing-software-development-itself",
-    title: "How AI Is Changing Software Development Itself",
-    excerpt:
-      "Public discussion swings between two extremes: AI will replace developers, or AI coding tools are mostly hype. Neither lines up with what is happening inside modern development environments. The real shift is in how software gets built, refined, deployed, and maintained over time.",
-    date: "2026-05-06",
-    authorId: "mike-bayes",
-    readingTime: "5 min read",
-    category: "Build",
-    image: "/images/insights/ai-changing-software-development.png",
-    content: [
-      { type: "paragraph", text: "A lot of the public discussion around AI and software development still tends to swing between two extremes." },
-      {
-        type: "paragraph",
-        text: "On one side, there is the idea that AI will replace developers entirely. On the other, there is the assumption that AI coding tools are mostly hype and that very little has fundamentally changed.",
-      },
-      { type: "paragraph", text: "Neither perspective really lines up with what is happening inside modern development environments." },
-      {
-        type: "paragraph",
-        text: "What seems to be changing most is not the existence of software development itself, but the mechanics around how software gets built, refined, deployed, and maintained over time.",
-      },
-      { type: "paragraph", text: "The easiest way to describe it is probably this: software development is becoming significantly more iterative than it used to be." },
-      {
-        type: "paragraph",
-        text: "Historically, there was a considerable amount of operational friction attached to development workflows. Requirements gathering, sprint planning, backlog prioritization, testing cycles, deployment coordination, release management, and post-launch refinement all introduced delays between identifying a problem and implementing a solution.",
-      },
-      { type: "paragraph", text: "Even relatively small application changes could move slowly once those layers accumulated." },
-      {
-        type: "paragraph",
-        text: "That operational drag shaped how businesses interacted with technology teams for years. Many organizations became accustomed to software evolving more slowly than the business itself simply because the cost and complexity of iteration were high enough that constant refinement became impractical.",
-      },
-      { type: "paragraph", text: "Modern AI-assisted development environments are beginning to compress those cycles fairly dramatically." },
-      {
-        type: "paragraph",
-        text: "Part of that comes from code generation itself. Developers are no longer starting from zero every time they build interfaces, workflows, integrations, or application structures. AI tools are accelerating execution across a wide range of repetitive development tasks.",
-      },
-      { type: "paragraph", text: "But the larger shift is probably happening around the workflows surrounding development." },
-      {
-        type: "paragraph",
-        text: "AI is increasingly being used inside connected engineering environments that include structured repositories, deployment pipelines, staging environments, cloud infrastructure, and continuous iteration workflows. Once those systems are operating together, software development starts behaving differently than it did under older development models.",
-      },
-      { type: "paragraph", text: "The distance between an operational idea and a deployed refinement becomes much shorter." },
-      {
-        type: "paragraph",
-        text: "That does not mean software suddenly becomes easy to build. If anything, faster iteration tends to expose poor architecture and weak engineering discipline more quickly. Systems still require thoughtful design, maintainability, security, governance, and operational alignment.",
-      },
-      { type: "paragraph", text: "In some ways, experienced technical leadership becomes even more important once development velocity increases." },
-      { type: "paragraph", text: "Bad systems can now evolve quickly too." },
-      {
-        type: "paragraph",
-        text: "One of the more interesting changes happening underneath all of this is that software development is becoming less linear and more conversational. Historically, software projects often followed fairly rigid implementation structures. Gather requirements, define scope, develop features, deploy, then revisit improvements later.",
-      },
-      {
-        type: "paragraph",
-        text: "Increasingly, applications can evolve through ongoing operational feedback loops. Teams identify friction points, test improvements, refine workflows, and deploy incremental changes continuously instead of waiting for major release cycles.",
-      },
-      { type: "paragraph", text: "That changes how organizations think about experimentation." },
-      {
-        type: "paragraph",
-        text: "Historically, software changes often carried enough cost and disruption that businesses became cautious about modifying operational systems too frequently. The process itself created hesitation.",
-      },
-      {
-        type: "paragraph",
-        text: "As iteration becomes faster and deployment becomes less disruptive, companies gain more flexibility to evolve software alongside changing business needs instead of treating systems as relatively static implementations.",
-      },
-      { type: "paragraph", text: "That has fairly broad implications beyond development teams themselves." },
-      {
-        type: "paragraph",
-        text: "It changes how organizations think about operational workflows, internal tools, customer experiences, and even product development cycles. In many environments, software is starting to behave less like a fixed asset and more like an evolving operational layer that continuously adapts over time.",
-      },
-      {
-        type: "paragraph",
-        text: "The organizations benefiting most from this shift are generally not the ones treating AI as a shortcut to eliminate engineering discipline. They are usually the teams combining AI-assisted development with strong operational understanding, structured development practices, and continuous refinement workflows.",
-      },
-      { type: "paragraph", text: "That combination appears to be where the larger long-term shift is happening." },
-    ],
-  },
-  {
     slug: "human-centric-ai-why-adoption-matters-more-than-automation",
     title:
       "Human-Centric AI: Why Adoption Matters More Than Automation",
     excerpt:
       "Most AI initiatives fail not because the technology falls short, but because people struggle to adopt it. This piece explains why human-centric enablement matters more than automation, and how organizations build sustainable AI adoption.",
-    date: "2025-12-12",
+    date: "2026-05-10",
     authorId: "mike-bayes",
     readingTime: "5 min read",
     category: "Adoption",
@@ -446,6 +283,169 @@ export const articles: Article[] = [
         type: "paragraph",
         text: "At Origin AI, we believe real progress comes from helping people use AI confidently in the work they already do. Automation follows naturally when adoption is done right.",
       },
+    ],
+  },
+  {
+    slug: "how-ai-is-changing-software-development-itself",
+    title: "How AI Is Changing Software Development Itself",
+    excerpt:
+      "Public discussion swings between two extremes: AI will replace developers, or AI coding tools are mostly hype. Neither lines up with what is happening inside modern development environments. The real shift is in how software gets built, refined, deployed, and maintained over time.",
+    date: "2026-05-06",
+    authorId: "mike-bayes",
+    readingTime: "5 min read",
+    category: "Build",
+    image: "/images/insights/ai-changing-software-development.png",
+    content: [
+      { type: "paragraph", text: "A lot of the public discussion around AI and software development still tends to swing between two extremes." },
+      {
+        type: "paragraph",
+        text: "On one side, there is the idea that AI will replace developers entirely. On the other, there is the assumption that AI coding tools are mostly hype and that very little has fundamentally changed.",
+      },
+      { type: "paragraph", text: "Neither perspective really lines up with what is happening inside modern development environments." },
+      {
+        type: "paragraph",
+        text: "What seems to be changing most is not the existence of software development itself, but the mechanics around how software gets built, refined, deployed, and maintained over time.",
+      },
+      { type: "paragraph", text: "The easiest way to describe it is probably this: software development is becoming significantly more iterative than it used to be." },
+      {
+        type: "paragraph",
+        text: "Historically, there was a considerable amount of operational friction attached to development workflows. Requirements gathering, sprint planning, backlog prioritization, testing cycles, deployment coordination, release management, and post-launch refinement all introduced delays between identifying a problem and implementing a solution.",
+      },
+      { type: "paragraph", text: "Even relatively small application changes could move slowly once those layers accumulated." },
+      {
+        type: "paragraph",
+        text: "That operational drag shaped how businesses interacted with technology teams for years. Many organizations became accustomed to software evolving more slowly than the business itself simply because the cost and complexity of iteration were high enough that constant refinement became impractical.",
+      },
+      { type: "paragraph", text: "Modern AI-assisted development environments are beginning to compress those cycles fairly dramatically." },
+      {
+        type: "paragraph",
+        text: "Part of that comes from code generation itself. Developers are no longer starting from zero every time they build interfaces, workflows, integrations, or application structures. AI tools are accelerating execution across a wide range of repetitive development tasks.",
+      },
+      { type: "paragraph", text: "But the larger shift is probably happening around the workflows surrounding development." },
+      {
+        type: "paragraph",
+        text: "AI is increasingly being used inside connected engineering environments that include structured repositories, deployment pipelines, staging environments, cloud infrastructure, and continuous iteration workflows. Once those systems are operating together, software development starts behaving differently than it did under older development models.",
+      },
+      { type: "paragraph", text: "The distance between an operational idea and a deployed refinement becomes much shorter." },
+      {
+        type: "paragraph",
+        text: "That does not mean software suddenly becomes easy to build. If anything, faster iteration tends to expose poor architecture and weak engineering discipline more quickly. Systems still require thoughtful design, maintainability, security, governance, and operational alignment.",
+      },
+      { type: "paragraph", text: "In some ways, experienced technical leadership becomes even more important once development velocity increases." },
+      { type: "paragraph", text: "Bad systems can now evolve quickly too." },
+      {
+        type: "paragraph",
+        text: "One of the more interesting changes happening underneath all of this is that software development is becoming less linear and more conversational. Historically, software projects often followed fairly rigid implementation structures. Gather requirements, define scope, develop features, deploy, then revisit improvements later.",
+      },
+      {
+        type: "paragraph",
+        text: "Increasingly, applications can evolve through ongoing operational feedback loops. Teams identify friction points, test improvements, refine workflows, and deploy incremental changes continuously instead of waiting for major release cycles.",
+      },
+      { type: "paragraph", text: "That changes how organizations think about experimentation." },
+      {
+        type: "paragraph",
+        text: "Historically, software changes often carried enough cost and disruption that businesses became cautious about modifying operational systems too frequently. The process itself created hesitation.",
+      },
+      {
+        type: "paragraph",
+        text: "As iteration becomes faster and deployment becomes less disruptive, companies gain more flexibility to evolve software alongside changing business needs instead of treating systems as relatively static implementations.",
+      },
+      { type: "paragraph", text: "That has fairly broad implications beyond development teams themselves." },
+      {
+        type: "paragraph",
+        text: "It changes how organizations think about operational workflows, internal tools, customer experiences, and even product development cycles. In many environments, software is starting to behave less like a fixed asset and more like an evolving operational layer that continuously adapts over time.",
+      },
+      {
+        type: "paragraph",
+        text: "The organizations benefiting most from this shift are generally not the ones treating AI as a shortcut to eliminate engineering discipline. They are usually the teams combining AI-assisted development with strong operational understanding, structured development practices, and continuous refinement workflows.",
+      },
+      { type: "paragraph", text: "That combination appears to be where the larger long-term shift is happening." },
+    ],
+  },
+  {
+    slug: "why-internal-business-apps-are-about-to-explode",
+    title: "Why Internal Business Apps Are About to Explode",
+    excerpt:
+      "Custom internal applications used to fail the cost-benefit test for most SMBs. That equation is shifting. As AI-assisted development and modern deployment workflows reduce iteration friction, smaller targeted operational apps are becoming the more practical option.",
+    date: "2026-05-03",
+    authorId: "mike-bayes",
+    readingTime: "5 min read",
+    category: "Build",
+    image: "/images/insights/internal-business-apps-explosion.png",
+    content: [
+      {
+        type: "paragraph",
+        text: "For most of the last two decades, the economics around custom business software were fairly straightforward.",
+      },
+      {
+        type: "paragraph",
+        text: "Unless you were a large enterprise with a substantial technology budget, building internal applications usually carried more complexity, cost, and long-term overhead than most organizations wanted to take on. Even companies with very specific operational requirements often defaulted to SaaS platforms simply because custom development was difficult to justify financially.",
+      },
+      { type: "paragraph", text: "That shaped how a lot of businesses evolved operationally." },
+      {
+        type: "paragraph",
+        text: "Teams adapted their workflows around the software they purchased. Processes became constrained by platform limitations. Gaps were handled manually. Spreadsheets filled the spaces between disconnected systems. Everyone understood the tradeoff, but for the most part it was still the most practical option available.",
+      },
+      {
+        type: "paragraph",
+        text: "What seems to be changing now is not necessarily the need for SaaS platforms. Those are not going away. Most organizations are still not going to build their own accounting software, CRM, or payroll systems.",
+      },
+      {
+        type: "paragraph",
+        text: "What does appear to be changing is the viability of smaller, highly targeted operational applications that sit around those platforms and solve very specific business problems.",
+      },
+      { type: "paragraph", text: "That shift is being driven partly by AI, but probably not in the way most people think." },
+      {
+        type: "paragraph",
+        text: "The public conversation tends to focus heavily on AI generating code, which is certainly part of the story. In practice though, what feels more significant is the change happening around development workflows themselves. Modern AI-assisted development environments, connected repositories, streamlined deployment pipelines, and cloud-native infrastructure are dramatically reducing the amount of friction involved in building and evolving software.",
+      },
+      {
+        type: "paragraph",
+        text: "Historically, even relatively small internal applications could become operationally heavy. Requirements gathering took time. Development cycles stretched out. Small changes turned into backlog items. Enhancements became projects. Deployment carried enough complexity that businesses often delayed improvements simply to avoid disruption.",
+      },
+      { type: "paragraph", text: "That friction influenced software decisions for years." },
+      { type: "paragraph", text: "Now the process is becoming much more iterative." },
+      {
+        type: "paragraph",
+        text: "Applications can be prototyped quickly, refined continuously, deployed incrementally, and adjusted alongside the business itself instead of waiting for large future roadmap cycles. Once development and deployment environments become more fluid, the economics around internal software start to look very different than they did even a few years ago.",
+      },
+      { type: "paragraph", text: "That is where things get interesting for SMBs." },
+      {
+        type: "paragraph",
+        text: "A lot of businesses have operational workflows that are highly specific to how they function. Quoting processes, onboarding flows, customer communication systems, reporting layers, scheduling coordination, approval chains, inventory visibility, internal AI assistants, service workflows, and operational dashboards are rarely perfect fits inside off-the-shelf platforms.",
+      },
+      {
+        type: "paragraph",
+        text: "Historically, companies tolerated those inefficiencies because building custom operational tools often created even larger inefficiencies.",
+      },
+      { type: "paragraph", text: "Now there are situations where building the tailored workflow may actually be the more practical option." },
+      {
+        type: "paragraph",
+        text: "Not because custom software suddenly became simple, but because the cost and complexity of iteration have changed so significantly.",
+      },
+      {
+        type: "paragraph",
+        text: "That distinction matters because software projects have traditionally been evaluated as large upfront investments. Build everything, launch everything, and hope the requirements remain relatively stable over time.",
+      },
+      {
+        type: "paragraph",
+        text: "Increasingly, internal applications are becoming more evolutionary in nature. Businesses can start with a focused operational problem, deploy something relatively lightweight, gather feedback, refine the workflow, and continue iterating over time. In many cases, the first version no longer needs to be perfect because the system itself can evolve much more continuously.",
+      },
+      { type: "paragraph", text: "That changes the risk profile around internal software development quite a bit." },
+      {
+        type: "paragraph",
+        text: "There is also a broader strategic implication underneath all of this. For a long time, software increasingly standardized how companies operated. Businesses across industries ended up using largely the same platforms, the same workflows, and often the same operational structures because adapting to software constraints became part of normal business operations.",
+      },
+      {
+        type: "paragraph",
+        text: "As tailored operational software becomes more accessible, companies may begin differentiating themselves operationally again. Not necessarily through massive enterprise platforms, but through smaller systems that align more closely with how they actually work.",
+      },
+      { type: "paragraph", text: "Some organizations are going to move faster here than others." },
+      {
+        type: "paragraph",
+        text: "The companies that benefit most probably will not be the ones trying to build everything themselves. More likely, they will be the organizations that become better at identifying operational friction points and building focused systems that improve how work actually gets done internally.",
+      },
+      { type: "paragraph", text: "That feels like a fairly meaningful shift from where the market has been for a long time." },
     ],
   },
   {
