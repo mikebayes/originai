@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Script from "next/script";
+import { Analytics } from "@vercel/analytics/react";
 
 // Brand tokens and base typography (defines :root + html/body + .display + .mono + .pill)
 import "../styles/hero.css";
@@ -32,6 +34,9 @@ const SEO_TITLE = "AI Consulting & Custom AI Software in Winnipeg | Origin AI";
 const SEO_DESCRIPTION =
   "Origin AI is a Canadian AI consulting firm in Winnipeg. We build custom AI software, lead AI strategy, and run AI systems for businesses across Canada.";
 const SITE_URL = "https://www.originai.ca";
+
+// Google Analytics 4 measurement ID. Loaded site-wide via next/script.
+const GA_MEASUREMENT_ID = "G-4WMTNEFV3C";
 
 export const metadata: Metadata = {
   title: SEO_TITLE,
@@ -92,7 +97,7 @@ const ORG_JSON_LD = {
     "AI agents",
     "Managed AI",
   ],
-  sameAs: ["https://www.linkedin.com/company/originai"],
+  sameAs: ["https://www.linkedin.com/company/origin-ai-tech"],
 };
 
 export default function RootLayout({
@@ -120,9 +125,28 @@ export default function RootLayout({
         />
       </head>
       <body>
+        {/* Google Analytics 4. afterInteractive strategy defers script load
+            until after page interactivity so analytics never blocks paint. */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
+
         <StickyNav />
         {children}
         <RevealInit />
+
+        {/* Vercel Analytics: page views + Core Web Vitals reported to the
+            Vercel project dashboard. Free, ad-blocker-resistant. */}
+        <Analytics />
       </body>
     </html>
   );
