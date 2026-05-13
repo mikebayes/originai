@@ -3205,7 +3205,7 @@
 
 /* ═════════════════════════════════════════════════════════════════
    TEAM page — page modifier + sections (founding team, statement,
-   backed by Web Wizards). Pulled from the same brand-neutral family
+   final CTA). Pulled from the same brand-neutral family
    as /approach so the two sister pages feel related. Hero variant
    uses the dark/near-black treatment from services overview, but
    with radial accents shifted (top-center bright teal, top-left
@@ -3505,7 +3505,9 @@
 
 
 /* ═════════════════════════════════════════════════════════════
-   BACKED BY WEB WIZARDS — two-column body + formula
+   BACKED — two-column body + formula (DEPRECATED, no longer
+   rendered; rules retained scoped to .bp-backed in case the
+   section returns in a different form).
    ═════════════════════════════════════════════════════════════ */
 .bp-backed {
   position: relative;
@@ -3600,7 +3602,8 @@
   color: rgba(255,255,255,0.52);
 }
 
-/* Web Wizards horizontal logo inside the Web Wizards formula cell.
+/* Partner logo inside the right formula cell (DEPRECATED — section
+   no longer renders; rules retained scoped to .bp-backed-logo).
    The SVG is 1037x232 (~4.47:1) and includes a built-in dark
    #231F20 background plus the wordmark + tagline. Sized at a width
    that matches the visual weight of "Origin AI" text in the

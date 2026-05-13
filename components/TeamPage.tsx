@@ -19,9 +19,7 @@ import HeroNav from "./HeroNav";
  *   3. How we work — single statement block ("You work with the
  *      people responsible for the outcome.") with three small
  *      supporting points.
- *   4. Backed by Web Wizards — headline, body, and a one-line
- *      "Origin + Web Wizards = systems built" formula treatment.
- *   5. Final CTA — uses the existing .bp-cta pattern.
+ *   4. Final CTA — uses the existing .bp-cta pattern.
  *
  * Nav: site-wide HeroNav. Footer: rendered by the page route.
  */
@@ -81,7 +79,7 @@ export default function TeamPage() {
             </div>
             <div className="bp-hero-foot-col">
               <div className="k">Delivery</div>
-              <div className="v">Backed by Web Wizards</div>
+              <div className="v">End-to-end</div>
             </div>
           </div>
         </section>
@@ -131,7 +129,7 @@ export default function TeamPage() {
                 photo: "/images/CB.avif",
                 role: "Co-Founder & CEO",
                 bio:
-                  "Chad leads product thinking, delivery discipline, and the build capability behind Origin AI. As founder of Web Wizards, he brings deep experience turning business needs into software, websites, and digital systems.",
+                  "Chad leads product thinking, delivery discipline, and the build capability behind Origin AI. He brings years of experience turning business needs into software, websites, and digital systems.",
                 chips: [
                   "Product direction",
                   "Software delivery",
@@ -210,59 +208,6 @@ export default function TeamPage() {
                 Accountable for the outcome
               </li>
             </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* BACKED BY WEB WIZARDS */}
-      <section className="bp-backed" data-screen-label="Backed by Web Wizards">
-        <div className="wrap">
-          <div className="bp-backed-inner">
-            <div className="bp-backed-head">
-              <div className="eyebrow">
-                <span className="bar" />
-                Delivery capacity
-              </div>
-              <h2 className="section-h2" style={{ marginTop: 24 }}>
-                Backed by{" "}
-                <span className="muted">a delivery team.</span>
-              </h2>
-            </div>
-
-            <div className="bp-backed-body">
-              <p>
-                Origin AI is supported by the software, design, development,
-                and digital delivery capability of Web Wizards. That gives
-                clients senior strategic direction with the ability to design,
-                build, and improve real systems.
-              </p>
-              <p className="bp-backed-tag">
-                Strategy from Origin. Delivery depth from Web Wizards. One
-                connected team.
-              </p>
-            </div>
-
-            <div className="bp-backed-formula" aria-hidden="true">
-              <div className="bp-backed-cell">
-                <div className="bp-backed-mark">Origin AI</div>
-                <div className="bp-backed-sub">Leadership &amp; strategy</div>
-              </div>
-              <div className="bp-backed-op" aria-hidden="true">+</div>
-              <div className="bp-backed-cell">
-                <img
-                  className="bp-backed-logo"
-                  src="/images/webwizards-horizontal-dark-cropped.svg"
-                  alt="Web Wizards"
-                  loading="lazy"
-                />
-                <div className="bp-backed-sub">Delivery bench</div>
-              </div>
-              <div className="bp-backed-op" aria-hidden="true">=</div>
-              <div className="bp-backed-cell bp-backed-cell--out">
-                <div className="bp-backed-mark">AI systems</div>
-                <div className="bp-backed-sub">Designed, built, improved</div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
