@@ -93,7 +93,7 @@ export const articles: Article[] = [
     authorId: "mike-bayes",
     readingTime: "5 min read",
     category: "Adoption",
-    image: "/images/insights/human-centric-ai.jpg",
+    image: "/images/insights/human-centric-ai.png",
     content: [
       { type: "heading", level: 3, text: "Adoption matters more than automation" },
       {
@@ -194,7 +194,7 @@ export const articles: Article[] = [
     authorId: "chad-beauchamp",
     readingTime: "6 min read",
     category: "Adoption",
-    image: "/images/insights/curiosity-to-capability.jpg",
+    image: "/images/insights/curiosity-to-capability.png",
     content: [
       {
         type: "heading",
@@ -275,7 +275,7 @@ export const articles: Article[] = [
     authorId: "mike-bayes",
     readingTime: "6 min read",
     category: "Adoption",
-    image: "/images/insights/business-first-technology-second.jpg",
+    image: "/images/insights/business-first-technology-second.png",
     content: [
       {
         type: "paragraph",
