@@ -6024,13 +6024,17 @@
   padding: 40px 0 48px;
 }
 
-@media (max-width: 720px) {
+/* Mobile + small tablet: tighter still. 920px breakpoint so iPad
+   portrait (768px) picks this up too, not just phones. !important
+   used defensively because the cascade has multiple rules touching
+   these elements; explicit override beats any source-order surprise. */
+@media (max-width: 920px) {
   .bp-page.bp-page--insights-simple .bp-ins-simple-wrap {
-    padding-top: 20px;
-    padding-bottom: 40px;
+    padding-top: 16px !important;
+    padding-bottom: 32px !important;
   }
   .bp-page.bp-page--insights .bp-ins-cta {
-    padding: 24px 0 32px;
+    padding: 20px 0 24px !important;
   }
 }
 
