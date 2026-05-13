@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Our Approach | Origin AI",
   description:
-    "How Origin AI thinks about AI adoption — clarity before tooling, fluency over dependency, and systems that fit the business. Six reinforcing capabilities and the principles that shape our work.",
+    "How a Winnipeg AI consulting firm approaches AI adoption: clarity before tooling, fluency over dependency, and systems that fit the business. The principles that shape every engagement.",
   alternates: { canonical: "https://www.originai.ca/approach" },
 };
 

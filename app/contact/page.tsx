@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Get started | Origin AI",
   description:
-    "Tell us about your AI work. Book a 30-minute discovery session, or write to us first if you'd rather think before you talk. Origin AI is a Winnipeg-based AI consulting and software firm.",
+    "Tell us about your AI work. Book a discovery session or write to us first. Origin AI is a Winnipeg-based AI consulting and software development firm.",
   alternates: { canonical: "https://www.originai.ca/contact" },
 };
 

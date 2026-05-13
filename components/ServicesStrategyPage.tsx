@@ -52,7 +52,8 @@ export default function ServicesStrategyPage() {
           </div>
 
           <h1 className="bp-hero-h1">
-            Get clear on where AI <span className="accent">fits.</span>
+            An AI roadmap. Get clear on{" "}
+            <span className="accent">where AI fits.</span>
           </h1>
 
           <p className="bp-hero-sub">
@@ -135,7 +136,7 @@ export default function ServicesStrategyPage() {
               <div className="bp-leader-titles">
                 <div className="bp-leader-eyebrow">
                   <span className="bar" />
-                  Led by senior operators
+                  Senior operator
                 </div>
                 <h3 className="bp-leader-name">Led by Mike Bayes</h3>
               </div>

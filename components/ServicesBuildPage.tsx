@@ -33,12 +33,13 @@ export default function ServicesBuildPage() {
 
           <div className="bp-hero-eyebrow">
             <span className="dot" />
-            <span>AI Software &amp; Systems</span>
+            <span>AI Software Development</span>
             <span className="bar" />
           </div>
 
           <h1 className="bp-hero-h1">
-            Consider it <span className="accent">shipped.</span>
+            AI software,{" "}
+            <span className="accent">shipped.</span>
           </h1>
 
           <p className="bp-hero-sub">
