@@ -56,35 +56,35 @@ export default function ServicesV2Trio() {
             live status — replaces the redundant inner dash-head row. */}
         <article className="svc-card center" id="build">
           <div className="svc-card-visual">
-            <span className="svc-card-badge">Origin · Operations</span>
+            <span className="svc-card-badge">Origin · Reviews</span>
             <span className="svc-card-tag">Live</span>
             <div className="dash">
-              <div className="dash-q">Where are we losing time this week?</div>
+              <div className="dash-q">Where does this contract stand?</div>
               <div className="dash-a">
-                Intake is the bottleneck. 14 hrs/week recoverable by routing
-                class X tickets through the new model.
+                87/100. Strong on clarity, but risk exposure flagged at
+                &sect;9.1. Three findings need legal review before sign-off.
               </div>
               <div className="dash-chart">
-                <span className="bar" style={{ height: "30%" }} />
-                <span className="bar" style={{ height: "55%" }} />
-                <span className="bar" style={{ height: "42%" }} />
-                <span className="bar peak" style={{ height: "88%" }} />
-                <span className="bar" style={{ height: "65%" }} />
-                <span className="bar" style={{ height: "48%" }} />
-                <span className="bar" style={{ height: "35%" }} />
+                <span className="bar" style={{ height: "92%" }} />
+                <span className="bar" style={{ height: "78%" }} />
+                <span className="bar" style={{ height: "85%" }} />
+                <span className="bar peak" style={{ height: "87%" }} />
+                <span className="bar" style={{ height: "62%" }} />
+                <span className="bar" style={{ height: "94%" }} />
+                <span className="bar" style={{ height: "81%" }} />
               </div>
               <div className="dash-stats">
                 <div className="stat">
-                  <span className="val">98%</span>
-                  <span className="label">Pipeline</span>
+                  <span className="val">87</span>
+                  <span className="label">Score</span>
                 </div>
                 <div className="stat">
-                  <span className="val">14</span>
-                  <span className="label">Models live</span>
+                  <span className="val">12</span>
+                  <span className="label">Findings</span>
                 </div>
                 <div className="stat">
-                  <span className="val">1.2s</span>
-                  <span className="label">Latency</span>
+                  <span className="val">8.2s</span>
+                  <span className="label">Review</span>
                 </div>
               </div>
             </div>
