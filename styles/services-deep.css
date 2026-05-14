@@ -6117,3 +6117,16 @@
     padding-bottom: 56px !important;
   }
 }
+
+
+/* Contact form error message (shown when Resend submit fails) */
+.bp-contact-form-error {
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid rgba(239, 100, 90, 0.32);
+  background: rgba(239, 100, 90, 0.08);
+  border-radius: 8px;
+  color: #ef645a;
+  font-size: 13.5px;
+  line-height: 1.5;
+}

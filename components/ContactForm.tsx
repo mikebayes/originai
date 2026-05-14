@@ -14,18 +14,18 @@ type Props = {
 /**
  * Contact form rendered as a centered lightbox modal.
  *
- * Triggered by the "Connect with Mike" button on the contact page
- * (and any future page that wants to surface the same path). Modal
- * pattern instead of an inline section since the contact page is
- * intentionally short and the form should feel like a focused
- * intake moment rather than a chunk of the page real estate.
+ * Submits to /api/contact, which forwards the message via Resend to
+ * mike@originai.ca. Sender domain send.originai.ca must be verified
+ * in Resend for production sends to work.
  *
- * Submit is stubbed for v1 — clicking Send shows the thank-you
- * state, then auto-closes after a few seconds. Wire to a real
- * backend (Formspree, Resend, Next API route) as a next pass.
+ * Includes a honeypot ("website") field that real users do not see.
+ * Bots typically fill every field; if "website" comes back populated
+ * the server silently drops the submission.
  */
 export default function ContactForm({ isOpen, onClose }: Props) {
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   // Close on Escape + lock body scroll while open.
   useEffect(() => {
@@ -44,10 +44,13 @@ export default function ContactForm({ isOpen, onClose }: Props) {
     };
   }, [isOpen, onClose]);
 
-  // Reset to the form view (not the thanks state) whenever the modal
-  // is reopened so the next visitor doesn't see a stale thank-you.
+  // Reset form view whenever the modal is reopened.
   useEffect(() => {
-    if (isOpen) setSubmitted(false);
+    if (isOpen) {
+      setSubmitted(false);
+      setSending(false);
+      setErrorMessage(null);
+    }
   }, [isOpen]);
 
   // Auto-close after thank-you so the modal doesn't linger.
@@ -59,10 +62,48 @@ export default function ContactForm({ isOpen, onClose }: Props) {
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // v1 stub. Real submission to be wired up next pass.
-    setSubmitted(true);
+    if (sending) return;
+
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    const payload = {
+      name: String(fd.get("name") || ""),
+      email: String(fd.get("email") || ""),
+      company: String(fd.get("company") || ""),
+      message: String(fd.get("message") || ""),
+      website: String(fd.get("website") || ""), // honeypot
+    };
+
+    setErrorMessage(null);
+    setSending(true);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        setErrorMessage(
+          data?.error || "Could not send your message. Please try again."
+        );
+        setSending(false);
+        return;
+      }
+
+      setSubmitted(true);
+      setSending(false);
+    } catch (err) {
+      console.error("Contact form submit error:", err);
+      setErrorMessage(
+        "Network error. Check your connection and try again."
+      );
+      setSending(false);
+    }
   };
 
   return (
@@ -75,7 +116,6 @@ export default function ContactForm({ isOpen, onClose }: Props) {
     >
       <div
         className="bp-modal"
-        // Stop bubbling so clicking the modal card doesn't close it.
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -115,35 +155,91 @@ export default function ContactForm({ isOpen, onClose }: Props) {
               </p>
             </div>
 
-            <form className="bp-contact-form" onSubmit={handleSubmit} noValidate>
+            <form
+              className="bp-contact-form"
+              onSubmit={handleSubmit}
+              noValidate
+            >
+              {/* Honeypot: hidden from real users, bots typically fill
+                  it. tabIndex + aria-hidden + visually hidden via CSS
+                  inline so we do not need a stylesheet update. */}
+              <label
+                aria-hidden="true"
+                style={{
+                  position: "absolute",
+                  left: "-9999px",
+                  width: "1px",
+                  height: "1px",
+                  overflow: "hidden",
+                }}
+              >
+                Website
+                <input
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </label>
+
               <div className="bp-contact-form-grid">
                 <label className="bp-contact-field">
                   <span className="bp-contact-label">Name</span>
-                  <input type="text" name="name" required autoComplete="name" />
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    autoComplete="name"
+                    disabled={sending}
+                  />
                 </label>
                 <label className="bp-contact-field">
                   <span className="bp-contact-label">Email</span>
-                  <input type="email" name="email" required autoComplete="email" />
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    autoComplete="email"
+                    disabled={sending}
+                  />
                 </label>
                 <label className="bp-contact-field bp-contact-field--full">
                   <span className="bp-contact-label">Company</span>
-                  <input type="text" name="company" autoComplete="organization" />
+                  <input
+                    type="text"
+                    name="company"
+                    autoComplete="organization"
+                    disabled={sending}
+                  />
                 </label>
               </div>
 
               <label className="bp-contact-field">
-                <span className="bp-contact-label">What are you working through?</span>
+                <span className="bp-contact-label">
+                  What are you working through?
+                </span>
                 <textarea
-                  name="goal"
+                  name="message"
                   rows={4}
                   required
+                  disabled={sending}
                   placeholder="A few sentences is enough. Tell us about the problem, idea, workflow, system, or AI question on your mind."
                 />
               </label>
 
+              {errorMessage && (
+                <div className="bp-contact-form-error" role="alert">
+                  {errorMessage}
+                </div>
+              )}
+
               <div className="bp-contact-form-actions">
-                <button type="submit" className="pill pill-primary">
-                  Send note
+                <button
+                  type="submit"
+                  className="pill pill-primary"
+                  disabled={sending}
+                >
+                  {sending ? "Sending..." : "Send note"}
                   <span className="arrow" aria-hidden="true">→</span>
                 </button>
                 <span className="bp-contact-form-actions-note">
