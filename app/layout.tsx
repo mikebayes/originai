@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 // Brand tokens and base typography (defines :root + html/body + .display + .mono + .pill)
 import "../styles/hero.css";
@@ -144,9 +145,14 @@ export default function RootLayout({
         {children}
         <RevealInit />
 
-        {/* Vercel Analytics: page views + Core Web Vitals reported to the
-            Vercel project dashboard. Free, ad-blocker-resistant. */}
+        {/* Vercel Analytics: page views reported to the Vercel project
+            dashboard. Free, ad-blocker-resistant. */}
         <Analytics />
+
+        {/* Vercel Speed Insights: Core Web Vitals (LCP, INP, CLS) tracked
+            from real user sessions. Shows performance trends and slow
+            pages in the Vercel dashboard. */}
+        <SpeedInsights />
       </body>
     </html>
   );
