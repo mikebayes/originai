@@ -5434,6 +5434,22 @@
   margin-bottom: 0;
 }
 
+/* Inline links inside article paragraphs — teal underline that subtly
+   intensifies on hover. Matches the brand accent and stays readable on
+   the dark article body. */
+.bp-page--insights .bp-ins-art-link {
+  color: var(--svc-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(93, 168, 156, 0.45);
+  transition: color 0.18s ease, text-decoration-color 0.18s ease;
+}
+.bp-page--insights .bp-ins-art-link:hover {
+  color: #7dc3b7;
+  text-decoration-color: rgba(125, 195, 183, 0.9);
+}
+
 .bp-page--insights .bp-ins-art-h2 {
   font-family: "Inter Tight", "Inter", system-ui, sans-serif;
   font-weight: 500;

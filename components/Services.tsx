@@ -123,7 +123,7 @@ export default function Services() {
                 your team actually works.
               </p>
               <div className="svc-foot">
-                <a className="tlink" href="/services#solutions">Start a build conversation <span className="arrow" aria-hidden="true">→</span></a>
+                <a className="tlink" href="/services/build">See custom AI software development <span className="arrow" aria-hidden="true">→</span></a>
               </div>
             </div>
           </article>
@@ -156,7 +156,7 @@ export default function Services() {
                 <span className="mini-caption"><span className="bar" />Phased roadmap</span>
               </div>
               <div className="svc-foot">
-                <a className="tlink" href="/services#strategy">Learn more <span className="arrow" aria-hidden="true">→</span></a>
+                <a className="tlink" href="/services/strategy">See AI roadmap &amp; strategy <span className="arrow" aria-hidden="true">→</span></a>
               </div>
             </div>
           </article>
@@ -185,7 +185,7 @@ export default function Services() {
                 <span className="mini-caption"><span className="bar" />Live · 14 systems running</span>
               </div>
               <div className="svc-foot">
-                <a className="tlink" href="/services#managed">Learn more <span className="arrow" aria-hidden="true">→</span></a>
+                <a className="tlink" href="/services/managed">See managed AI <span className="arrow" aria-hidden="true">→</span></a>
               </div>
             </div>
           </article>

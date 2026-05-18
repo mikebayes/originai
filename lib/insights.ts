@@ -118,7 +118,7 @@ export const articles: Article[] = [
       },
       {
         type: "paragraph",
-        text: "What feels different now is not necessarily that custom software suddenly became easy. Good software development is still difficult. Architecture still matters. Security still matters. Operational understanding still matters. There is still a major difference between building a quick prototype and building something stable, scalable, and maintainable.",
+        text: "What feels different now is not necessarily that [custom AI software development](/services/build) suddenly became easy. Good software development is still difficult. Architecture still matters. Security still matters. Operational understanding still matters. There is still a major difference between building a quick prototype and building something stable, scalable, and maintainable.",
       },
       {
         type: "paragraph",
@@ -249,7 +249,7 @@ export const articles: Article[] = [
       },
       {
         type: "paragraph",
-        text: "Training, hands-on experimentation, and clear use cases create the foundation for meaningful adoption. Once people are comfortable using AI in their own work, automation becomes a natural next step rather than a forced initiative.",
+        text: "[AI training, hands-on experimentation, and a clear roadmap](/services/strategy) create the foundation for meaningful adoption. Once people are comfortable using AI in their own work, automation becomes a natural next step rather than a forced initiative.",
       },
 
       {
@@ -316,7 +316,7 @@ export const articles: Article[] = [
         type: "paragraph",
         text: "That operational drag shaped how businesses interacted with technology teams for years. Many organizations became accustomed to software evolving more slowly than the business itself simply because the cost and complexity of iteration were high enough that constant refinement became impractical.",
       },
-      { type: "paragraph", text: "Modern AI-assisted development environments are beginning to compress those cycles fairly dramatically." },
+      { type: "paragraph", text: "[Modern AI-assisted development environments](/services/build) are beginning to compress those cycles fairly dramatically." },
       {
         type: "paragraph",
         text: "Part of that comes from code generation itself. Developers are no longer starting from zero every time they build interfaces, workflows, integrations, or application structures. AI tools are accelerating execution across a wide range of repetitive development tasks.",
@@ -418,7 +418,7 @@ export const articles: Article[] = [
         type: "paragraph",
         text: "Historically, companies tolerated those inefficiencies because building custom operational tools often created even larger inefficiencies.",
       },
-      { type: "paragraph", text: "Now there are situations where building the tailored workflow may actually be the more practical option." },
+      { type: "paragraph", text: "Now there are situations where [building the tailored workflow as custom AI software](/services/build) may actually be the more practical option." },
       {
         type: "paragraph",
         text: "Not because custom software suddenly became simple, but because the cost and complexity of iteration have changed so significantly.",
@@ -525,7 +525,7 @@ export const articles: Article[] = [
       },
       {
         type: "paragraph",
-        text: "Curiosity opens the door, but capability is what delivers results. Teams that invest in learning the right way move faster, work smarter, and get real value from AI.",
+        text: "Curiosity opens the door, but capability is what delivers results. Teams that invest in [structured AI training and a clear strategy](/services/strategy) move faster, work smarter, and get real value from AI.",
       },
     ],
   },
@@ -583,7 +583,7 @@ export const articles: Article[] = [
       },
       {
         type: "paragraph",
-        text: "A business-first approach flips the conversation. Instead of asking what AI can do, leaders begin by asking where the organization is experiencing friction.",
+        text: "A [business-first AI strategy](/services/strategy) flips the conversation. Instead of asking what AI can do, leaders begin by asking where the organization is experiencing friction.",
       },
       {
         type: "list",
