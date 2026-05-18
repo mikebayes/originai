@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import HeroNav from "./HeroNav";
 import {
   type Article,
@@ -199,7 +200,9 @@ export default function InsightArticle({ article }: Props) {
 function RenderedBlock({ block }: { block: Block }) {
   switch (block.type) {
     case "paragraph":
-      return <p className="bp-ins-art-p">{block.text}</p>;
+      return (
+        <p className="bp-ins-art-p">{renderInlineLinks(block.text)}</p>
+      );
 
     case "heading":
       if (block.level === 2) {
@@ -246,4 +249,33 @@ function RenderedBlock({ block }: { block: Block }) {
     default:
       return null;
   }
+}
+
+/**
+ * Render inline markdown-style [text](url) links inside paragraph
+ * text. Lets article authors add internal links by writing
+ * `... see our [AI software development](/services/build) work ...`
+ * directly in the data file without changing the Block type.
+ */
+function renderInlineLinks(text: string): ReactNode {
+  const parts: ReactNode[] = [];
+  const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+  let key = 0;
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index));
+    }
+    parts.push(
+      <a key={key++} href={match[2]} className="bp-ins-art-link">
+        {match[1]}
+      </a>
+    );
+    lastIndex = regex.lastIndex;
+  }
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+  return parts.length > 0 ? parts : text;
 }
