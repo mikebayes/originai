@@ -50,7 +50,10 @@ export async function POST(request: Request) {
       { status: 400 }
     );
   }
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+  // RFC 5321 caps email addresses at 254 chars. Bounding length here
+  // before the regex eliminates any theoretical ReDoS surface and gives
+  // an early reject for obviously bogus input.
+  if (email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return NextResponse.json(
       { error: "Please enter a valid email address." },
       { status: 400 }
