@@ -38,7 +38,7 @@ export default function ServicesBuildPage() {
           </div>
 
           <h1 className="bp-hero-h1">
-            AI software,{" "}
+            Working systems,{" "}
             <span className="accent">shipped.</span>
           </h1>
 
