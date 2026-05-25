@@ -92,7 +92,7 @@ export const articles: Article[] = [
     authorId: "mike-bayes",
     readingTime: "7 min read",
     category: "Build",
-    image: "/images/insights/blog%20image.png",
+    image: "/images/insights/build-vs-buy.png",
     content: [
       {
         type: "paragraph",
