@@ -84,6 +84,213 @@ export const authors: Record<string, Author> = {
    ──────────────────────────────────────────────────────────────── */
 export const articles: Article[] = [
   {
+    slug: "what-to-build-vs-buy-in-the-ai-era",
+    title: "What Should You Build vs. Buy in the AI Era?",
+    excerpt:
+      "There is no shortage of AI tools right now. Every platform is adding AI features and employees are already experimenting with ChatGPT, Claude, and Copilot. The real question for business leaders is when to use existing tools and when a custom AI system creates more value.",
+    date: "2026-05-25",
+    authorId: "mike-bayes",
+    readingTime: "7 min read",
+    category: "Build",
+    image: "/images/insights/blog%20image.png",
+    content: [
+      {
+        type: "paragraph",
+        text: "There is no shortage of AI software available right now. Every major platform is adding AI features, new tools are launching every week, and most companies already have employees experimenting with ChatGPT, Claude, Copilot, Gemini, or AI features inside products they already use.",
+      },
+      {
+        type: "paragraph",
+        text: "That creates a reasonable question for business leaders: if so many AI tools already exist, when does it make sense to build something custom?",
+      },
+      {
+        type: "paragraph",
+        text: "The answer is not to build everything. It is also not to assume that off-the-shelf tools will be enough.",
+      },
+      {
+        type: "paragraph",
+        text: "Most companies should use existing AI tools for general tasks. They work well, they are improving quickly, and they are usually inexpensive compared to custom software. If the need is common, the tool probably already exists.",
+      },
+      {
+        type: "paragraph",
+        text: "But the larger opportunity for many organizations is not in generic AI. It is in applying AI to the specific workflows, data, decisions, and customer experiences that make the business run.",
+      },
+      {
+        type: "paragraph",
+        text: "That is where custom AI systems can create real value.",
+      },
+
+      { type: "heading", level: 3, text: "Generic AI tools have their place" },
+      {
+        type: "paragraph",
+        text: "There are many cases where buying is the right decision.",
+      },
+      {
+        type: "paragraph",
+        text: "Companies do not need to build their own meeting summarizer. They do not need to build a general writing assistant. They do not need to build a basic chatbot if the goal is simply to answer common questions from public information.",
+      },
+      {
+        type: "paragraph",
+        text: "For broad productivity use cases, existing tools are usually the best starting point. They can help employees draft content, summarize documents, prepare meeting notes, research topics, analyze simple information, and move faster through everyday work.",
+      },
+      {
+        type: "paragraph",
+        text: "That matters. Small productivity gains across a team can add up.",
+      },
+      {
+        type: "paragraph",
+        text: "The problem starts when companies confuse individual productivity tools with business transformation. Giving people access to AI tools can help, but it does not automatically change how the business operates. It does not fix broken workflows. It does not connect scattered systems. It does not understand the company’s pricing model, service process, customer history, approval rules, or operational constraints.",
+      },
+      {
+        type: "paragraph",
+        text: "For that, the conversation has to move beyond buying another tool.",
+      },
+
+      { type: "heading", level: 3, text: "The real value is usually in the workflow" },
+      {
+        type: "paragraph",
+        text: "Most businesses have processes that are specific to how they operate. These processes often involve multiple systems, internal knowledge, judgment from experienced employees, and a fair amount of manual work.",
+      },
+      {
+        type: "paragraph",
+        text: "That is where AI starts to become more interesting.",
+      },
+      {
+        type: "paragraph",
+        text: "A generic AI tool can help a salesperson write a proposal summary. A custom AI system can help build the proposal using the company’s past work, pricing logic, client history, service model, and approval workflow.",
+      },
+      {
+        type: "paragraph",
+        text: "A generic chatbot can answer basic support questions. A custom AI system can help triage customer requests based on account type, service history, contract terms, internal priorities, and next-best action.",
+      },
+      {
+        type: "paragraph",
+        text: "A generic tool can summarize a spreadsheet. A custom system can connect several sources of data, identify changes that matter, and present them in a way that helps leaders make better decisions.",
+      },
+      {
+        type: "paragraph",
+        text: "The difference is context.",
+      },
+      {
+        type: "paragraph",
+        text: "Generic tools are designed for broad use. Custom systems are designed around the way a specific business works.",
+      },
+
+      { type: "heading", level: 3, text: "Build where the business case is clear" },
+      {
+        type: "paragraph",
+        text: "Custom AI should not be treated as a science project. It needs a business case.",
+      },
+      {
+        type: "paragraph",
+        text: "The best opportunities usually have a few things in common:",
+      },
+      {
+        type: "list",
+        items: [
+          "The work happens often",
+          "The process depends on company-specific knowledge or data",
+          "The current workflow involves too much manual effort",
+          "The task crosses multiple systems or teams",
+          "The outcome affects revenue, cost, service quality, speed, or decision-making",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "If those conditions are present, custom AI may be worth exploring.",
+      },
+      {
+        type: "paragraph",
+        text: "This is especially true for mid-sized companies that have outgrown simple tools but do not want to spend years on traditional software development. AI-assisted development has changed the economics of custom software. Smaller teams can now build useful systems faster than they could a few years ago. That does not make every build easy, but it does make more use cases realistic.",
+      },
+      {
+        type: "paragraph",
+        text: "The old assumption was that custom software was only for large companies with large budgets. That is less true now.",
+      },
+
+      { type: "heading", level: 3, text: "The decision is not only build or buy" },
+      {
+        type: "paragraph",
+        text: "In practice, there are usually four paths.",
+      },
+      {
+        type: "paragraph",
+        text: "A company can buy an existing tool and use it as-is. That makes sense for common tasks.",
+      },
+      {
+        type: "paragraph",
+        text: "It can configure a tool around its own templates, prompts, workflows, or knowledge base. That works when the process is fairly standard but needs some company context.",
+      },
+      {
+        type: "paragraph",
+        text: "It can integrate AI into existing systems. That becomes important when the value depends on connecting tools, data, and actions across the business.",
+      },
+      {
+        type: "paragraph",
+        text: "Or it can build a custom AI system for a workflow that is important enough to own.",
+      },
+      {
+        type: "paragraph",
+        text: "The right answer depends on the use case. A company may buy AI tools for everyday productivity, configure them for departmental use, integrate them into core systems, and build custom software where the workflow is valuable enough.",
+      },
+      {
+        type: "paragraph",
+        text: "That is a healthy mix.",
+      },
+      {
+        type: "paragraph",
+        text: "The mistake is treating AI as one category of software with one answer.",
+      },
+
+      { type: "heading", level: 3, text: "Where custom AI makes sense" },
+      {
+        type: "paragraph",
+        text: "Custom AI is usually worth considering when the business has a process that existing tools do not fit well.",
+      },
+      {
+        type: "paragraph",
+        text: "That might be an internal operations tool that replaces several disconnected systems. It might be an AI assistant inside an existing workflow. It might be a customer portal that lets people ask questions, find information, and take action more easily. It might be a decision-support system that brings together data from several departments.",
+      },
+      {
+        type: "paragraph",
+        text: "The common thread is that the system is tied to how the organization actually works.",
+      },
+      {
+        type: "paragraph",
+        text: "This is also where ownership matters. When a workflow is important to the business, there is value in having more control over how it operates, how data is used, how users interact with it, and how the system improves over time.",
+      },
+      {
+        type: "paragraph",
+        text: "That does not mean replacing every SaaS product. Often, the better answer is to extend what already exists. A custom AI system can sit beside existing platforms, connect them, and make the overall workflow better.",
+      },
+
+      { type: "heading", level: 3, text: "Start with the problem, then choose the path" },
+      {
+        type: "paragraph",
+        text: "The build-vs-buy decision should not start with a tool. It should start with the work.",
+      },
+      {
+        type: "paragraph",
+        text: "Where are employees losing time? Where is information hard to find? Where are customers waiting too long? Where are decisions being made with incomplete context? Where are teams using spreadsheets or manual checks because the software does not quite fit?",
+      },
+      {
+        type: "paragraph",
+        text: "Those questions usually reveal better AI opportunities than asking what tool to buy next.",
+      },
+      {
+        type: "paragraph",
+        text: "Some of those opportunities will be solved with existing products. Some will need configuration. Some will need integration. Some will justify a custom build.",
+      },
+      {
+        type: "paragraph",
+        text: "The goal is not to build more software. The goal is to apply AI where it can improve how the business runs.",
+      },
+      {
+        type: "paragraph",
+        text: "For companies that are ready to move beyond generic tools, Origin AI builds [custom AI software and systems](/services/build) that connect AI to real workflows, data, and business value.",
+      },
+    ],
+  },
+  {
     slug: "the-new-ai-stack-how-modern-applications-are-built-now",
     title:
       "The New AI Stack: How Modern Applications Are Actually Built Now",
