@@ -50,7 +50,7 @@
 }
 .problem-header .left { display: flex; flex-direction: column; gap: 24px; }
 .problem-h2 {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
   font-size: clamp(36px, 4vw, 56px);
   line-height: 1.08;
@@ -61,7 +61,7 @@
 }
 .problem-h2 .muted { color: var(--ink-muted); font-weight: 500; }
 .problem-lede {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 17px;
   line-height: 1.6;
   color: var(--ink-muted);
@@ -113,7 +113,7 @@
   z-index: 0;
 }
 .card-num {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px;
   letter-spacing: 0.10em;
   text-transform: uppercase;
@@ -127,7 +127,7 @@
 }
 .card-icon svg { width: 100%; height: 100%; display: block; }
 .card-title {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-size: 22px;
   font-weight: 500;
   letter-spacing: -0.005em;
@@ -138,7 +138,7 @@
   text-wrap: balance;
 }
 .card-body {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 15px;
   line-height: 1.55;
   color: var(--ink-muted);
@@ -148,7 +148,7 @@
 }
 .card-tag {
   margin-top: auto;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;

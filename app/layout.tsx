@@ -1,7 +1,31 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Inter, Inter_Tight, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+
+// Self-hosted fonts via next/font. Eliminates the render-blocking
+// Google Fonts request and exposes each font as a CSS variable so the
+// existing stylesheets can reference them without a round trip to
+// fonts.googleapis.com on every page load.
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-inter",
+  display: "swap",
+});
+const interTight = Inter_Tight({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-inter-tight",
+  display: "swap",
+});
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-jetbrains-mono",
+  display: "swap",
+});
 
 // Brand tokens and base typography (defines :root + html/body + .display + .mono + .pill)
 import "../styles/hero.css";
@@ -105,18 +129,11 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={`${inter.variable} ${interTight.variable} ${jetbrainsMono.variable}`}
+    >
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Inter+Tight:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap"
-          rel="stylesheet"
-        />
         {/* Structured data: ProfessionalService schema with NAP and service area.
             Helps Google associate Origin AI with Winnipeg, Canada, and our service
             categories for local pack and AI consulting rankings. */}

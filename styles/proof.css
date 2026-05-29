@@ -13,7 +13,7 @@
   gap: 40px;
 }
 .proof-marks-label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px;
   letter-spacing: 0.10em;
   text-transform: uppercase;
@@ -100,7 +100,7 @@
   position: absolute;
   top: -40px;
   left: 14px;
-  font-family: 'Inter Tight', serif;
+  font-family: var(--font-inter-tight), serif;
   font-weight: 500;
   font-size: 200px;
   line-height: 1;
@@ -120,7 +120,7 @@
 .testimonial > * { position: relative; z-index: 1; }
 
 .t-quote {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
   font-size: 22px;
   line-height: 1.4;
@@ -147,7 +147,7 @@
     linear-gradient(135deg, #1a3a32 0%, #0c1416 100%);
   border: 0.5px solid rgba(255,255,255,0.12);
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
   font-size: 15px;
   letter-spacing: 0.02em;
@@ -155,13 +155,13 @@
 }
 .t-meta { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .t-name {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
   font-size: 15px;
   color: var(--ink);
 }
 .t-role {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 13px;
   color: var(--ink-muted);
   letter-spacing: 0;

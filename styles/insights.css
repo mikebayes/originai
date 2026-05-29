@@ -45,7 +45,7 @@
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   border: 0.5px solid rgba(255,255,255,0.18);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 10px;
   letter-spacing: 0.10em;
   text-transform: uppercase;
@@ -63,7 +63,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -74,7 +74,7 @@
   background: rgba(255,255,255,0.3);
 }
 .insight-title {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
   font-size: 20px;
   line-height: 1.3;
@@ -94,7 +94,7 @@
 }
 .author {
   display: inline-flex; align-items: center; gap: 10px;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 13px;
   color: var(--ink-muted);
 }
@@ -106,13 +106,13 @@
     linear-gradient(135deg, #1a3a32 0%, #0c1416 100%);
   border: 0.5px solid rgba(255,255,255,0.15);
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
   font-size: 10px;
   color: rgba(255,255,255,0.85);
 }
 .read-time {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 10.5px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -129,7 +129,7 @@
   gap: 16px;
 }
 .insights-foot .meta {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase;
   color: var(--ink-subtle);
 }

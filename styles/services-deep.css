@@ -145,7 +145,7 @@
 .bp-hero-meta {
   display: flex; align-items: center; justify-content: space-between;
   margin-bottom: 56px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
   color: rgba(255,255,255,0.50);
 }
@@ -162,7 +162,7 @@
 
 .bp-hero-eyebrow {
   display: inline-flex; align-items: center; gap: 12px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase;
   /* Soft white reads cleaner against the forest-green hero than a
      teal-on-teal eyebrow. !important because something in the cascade
@@ -184,7 +184,7 @@
 }
 
 .bp-hero-h1 {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
   font-size: clamp(56px, 8.6vw, 132px);
   line-height: 0.96;
@@ -199,7 +199,7 @@
 
 .bp-hero-sub {
   margin: 36px 0 0;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 20px; line-height: 1.5;
   color: rgba(255,255,255,0.78);
   max-width: 56ch;
@@ -218,13 +218,13 @@
 }
 
 .bp-hero-foot-col .k {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase;
   color: rgba(255,255,255,0.78); margin-bottom: 8px;
 }
 
 .bp-hero-foot-col .v {
-  font-family: 'Inter Tight', sans-serif; font-weight: 500;
+  font-family: var(--font-inter-tight), sans-serif; font-weight: 500;
   font-size: 16px; color: #fff; line-height: 1.4;
 }
 
@@ -273,13 +273,13 @@
 }
 
 .bp-intro-eyebrow {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--accent);
 }
 
 .bp-intro-h2 {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
   font-size: clamp(36px, 4.2vw, 60px);
   line-height: 1.04;
@@ -290,7 +290,7 @@
 }
 
 .bp-intro-body p {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 18px; line-height: 1.62;
   color: var(--ink-muted);
   margin: 0 0 24px;
@@ -307,7 +307,7 @@
 .bp-intro-tag {
   display: inline-block;
   margin-top: 28px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 12px;
   color: var(--accent);
   border-left: 1px solid var(--accent);
@@ -365,14 +365,14 @@
 .bp-work-cell:hover { background: #0a1410; }
 
 .bp-work-cell .num {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px; letter-spacing: 0.12em;
   color: rgba(255,255,255,0.30);
   margin-bottom: 24px;
 }
 
 .bp-work-cell h3 {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
   font-size: 19px; line-height: 1.25;
   letter-spacing: -0.01em;
@@ -382,7 +382,7 @@
 }
 
 .bp-work-cell p {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 14px; line-height: 1.55;
   color: var(--ink-muted);
   margin: 0;
@@ -453,7 +453,7 @@
 }
 
 .bp-directions-nav-item .num {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px;
   letter-spacing: 0.16em;
   color: rgba(255,255,255,0.40);
@@ -463,7 +463,7 @@
 .bp-directions-nav-item.is-active .num { color: var(--svc-accent); }
 
 .bp-directions-nav-item .title {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
   font-size: 20px;
   line-height: 1.25;
@@ -509,7 +509,7 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -524,7 +524,7 @@
 }
 
 .bp-directions-title {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
   font-size: clamp(28px, 3vw, 36px);
   line-height: 1.15;
@@ -535,7 +535,7 @@
 }
 
 .bp-directions-body {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 15.5px;
   line-height: 1.6;
   color: rgba(255,255,255,0.74);
@@ -557,7 +557,7 @@
 }
 
 .bp-directions-tags li {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 10px;
   letter-spacing: 0.10em;
   text-transform: uppercase;
@@ -615,7 +615,7 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -693,14 +693,14 @@
 }
 
 .bp-selected-head .label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--accent);
 }
 
 .bp-selected-head .nav-arrows {
   display: flex; gap: 8px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px; color: rgba(255,255,255,0.45);
 }
 
@@ -746,7 +746,7 @@
 
 .bp-selected-card .top {
   display: flex; align-items: center; justify-content: space-between;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
   color: rgba(255,255,255,0.45);
 }
@@ -757,7 +757,7 @@
 }
 
 .bp-selected-card h4 {
-  font-family: 'Inter Tight', sans-serif; font-weight: 500;
+  font-family: var(--font-inter-tight), sans-serif; font-weight: 500;
   font-size: 22px; line-height: 1.2; letter-spacing: -0.01em;
   color: var(--ink); margin: 0;
   position: relative; z-index: 1;
@@ -765,7 +765,7 @@
 
 .bp-selected-card .meta-row {
   display: flex; gap: 16px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
   color: rgba(255,255,255,0.40);
   position: relative; z-index: 1;
@@ -985,7 +985,7 @@
   background: rgba(8, 12, 11, 0.88);
   border: 0.5px solid rgba(255, 255, 255, 0.14);
   border-radius: 999px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 10px;
   letter-spacing: 0.10em;
   text-transform: uppercase;
@@ -1005,7 +1005,7 @@
    height for the longer descriptive copy. */
 .bp-selected-card.has-image .bp-selected-lede {
   margin: 8px 0 0;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 14px;
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.65);
@@ -1081,7 +1081,7 @@
 }
 
 .lightbox-caption-meta {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -1090,7 +1090,7 @@
 }
 
 .lightbox-caption-title {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
   font-size: 22px;
   line-height: 1.22;
@@ -1100,7 +1100,7 @@
 }
 
 .lightbox-caption-desc {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 14.5px;
   line-height: 1.65;
   color: rgba(255,255,255,0.74);
@@ -1128,7 +1128,7 @@
   color: rgba(255, 255, 255, 0.85);
   border: 0.5px solid rgba(255, 255, 255, 0.18);
   border-radius: 999px;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 16px;
   line-height: 1;
   cursor: pointer;
@@ -1185,7 +1185,7 @@
 }
 
 .bp-fit-cell .signal {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--accent);
   margin-bottom: 18px;
@@ -1199,14 +1199,14 @@
 }
 
 .bp-fit-cell h3 {
-  font-family: 'Inter Tight', sans-serif; font-weight: 500;
+  font-family: var(--font-inter-tight), sans-serif; font-weight: 500;
   font-size: 19px; line-height: 1.32; letter-spacing: -0.01em;
   color: var(--ink); margin: 0 0 14px;
   text-wrap: balance;
 }
 
 .bp-fit-cell p {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 14px; line-height: 1.6;
   color: rgba(255,255,255,0.62);
   margin: 0;
@@ -1291,7 +1291,7 @@
 }
 
 .bp-output-row .num {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px; letter-spacing: 0.10em;
   color: var(--accent);
   margin-top: 4px;
@@ -1320,7 +1320,7 @@
 }
 
 .bp-output-row h3 {
-  font-family: 'Inter Tight', sans-serif; font-weight: 500;
+  font-family: var(--font-inter-tight), sans-serif; font-weight: 500;
   font-size: 21px; line-height: 1.2; letter-spacing: -0.012em;
   color: var(--ink);
   margin: 0 0 10px;
@@ -1328,7 +1328,7 @@
 }
 
 .bp-output-row p {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 15px; line-height: 1.55;
   color: var(--ink-muted);
   margin: 0;
@@ -1387,14 +1387,14 @@
 .bp-pattern:hover { padding-left: 16px; }
 
 .bp-pattern .pnum {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-weight: 400;
   font-size: 56px; line-height: 1; letter-spacing: -0.02em;
   color: rgba(255,255,255,0.30);
 }
 
 .bp-pattern h3 {
-  font-family: 'Inter Tight', sans-serif; font-weight: 500;
+  font-family: var(--font-inter-tight), sans-serif; font-weight: 500;
   font-size: clamp(22px, 2.1vw, 30px); line-height: 1.2; letter-spacing: -0.014em;
   color: #fff;
   margin: 8px 0 12px;
@@ -1402,7 +1402,7 @@
 }
 
 .bp-pattern p {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 16px; line-height: 1.55;
   color: rgba(255,255,255,0.72);
   margin: 0;
@@ -1410,7 +1410,7 @@
 }
 
 .bp-pattern .arrow {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 14px;
   color: rgba(255,255,255,0.45);
   align-self: center;
@@ -1459,13 +1459,13 @@
 .bp-faq-item summary::-webkit-details-marker { display: none; }
 
 .bp-faq-item summary .qnum {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px; letter-spacing: 0.10em;
   color: rgba(93,168,156,0.85);
 }
 
 .bp-faq-item summary .qtext {
-  font-family: 'Inter Tight', sans-serif; font-weight: 500;
+  font-family: var(--font-inter-tight), sans-serif; font-weight: 500;
   font-size: 20px; line-height: 1.3; letter-spacing: -0.012em;
   color: var(--ink);
 }
@@ -1495,7 +1495,7 @@
 
 .bp-faq-item .ans {
   padding: 0 0 32px 60px;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 16px; line-height: 1.6;
   color: var(--ink-muted);
   max-width: 70ch;
@@ -1528,7 +1528,7 @@
 
 .bp-cta-eyebrow {
   display: inline-flex; align-items: center; gap: 12px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--accent);
   margin-bottom: 32px;
@@ -1541,7 +1541,7 @@
 }
 
 .bp-cta h2 {
-  font-family: 'Inter Tight', sans-serif; font-weight: 500;
+  font-family: var(--font-inter-tight), sans-serif; font-weight: 500;
   font-size: clamp(44px, 6vw, 80px);
   line-height: 1.0; letter-spacing: -0.022em;
   color: var(--ink);
@@ -1551,7 +1551,7 @@
 
 .bp-cta p {
   margin: 28px auto 0;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 19px; line-height: 1.5;
   color: rgba(255,255,255,0.78);
   max-width: 60ch;
@@ -1736,7 +1736,7 @@
 
 
 .bp-programs-head .label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--svc-accent);
 }
@@ -1748,7 +1748,7 @@
 
 
 .bp-programs-head p {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 16px; line-height: 1.55;
   color: var(--ink-muted, #A8A8A8);
   max-width: 56ch; margin: 0;
@@ -1824,7 +1824,7 @@
 
 
 .bp-program-card .label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--svc-accent);
 }
@@ -1832,7 +1832,7 @@
 
 
 .bp-program-card h3 {
-  font-family: 'Inter Tight', sans-serif; font-weight: 500;
+  font-family: var(--font-inter-tight), sans-serif; font-weight: 500;
   font-size: 19px; line-height: 1.22; letter-spacing: -0.012em;
   color: #fff;
   margin: 0;
@@ -1842,7 +1842,7 @@
 
 
 .bp-program-card p {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 14px; line-height: 1.55;
   color: var(--ink-muted, #A8A8A8);
   margin: 0;
@@ -1874,7 +1874,7 @@
 
 
 .bp-bridge-item .pnum {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px; letter-spacing: 0.10em;
   color: var(--svc-accent);
   margin-top: 4px;
@@ -1883,7 +1883,7 @@
 
 
 .bp-bridge-item p {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 15.5px; line-height: 1.5;
   color: rgba(255,255,255,0.85);
   margin: 0;
@@ -1892,7 +1892,7 @@
 
 
 .bp-bridge-lede {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 18px; line-height: 1.55;
   color: rgba(255,255,255,0.78);
   max-width: 60ch;
@@ -2049,7 +2049,7 @@
 
 
 .bp-rhythm-stage .num {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px; letter-spacing: 0.10em;
   color: var(--svc-accent);
   margin-top: 4px;
@@ -2058,7 +2058,7 @@
 
 
 .bp-rhythm-stage h3 {
-  font-family: 'Inter Tight', sans-serif; font-weight: 500;
+  font-family: var(--font-inter-tight), sans-serif; font-weight: 500;
   font-size: 20px; line-height: 1.25; letter-spacing: -0.012em;
   color: #fff;
   margin: 0 0 8px;
@@ -2068,7 +2068,7 @@
 
 
 .bp-rhythm-stage p {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 14.5px; line-height: 1.55;
   color: var(--ink-muted, #A8A8A8);
   margin: 0;
@@ -2078,7 +2078,7 @@
 
 
 .bp-rhythm-stage .stagelabel {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
   color: rgba(255,255,255,0.40);
   margin-top: 6px;
@@ -2116,7 +2116,7 @@
 
 
 .bp-rhythm-cycle .center-label .k {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--svc-accent);
 }
@@ -2124,7 +2124,7 @@
 
 
 .bp-rhythm-cycle .center-label .v {
-  font-family: 'Inter Tight', sans-serif; font-weight: 500;
+  font-family: var(--font-inter-tight), sans-serif; font-weight: 500;
   font-size: 22px; letter-spacing: -0.012em;
   color: #fff;
 }
@@ -2175,7 +2175,7 @@
 
 
 .bp-coverage-cell .marker {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--svc-accent);
   margin-bottom: 14px;
@@ -2194,7 +2194,7 @@
 
 
 .bp-coverage-cell h3 {
-  font-family: 'Inter Tight', sans-serif; font-weight: 500;
+  font-family: var(--font-inter-tight), sans-serif; font-weight: 500;
   font-size: 18px; line-height: 1.25; letter-spacing: -0.01em;
   color: #fff; margin: 0 0 6px;
 }
@@ -2202,7 +2202,7 @@
 
 
 .bp-coverage-cell p {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 13.5px; line-height: 1.5;
   color: var(--ink-muted, #A8A8A8);
   margin: 0;
@@ -2244,7 +2244,7 @@
 
 
 .bp-rail-statement {
-  font-family: 'Inter Tight', sans-serif; font-weight: 400;
+  font-family: var(--font-inter-tight), sans-serif; font-weight: 400;
   font-size: clamp(20px, 2.2vw, 28px);
   line-height: 1.45; letter-spacing: -0.012em;
   color: rgba(255,255,255,0.88);
@@ -2286,7 +2286,7 @@
 
 
 .bp-rail-node .label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
   color: rgba(255,255,255,0.55);
 }
@@ -2294,7 +2294,7 @@
 
 
 .bp-rail-node h4 {
-  font-family: 'Inter Tight', sans-serif; font-weight: 500;
+  font-family: var(--font-inter-tight), sans-serif; font-weight: 500;
   font-size: 22px; letter-spacing: -0.012em;
   color: #fff; margin: 0;
 }
@@ -2302,7 +2302,7 @@
 
 
 .bp-rail-node p {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 13.5px; line-height: 1.5;
   color: rgba(255,255,255,0.65);
   margin: 4px 0 0; max-width: 28ch;
@@ -2336,7 +2336,7 @@
 
 
 .bp-rail-arrow .head {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--svc-accent);
 }
@@ -2345,7 +2345,7 @@
 
 
 .bp-page .nav-logo {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-weight: 700;
   font-size: 22px;
   letter-spacing: 0.22em;
@@ -2443,7 +2443,7 @@
 
 .bp-page .nav-logo {
   display: inline-flex; align-items: center; gap: 10px;
-  font-family: 'Inter Tight', sans-serif; font-weight: 500;
+  font-family: var(--font-inter-tight), sans-serif; font-weight: 500;
   font-size: 17px; letter-spacing: -0.005em; color: var(--ink);
   text-decoration: none; white-space: nowrap;
 }
@@ -2473,7 +2473,7 @@
      .nav-links a values exactly. Together with the matching gap above,
      the nav now renders identically across homepage, services overview,
      and the deep service pages — no visible shift when navigating. */
-  font-family: 'Inter', sans-serif; font-size: 15px;
+  font-family: var(--font-inter), sans-serif; font-size: 15px;
   color: rgba(255,255,255,0.95); text-decoration: none;
   transition: color 150ms ease-out;
 }
@@ -2499,7 +2499,7 @@
 .bp-page /* ─── Eyebrow / section marker ────────────────────────────── */
 .eyebrow {
   display: inline-flex; align-items: center; gap: 12px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase;
   color: var(--accent);
 }
@@ -2511,7 +2511,7 @@
 
 
 .bp-page .section-h2 {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
   font-size: clamp(36px, 4vw, 56px);
   line-height: 1.05;
@@ -2528,7 +2528,7 @@
 
 
 .bp-page .section-lede {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 17px; line-height: 1.55;
   color: var(--ink-muted);
   max-width: 60ch; margin: 18px 0 0;
@@ -2587,7 +2587,7 @@
   padding: 8px 18px;
   border: 0.5px solid rgba(93,168,156,0.35);
   border-radius: 999px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--accent);
   display: inline-flex; align-items: center; gap: 10px;
@@ -2610,7 +2610,7 @@
 
 .bp-page .bp-selected-head .nav-arrows {
   display: flex; gap: 8px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px; color: rgba(255,255,255,0.45);
 }
 
@@ -2797,7 +2797,7 @@
 }
 
 .bp-frame-item .num {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--svc-accent);
   display: inline-block;
@@ -2805,14 +2805,14 @@
 }
 
 .bp-frame-item h3 {
-  font-family: 'Inter Tight', sans-serif; font-weight: 500;
+  font-family: var(--font-inter-tight), sans-serif; font-weight: 500;
   font-size: 17px; line-height: 1.25;
   color: #fff;
   margin: 0 0 8px;
 }
 
 .bp-frame-item p {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 14px; line-height: 1.55;
   color: rgba(255,255,255,0.62);
   margin: 0;
@@ -2829,13 +2829,13 @@
 }
 
 .bp-frame-aside-mark {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px; letter-spacing: 0.14em;
   color: var(--svc-accent);
 }
 
 .bp-frame-aside p {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 18px; line-height: 1.55;
   color: rgba(255,255,255,0.78);
   margin: 0;
@@ -2902,13 +2902,13 @@
 }
 
 .bp-principle .num {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px; letter-spacing: 0.16em;
   color: var(--svc-accent);
 }
 
 .bp-principle h3 {
-  font-family: 'Inter Tight', sans-serif; font-weight: 500;
+  font-family: var(--font-inter-tight), sans-serif; font-weight: 500;
   font-size: 21px; line-height: 1.25;
   color: #fff;
   margin: 0 0 10px;
@@ -2916,7 +2916,7 @@
 }
 
 .bp-principle p {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 14.5px; line-height: 1.55;
   color: rgba(255,255,255,0.66);
   margin: 0;
@@ -2991,7 +2991,7 @@
 .bp-contrast-label {
   display: inline-flex;
   align-items: center; gap: 12px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--svc-accent);
   margin-bottom: 32px;
@@ -3010,7 +3010,7 @@
 .bp-contrast-label--neg .x {
   display: inline-flex; align-items: center; justify-content: center;
   width: 14px; height: 14px;
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-size: 18px; line-height: 1;
   color: rgba(255,255,255,0.52);
 }
@@ -3024,7 +3024,7 @@
 }
 
 .bp-contrast-col li {
-  font-family: 'Inter Tight', sans-serif; font-weight: 500;
+  font-family: var(--font-inter-tight), sans-serif; font-weight: 500;
   font-size: 19px; line-height: 1.4;
   color: #fff;
   padding: 20px 0;
@@ -3138,14 +3138,14 @@
 }
 
 .bp-prog-stop .phase {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--teal);
   margin-bottom: 14px;
 }
 
 .bp-prog-stop h4 {
-  font-family: 'Inter Tight', sans-serif; font-weight: 500;
+  font-family: var(--font-inter-tight), sans-serif; font-weight: 500;
   font-size: 32px; line-height: 1.05;
   color: #fff;
   margin: 0 0 14px;
@@ -3153,7 +3153,7 @@
 }
 
 .bp-prog-stop p {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 15px; line-height: 1.5;
   color: rgba(255,255,255,0.70);
   margin: 0 0 20px;
@@ -3161,7 +3161,7 @@
 }
 
 .bp-prog-svc {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px; letter-spacing: 0.10em;
   color: var(--svc-accent);
   text-decoration: none;
@@ -3179,7 +3179,7 @@
   margin: 80px auto 0;
   text-align: center;
   max-width: 56ch;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 14.5px; line-height: 1.55;
   color: rgba(255,255,255,0.55);
 }
@@ -3314,7 +3314,7 @@
 
 .bp-team-head .eyebrow {
   display: inline-flex; align-items: center; gap: 12px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--accent);
 }
@@ -3363,7 +3363,7 @@
 }
 
 .bp-team-photo .initials {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-weight: 300;
   font-size: 64px;
   letter-spacing: -0.02em;
@@ -3381,7 +3381,7 @@
 .bp-team-photo:has(> img) .initials { display: none; }
 
 .bp-team-name {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
   font-size: 22px;
   letter-spacing: -0.012em;
@@ -3391,7 +3391,7 @@
 }
 
 .bp-team-role {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 10.5px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -3400,7 +3400,7 @@
 }
 
 .bp-team-bio {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 14.5px;
   line-height: 1.6;
   color: rgba(255,255,255,0.74);
@@ -3415,7 +3415,7 @@
 }
 
 .bp-team-chip {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 10px;
   letter-spacing: 0.10em;
   text-transform: uppercase;
@@ -3445,7 +3445,7 @@
 
 .bp-statement-eyebrow {
   display: inline-flex; align-items: center; gap: 12px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--accent);
   margin-bottom: 28px;
@@ -3457,7 +3457,7 @@
 }
 
 .bp-statement-h2 {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
   font-size: clamp(32px, 4vw, 52px);
   line-height: 1.1;
@@ -3470,7 +3470,7 @@
 .bp-statement-h2 .muted { color: rgba(255,255,255,0.45); font-weight: 500; }
 
 .bp-statement-body {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 17px;
   line-height: 1.65;
   color: rgba(255,255,255,0.74);
@@ -3490,7 +3490,7 @@
 
 .bp-statement-points li {
   display: inline-flex; align-items: center; gap: 10px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
   color: rgba(255,255,255,0.78);
 }
@@ -3524,7 +3524,7 @@
 
 .bp-backed-head .eyebrow {
   display: inline-flex; align-items: center; gap: 12px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--accent);
 }
@@ -3542,7 +3542,7 @@
 }
 
 .bp-backed-body p {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 17px;
   line-height: 1.65;
   color: rgba(255,255,255,0.74);
@@ -3550,7 +3550,7 @@
 }
 
 .bp-backed-tag {
-  font-family: 'Inter Tight', sans-serif !important;
+  font-family: var(--font-inter-tight), sans-serif !important;
   font-weight: 500 !important;
   font-size: 18px !important;
   line-height: 1.45 !important;
@@ -3584,7 +3584,7 @@
 }
 
 .bp-backed-mark {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
   font-size: 19px;
   letter-spacing: -0.01em;
@@ -3595,7 +3595,7 @@
 
 .bp-backed-sub {
   margin-top: 8px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -3620,7 +3620,7 @@
 
 .bp-backed-op {
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-weight: 300;
   font-size: 28px;
   color: rgba(255,255,255,0.32);
@@ -3674,7 +3674,7 @@
 
 .bp-define-eyebrow {
   display: inline-flex; align-items: center; gap: 12px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--accent);
   margin-bottom: 24px;
@@ -3686,7 +3686,7 @@
 }
 
 .bp-define-h2 {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
   font-size: clamp(36px, 4.4vw, 56px);
   line-height: 1.08;
@@ -3703,7 +3703,7 @@
 }
 
 .bp-define-body p {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 17px;
   line-height: 1.65;
   color: rgba(255,255,255,0.78);
@@ -3770,7 +3770,7 @@
 
 .bp-leader-eyebrow {
   display: inline-flex; align-items: center; gap: 12px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--accent);
   margin-bottom: 14px;
@@ -3782,7 +3782,7 @@
 }
 
 .bp-leader-name {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
   font-size: 26px;
   line-height: 1.18;
@@ -3792,7 +3792,7 @@
 }
 
 .bp-leader-body p {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 14.5px;
   line-height: 1.65;
   color: rgba(255,255,255,0.74);
@@ -3808,7 +3808,7 @@
 }
 
 .bp-leader-tags li {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 10px;
   letter-spacing: 0.10em;
   text-transform: uppercase;
@@ -3898,7 +3898,7 @@
 
 .bp-training-head .eyebrow {
   display: inline-flex; align-items: center; gap: 12px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--accent);
 }
@@ -3909,7 +3909,7 @@
 }
 
 .bp-training-body {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 16.5px;
   line-height: 1.65;
   color: rgba(255,255,255,0.74);
@@ -3933,7 +3933,7 @@
 }
 
 .bp-training-list .name {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
   font-size: 18px;
   letter-spacing: -0.01em;
@@ -3941,7 +3941,7 @@
 }
 
 .bp-training-list .desc {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 14.5px;
   line-height: 1.6;
   color: rgba(255,255,255,0.65);
@@ -4115,7 +4115,7 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -4130,7 +4130,7 @@
 }
 
 .bp-advisor-name {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
   font-size: 26px;
   letter-spacing: -0.014em;
@@ -4140,7 +4140,7 @@
 }
 
 .bp-advisor-role {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -4197,7 +4197,7 @@
 }
 
 .bp-advisor-actions-note {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 10px;
   letter-spacing: 0.10em;
   text-transform: uppercase;
@@ -4209,7 +4209,7 @@
 .bp-advisor-quote {
   grid-row: 2;
   grid-column: 1 / -1;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-style: italic;
   font-size: 15px;
   line-height: 1.65;
@@ -4277,7 +4277,7 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 10.5px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -4292,7 +4292,7 @@
 }
 
 .bp-office-line {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 13px;
   line-height: 1.6;
   color: rgba(255,255,255,0.72);
@@ -4336,7 +4336,7 @@
 }
 
 .bp-office-membership-label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 10px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -4403,7 +4403,7 @@
   color: rgba(255, 255, 255, 0.65);
   border: 0.5px solid rgba(255, 255, 255, 0.14);
   border-radius: 999px;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 14px;
   line-height: 1;
   cursor: pointer;
@@ -4423,7 +4423,7 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -4438,7 +4438,7 @@
 }
 
 .bp-modal-head h3 {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
   font-size: 22px;
   line-height: 1.2;
@@ -4448,7 +4448,7 @@
 }
 
 .bp-modal-head p {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 14px;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.62);
@@ -4485,7 +4485,7 @@
 }
 
 .bp-modal-thanks h3 {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
   font-size: 22px;
   letter-spacing: -0.012em;
@@ -4494,7 +4494,7 @@
 }
 
 .bp-modal-thanks p {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 14px;
   line-height: 1.6;
   color: rgba(255,255,255,0.65);
@@ -4517,7 +4517,7 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -4534,7 +4534,7 @@
 }
 
 .bp-book-placeholder p {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 14px;
   line-height: 1.55;
   color: rgba(255,255,255,0.55);
@@ -4562,7 +4562,7 @@
 
 /* Small note below the form. Replaces the v1 .bp-direct section. */
 .bp-action-note {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 14px;
   line-height: 1.6;
   color: rgba(255,255,255,0.55);
@@ -4592,7 +4592,7 @@
 }
 
 .bp-contact-stage legend {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -4615,7 +4615,7 @@
   background: rgba(255,255,255,0.018);
   border: 0.5px solid rgba(255,255,255,0.10);
   cursor: pointer;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 14.5px;
   color: rgba(255,255,255,0.85);
   transition: background 160ms ease-out, border-color 160ms ease-out;
@@ -4666,7 +4666,7 @@
 }
 
 .bp-contact-label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -4674,7 +4674,7 @@
 }
 
 .bp-contact-label-hint {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 11px;
   letter-spacing: 0;
   text-transform: none;
@@ -4691,7 +4691,7 @@
   background: rgba(255,255,255,0.015);
   border: 0.5px solid rgba(255,255,255,0.14);
   color: #fff;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 15px;
   line-height: 1.5;
   resize: vertical;
@@ -4706,7 +4706,7 @@
 }
 
 .bp-contact-form textarea {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
 }
 
 .bp-contact-form textarea::placeholder,
@@ -4731,7 +4731,7 @@
 }
 
 .bp-contact-form-actions-note {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 13px;
   color: rgba(255,255,255,0.48);
 }
@@ -4759,7 +4759,7 @@
 }
 
 .bp-contact-form-thanks h3 {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
   font-size: 24px;
   letter-spacing: -0.012em;
@@ -4768,7 +4768,7 @@
 }
 
 .bp-contact-form-thanks p {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 15px;
   line-height: 1.6;
   color: rgba(255,255,255,0.74);

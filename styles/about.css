@@ -42,7 +42,7 @@
 .about-card > * { position: relative; z-index: 1; }
 
 .about-num {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase;
   color: rgba(93, 168, 156, 0.7);
 }
@@ -72,7 +72,7 @@
     radial-gradient(80% 80% at 30% 25%, rgba(93,168,156,0.30) 0%, rgba(93,168,156,0) 60%),
     linear-gradient(135deg, #1a3a32 0%, #0c1416 100%);
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
   font-size: 18px;
   color: rgba(255,255,255,0.9);
@@ -115,7 +115,7 @@
 }
 .portrait-count {
   margin-left: 14px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -123,7 +123,7 @@
   display: inline-flex; flex-direction: column; gap: 2px;
 }
 .portrait-count strong {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
   font-size: 22px;
   letter-spacing: -0.005em;
@@ -152,14 +152,14 @@
 }
 .about-flow .step:nth-child(1) .dot { background: var(--accent); box-shadow: 0 0 12px rgba(93,168,156,0.5); }
 .about-flow .step .label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 10.5px;
   letter-spacing: 0.10em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.6);
 }
 .about-flow .step .word {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-size: 15px;
   font-weight: 500;
   color: var(--ink);
@@ -213,7 +213,7 @@
   border-radius: 999px;
   border: 0.5px solid rgba(255,255,255,0.18);
   background: rgba(255,255,255,0.04);
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 13px;
   color: rgba(255,255,255,0.85);
   letter-spacing: 0;
@@ -226,7 +226,7 @@
 }
 
 .about-title {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
   font-size: 22px;
   letter-spacing: -0.005em;
@@ -235,7 +235,7 @@
   margin: 0;
 }
 .about-body {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 15px;
   line-height: 1.55;
   color: var(--ink-muted);
@@ -255,7 +255,7 @@
 .about-header { margin-bottom: 56px; }
 .about-header .s-h2 { max-width: 22ch; }
 .about-sub {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 17px;
   line-height: 1.6;
   color: var(--ink-muted);

@@ -61,7 +61,7 @@
   margin-bottom: 48px;
 }
 .framework-h2 {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
   font-size: clamp(36px, 4vw, 56px);
   line-height: 1.08;
@@ -72,7 +72,7 @@
 }
 .framework-h2 .muted { color: var(--ink-muted); font-weight: 500; }
 .framework-lede {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 17px;
   line-height: 1.6;
   color: var(--ink-muted);
@@ -129,7 +129,7 @@
 .pillar + .pillar::before { display: none; }   /* kill the old vertical divider */
 
 .pillar-num {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px;
   letter-spacing: 0.10em;
   text-transform: uppercase;
@@ -163,7 +163,7 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 .pillar-name {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
   font-size: 26px;
   letter-spacing: -0.01em;
@@ -172,7 +172,7 @@
   margin: 4px 0 0;
 }
 .pillar-body {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 15px;
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.78);
@@ -198,13 +198,13 @@
 }
 .framework-foot p {
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 16px;
   color: rgba(255, 255, 255, 0.78);
   text-wrap: pretty;
 }
 .framework-foot .meta {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px;
   letter-spacing: 0.10em;
   text-transform: uppercase;

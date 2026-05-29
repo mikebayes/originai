@@ -50,7 +50,7 @@
 
 .cta-eyebrow {
   display: inline-flex; align-items: center; gap: 12px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px;
   letter-spacing: 0.10em;
   text-transform: uppercase;
@@ -60,7 +60,7 @@
 .cta-eyebrow .bar { display: inline-block; width: 22px; height: 1px; background: rgba(93,168,156,0.5); }
 
 .cta-h2 {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
   font-size: clamp(40px, 5vw, 64px);
   line-height: 1.05;
@@ -72,7 +72,7 @@
 }
 
 .cta-sub {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 18px;
   line-height: 1.55;
   color: rgba(255,255,255,0.78);
@@ -91,7 +91,7 @@
 .cta-meta {
   margin-top: 28px;
   display: inline-flex; align-items: center; gap: 10px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px;
   letter-spacing: 0.10em;
   text-transform: uppercase;
@@ -144,7 +144,7 @@
   display: block;
 }
 .f-tagline {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 14px;
   line-height: 1.55;
   color: var(--ink-muted);
@@ -159,7 +159,7 @@
   border-radius: 999px;
   border: 0.5px solid rgba(255,255,255,0.18);
   background: rgba(255,255,255,0.04);
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 13px;
   color: var(--ink);
   text-decoration: none;
@@ -169,7 +169,7 @@
 .f-social svg { width: 14px; height: 14px; color: var(--accent); }
 
 .f-col-title {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px;
   letter-spacing: 0.10em;
   text-transform: uppercase;
@@ -183,7 +183,7 @@
   gap: 12px;
 }
 .f-col a {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 14px;
   color: var(--ink-muted);
   text-decoration: none;
@@ -192,7 +192,7 @@
 .f-col a:hover { color: var(--ink); }
 
 .f-contact {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: 14px;
   line-height: 1.65;
   color: var(--ink-muted);
@@ -200,7 +200,7 @@
 .f-contact a { color: var(--ink); text-decoration: none; }
 .f-contact a:hover { color: var(--accent); }
 .f-contact .label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 10.5px;
   letter-spacing: 0.10em;
   text-transform: uppercase;
@@ -219,7 +219,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-jetbrains-mono), monospace;
   font-size: 11px;
   letter-spacing: 0.08em;
   color: var(--ink-subtle);
