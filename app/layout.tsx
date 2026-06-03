@@ -134,6 +134,22 @@ const ORG_JSON_LD = {
   sameAs: ["https://www.linkedin.com/company/origin-ai-tech"],
 };
 
+// WebSite JSON-LD.
+// Google's site-name feature reads `name` from this specific schema type
+// to decide what to display above the search result title (instead of the
+// raw domain). The ProfessionalService schema above carries the local SEO
+// signals; this one is purely for branded display in SERPs.
+// Reference: https://developers.google.com/search/docs/appearance/site-names
+const WEBSITE_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
+  name: "Origin AI",
+  alternateName: "Origin AI Inc.",
+  url: SITE_URL,
+  publisher: { "@id": `${SITE_URL}/#organization` },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -149,6 +165,13 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG_JSON_LD) }}
+        />
+        {/* WebSite schema: tells Google to use "Origin AI" as the site name in
+            search results instead of the raw domain. Takes several weeks to
+            propagate after first deploy. */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(WEBSITE_JSON_LD) }}
         />
       </head>
       <body>
