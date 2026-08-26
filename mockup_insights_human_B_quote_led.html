@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Insights — Flavor B: Quote-led with author photo</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Inter+Tight:wght@400;500;700&family=Lora:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0E1311;
+    --text:#F5F0E4;
+    --text-muted:rgba(245,240,228,0.66);
+    --text-dim:rgba(245,240,228,0.48);
+    --accent:#5DA89C;
+    --line:rgba(245,240,228,0.08);
+    --line-soft:rgba(245,240,228,0.04);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.5;min-height:100vh}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+  .mono{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:0.12em;text-transform:uppercase}
+  .serif{font-family:'Lora',Georgia,serif}
+
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:22px 32px;border-bottom:1px solid var(--line-soft);
+  }
+  .nav-logo{font-family:'Inter Tight';font-weight:500;color:var(--text);text-decoration:none;font-size:18px}
+  .nav-logo b{color:var(--accent)}
+  .nav-links{display:flex;gap:28px;font-size:14px;color:var(--text-muted)}
+  .nav-links a{color:inherit;text-decoration:none}
+
+  /* Magazine strip */
+  .strip{border-bottom:1px solid var(--line);padding:18px 0;margin-bottom:32px}
+  .strip-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .strip-title{display:inline-flex;align-items:center;gap:12px;font-family:'JetBrains Mono';font-size:12px;letter-spacing:0.18em;text-transform:uppercase}
+  .strip-title .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  .strip-title .sep{color:var(--text-dim)}
+  .strip-title .desc{color:var(--text-muted);letter-spacing:0.12em}
+  .strip-meta{font-family:'JetBrains Mono';font-size:11px;color:var(--text-dim);letter-spacing:0.12em;text-transform:uppercase}
+
+  /* Purpose statement */
+  .purpose{padding:32px 0 48px;border-bottom:1px solid var(--line);margin-bottom:56px}
+  .purpose-inner{max-width:780px}
+  .purpose-eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:'JetBrains Mono';font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);margin-bottom:18px}
+  .purpose-eyebrow .bar{width:24px;height:1px;background:var(--accent);display:inline-block}
+  .purpose-line{font-family:'Inter Tight',sans-serif;font-weight:500;font-size:clamp(22px,2.4vw,28px);line-height:1.35;letter-spacing:-0.012em;color:var(--text);margin:0}
+  .purpose-line .muted{color:var(--text-muted)}
+
+  /* FEATURED — quote leads, photo grounds */
+  .featured-wrap{padding-bottom:72px;border-bottom:1px solid var(--line);margin-bottom:56px}
+  .featured-eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:'JetBrains Mono';font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted);margin-bottom:28px}
+  .featured-eyebrow .bar{width:24px;height:1px;background:var(--accent)}
+
+  .featured{
+    display:grid;grid-template-columns:0.85fr 1.15fr;gap:56px;align-items:center;
+    text-decoration:none;color:inherit;
+  }
+  .featured-portrait{
+    aspect-ratio:4/5;
+    overflow:hidden;border-radius:14px;border:1px solid var(--line);
+    background:#0a0c0b;position:relative;
+  }
+  .featured-portrait img{
+    width:100%;height:100%;object-fit:cover;object-position:center 25%;
+    filter:saturate(0.9) contrast(1.02);
+  }
+  .featured-portrait::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,transparent 70%,rgba(14,19,17,0.4) 100%);
+  }
+
+  .featured-body{display:flex;flex-direction:column;gap:24px}
+  .featured-meta{display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono';font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim)}
+  .tag{color:var(--accent);background:rgba(93,168,156,0.16);padding:3px 10px;border-radius:999px;letter-spacing:0.14em}
+
+  .pullquote{
+    position:relative;
+    font-family:'Lora',Georgia,serif;
+    font-style:italic;font-weight:500;
+    font-size:clamp(26px,2.8vw,36px);
+    line-height:1.32;letter-spacing:-0.005em;
+    color:#F5F0E4;margin:0;
+    padding-left:24px;
+    border-left:2px solid var(--accent);
+  }
+  .pullquote::before{
+    content:"\201C";
+    position:absolute;left:-2px;top:-16px;
+    font-size:64px;color:var(--accent);
+    line-height:1;opacity:0.45;
+    font-style:normal;
+  }
+
+  .featured-title-row{
+    display:flex;flex-direction:column;gap:10px;
+    padding-top:8px;
+  }
+  .featured-title{
+    font-family:'Inter Tight';font-weight:500;
+    font-size:clamp(20px,2vw,24px);line-height:1.28;letter-spacing:-0.006em;
+    color:rgba(245,240,228,0.86);margin:0;
+  }
+  .featured-excerpt{font-size:15px;line-height:1.6;color:var(--text-muted);margin:0;max-width:54ch}
+
+  .featured-foot{
+    display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+    padding-top:22px;border-top:1px solid var(--line);
+  }
+  .author{display:inline-flex;align-items:center;gap:12px}
+  .author-photo{width:36px;height:36px;border-radius:50%;display:inline-block;overflow:hidden;background:#5DA89C}
+  .author-photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .author-name{font-weight:500;font-size:14px;color:var(--text)}
+  .author-role{font-size:11px;color:var(--text-dim);letter-spacing:0.04em}
+  .read-cta{color:var(--accent);font-weight:500;font-size:14px}
+
+  /* GRID — quote dominant, photo small */
+  .grid-head{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+  .grid-head .bar{width:28px;height:1px;background:var(--accent)}
+  .grid-head h2{font-family:'Inter Tight';font-weight:500;font-size:22px;margin:0;color:rgba(245,240,228,0.86);letter-spacing:-0.008em}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;padding-bottom:96px}
+
+  .card{
+    text-decoration:none;color:inherit;
+    background:rgba(245,240,228,0.03);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:28px;
+    display:flex;flex-direction:column;
+    transition:border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+  }
+  .card:hover{border-color:rgba(93,168,156,0.32);transform:translateY(-2px);background:rgba(93,168,156,0.04)}
+
+  .card-byline{
+    display:flex;align-items:center;gap:12px;margin-bottom:20px;
+    padding-bottom:18px;border-bottom:1px solid var(--line-soft);
+  }
+  .card-byline .author-photo{width:32px;height:32px}
+  .card-byline-meta{display:flex;flex-direction:column;gap:2px}
+  .card-byline-name{font-weight:500;font-size:13px}
+  .card-byline-role{font-size:11px;color:var(--text-dim);letter-spacing:0.02em}
+
+  .card-pullquote{
+    font-family:'Lora',Georgia,serif;
+    font-style:italic;font-weight:500;
+    font-size:19px;line-height:1.42;letter-spacing:-0.003em;
+    color:#F5F0E4;margin:0 0 22px;
+    position:relative;padding-left:16px;
+    border-left:1.5px solid var(--accent);
+    flex:1;
+  }
+  .card-pullquote::before{
+    content:"\201C";position:absolute;left:-2px;top:-12px;
+    font-size:38px;color:var(--accent);line-height:1;opacity:0.42;
+    font-style:normal;
+  }
+
+  .card-title{
+    font-family:'Inter Tight';font-weight:500;font-size:14px;
+    line-height:1.4;letter-spacing:0.005em;
+    color:rgba(245,240,228,0.7);
+    margin:0 0 16px;
+  }
+  .card-foot{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding-top:14px;border-top:1px solid var(--line-soft);
+    font-family:'JetBrains Mono';font-size:10px;letter-spacing:0.14em;
+    text-transform:uppercase;color:var(--text-dim);
+  }
+
+  .note{
+    background:rgba(93,168,156,0.08);
+    border-bottom:1px solid rgba(93,168,156,0.18);
+    padding:12px 32px;
+    font-family:'JetBrains Mono';font-size:11px;letter-spacing:0.14em;
+    text-transform:uppercase;color:var(--accent);text-align:center;
+  }
+
+  @media (max-width:860px){
+    .featured{grid-template-columns:1fr;gap:36px}
+    .featured-portrait{max-width:340px}
+  }
+</style>
+</head>
+<body>
+
+<div class="note">Flavor B · Quote-led typography + author portrait · Editorial magazine feel</div>
+
+<nav class="nav">
+  <a class="nav-logo" href="#"><b>Origin</b> AI</a>
+  <div class="nav-links">
+    <a>Services</a><a>Approach</a><a>Team</a><a>Insights</a><a>Contact</a>
+  </div>
+</nav>
+
+<!-- Magazine strip -->
+<div class="strip">
+  <div class="wrap strip-inner">
+    <div class="strip-title">
+      <span class="dot"></span><span>Insights</span><span class="sep">·</span>
+      <span class="desc">Field notes from Origin AI</span>
+    </div>
+    <div class="strip-meta">Updated monthly · 3 articles</div>
+  </div>
+</div>
+
+<!-- Purpose statement -->
+<section class="wrap purpose">
+  <div class="purpose-inner">
+    <div class="purpose-eyebrow"><span class="bar"></span>About these notes</div>
+    <p class="purpose-line">
+      Field notes on putting AI to work the right way. <span class="muted">Written by the people doing the engagements, not by a content team, and not by AI.</span>
+    </p>
+  </div>
+</section>
+
+<!-- FEATURED — pull quote leads, portrait grounds -->
+<section class="wrap featured-wrap">
+  <div class="featured-eyebrow"><span class="bar"></span>Latest · December 12, 2025</div>
+  <a class="featured" href="#">
+    <div class="featured-portrait"><img src="public/images/MB.avif" alt="Mike Bayes"/></div>
+    <div class="featured-body">
+      <div class="featured-meta">
+        <span class="tag">Adoption</span><span>·</span><span>6 min read</span>
+      </div>
+      <blockquote class="pullquote">
+        The companies getting the most value treat AI as a capability the organization grows, not a tool the IT department deploys.
+      </blockquote>
+      <div class="featured-title-row">
+        <h1 class="featured-title">Human-Centric AI: Why Adoption Matters More Than Automation</h1>
+        <p class="featured-excerpt">Most organizations have started experimenting with AI, but adoption inside teams is uneven.</p>
+      </div>
+      <div class="featured-foot">
+        <span class="author">
+          <span class="author-photo"><img src="public/images/MB.avif" alt=""/></span>
+          <span><span class="author-name">Mike Bayes</span><br/><span class="author-role mono">Lead AI Advisor</span></span>
+        </span>
+        <span class="read-cta">Read the article →</span>
+      </div>
+    </div>
+  </a>
+</section>
+
+<!-- GRID — quote dominant, author byline at top -->
+<section class="wrap">
+  <div class="grid-head">
+    <span class="bar"></span>
+    <h2>More from the team</h2>
+  </div>
+  <div class="grid">
+    <a class="card" href="#">
+      <div class="card-byline">
+        <span class="author-photo"><img src="public/images/CB.avif" alt=""/></span>
+        <span class="card-byline-meta">
+          <span class="card-byline-name">Chad Beauchamp</span>
+          <span class="card-byline-role mono">Co-Founder · CEO</span>
+        </span>
+      </div>
+      <blockquote class="card-pullquote">
+        Real adoption comes from structured time, peer learning, and useful problems. Not from a single all-hands demo.
+      </blockquote>
+      <h3 class="card-title">From Curiosity to Capability: how teams actually learn to use AI</h3>
+      <div class="card-foot"><span class="tag">Adoption</span><span>Nov 28, 2025 · 5 min</span></div>
+    </a>
+    <a class="card" href="#">
+      <div class="card-byline">
+        <span class="author-photo"><img src="public/images/MB.avif" alt=""/></span>
+        <span class="card-byline-meta">
+          <span class="card-byline-name">Mike Bayes</span>
+          <span class="card-byline-role mono">Lead AI Advisor</span>
+        </span>
+      </div>
+      <blockquote class="card-pullquote">
+        Better to ask where the organization is experiencing friction than to ask what AI can do.
+      </blockquote>
+      <h3 class="card-title">Business First, Technology Second: a smarter way to adopt AI</h3>
+      <div class="card-foot"><span class="tag">Adoption</span><span>Nov 17, 2025 · 4 min</span></div>
+    </a>
+  </div>
+</section>
+
+</body>
+</html>

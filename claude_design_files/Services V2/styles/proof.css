@@ -1,0 +1,155 @@
+/* Section 5 — Proof: client wordmark row + two testimonials */
+
+/* Wordmark row */
+.proof-marks {
+  margin-top: -16px;
+  margin-bottom: 80px;
+  padding: 28px 0;
+  border-top: 0.5px solid rgba(255,255,255,0.10);
+  border-bottom: 0.5px solid rgba(255,255,255,0.10);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 40px;
+}
+.proof-marks-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--ink-subtle);
+  display: inline-flex; align-items: center; gap: 12px;
+  white-space: nowrap;
+}
+.proof-marks-label .bar { width: 22px; height: 1px; background: rgba(255,255,255,0.3); }
+.proof-marks-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+.wordmark {
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 500;
+  font-size: 19px;
+  letter-spacing: 0.02em;
+  color: rgba(255,255,255,0.78);
+  white-space: nowrap;
+  transition: color 200ms ease-out;
+}
+.wordmark:hover { color: var(--ink); }
+.wordmark.serif {
+  /* slight variation so the four read as distinct brands, not a single logo lockup */
+  font-family: 'Inter Tight', sans-serif;
+  letter-spacing: 0;
+}
+.wordmark .amp { color: rgba(255,255,255,0.5); margin: 0 2px; }
+
+/* Testimonials */
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+.testimonial {
+  position: relative;
+  padding: 40px 40px 36px;
+  border-radius: 16px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.025) 0%, rgba(255,255,255,0) 70%),
+    rgba(15, 15, 15, 0.72);
+  -webkit-backdrop-filter: blur(8px) saturate(140%);
+  backdrop-filter: blur(8px) saturate(140%);
+  border: 0.5px solid rgba(255,255,255,0.08);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.04) inset,
+    0 30px 60px -20px rgba(0,0,0,0.6),
+    0 8px 24px -8px rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  isolation: isolate;
+  overflow: hidden;
+}
+/* Decorative oversized quote glyph in the upper-left */
+.testimonial::before {
+  content: '\201C';
+  position: absolute;
+  top: -40px;
+  left: 14px;
+  font-family: 'Inter Tight', serif;
+  font-weight: 500;
+  font-size: 200px;
+  line-height: 1;
+  color: rgba(63, 221, 201, 0.10);
+  pointer-events: none;
+  z-index: 0;
+}
+/* Soft inner top-left teal light */
+.testimonial::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(50% 40% at 12% 0%, rgba(63,221,201,0.08) 0%, rgba(63,221,201,0) 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+.testimonial > * { position: relative; z-index: 1; }
+
+.t-quote {
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.4;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  margin: 0;
+  text-wrap: pretty;
+}
+.t-quote .accent { color: var(--accent); }
+
+.t-attr {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-top: 22px;
+  border-top: 0.5px solid rgba(255,255,255,0.12);
+}
+.t-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+  background:
+    radial-gradient(80% 80% at 30% 25%, rgba(63,221,201,0.30) 0%, rgba(63,221,201,0) 60%),
+    linear-gradient(135deg, #1a3a32 0%, #0c1416 100%);
+  border: 0.5px solid rgba(255,255,255,0.12);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  color: rgba(255,255,255,0.85);
+}
+.t-meta { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.t-name {
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--ink);
+}
+.t-role {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: var(--ink-muted);
+  letter-spacing: 0;
+}
+
+@media (max-width: 900px) {
+  .proof-marks { grid-template-columns: 1fr; gap: 18px; padding: 22px 0; margin-bottom: 56px; }
+  .proof-marks-row { gap: 18px 24px; justify-content: flex-start; }
+  .wordmark { font-size: 16px; }
+  .testimonials { grid-template-columns: 1fr; }
+  .testimonial { padding: 32px 28px 28px; }
+  .t-quote { font-size: 19px; }
+}

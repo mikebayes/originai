@@ -1,0 +1,150 @@
+/* Shared section primitives for Origin AI sections 4–8.
+   Tokens come from styles/hero.css. This file adds repeated structure: the
+   atmospheric stage, eyebrow/H2, and the cinematic photo placeholder. */
+
+/* Stage — used by every section that isn't the hero */
+.stage {
+  position: relative;
+  width: 100%;
+  background: #050a0c;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 140px 0 160px;
+}
+.stage::before {
+  /* default atmospheric backdrop */
+  content: '';
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(60% 50% at 18% 12%, rgba(63, 221, 201, 0.08) 0%, rgba(63, 221, 201, 0) 60%),
+    radial-gradient(80% 60% at 82% 90%, rgba(19, 72, 54, 0.30) 0%, rgba(19, 72, 54, 0) 65%),
+    radial-gradient(120% 80% at 50% 50%, rgba(8, 14, 16, 0) 30%, rgba(0, 0, 0, 0.55) 100%),
+    linear-gradient(180deg, #060c0e 0%, #03070a 100%);
+}
+.stage-grain {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  opacity: 0.10; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'><filter id='n' x='0' y='0' width='100%25' height='100%25'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 320px 320px;
+}
+.stage-inner {
+  position: relative; z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 56px;
+}
+
+/* Section header — eyebrow, two-tone H2, optional lede */
+.s-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: end;
+  margin-bottom: 64px;
+}
+.s-h2 {
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 500;
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -0.005em;
+  margin: 16px 0 0;
+  color: var(--ink);
+  text-wrap: balance;
+}
+.s-h2 .muted { color: var(--ink-muted); font-weight: 500; }
+.s-lede {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+  max-width: 44ch;
+  margin: 0;
+  padding-bottom: 6px;
+  text-wrap: pretty;
+}
+
+/* Cinematic photo placeholder — desaturated cool teal-grey, low-key.
+   The brand guide explicitly forbids hand-drawn SVG illustrations; we
+   render an atmospheric gradient + grain scene with a mono caption that
+   says "drop image here". */
+.cphoto {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 80% at 75% 30%, rgba(63, 221, 201, 0.10) 0%, rgba(63, 221, 201, 0) 55%),
+    radial-gradient(80% 60% at 30% 80%, rgba(120, 150, 160, 0.10) 0%, rgba(120, 150, 160, 0) 60%),
+    linear-gradient(135deg, #0c1416 0%, #161e22 35%, #0a1012 70%, #060a0c 100%);
+  isolation: isolate;
+}
+.cphoto::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background-image: repeating-linear-gradient(
+    -55deg,
+    rgba(255, 255, 255, 0.022) 0 2px,
+    transparent 2px 22px);
+  pointer-events: none;
+}
+.cphoto::after {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background: radial-gradient(110% 80% at 50% 45%, transparent 40%, rgba(0,0,0,0.55) 100%);
+  pointer-events: none;
+}
+.cphoto-grain {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  opacity: 0.16; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'><filter id='n' x='0' y='0' width='100%25' height='100%25'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 320px 320px;
+}
+.cphoto-caption {
+  position: absolute;
+  left: 16px; bottom: 14px;
+  z-index: 3;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.cphoto-caption .bar { display: inline-block; width: 22px; height: 1px; background: rgba(255,255,255,0.4); }
+.cphoto-badge {
+  position: absolute;
+  left: 16px; top: 16px;
+  z-index: 3;
+  height: 26px;
+  padding: 0 12px;
+  display: inline-flex; align-items: center;
+  border-radius: 999px;
+  background: rgba(15, 15, 15, 0.65);
+  -webkit-backdrop-filter: blur(8px) saturate(140%);
+  backdrop-filter: blur(8px) saturate(140%);
+  border: 0.5px solid rgba(255,255,255,0.2);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+/* Inline teal link (Learn more →) */
+.tlink {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 150ms ease-out;
+}
+.tlink:hover { color: var(--accent-hover); }
+.tlink .arrow { transition: transform 180ms ease-out; }
+.tlink:hover .arrow { transform: translateX(3px); }
+
+@media (max-width: 900px) {
+  .stage { padding: 96px 0 112px; }
+  .stage-inner { padding: 0 20px; }
+  .s-header { grid-template-columns: 1fr; gap: 24px; margin-bottom: 40px; }
+}

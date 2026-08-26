@@ -1406,3 +1406,187 @@
   .svcs-v2 .svc-card#strategy { order: 2; }
   .svcs-v2 .svc-card#managed { order: 3; }
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   DRAFT SERVICES PAGE (/draft/services) — repositioned four-part model.
+   Scoped under .svcs-v2 like everything else in this file. The extra
+   .svcs-draft class on the page wrapper is available for draft-only
+   overrides. Delete this block or promote it when the draft ships.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Internal draft banner */
+.svcs-v2 .draft-banner {
+  position: relative;
+  z-index: 50;
+  text-align: center;
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(93, 168, 156, 0.85);
+  background: rgba(93, 168, 156, 0.08);
+  border-bottom: 1px solid rgba(93, 168, 156, 0.25);
+  padding: 8px 16px;
+}
+
+/* Secondary hero sentence, slightly quieter than the main sub */
+.svcs-v2 .s-hero-sub--secondary {
+  margin-top: 14px;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ─── Visual placeholder blocks ─────────────────────────────────── */
+.svcs-v2 .ph-visual {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+  min-height: 170px;
+  padding: 22px 24px;
+  border: 1px dashed rgba(93, 168, 156, 0.4);
+  border-radius: 12px;
+  background:
+    radial-gradient(120% 140% at 20% 0%, rgba(93, 168, 156, 0.08) 0%, rgba(93, 168, 156, 0) 55%),
+    linear-gradient(160deg, #101817 0%, #0a0f0e 100%);
+}
+.svcs-v2 .ph-tag {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(93, 168, 156, 0.8);
+}
+.svcs-v2 .ph-label {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.92);
+}
+.svcs-v2 .ph-note {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 44ch;
+}
+
+/* ─── Quad: four service cards in a 2x2 grid ────────────────────── */
+.svcs-v2 .quad {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+}
+.svcs-v2 .quad .svc-card {
+  display: flex;
+  flex-direction: column;
+}
+.svcs-v2 .quad .svc-card-visual.quad-visual {
+  display: flex;
+  padding: 14px;
+  min-height: 200px;
+}
+@media (max-width: 900px) {
+  .svcs-v2 .quad {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .svcs-v2 .quad .svc-card-visual.quad-visual {
+    min-height: 160px;
+  }
+}
+
+/* ─── Journey rail: connected horizontal line on desktop ────────── */
+@media (min-width: 1101px) {
+  .svcs-v2 .journey-rail {
+    position: relative;
+  }
+  .svcs-v2 .journey-rail::before {
+    content: "";
+    position: absolute;
+    top: 9px; /* aligns with phase-dot centers */
+    left: 2%;
+    right: 2%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      rgba(93, 168, 156, 0) 0%,
+      rgba(93, 168, 156, 0.4) 12%,
+      rgba(93, 168, 156, 0.4) 88%,
+      rgba(93, 168, 156, 0) 100%
+    );
+    pointer-events: none;
+  }
+}
+
+/* ─── Start tiles: three entry-point tiles ──────────────────────── */
+.svcs-v2 .start-tiles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+}
+.svcs-v2 .start-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: linear-gradient(170deg, #0f1514 0%, #0a0f0e 100%);
+}
+.svcs-v2 .start-tile .ph-visual {
+  min-height: 130px;
+}
+.svcs-v2 .start-tile-title {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 600;
+  font-size: 19px;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+}
+.svcs-v2 .start-tile-body {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.62);
+  margin: 0;
+}
+@media (max-width: 900px) {
+  .svcs-v2 .start-tiles {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+/* ─── Draft CTA ─────────────────────────────────────────────────── */
+.svcs-v2 .draft-cta-inner {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 24px 0 40px;
+}
+.svcs-v2 .draft-cta-body {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.68);
+  margin: 18px 0 28px;
+}
+.svcs-v2 .draft-cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.svcs-v2 .pill-ghost {
+  border: 1px solid rgba(93, 168, 156, 0.5);
+  color: rgba(255, 255, 255, 0.9);
+  background: transparent;
+}
+.svcs-v2 .pill-ghost:hover {
+  background: rgba(93, 168, 156, 0.12);
+}

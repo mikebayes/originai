@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Insights — Option 2: Abstract category covers</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Inter+Tight:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0E1311;
+    --text:#F5F0E4;
+    --text-muted:rgba(245,240,228,0.66);
+    --text-dim:rgba(245,240,228,0.48);
+    --accent:#5DA89C;
+    --line:rgba(245,240,228,0.08);
+    --line-soft:rgba(245,240,228,0.04);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.5;min-height:100vh}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+  .mono{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:0.12em;text-transform:uppercase}
+
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:22px 32px;border-bottom:1px solid var(--line-soft);
+  }
+  .nav-logo{font-family:'Inter Tight';font-weight:500;color:var(--text);text-decoration:none;font-size:18px}
+  .nav-logo b{color:var(--accent)}
+  .nav-links{display:flex;gap:28px;font-size:14px;color:var(--text-muted)}
+  .nav-links a{color:inherit;text-decoration:none}
+
+  /* COMPACT HERO — shrunk to two-line summary */
+  .hero{
+    padding:64px 0 56px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:64px;
+  }
+  .hero-eyebrow{
+    display:inline-flex;align-items:center;gap:12px;
+    font-family:'JetBrains Mono';font-size:11px;letter-spacing:0.18em;
+    text-transform:uppercase;color:var(--text-muted);
+    margin-bottom:18px;
+  }
+  .hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  .hero h1{
+    font-family:'Inter Tight';font-weight:500;
+    font-size:clamp(28px,3.4vw,38px);
+    line-height:1.18;letter-spacing:-0.012em;
+    margin:0;max-width:28ch;
+  }
+  .hero h1 .accent{color:var(--accent)}
+
+  /* FEATURED — with abstract cover */
+  .featured-section{padding-bottom:72px}
+  .featured-eyebrow{
+    display:inline-flex;align-items:center;gap:12px;
+    font-family:'JetBrains Mono';font-size:11px;letter-spacing:0.16em;
+    text-transform:uppercase;color:var(--text-muted);
+    margin-bottom:22px;
+  }
+  .featured-eyebrow .bar{width:24px;height:1px;background:var(--accent)}
+  .featured{
+    display:grid;grid-template-columns:0.9fr 1.1fr;gap:48px;
+    background:rgba(245,240,228,0.03);
+    border:1px solid var(--line);
+    border-radius:16px;
+    overflow:hidden;
+  }
+  .cover{
+    aspect-ratio:auto;
+    min-height:340px;
+    display:block;
+  }
+  .featured-body{padding:44px;display:flex;flex-direction:column;justify-content:center}
+  .featured-meta{
+    display:flex;align-items:center;gap:10px;
+    font-family:'JetBrains Mono';font-size:11px;letter-spacing:0.12em;
+    text-transform:uppercase;color:var(--text-dim);
+    margin-bottom:16px;
+  }
+  .tag{
+    color:var(--accent);background:rgba(93,168,156,0.16);
+    padding:3px 10px;border-radius:999px;letter-spacing:0.14em;
+  }
+  .featured-title{
+    font-family:'Inter Tight';font-weight:500;
+    font-size:clamp(28px,3.2vw,38px);
+    line-height:1.12;letter-spacing:-0.014em;
+    margin:0 0 18px;max-width:18ch;
+  }
+  .featured-excerpt{
+    font-size:16px;line-height:1.6;color:var(--text-muted);
+    margin:0 0 28px;max-width:50ch;
+  }
+  .featured-foot{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:16px;padding-top:22px;border-top:1px solid var(--line);
+  }
+  .author{display:inline-flex;align-items:center;gap:12px}
+  .author-photo{
+    width:36px;height:36px;border-radius:50%;
+    background:linear-gradient(135deg,#3a4742,#5DA89C);
+  }
+  .author-name{font-weight:500;font-size:14px}
+  .author-role{font-size:11px;color:var(--text-dim);letter-spacing:0.04em}
+  .read-cta{color:var(--accent);font-weight:500;font-size:14px}
+
+  /* GRID */
+  .grid-head{
+    display:flex;align-items:center;gap:14px;margin-bottom:24px;
+  }
+  .grid-head .bar{width:28px;height:1px;background:var(--accent)}
+  .grid-head h2{
+    font-family:'Inter Tight';font-weight:500;font-size:22px;
+    margin:0;color:rgba(245,240,228,0.86);letter-spacing:-0.008em;
+  }
+  .grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:24px;padding-bottom:96px;
+  }
+  .card{
+    background:rgba(245,240,228,0.03);
+    border:1px solid var(--line);
+    border-radius:14px;
+    overflow:hidden;
+    text-decoration:none;color:inherit;
+    display:flex;flex-direction:column;
+  }
+  .card-cover{aspect-ratio:16/9;display:block}
+  .card-body{padding:24px;display:flex;flex-direction:column;flex:1}
+  .card-meta{
+    display:flex;align-items:center;gap:10px;
+    font-family:'JetBrains Mono';font-size:10px;letter-spacing:0.14em;
+    text-transform:uppercase;color:var(--text-dim);
+    margin-bottom:12px;
+  }
+  .card-title{
+    font-family:'Inter Tight';font-weight:500;font-size:19px;
+    line-height:1.28;letter-spacing:-0.005em;
+    margin:0 0 12px;
+  }
+  .card-excerpt{
+    font-size:14px;line-height:1.58;color:var(--text-muted);
+    margin:0 0 20px;flex:1;
+  }
+  .card-foot{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:12px;padding-top:14px;border-top:1px solid var(--line-soft);
+    font-size:12px;color:var(--text-dim);
+  }
+  .card-foot .author-photo{width:24px;height:24px}
+  .card-foot .author-name{font-size:13px}
+  .card-foot .author{gap:8px}
+
+  .note{
+    background:rgba(93,168,156,0.08);
+    border-bottom:1px solid rgba(93,168,156,0.18);
+    padding:12px 32px;
+    font-family:'JetBrains Mono';font-size:11px;letter-spacing:0.14em;
+    text-transform:uppercase;color:var(--accent);
+    text-align:center;
+  }
+</style>
+</head>
+<body>
+
+<div class="note">Option 2 · Compact hero + abstract category covers · Each cover is generated SVG, not stock photo</div>
+
+<nav class="nav">
+  <a class="nav-logo" href="#"><b>Origin</b> AI</a>
+  <div class="nav-links">
+    <a>Services</a><a>Approach</a><a>Team</a><a>Insights</a><a>Contact</a>
+  </div>
+</nav>
+
+<!-- COMPACT HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow"><span class="dot"></span>Insights</div>
+    <h1>Notes on AI, what's worth building, <span class="accent">and how to think about it.</span></h1>
+  </div>
+</section>
+
+<!-- FEATURED with abstract cover -->
+<section class="wrap featured-section">
+  <div class="featured-eyebrow"><span class="bar"></span>Latest</div>
+  <article class="featured">
+    <!-- ABSTRACT COVER: Adoption category — layered organic forms in teal -->
+    <svg class="cover" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <radialGradient id="g1" cx="0.3" cy="0.3" r="0.9">
+          <stop offset="0%" stop-color="#5DA89C" stop-opacity="0.55"/>
+          <stop offset="100%" stop-color="#5DA89C" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="g2" cx="0.75" cy="0.7" r="0.7">
+          <stop offset="0%" stop-color="#7BC8B8" stop-opacity="0.35"/>
+          <stop offset="100%" stop-color="#7BC8B8" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="600" height="400" fill="#162421"/>
+      <circle cx="180" cy="140" r="220" fill="url(#g1)"/>
+      <circle cx="450" cy="280" r="180" fill="url(#g2)"/>
+      <g stroke="rgba(245,240,228,0.12)" stroke-width="1" fill="none">
+        <circle cx="180" cy="140" r="60"/>
+        <circle cx="180" cy="140" r="110"/>
+        <circle cx="180" cy="140" r="170"/>
+      </g>
+      <g stroke="rgba(93,168,156,0.5)" stroke-width="1.4" fill="none">
+        <path d="M120 320 Q300 200 480 320"/>
+      </g>
+      <circle cx="180" cy="140" r="5" fill="#5DA89C"/>
+      <circle cx="480" cy="320" r="5" fill="#5DA89C"/>
+      <text x="32" y="368" font-family="JetBrains Mono, monospace" font-size="11" fill="rgba(245,240,228,0.42)" letter-spacing="2">ADOPTION · 01</text>
+    </svg>
+    <div class="featured-body">
+      <div class="featured-meta">
+        <span class="tag">Adoption</span><span>·</span><span>Dec 12, 2025</span><span>·</span><span>6 min read</span>
+      </div>
+      <h2 class="featured-title">Human-Centric AI: Why Adoption Matters More Than Automation</h2>
+      <p class="featured-excerpt">Most organizations have started experimenting with AI, but adoption inside teams is uneven. The companies getting the most value treat AI as a capability, not a tool.</p>
+      <div class="featured-foot">
+        <span class="author">
+          <span class="author-photo"></span>
+          <span><span class="author-name">Mike Bayes</span><br/><span class="author-role mono">Lead AI Advisor</span></span>
+        </span>
+        <a class="read-cta" href="#">Read →</a>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- GRID with abstract covers -->
+<section class="wrap">
+  <div class="grid-head">
+    <span class="bar"></span>
+    <h2>More from the team</h2>
+  </div>
+  <div class="grid">
+    <a class="card" href="#">
+      <!-- COVER: warm angular forms (different generative seed) -->
+      <svg class="card-cover" viewBox="0 0 600 340" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <rect width="600" height="340" fill="#1e1a16"/>
+        <defs>
+          <linearGradient id="warmg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#c5a47e" stop-opacity="0.45"/>
+            <stop offset="100%" stop-color="#c5a47e" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <polygon points="0,340 240,80 360,240 600,140 600,340" fill="url(#warmg)"/>
+        <g stroke="rgba(245,240,228,0.18)" stroke-width="1" fill="none">
+          <line x1="0" y1="200" x2="600" y2="200"/>
+          <line x1="0" y1="240" x2="600" y2="240"/>
+          <line x1="0" y1="280" x2="600" y2="280"/>
+        </g>
+        <circle cx="240" cy="80" r="6" fill="#c5a47e"/>
+        <circle cx="360" cy="240" r="6" fill="#c5a47e"/>
+        <circle cx="600" cy="140" r="6" fill="#c5a47e"/>
+        <text x="24" y="316" font-family="JetBrains Mono, monospace" font-size="10" fill="rgba(245,240,228,0.4)" letter-spacing="2">ADOPTION · 02</text>
+      </svg>
+      <div class="card-body">
+        <div class="card-meta"><span class="tag">Adoption</span><span>·</span><span>Nov 28, 2025</span></div>
+        <h3 class="card-title">From Curiosity to Capability: how teams actually learn to use AI</h3>
+        <p class="card-excerpt">Real adoption comes from structured time, peer learning, and useful problems. Not from a single all-hands demo.</p>
+        <div class="card-foot">
+          <span class="author"><span class="author-photo" style="background:linear-gradient(135deg,#4a3d52,#a78bda)"></span><span class="author-name">Chad Beauchamp</span></span>
+          <span>5 min read</span>
+        </div>
+      </div>
+    </a>
+    <a class="card" href="#">
+      <!-- COVER: grid + line work, more architectural -->
+      <svg class="card-cover" viewBox="0 0 600 340" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <rect width="600" height="340" fill="#141a18"/>
+        <defs>
+          <radialGradient id="grd" cx="0.6" cy="0.4" r="0.8">
+            <stop offset="0%" stop-color="#5DA89C" stop-opacity="0.4"/>
+            <stop offset="100%" stop-color="#5DA89C" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <rect width="600" height="340" fill="url(#grd)"/>
+        <g stroke="rgba(245,240,228,0.08)" stroke-width="1" fill="none">
+          <line x1="100" y1="0" x2="100" y2="340"/>
+          <line x1="200" y1="0" x2="200" y2="340"/>
+          <line x1="300" y1="0" x2="300" y2="340"/>
+          <line x1="400" y1="0" x2="400" y2="340"/>
+          <line x1="500" y1="0" x2="500" y2="340"/>
+          <line x1="0" y1="100" x2="600" y2="100"/>
+          <line x1="0" y1="200" x2="600" y2="200"/>
+        </g>
+        <g stroke="rgba(93,168,156,0.55)" stroke-width="1.5" fill="none" stroke-linecap="round">
+          <path d="M100 220 L200 220 L200 140 L400 140 L400 100 L500 100"/>
+        </g>
+        <circle cx="100" cy="220" r="5" fill="#5DA89C"/>
+        <circle cx="500" cy="100" r="5" fill="#5DA89C"/>
+        <text x="24" y="316" font-family="JetBrains Mono, monospace" font-size="10" fill="rgba(245,240,228,0.4)" letter-spacing="2">ADOPTION · 03</text>
+      </svg>
+      <div class="card-body">
+        <div class="card-meta"><span class="tag">Adoption</span><span>·</span><span>Nov 17, 2025</span></div>
+        <h3 class="card-title">Business First, Technology Second: a smarter way to adopt AI</h3>
+        <p class="card-excerpt">Most AI initiatives start with the wrong question. Better to ask where the organization is experiencing friction.</p>
+        <div class="card-foot">
+          <span class="author"><span class="author-photo"></span><span class="author-name">Mike Bayes</span></span>
+          <span>4 min read</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+</body>
+</html>

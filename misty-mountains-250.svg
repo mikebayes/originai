@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250" width="250" height="250">
+  <defs>
+    <!-- Atmospheric sky/mist gradient: cool gray-blue at top fading down -->
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#bccaca"/>
+      <stop offset="55%" stop-color="#8b9a99"/>
+      <stop offset="100%" stop-color="#6c7977"/>
+    </linearGradient>
+
+    <!-- Soft white glow simulating diffuse sunlight in upper-right -->
+    <radialGradient id="sun" cx="0.62" cy="0.18" r="0.45">
+      <stop offset="0%"  stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="45%" stop-color="#ffffff" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Misty fog overlay near the base of each ridge -->
+    <linearGradient id="fog" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#bccaca" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#bccaca" stop-opacity="0.55"/>
+    </linearGradient>
+
+    <!-- Each ridge gets its own gradient, darker toward the foreground -->
+    <linearGradient id="ridge1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7c8b8a"/>
+      <stop offset="100%" stop-color="#637270"/>
+    </linearGradient>
+    <linearGradient id="ridge2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5a6967"/>
+      <stop offset="100%" stop-color="#414f4c"/>
+    </linearGradient>
+    <linearGradient id="ridge3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a4744"/>
+      <stop offset="100%" stop-color="#293432"/>
+    </linearGradient>
+    <linearGradient id="ridge4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#222b29"/>
+      <stop offset="100%" stop-color="#161d1c"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky / atmosphere -->
+  <rect width="250" height="250" fill="url(#sky)"/>
+  <rect width="250" height="250" fill="url(#sun)"/>
+
+  <!-- Furthest ridge: gentle distant peaks, faded into mist -->
+  <path d="M 0 130 L 20 118 L 45 124 L 75 108 L 110 116 L 140 102 L 175 112 L 210 100 L 240 110 L 250 105 L 250 250 L 0 250 Z"
+        fill="url(#ridge1)" opacity="0.85"/>
+  <rect x="0" y="100" width="250" height="80" fill="url(#fog)" opacity="0.7"/>
+
+  <!-- Middle ridge: more defined silhouette -->
+  <path d="M 0 165 L 25 148 L 55 158 L 90 138 L 130 152 L 165 135 L 205 150 L 235 140 L 250 145 L 250 250 L 0 250 Z"
+        fill="url(#ridge2)" opacity="0.95"/>
+  <rect x="0" y="135" width="250" height="70" fill="url(#fog)" opacity="0.45"/>
+
+  <!-- Closer ridge: sharper -->
+  <path d="M 0 195 L 30 178 L 65 188 L 100 168 L 135 182 L 170 162 L 205 178 L 240 168 L 250 175 L 250 250 L 0 250 Z"
+        fill="url(#ridge3)"/>
+
+  <!-- Foreground: deep dark with subtle texture suggestion -->
+  <path d="M 0 220 L 35 205 L 70 215 L 110 198 L 145 210 L 180 195 L 215 208 L 250 200 L 250 250 L 0 250 Z"
+        fill="url(#ridge4)"/>
+
+  <!-- Very subtle grain on foreground for texture -->
+  <g opacity="0.18" fill="#0a0f0e">
+    <circle cx="65" cy="232" r="0.6"/>
+    <circle cx="120" cy="225" r="0.6"/>
+    <circle cx="180" cy="230" r="0.6"/>
+    <circle cx="40" cy="240" r="0.6"/>
+    <circle cx="210" cy="220" r="0.6"/>
+    <circle cx="95" cy="235" r="0.6"/>
+  </g>
+</svg>

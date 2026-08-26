@@ -21,6 +21,16 @@ const nextConfig: NextConfig = {
         destination: "/insights",
         permanent: true,
       },
+
+      // Legacy Framer slug for the "Business First, Technology Second"
+      // article. Framer encoded the comma-space as a period in the URL,
+      // so the old indexed URL has a literal period before the dash.
+      // The new Next.js slug drops it. 301 the old form to the new.
+      {
+        source: "/insights/business-first-technology-second.-a-smarter-way-to-adopt-ai",
+        destination: "/insights/business-first-technology-second-a-smarter-way-to-adopt-ai",
+        permanent: true,
+      },
     ];
   },
 };
