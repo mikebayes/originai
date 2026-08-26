@@ -47,6 +47,18 @@ export default function DraftLeadershipEnablementPage() {
         </div>
 
         <div className="bp-hero-shell">
+          {/* TODO (launch task, NOT draft-scoped): the Services dropdown
+              labels live in components/NavServicesDropdown.tsx and
+              components/NavServicesAccordion.tsx, which are shared by
+              HeroNav and the global StickyNav (mounted in app/layout.tsx).
+              They cannot be changed for this draft without affecting every
+              live page. When the repositioning ships, update the shared
+              components in one pass:
+                "AI Software & Systems"  -> "AI Workflow Development"
+                "AI Strategy & Training" -> "Leadership AI Enablement"
+                "Managed AI"             -> "Managed AI Improvement"
+                + add 4th item: "Team AI Enablement / AI Training"
+                  linking to /services/ai-training */}
           <HeroNav />
 
           {/* ─── SECTION 1: HERO ─────────────────────────────────── */}
@@ -531,7 +543,7 @@ export default function DraftLeadershipEnablementPage() {
                 <span className="dot" />
                 Talk to us
               </div>
-              <h2>Ready to get clear on AI?</h2>
+              <h2>Ready to align your team around AI?</h2>
               <p>
                 Let&rsquo;s talk about your leadership team, your people, and
                 where AI should fit.
