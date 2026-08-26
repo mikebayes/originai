@@ -6618,3 +6618,201 @@
     padding: 52px 0 44px;
   }
 }
+
+/* ─── Draft build update 4: business-facing reframe ───────────────────
+   Three new section treatments:
+     .bp-origin   — 3 "where build starts" cards, one is a link
+     .bp-domains  — 6 business-domain cards, the page's visual anchor
+     .bp-forms    — 5 "what form" cards, deliberately lighter so they
+                    do not outweigh the business framing above
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Where build starts ──────────────────────────────────────────── */
+.bp-page--workflow .bp-origin {
+  padding: 76px 0 56px;
+}
+.bp-page .bp-origin-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+.bp-page .bp-origin-cell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px 24px 22px;
+  border: 1px solid rgba(245, 240, 228, 0.08);
+  border-radius: 14px;
+  background: linear-gradient(
+    170deg,
+    rgba(245, 240, 228, 0.025) 0%,
+    rgba(245, 240, 228, 0) 100%
+  );
+  text-decoration: none;
+}
+.bp-page .bp-origin-cell.is-link {
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.bp-page .bp-origin-cell.is-link:hover {
+  border-color: rgba(93, 168, 156, 0.45);
+  transform: translateY(-2px);
+}
+.bp-page .bp-origin-mark {
+  width: 22px;
+  height: 2px;
+  background: rgba(93, 168, 156, 0.85);
+  margin-bottom: 4px;
+}
+.bp-page .bp-origin-cell h3 {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 600;
+  font-size: 16.5px;
+  line-height: 1.35;
+  color: rgba(245, 240, 228, 0.95);
+  margin: 0;
+}
+.bp-page .bp-origin-cell p {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(245, 240, 228, 0.58);
+  margin: 0;
+  flex: 1 1 auto;
+}
+.bp-page .bp-origin-link {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: rgba(93, 168, 156, 1);
+  margin-top: 8px;
+}
+
+/* ── The work we can help improve (page anchor) ──────────────────── */
+.bp-page--workflow .bp-domains {
+  padding: 76px 0 80px;
+  background:
+    radial-gradient(120% 100% at 50% 0%, rgba(93, 168, 156, 0.045) 0%, rgba(93, 168, 156, 0) 65%);
+}
+.bp-page .bp-domain-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 44px;
+}
+.bp-page .bp-domain-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 30px 28px 28px;
+  border: 1px solid rgba(245, 240, 228, 0.1);
+  border-radius: 16px;
+  background: linear-gradient(
+    165deg,
+    rgba(245, 240, 228, 0.04) 0%,
+    rgba(245, 240, 228, 0) 100%
+  );
+  transition: border-color 0.2s ease;
+}
+.bp-page .bp-domain-cell:hover {
+  border-color: rgba(93, 168, 156, 0.4);
+}
+.bp-page .bp-domain-rule {
+  width: 30px;
+  height: 2px;
+  background: rgba(93, 168, 156, 0.9);
+}
+.bp-page .bp-domain-cell h3 {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.3;
+  color: rgba(245, 240, 228, 0.97);
+  margin: 0;
+}
+.bp-page .bp-domain-cell p {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14.5px;
+  line-height: 1.62;
+  color: rgba(245, 240, 228, 0.62);
+  margin: 0;
+}
+
+/* ── What we build (secondary, lighter) ─────────────────────────── */
+.bp-page--workflow .bp-forms {
+  padding: 64px 0 68px;
+}
+.bp-page .bp-forms-head {
+  max-width: 720px;
+}
+.bp-page .bp-forms-h2 {
+  margin-top: 20px;
+  font-size: clamp(24px, 2.4vw, 31px);
+}
+.bp-page .bp-forms-lede {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: rgba(245, 240, 228, 0.6);
+  margin: 14px 0 0;
+}
+.bp-page .bp-form-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 36px;
+  border: 1px solid rgba(245, 240, 228, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(245, 240, 228, 0.08);
+}
+.bp-page .bp-form-cell {
+  padding: 22px 20px;
+  background: #0a0f0e;
+}
+.bp-page .bp-form-cell h3 {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 600;
+  font-size: 15.5px;
+  color: rgba(245, 240, 228, 0.92);
+  margin: 0 0 7px;
+}
+.bp-page .bp-form-cell p {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: rgba(245, 240, 228, 0.55);
+  margin: 0;
+}
+
+@media (max-width: 1100px) {
+  .bp-page .bp-domain-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .bp-page .bp-form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 900px) {
+  .bp-page .bp-origin-grid,
+  .bp-page .bp-domain-grid,
+  .bp-page .bp-form-grid {
+    grid-template-columns: 1fr;
+  }
+  .bp-page .bp-origin-grid,
+  .bp-page .bp-domain-grid {
+    gap: 16px;
+  }
+  .bp-page--workflow .bp-origin,
+  .bp-page--workflow .bp-domains,
+  .bp-page--workflow .bp-forms {
+    padding: 52px 0 48px;
+  }
+  .bp-page .bp-domain-cell {
+    padding: 24px 22px;
+  }
+  .bp-page .bp-domain-cell h3 {
+    font-size: 18px;
+  }
+}
