@@ -78,18 +78,16 @@ export default function DraftServicesPage() {
                 <span className="bar" />Services
               </div>
               <h1 className="s-hero-h1">
-                How we help companies{" "}
-                <span className="muted">put AI to work.</span>
+                AI services for companies{" "}
+                <span className="muted">moving from interest to adoption.</span>
               </h1>
               <p className="s-hero-sub">
-                Origin helps organizations move from AI interest to adoption
-                through leadership enablement, team AI training, workflow
-                development, and ongoing improvement.
+                Origin helps organizations adopt AI through leadership
+                alignment, team training, workflow development, and ongoing
+                improvement.
               </p>
               <p className="s-hero-sub s-hero-sub--secondary">
-                Based in Winnipeg, we work with organizations across Canada to
-                help leaders, teams, and workflows use AI with more clarity
-                and consistency.
+                Based in Winnipeg, we work with organizations across Canada.
               </p>
             </div>
 
@@ -157,8 +155,8 @@ export default function DraftServicesPage() {
             </div>
             <p className="s-lede">
               Some organizations need leadership alignment. Some need team
-              training. Some are ready to improve a workflow or build a tool.
-              Origin helps across that path.
+              training. Some need help turning a workflow opportunity into
+              something their team can use. Origin helps across that path.
             </p>
           </div>
 
@@ -177,8 +175,8 @@ export default function DraftServicesPage() {
                 <h3 className="svc-card-title">Leadership AI Enablement</h3>
                 <p className="svc-card-promise">
                   Align your leadership team around where AI fits, what
-                  standards matter, and which opportunities are worth
-                  pursuing first.
+                  standards matter, and which opportunities should move
+                  first.
                 </p>
                 <div className="svc-card-foot">
                   <a href="/services/strategy" className="tlink">
@@ -230,8 +228,8 @@ export default function DraftServicesPage() {
                 <h3 className="svc-card-title">AI Workflow Development</h3>
                 <p className="svc-card-promise">
                   Turn the right opportunities into assistants, automations,
-                  integrations, workflow tools, or custom software where it is
-                  worth keeping.
+                  integrations, workflow tools, or custom software when the
+                  workflow is worth keeping.
                 </p>
                 <div className="svc-card-foot">
                   <a href="/services/build" className="tlink">
@@ -335,10 +333,12 @@ export default function DraftServicesPage() {
                   <span className="phase-dot" />
                   <span className="phase-num">Develop</span>
                 </div>
-                <h3 className="phase-name">Turn workflows into tools.</h3>
+                <h3 className="phase-name">
+                  Operationalize the right workflow.
+                </h3>
                 <p className="phase-body">
-                  When a workflow is worth operationalizing, build the
-                  assistant, automation, integration, or tool to support it.
+                  When a workflow is worth keeping, we build the assistant,
+                  automation, integration, or tool to support it.
                 </p>
                 <div className="phase-deliver">
                   <span className="label">Leave with</span>
@@ -375,8 +375,8 @@ export default function DraftServicesPage() {
             <div>
               <span className="s-eyebrow">Where clients start</span>
               <h2 className="s-h2">
-                Different teams need{" "}
-                <span className="muted">different starting points.</span>
+                You do not need to know{" "}
+                <span className="muted">exactly where to start.</span>
               </h2>
             </div>
             <p className="s-lede">
