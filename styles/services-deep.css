@@ -6146,3 +6146,99 @@
   font-size: 13.5px;
   line-height: 1.5;
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   DRAFT LEADERSHIP AI ENABLEMENT PAGE (/draft/services/strategy).
+   Small additions on top of the existing bp-page--strategy system.
+   Promote or delete when the draft ships.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Internal draft banner for bp-pages (mirrors .svcs-v2 .draft-banner) */
+.bp-page .draft-banner {
+  position: relative;
+  z-index: 50;
+  text-align: center;
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(93, 168, 156, 0.85);
+  background: rgba(93, 168, 156, 0.08);
+  border-bottom: 1px solid rgba(93, 168, 156, 0.25);
+  padding: 8px 16px;
+}
+.bp-page--strategy .draft-banner {
+  color: rgba(150, 133, 96, 0.95);
+  background: rgba(150, 133, 96, 0.08);
+  border-bottom-color: rgba(150, 133, 96, 0.3);
+}
+
+/* Quieter secondary hero sentence on bp heroes */
+.bp-page .bp-hero-sub--secondary {
+  margin-top: 12px;
+  font-size: 16px;
+  color: rgba(245, 240, 228, 0.55);
+}
+
+/* CTA row under the training list */
+.bp-page .bp-training-cta {
+  margin-top: 32px;
+}
+
+/* Next-step link cards under "Where this leads" */
+.bp-page .bp-next-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 44px;
+}
+.bp-page .bp-next-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 26px 26px 22px;
+  border: 1px solid rgba(245, 240, 228, 0.1);
+  border-radius: 14px;
+  background: linear-gradient(170deg, rgba(245, 240, 228, 0.03) 0%, rgba(245, 240, 228, 0) 100%);
+  text-decoration: none;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.bp-page .bp-next-card:hover {
+  border-color: rgba(150, 133, 96, 0.5);
+  transform: translateY(-2px);
+}
+.bp-page .bp-next-label {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(150, 133, 96, 0.9);
+}
+.bp-page .bp-next-card h3 {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 600;
+  font-size: 19px;
+  color: rgba(245, 240, 228, 0.95);
+  margin: 0;
+}
+.bp-page .bp-next-card p {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: rgba(245, 240, 228, 0.6);
+  margin: 0;
+  flex: 1 1 auto;
+}
+.bp-page .bp-next-link {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(150, 133, 96, 1);
+  margin-top: 6px;
+}
+@media (max-width: 900px) {
+  .bp-page .bp-next-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
