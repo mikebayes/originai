@@ -12,10 +12,15 @@ node_modules/
 coverage/
 
 # Next.js
-.next/
-out/
-build/
-dist/
+# NOTE: these are anchored with a leading slash so they only match the
+# build output directories at the repository root. Unanchored patterns
+# (e.g. "build/") match a directory of that name at ANY depth, which
+# silently ignored app/services/build and app/draft/services/build and
+# caused a 404 on a deployed route.
+/.next/
+/out/
+/build/
+/dist/
 
 # Misc
 .DS_Store
