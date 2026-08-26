@@ -56,13 +56,17 @@ export const metadata: Metadata = {
 void EVENTUAL_SEO_TITLE;
 void EVENTUAL_SEO_DESCRIPTION;
 
-/* Visual placeholder block. Same pattern used on the other drafts. */
-function Placeholder({ label, note }: { label: string; note: string }) {
+/**
+ * Visual placeholder slot.
+ *
+ * Renders a short, neutral label only. Detailed art direction stays in
+ * code comments at each call site so internal instructions never appear
+ * as customer-facing page text.
+ */
+function Placeholder({ label }: { label: string }) {
   return (
-    <div className="ph-visual" aria-hidden="true">
-      <span className="ph-tag">Visual placeholder</span>
-      <span className="ph-label">{label}</span>
-      <span className="ph-note">{note}</span>
+    <div className="ph-slot" aria-hidden="true">
+      <span className="ph-slot-label">{label}</span>
     </div>
   );
 }
@@ -70,7 +74,10 @@ function Placeholder({ label, note }: { label: string; note: string }) {
 export default function DraftWorkflowDevelopmentPage() {
   return (
     <main>
-      <div className="bp-page">
+      {/* bp-page--workflow carries the per-page grid overrides (2x2 for
+          the four "When this fits" cards) so this page does not inherit
+          the default 3-col grid and leave an orphan card in row 2. */}
+      <div className="bp-page bp-page--workflow">
         <div className="bp-grain" aria-hidden="true" />
 
         {/* Internal draft banner. Delete when this page goes live. */}
@@ -112,13 +119,7 @@ export default function DraftWorkflowDevelopmentPage() {
             <p className="bp-hero-sub">
               Origin turns defined workflow opportunities into AI-enabled
               tools, assistants, automations, integrations, and custom
-              software where the work is worth keeping.
-            </p>
-
-            <p className="bp-hero-sub bp-hero-sub--secondary">
-              This is not about adding AI for its own sake. It is about
-              improving the way information moves, decisions get made, and
-              work gets completed.
+              software when the work is worth keeping.
             </p>
 
             <div className="bp-hero-actions">
@@ -151,14 +152,17 @@ export default function DraftWorkflowDevelopmentPage() {
           </section>
         </div>
 
-        {/* Hero visual placeholder. Sits between the hero band and the
-            first body section so it reads as the page's product shot. */}
+        {/* Hero visual slot. Sits between the hero band and the first body
+            section so it reads as the page's product shot.
+
+            ART DIRECTION (internal, do not render as page text):
+            A product-style visual showing a workflow with documents,
+            decisions, approvals, or workflow steps with AI support embedded
+            inside the process. Not a generic chatbot. Not generic AI
+            sparkles. */}
         <div className="bp-hero-visual" data-screen-label="Hero visual">
           <div className="wrap">
-            <Placeholder
-              label="AI workflow tool / assistant interface"
-              note="Product-style interface showing documents, decisions, approvals, or workflow steps with AI support embedded inside the process. Not a generic chatbot, no AI sparkles."
-            />
+            <Placeholder label="Workflow visual" />
           </div>
         </div>
 
