@@ -3,45 +3,40 @@ import HeroNav from "@/components/HeroNav";
 import Footer from "@/components/Footer";
 
 /**
- * /draft/services/build — DRAFT repositioning of the AI Software
- * Development page into AI Workflow Development.
+ * /draft/services/build — DRAFT AI Workflow Development page.
  *
  * INTERNAL REVIEW ONLY. Not linked from nav, not in the sitemap,
  * noindex/nofollow. The live /services/build route is untouched.
  *
- * Positioning shift: away from "tell us what app you want and we will
- * build it" toward "when a workflow is worth improving, Origin turns it
- * into a tool people can actually use." Custom AI software is one
- * possible output, not the identity. AI agents are one pattern, not the
- * lead. Workflow development is framed as a step that usually follows
- * leadership enablement, team training, or workflow discovery.
+ * Update 3 (compression pass): reduced from eight sections to six and
+ * cut copy volume roughly in half. Card bodies are one sentence. No
+ * section carries more than a heading plus a one-line intro.
  *
- * Sections:
- *   1. Hero (+ product-style visual placeholder)
- *   2. When this fits
- *   3. What we build (six directions)
- *   4. How it works (four steps)
- *   5. What lands at delivery (six cards)
- *   6. Common patterns (five cards)
- *   7. Where this fits in the Origin model (three next-step cards)
- *   8. CTA
+ *   1. Hero
+ *   2. When this fits (4 cards, 2x2)
+ *   3. What we build (6 compact cards)
+ *   4. How it works (4 steps + workflow visual)
+ *   5. What you get (4 cards)
+ *   6. CTA
  *
- * Rides the existing bp-page design system, plus the bp-steps /
- * bp-next-grid / ph-visual patterns added for the other drafts.
+ * Removed in update 3: "Common patterns" (5 cards), "Where this fits"
+ * with the three cross-service cards, the standalone hero visual band,
+ * the six-card delivery list (now four), and the hero's second
+ * explanatory paragraph.
  *
- * TODO (launch task, NOT draft-scoped): the Services dropdown labels
- * live in components/NavServicesDropdown.tsx and
- * components/NavServicesAccordion.tsx, shared by HeroNav and the global
- * StickyNav, so they cannot change for this draft without affecting
- * every live page. When the repositioning ships, update both:
+ * Positioning holds: workflow-first, not software-first. Custom AI
+ * software is one of six possible outputs, not the identity.
+ *
+ * TODO (launch task, NOT draft-scoped): Services dropdown labels live in
+ * components/NavServicesDropdown.tsx and NavServicesAccordion.tsx, shared
+ * by HeroNav and the global StickyNav. When the repositioning ships:
  *   "AI Software & Systems"  -> "AI Workflow Development"
  *   "AI Strategy & Training" -> "Leadership AI Enablement"
  *   "Managed AI"             -> "Managed AI Improvement"
  *   + add 4th item: "Team AI Enablement / AI Training" -> /services/ai-training
  */
 
-/* ─── EVENTUAL SEO (for review, NOT active while draft) ──────────────
-   Location language lives here and in the footer, not in hero copy.   */
+/* ─── EVENTUAL SEO (for review, NOT active while draft) ─────────────── */
 const EVENTUAL_SEO_TITLE =
   "Custom AI Software Winnipeg | AI Workflow Development | Origin AI";
 const EVENTUAL_SEO_DESCRIPTION =
@@ -56,27 +51,12 @@ export const metadata: Metadata = {
 void EVENTUAL_SEO_TITLE;
 void EVENTUAL_SEO_DESCRIPTION;
 
-/**
- * Visual placeholder slot.
- *
- * Renders a short, neutral label only. Detailed art direction stays in
- * code comments at each call site so internal instructions never appear
- * as customer-facing page text.
- */
-function Placeholder({ label }: { label: string }) {
-  return (
-    <div className="ph-slot" aria-hidden="true">
-      <span className="ph-slot-label">{label}</span>
-    </div>
-  );
-}
-
 export default function DraftWorkflowDevelopmentPage() {
   return (
     <main>
-      {/* bp-page--workflow carries the per-page grid overrides (2x2 for
-          the four "When this fits" cards) so this page does not inherit
-          the default 3-col grid and leave an orphan card in row 2. */}
+      {/* bp-page--workflow carries the per-page grid overrides so the
+          four-card sections render 2x2 instead of inheriting the default
+          3-col grid and orphaning a card. */}
       <div className="bp-page bp-page--workflow">
         <div className="bp-grain" aria-hidden="true" />
 
@@ -114,8 +94,8 @@ export default function DraftWorkflowDevelopmentPage() {
               <span className="accent">workflows that matter.</span>
             </h1>
 
-            {/* Location language is handled in SEO metadata and the footer,
-                not repeated in every service-page hero. */}
+            {/* One subheadline only. Location language lives in SEO
+                metadata and the footer, not in hero copy. */}
             <p className="bp-hero-sub">
               Origin turns defined workflow opportunities into AI-enabled
               tools, assistants, automations, integrations, and custom
@@ -135,7 +115,7 @@ export default function DraftWorkflowDevelopmentPage() {
             <div className="bp-hero-footer">
               <div className="bp-hero-foot-col">
                 <div className="k">Engagement</div>
-                <div className="v">4–16 weeks, depending on scope</div>
+                <div className="v">4–16 weeks</div>
               </div>
               <div className="bp-hero-foot-col">
                 <div className="k">Best fit</div>
@@ -152,24 +132,10 @@ export default function DraftWorkflowDevelopmentPage() {
           </section>
         </div>
 
-        {/* Hero visual slot. Sits between the hero band and the first body
-            section so it reads as the page's product shot.
-
-            ART DIRECTION (internal, do not render as page text):
-            A product-style visual showing a workflow with documents,
-            decisions, approvals, or workflow steps with AI support embedded
-            inside the process. Not a generic chatbot. Not generic AI
-            sparkles. */}
-        <div className="bp-hero-visual" data-screen-label="Hero visual">
-          <div className="wrap">
-            <Placeholder label="Workflow visual" />
-          </div>
-        </div>
-
         <div className="bp-fade-down" aria-hidden="true" />
 
         {/* ─── SECTION 2: WHEN THIS FITS ─────────────────────────── */}
-        <section className="bp-fit" data-screen-label="When this fits">
+        <section className="bp-fit bp-fit--compact" data-screen-label="When this fits">
           <div className="wrap">
             <div className="bp-fit-head">
               <div className="eyebrow">
@@ -181,30 +147,28 @@ export default function DraftWorkflowDevelopmentPage() {
                 <span className="muted">Now it needs to work better.</span>
               </h2>
               <p className="section-lede">
-                AI Workflow Development is for organizations that have
-                identified a workflow, process, or recurring decision that is
-                too manual, too inconsistent, too slow, or too dependent on a
-                few people.
+                AI Workflow Development is for work that is too manual, too
+                inconsistent, too slow, or too dependent on a few people.
               </p>
             </div>
 
             <div className="bp-fit-grid">
               {[
                 [
-                  "The work is repetitive, but not simple.",
-                  "People repeat the same judgment, review, or synthesis work, but the task still needs context and human oversight.",
+                  "Repetitive, but not simple",
+                  "The work repeats often, but still needs context, judgment, or review.",
                 ],
                 [
-                  "Information lives in too many places.",
+                  "Information is scattered",
                   "The workflow depends on documents, spreadsheets, emails, systems, or policies that do not connect cleanly.",
                 ],
                 [
-                  "The handoffs create delays or rework.",
-                  "Work moves across people, departments, or tools, and every handoff adds friction.",
+                  "Handoffs slow things down",
+                  "Work moves across people, departments, or tools, creating delays and rework.",
                 ],
                 [
-                  "A pilot or training use case is ready to become a workflow.",
-                  "A useful AI idea has emerged, but it needs structure, ownership, and a usable interface.",
+                  "A use case is ready to grow",
+                  "A pilot, training example, or AI idea needs structure, ownership, and a usable interface.",
                 ],
               ].map(([h, sub], i) => (
                 <div className="bp-fit-cell" key={i}>
@@ -220,16 +184,7 @@ export default function DraftWorkflowDevelopmentPage() {
           </div>
         </section>
 
-        <div className="wrap">
-          <div className="chapter-rule">
-            <span className="pill-marker">
-              <span className="dot" />
-              What we build
-            </span>
-          </div>
-        </div>
-
-        {/* ─── SECTION 3: WHAT WE BUILD (six directions) ─────────── */}
+        {/* ─── SECTION 3: WHAT WE BUILD ──────────────────────────── */}
         <section className="bp-work" data-screen-label="What we build">
           <div className="wrap">
             <div className="bp-work-head">
@@ -240,13 +195,13 @@ export default function DraftWorkflowDevelopmentPage() {
                 </div>
                 <h2 className="section-h2" style={{ marginTop: 24 }}>
                   AI-enabled workflows,{" "}
-                  <span className="muted">not AI bolted onto the side.</span>
+                  <span className="muted">not AI on the side.</span>
                 </h2>
               </div>
               <p className="section-lede lede">
-                The right solution depends on the workflow. Sometimes it is an
-                assistant. Sometimes it is an automation. Sometimes it is an
-                internal tool or custom software. The build follows the work.
+                The build follows the work. Sometimes the right answer is an
+                assistant. Sometimes it is an automation, integration,
+                internal tool, or custom software.
               </p>
             </div>
 
@@ -259,13 +214,13 @@ export default function DraftWorkflowDevelopmentPage() {
                 ],
                 [
                   "02",
-                  "Document and knowledge tools",
-                  "Tools that help teams summarize, compare, search, review, or draft from business content.",
+                  "Document tools",
+                  "Summarize, compare, review, extract, or draft from business content.",
                 ],
                 [
                   "03",
-                  "Workflow automations",
-                  "Automations that move information, prepare outputs, route work, or reduce repetitive handoffs.",
+                  "Automations",
+                  "Move information, prepare outputs, route work, or reduce repetitive handoffs.",
                 ],
                 [
                   "04",
@@ -275,12 +230,12 @@ export default function DraftWorkflowDevelopmentPage() {
                 [
                   "05",
                   "Integrations",
-                  "Connections between existing tools, data, documents, and workflows.",
+                  "Connect existing tools, data, documents, and workflows.",
                 ],
                 [
                   "06",
                   "Custom AI software",
-                  "Custom software when the workflow is valuable enough to own and operate directly.",
+                  "Custom software when the workflow is valuable enough to own directly.",
                 ],
               ].map(([num, title, body]) => (
                 <div className="bp-build-cell" key={num}>
@@ -293,7 +248,7 @@ export default function DraftWorkflowDevelopmentPage() {
           </div>
         </section>
 
-        {/* ─── SECTION 4: HOW IT WORKS (four steps) ──────────────── */}
+        {/* ─── SECTION 4: HOW IT WORKS ───────────────────────────── */}
         <section className="bp-howitworks" data-screen-label="How it works">
           <div className="wrap">
             <div className="bp-work-head">
@@ -308,215 +263,110 @@ export default function DraftWorkflowDevelopmentPage() {
                 </h2>
               </div>
               <p className="section-lede lede">
-                We do not start by assuming software is the answer. We start
-                by defining the workflow, the users, the inputs, the risks,
-                and the outcome the tool needs to support.
+                We define the workflow first, then build only what the
+                workflow needs.
               </p>
             </div>
 
-            <div className="bp-steps bp-steps--four">
-              {[
-                [
-                  "01",
-                  "Define",
-                  "Clarify the workflow, users, inputs, outputs, decisions, and success criteria.",
-                ],
-                [
-                  "02",
-                  "Prototype",
-                  "Create a focused first version that proves whether the workflow can be improved.",
-                ],
-                [
-                  "03",
-                  "Build",
-                  "Develop the assistant, automation, integration, tool, or software around the validated workflow.",
-                ],
-                [
-                  "04",
-                  "Launch",
-                  "Support rollout, user adoption, documentation, and early improvements.",
-                ],
-              ].map(([num, title, body]) => (
-                <div className="bp-step" key={num}>
-                  <span className="bp-step-num">{num}</span>
-                  <h3>{title}</h3>
-                  <p>{body}</p>
-                </div>
-              ))}
+            {/* Steps on the left, workflow visual on the right at desktop.
+                Stacks on mobile.
+
+                ART DIRECTION (internal, do not render as page text):
+                A product-style visual showing workflow steps, documents,
+                decisions, approvals, or handoffs with AI support embedded
+                inside the process. */}
+            <div className="bp-flow-grid">
+              <ol className="bp-flow-steps">
+                {[
+                  [
+                    "01",
+                    "Define",
+                    "Clarify the users, inputs, outputs, decisions, risks, and success criteria.",
+                  ],
+                  [
+                    "02",
+                    "Prototype",
+                    "Create a focused first version to prove the workflow can improve.",
+                  ],
+                  [
+                    "03",
+                    "Build",
+                    "Develop the assistant, automation, integration, tool, or software around the validated workflow.",
+                  ],
+                  [
+                    "04",
+                    "Launch",
+                    "Support rollout, user adoption, documentation, and early improvements.",
+                  ],
+                ].map(([num, title, body]) => (
+                  <li className="bp-flow-step" key={num}>
+                    <span className="bp-flow-num">{num}</span>
+                    <div>
+                      <h3>{title}</h3>
+                      <p>{body}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+
+              <div className="ph-slot ph-slot--flow" aria-hidden="true">
+                <span className="ph-slot-label">Workflow visual</span>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ─── SECTION 5: WHAT LANDS AT DELIVERY ─────────────────── */}
-        <section className="bp-outputs" data-screen-label="What lands">
+        {/* ─── SECTION 5: WHAT YOU GET ───────────────────────────── */}
+        <section className="bp-fit bp-fit--compact" data-screen-label="What you get">
           <div className="wrap">
-            <div className="bp-outputs-head">
-              <div>
-                <div className="eyebrow">
-                  <span className="bar" />
-                  What lands
-                </div>
-                <h2 className="section-h2" style={{ marginTop: 24 }}>
-                  A workflow{" "}
-                  <span className="muted">your team can use.</span>
-                </h2>
+            <div className="bp-fit-head">
+              <div className="eyebrow">
+                <span className="bar" />
+                What you get
               </div>
-              <p className="section-lede lede">
-                The output is not a demo or a deck. It is something your team
-                can use, review, improve, and own.
+              <h2 className="section-h2" style={{ marginTop: 24 }}>
+                A workflow{" "}
+                <span className="muted">your team can use.</span>
+              </h2>
+              <p className="section-lede">
+                The output should be something people can use, review,
+                improve, and own.
               </p>
             </div>
 
-            <div className="bp-outputs-list">
+            <div className="bp-fit-grid">
               {[
                 [
-                  "01",
-                  "A working tool or workflow",
+                  "Working workflow",
                   "A deployed assistant, automation, integration, internal tool, or software workflow.",
                 ],
                 [
-                  "02",
-                  "Human review where it matters",
+                  "Human review",
                   "Clear points for review, approval, override, and accountability.",
                 ],
                 [
-                  "03",
-                  "Integration with the work around it",
-                  "Connection to the documents, systems, data, and processes the workflow depends on.",
+                  "Launch support",
+                  "Training, documentation, and support so the team knows how to use it.",
                 ],
                 [
-                  "04",
-                  "Training and launch support",
-                  "Support so the people using it understand what it does, where it helps, and where judgment remains.",
-                ],
-                [
-                  "05",
-                  "Documentation and ownership",
-                  "Clear operating notes, assumptions, risks, and maintenance considerations.",
-                ],
-                [
-                  "06",
                   "Improvement path",
                   "A clear view of what should be refined, expanded, or monitored after launch.",
                 ],
-              ].map(([num, h, p]) => (
-                <div className="bp-output-row" key={num}>
-                  <div className="num">{num}</div>
-                  <div>
-                    <h3>{h}</h3>
-                    <p>{p}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ─── SECTION 6: COMMON PATTERNS ────────────────────────── */}
-        <section className="bp-patterns" data-screen-label="Common patterns">
-          <div className="wrap">
-            <div className="bp-work-head">
-              <div>
-                <div className="eyebrow">
-                  <span className="bar" />
-                  Common patterns
-                </div>
-                <h2 className="section-h2" style={{ marginTop: 24 }}>
-                  Patterns{" "}
-                  <span className="muted">we see often.</span>
-                </h2>
-              </div>
-              <p className="section-lede lede">
-                Every build is different, but many useful AI workflow projects
-                fall into recognizable patterns.
-              </p>
-            </div>
-
-            <div className="bp-pattern-grid">
-              {[
-                [
-                  "Replacing a duct-taped workflow",
-                  "One workflow currently depends on multiple apps, spreadsheets, messages, and manual checks.",
-                ],
-                [
-                  "Reviewing documents faster",
-                  "Teams need to summarize, compare, assess, or extract information from recurring documents.",
-                ],
-                [
-                  "Supporting internal decisions",
-                  "People need better synthesis across data, documents, policies, or prior work before making a decision.",
-                ],
-                [
-                  "Creating a knowledge assistant",
-                  "Teams need faster access to trusted internal knowledge, policies, procedures, or client information.",
-                ],
-                [
-                  "Turning a training use case into a tool",
-                  "A team finds a repeatable AI use case during training and wants to make it easier to use consistently.",
-                ],
-              ].map(([h, p], i) => (
-                <div className="bp-pattern-cell" key={i}>
-                  <span className="bp-pattern-mark" aria-hidden="true" />
+              ].map(([h, sub], i) => (
+                <div className="bp-fit-cell" key={i}>
+                  <span className="bp-fit-mark" aria-hidden="true">
+                    <span className="dot" />
+                    <span className="bar" />
+                  </span>
                   <h3>{h}</h3>
-                  <p>{p}</p>
+                  <p>{sub}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ─── SECTION 7: WHERE THIS FITS ────────────────────────── */}
-        <section className="bp-bridge" data-screen-label="Where this fits">
-          <div className="wrap">
-            <div className="bp-bridge-head">
-              <div className="eyebrow">
-                <span className="bar" />
-                Where this fits
-              </div>
-              <h2 className="section-h2" style={{ marginTop: 24 }}>
-                Workflow development is usually{" "}
-                <span className="muted">not the first conversation.</span>
-              </h2>
-            </div>
-
-            <p className="bp-rail-statement">
-              Many clients reach this point after Leadership AI Enablement,
-              Team AI Training, or a focused workflow discovery conversation.
-              The goal is to build only when there is a workflow worth
-              improving and a team ready to use it.
-            </p>
-
-            <div className="bp-next-grid">
-              <a href="/services/strategy" className="bp-next-card">
-                <span className="bp-next-label">Before this</span>
-                <h3>Leadership AI Enablement</h3>
-                <p>Define priorities, standards, and what should move first.</p>
-                <span className="bp-next-link">
-                  Learn more <span className="arrow" aria-hidden="true">→</span>
-                </span>
-              </a>
-              <a href="/services/ai-training" className="bp-next-card">
-                <span className="bp-next-label">Before this</span>
-                <h3>Team AI Training</h3>
-                <p>Help staff use AI inside the work they already do.</p>
-                <span className="bp-next-link">
-                  Explore AI training{" "}
-                  <span className="arrow" aria-hidden="true">→</span>
-                </span>
-              </a>
-              <a href="/services/managed" className="bp-next-card">
-                <span className="bp-next-label">After this</span>
-                <h3>Managed AI Improvement</h3>
-                <p>Support and improve what gets adopted after launch.</p>
-                <span className="bp-next-link">
-                  Learn more <span className="arrow" aria-hidden="true">→</span>
-                </span>
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* ─── SECTION 8: CTA ────────────────────────────────────── */}
+        {/* ─── SECTION 6: CTA ────────────────────────────────────── */}
         <section className="bp-cta" data-screen-label="Final CTA" id="contact">
           <div className="wrap">
             <div className="bp-cta-inner">
@@ -527,7 +377,7 @@ export default function DraftWorkflowDevelopmentPage() {
               <h2>Have a workflow worth improving?</h2>
               <p>
                 Start with a 30-minute call. We&rsquo;ll talk through the
-                work, the people involved, and whether AI workflow development
+                work, the people involved, and whether AI Workflow Development
                 is the right next step.
               </p>
               <div className="bp-cta-actions">

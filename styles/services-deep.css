@@ -6514,3 +6514,107 @@
     min-height: 190px;
   }
 }
+
+/* ─── Draft build update 3: compression pass ─────────────────────────
+   Tighter section padding on the workflow page, a two-column
+   steps-plus-visual layout for "How it works", and compact fit cards.  */
+
+/* Compact variant of the fit section. Less vertical padding so the
+   4-card sections do not read as large article blocks. */
+.bp-page--workflow .bp-fit--compact {
+  padding: 76px 0 64px;
+}
+.bp-page--workflow .bp-fit--compact .bp-fit-grid {
+  margin-top: 40px;
+  gap: 18px;
+}
+.bp-page--workflow .bp-fit--compact .bp-fit-cell h3 {
+  font-size: 18px;
+}
+.bp-page--workflow .bp-fit--compact .bp-fit-cell p {
+  font-size: 14.5px;
+}
+
+/* Tighter build grid on the compressed page */
+.bp-page--workflow .bp-work {
+  padding-bottom: 64px;
+}
+.bp-page--workflow .bp-build-grid {
+  margin-top: 40px;
+}
+
+/* "How it works": steps left, visual right. Stacks on mobile. */
+.bp-page .bp-flow-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+  gap: 40px;
+  align-items: start;
+  margin-top: 44px;
+}
+.bp-page .bp-flow-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.bp-page .bp-flow-step {
+  display: flex;
+  gap: 18px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(245, 240, 228, 0.07);
+}
+.bp-page .bp-flow-step:last-child {
+  border-bottom: none;
+}
+.bp-page .bp-flow-num {
+  flex: 0 0 auto;
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: rgba(93, 168, 156, 0.9);
+  padding-top: 4px;
+}
+.bp-page .bp-flow-step h3 {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 600;
+  font-size: 19px;
+  color: rgba(245, 240, 228, 0.96);
+  margin: 0 0 6px;
+}
+.bp-page .bp-flow-step p {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: rgba(245, 240, 228, 0.6);
+  margin: 0;
+  max-width: 52ch;
+}
+
+/* In-section visual slot sits sticky-ish next to the steps */
+.bp-page .ph-slot--flow {
+  min-height: 100%;
+  align-self: stretch;
+  min-height: 340px;
+}
+
+.bp-page--workflow .bp-howitworks {
+  padding: 76px 0 72px;
+}
+
+@media (max-width: 1000px) {
+  .bp-page .bp-flow-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .bp-page .ph-slot--flow {
+    min-height: 200px;
+  }
+}
+@media (max-width: 900px) {
+  .bp-page--workflow .bp-fit--compact,
+  .bp-page--workflow .bp-howitworks {
+    padding: 52px 0 44px;
+  }
+}
