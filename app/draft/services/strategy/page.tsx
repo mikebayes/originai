@@ -3,23 +3,45 @@ import HeroNav from "@/components/HeroNav";
 import Footer from "@/components/Footer";
 
 /**
- * /draft/services/strategy — DRAFT repositioning of the AI Strategy &
- * Training page into Leadership AI Enablement.
+ * /draft/services/strategy — DRAFT Leadership AI Enablement page.
  *
  * INTERNAL REVIEW ONLY. Not linked from nav, not in the sitemap,
  * noindex/nofollow. The live /services/strategy route is untouched.
  *
- * Positioning: leads with leadership alignment, responsible use, team
- * adoption, AI priorities, workflow opportunities, and next steps.
- * "AI consulting" appears as supporting language only. Training is
- * visible and framed as the natural next step.
+ * Update 3 (simplify + reorder): the page now runs seven sections and
+ * leads with buyer symptoms instead of a thesis statement.
  *
- * Reuses the entire bp-page--strategy design system (brass accent,
- * hero shell, leader card, work grid, outputs, fit grid, FAQ, CTA)
- * so this draft looks production-grade with zero new visual language.
+ *   1. Hero
+ *   2. You are probably here because one of these is true
+ *   3. What we help leadership decide
+ *   4. How the engagement works (+ compact Mike Bayes trust card)
+ *   5. Clarity your team can act on
+ *   6. The next step should become obvious
+ *   7. CTA
+ *
+ * Removed as standalone sections in update 3: "Decisions before tools",
+ * Team Readiness / AI training, the full-width Mike Bayes bio section
+ * (folded into a compact trust card in section 4), and the FAQ. Team
+ * training now surfaces through the "Team AI Training" next-step card
+ * in section 6 rather than its own section.
+ *
+ * Rides the existing bp-page--strategy design system (brass accent,
+ * hero shell, work grid, fit grid, outputs list, CTA) so no new visual
+ * language is introduced.
+ *
+ * TODO (launch task, NOT draft-scoped): the Services dropdown labels
+ * live in components/NavServicesDropdown.tsx and
+ * components/NavServicesAccordion.tsx, shared by HeroNav and the global
+ * StickyNav. They cannot change for this draft without affecting every
+ * live page. When the repositioning ships, update both in one pass:
+ *   "AI Software & Systems"  -> "AI Workflow Development"
+ *   "AI Strategy & Training" -> "Leadership AI Enablement"
+ *   "Managed AI"             -> "Managed AI Improvement"
+ *   + add 4th item: "Team AI Enablement / AI Training" -> /services/ai-training
  */
 
-/* ─── EVENTUAL SEO (for review, NOT active while draft) ────────────── */
+/* ─── EVENTUAL SEO (for review, NOT active while draft) ──────────────
+   Location language lives here and in the footer, not in hero copy.   */
 const EVENTUAL_SEO_TITLE =
   "AI Consulting Winnipeg | Leadership AI Enablement | Origin AI";
 const EVENTUAL_SEO_DESCRIPTION =
@@ -47,18 +69,6 @@ export default function DraftLeadershipEnablementPage() {
         </div>
 
         <div className="bp-hero-shell">
-          {/* TODO (launch task, NOT draft-scoped): the Services dropdown
-              labels live in components/NavServicesDropdown.tsx and
-              components/NavServicesAccordion.tsx, which are shared by
-              HeroNav and the global StickyNav (mounted in app/layout.tsx).
-              They cannot be changed for this draft without affecting every
-              live page. When the repositioning ships, update the shared
-              components in one pass:
-                "AI Software & Systems"  -> "AI Workflow Development"
-                "AI Strategy & Training" -> "Leadership AI Enablement"
-                "Managed AI"             -> "Managed AI Improvement"
-                + add 4th item: "Team AI Enablement / AI Training"
-                  linking to /services/ai-training */}
           <HeroNav />
 
           {/* ─── SECTION 1: HERO ─────────────────────────────────── */}
@@ -107,7 +117,7 @@ export default function DraftLeadershipEnablementPage() {
             <div className="bp-hero-footer">
               <div className="bp-hero-foot-col">
                 <div className="k">Engagement</div>
-                <div className="v">1–4 weeks, depending on scope</div>
+                <div className="v">1–4 weeks</div>
               </div>
               <div className="bp-hero-foot-col">
                 <div className="k">Format</div>
@@ -115,7 +125,7 @@ export default function DraftLeadershipEnablementPage() {
               </div>
               <div className="bp-hero-foot-col">
                 <div className="k">Outcome</div>
-                <div className="v">Clear priorities, standards, and next steps</div>
+                <div className="v">Priorities, standards, next steps</div>
               </div>
             </div>
           </section>
@@ -123,68 +133,53 @@ export default function DraftLeadershipEnablementPage() {
 
         <div className="bp-fade-down" aria-hidden="true" />
 
-        {/* ─── SECTION 2: WHY THIS MATTERS ───────────────────────── */}
-        <section className="bp-intro" data-screen-label="Why this matters">
+        {/* ─── SECTION 2: IF THIS SOUNDS FAMILIAR ────────────────── */}
+        <section className="bp-fit" data-screen-label="If this sounds familiar">
           <div className="wrap">
-            <div className="bp-intro-grid">
-              <div>
-                <div className="bp-intro-eyebrow">— Decisions before tools</div>
-                <h2 className="bp-intro-h2">Decisions before tools.</h2>
-                <span className="bp-intro-tag">direction &gt; tools</span>
+            <div className="bp-fit-head">
+              <div className="eyebrow">
+                <span className="bar" />
+                If this sounds familiar
               </div>
-              <div className="bp-intro-body">
-                <p>
-                  <strong>
-                    Most organizations already have people experimenting with
-                    AI.
-                  </strong>
-                </p>
-                <p>
-                  The question is no longer whether AI matters. It is what
-                  should be allowed, where it belongs, who owns it, and what
-                  is worth doing first.
-                </p>
-              </div>
+              <h2 className="section-h2" style={{ marginTop: 24 }}>
+                You are probably here because{" "}
+                <span className="muted">one of these is true.</span>
+              </h2>
+              <p className="section-lede">
+                This work is for organizations that know AI matters, but need
+                clearer direction before investing heavily in tools, software,
+                or internal change.
+              </p>
             </div>
-          </div>
-        </section>
 
-        {/* Credibility / operator card */}
-        <section className="bp-leader" data-screen-label="Led by Mike Bayes">
-          <div className="wrap">
-            <div className="bp-leader-card">
-              <div className="bp-leader-photo">
-                <img src="/images/MB.avif" alt="Mike Bayes" loading="lazy" />
-              </div>
-              <div className="bp-leader-body">
-                <div className="bp-leader-titles">
-                  <div className="bp-leader-eyebrow">
+            <div className="bp-fit-grid">
+              {[
+                [
+                  "Your leadership team does not yet share the same view of AI.",
+                  "Clarify where AI fits, what matters, and what decisions need to be made.",
+                ],
+                [
+                  "People are using AI, but inconsistently.",
+                  "Create shared expectations, examples, and responsible-use guidance.",
+                ],
+                [
+                  "You have too many AI ideas and no clear filter.",
+                  "Separate useful opportunities from distractions and decide what should move first.",
+                ],
+                [
+                  "You see workflow potential, but the first move is unclear.",
+                  "Turn the strongest opportunity into a clearer path: training, pilot, workflow improvement, or build.",
+                ],
+              ].map(([h, sub], i) => (
+                <div className="bp-fit-cell" key={i}>
+                  <span className="bp-fit-mark" aria-hidden="true">
+                    <span className="dot" />
                     <span className="bar" />
-                    Senior technology and business operator
-                  </div>
-                  <h3 className="bp-leader-name">Led by Mike Bayes</h3>
+                  </span>
+                  <h3>{h}</h3>
+                  <p>{sub}</p>
                 </div>
-                <div className="bp-leader-text">
-                  <p>
-                    Leadership AI Enablement engagements are led by Mike
-                    Bayes, President of Origin AI. Mike brings 25+ years of
-                    senior technology and business leadership experience
-                    across strategy, operations, cybersecurity, and digital
-                    transformation.
-                  </p>
-                  <p>
-                    His role is to help leadership teams separate AI noise
-                    from useful opportunity, align around what matters, and
-                    define the next step clearly enough to act.
-                  </p>
-                  <ul className="bp-leader-tags" aria-label="Areas of focus">
-                    <li>Technology Strategy</li>
-                    <li>Leadership Alignment</li>
-                    <li>AI Adoption</li>
-                    <li>Cybersecurity</li>
-                  </ul>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
@@ -198,8 +193,11 @@ export default function DraftLeadershipEnablementPage() {
           </div>
         </div>
 
-        {/* ─── SECTION 3: WHAT IT CAN INCLUDE ────────────────────── */}
-        <section className="bp-work" data-screen-label="What leaders need to decide">
+        {/* ─── SECTION 3: WHAT LEADERS NEED TO DECIDE ────────────── */}
+        <section
+          className="bp-work"
+          data-screen-label="What leaders need to decide"
+        >
           <div className="wrap">
             <div className="bp-work-head">
               <div>
@@ -252,56 +250,73 @@ export default function DraftLeadershipEnablementPage() {
           </div>
         </section>
 
-        {/* ─── SECTION 4: WHERE TRAINING FITS ────────────────────── */}
-        <section className="bp-training" data-screen-label="Team readiness">
+        {/* ─── SECTION 4: HOW THE ENGAGEMENT WORKS ───────────────── */}
+        <section className="bp-howitworks" data-screen-label="How it works">
           <div className="wrap">
-            <div className="bp-training-head">
-              <div className="eyebrow">
-                <span className="bar" />
-                Team readiness
+            <div className="bp-work-head">
+              <div>
+                <div className="eyebrow">
+                  <span className="bar" />
+                  How it works
+                </div>
+                <h2 className="section-h2" style={{ marginTop: 24 }}>
+                  How the{" "}
+                  <span className="muted">engagement works.</span>
+                </h2>
               </div>
-              <h2 className="section-h2" style={{ marginTop: 24 }}>
-                Alignment does not help{" "}
-                <span className="muted">if the team cannot use it.</span>
-              </h2>
-              <p className="bp-training-body">
-                Once leadership has direction, teams need examples, standards,
-                and hands-on AI training tied to the work they actually do.
+              <p className="section-lede lede">
+                Most Leadership AI Enablement engagements combine focused
+                leadership sessions, light discovery, and a clear set of
+                recommendations.
               </p>
             </div>
 
-            <ul className="bp-training-list" aria-label="Training programs">
+            <div className="bp-steps">
               {[
                 [
-                  "AI Foundations for Teams",
-                  "Shared language, tool fluency, and responsible use.",
+                  "01",
+                  "Prepare",
+                  "Understand your team, current AI use, priorities, and concerns.",
                 ],
                 [
-                  "Role-Based AI Training",
-                  "Hands-on examples for writing, research, analysis, documents, decisions, and client service.",
+                  "02",
+                  "Align",
+                  "Facilitate leadership discussion around AI use, risk, opportunities, adoption, and ownership.",
                 ],
                 [
-                  "Workflow-Focused Sessions",
-                  "Training built around a specific business process or team need.",
+                  "03",
+                  "Decide",
+                  "Define what should move first: team training, workflow support, a pilot, or a build.",
                 ],
-              ].map(([name, desc]) => (
-                <li key={name}>
-                  <span className="name">{name}</span>
-                  <span className="desc">{desc}</span>
-                </li>
+              ].map(([num, title, body]) => (
+                <div className="bp-step" key={num}>
+                  <span className="bp-step-num">{num}</span>
+                  <h3>{title}</h3>
+                  <p>{body}</p>
+                </div>
               ))}
-            </ul>
+            </div>
 
-            <div className="bp-training-cta">
-              <a href="/services/ai-training" className="pill pill-secondary">
-                Explore AI training
-                <span className="arrow" aria-hidden="true">→</span>
-              </a>
+            {/* Compact trust card. Replaces the previous full-width bio
+                section so credibility lands without stopping the page. */}
+            <div className="bp-trust-card">
+              <div className="bp-trust-photo">
+                <img src="/images/MB.avif" alt="Mike Bayes" loading="lazy" />
+              </div>
+              <div className="bp-trust-body">
+                <span className="bp-trust-label">Led by Mike Bayes</span>
+                <p>
+                  Leadership AI Enablement engagements are led by Mike Bayes,
+                  President of Origin AI, with 25+ years of senior technology
+                  and business leadership experience across strategy,
+                  operations, cybersecurity, and digital transformation.
+                </p>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ─── SECTION 5: WHAT YOU LEAVE WITH ────────────────────── */}
+        {/* ─── SECTION 5: CLARITY TO ACT ─────────────────────────── */}
         <section className="bp-outputs" data-screen-label="Clarity to act">
           <div className="wrap">
             <div className="bp-outputs-head">
@@ -325,22 +340,22 @@ export default function DraftLeadershipEnablementPage() {
               {[
                 [
                   "01",
-                  "Shared direction.",
+                  "Shared direction",
                   "A clearer view of where AI fits, what matters most, and what should move first.",
                 ],
                 [
                   "02",
-                  "Responsible-use expectations.",
+                  "Responsible-use expectations",
                   "A working view of tools, data boundaries, review standards, and risk areas.",
                 ],
                 [
                   "03",
-                  "Prioritized opportunities.",
+                  "Prioritized opportunities",
                   "A shortlist of AI opportunities ordered by value, effort, risk, and fit.",
                 ],
                 [
                   "04",
-                  "A defined next step.",
+                  "A defined next step",
                   "A clear decision on whether to train, test, improve a workflow, or define a build.",
                 ],
               ].map(([num, h, p]) => (
@@ -356,58 +371,7 @@ export default function DraftLeadershipEnablementPage() {
           </div>
         </section>
 
-        {/* ─── SECTION 6: WHEN THIS FITS ─────────────────────────── */}
-        <section className="bp-fit" data-screen-label="If this sounds familiar">
-          <div className="wrap">
-            <div className="bp-fit-head">
-              <div className="eyebrow">
-                <span className="bar" />
-                If this sounds familiar
-              </div>
-              <h2 className="section-h2" style={{ marginTop: 24 }}>
-                You are probably here because{" "}
-                <span className="muted">one of these is true.</span>
-              </h2>
-              <p className="section-lede">
-                This work is for organizations that know AI matters, but need
-                clearer direction before investing heavily in tools, software,
-                or internal change.
-              </p>
-            </div>
-
-            <div className="bp-fit-grid">
-              {[
-                [
-                  "Your leadership team does not yet share the same view of AI.",
-                  "Clarify where AI fits, what matters, and what decisions need to be made.",
-                ],
-                [
-                  "People are using AI, but inconsistently.",
-                  "Create shared expectations, examples, and responsible-use guidance.",
-                ],
-                [
-                  "You have too many AI ideas and no clear filter.",
-                  "Separate useful opportunities from distractions and decide what should move first.",
-                ],
-                [
-                  "You see workflow potential, but the first move is unclear.",
-                  "Turn the strongest opportunity into a clearer path: training, pilot, workflow improvement, or build.",
-                ],
-              ].map(([h, sub], i) => (
-                <div className="bp-fit-cell" key={i}>
-                  <span className="bp-fit-mark" aria-hidden="true">
-                    <span className="dot" />
-                    <span className="bar" />
-                  </span>
-                  <h3>{h}</h3>
-                  <p>{sub}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ─── SECTION 7: WHERE THIS LEADS ───────────────────────── */}
+        {/* ─── SECTION 6: THE NEXT MOVE ──────────────────────────── */}
         <section className="bp-bridge" data-screen-label="The next move">
           <div className="wrap">
             <div className="bp-bridge-head">
@@ -431,7 +395,7 @@ export default function DraftLeadershipEnablementPage() {
             <div className="bp-next-grid">
               <a href="/services/ai-training" className="bp-next-card">
                 <span className="bp-next-label">Next step</span>
-                <h3>Team AI Enablement</h3>
+                <h3>Team AI Training</h3>
                 <p>Train staff with examples tied to their work.</p>
                 <span className="bp-next-link">
                   Explore AI training{" "}
@@ -462,74 +426,7 @@ export default function DraftLeadershipEnablementPage() {
           </div>
         </section>
 
-        {/* ─── SECTION 8: FAQ ────────────────────────────────────── */}
-        <section className="bp-faq" data-screen-label="Leadership questions">
-          <div className="wrap">
-            <div className="bp-faq-head">
-              <div>
-                <div className="eyebrow">
-                  <span className="bar" />
-                  Leadership questions
-                </div>
-                <h2 className="section-h2" style={{ marginTop: 24 }}>
-                  Questions leaders{" "}
-                  <span className="muted">usually ask.</span>
-                </h2>
-              </div>
-              <p className="section-lede lede">
-                Common questions clients ask before they engage.
-              </p>
-            </div>
-
-            <div className="bp-faq-list">
-              {[
-                {
-                  open: true,
-                  q: "Is this only for executives?",
-                  a: "No. We use leadership broadly: owners, senior teams, managers, department leads, and people responsible for how work gets done.",
-                },
-                {
-                  open: false,
-                  q: "Is this AI consulting?",
-                  a: "Yes, but not in the abstract roadmap sense. The work is focused on decisions, standards, adoption, priorities, and next steps.",
-                },
-                {
-                  open: false,
-                  q: "Do you provide AI training?",
-                  a: "Yes. Leadership enablement often leads into team AI training for the people who need to use AI in their day-to-day work.",
-                },
-                {
-                  open: false,
-                  q: "Do you help with AI policy and governance?",
-                  a: "Yes. We help shape responsible-use guidelines, data boundaries, review expectations, and decision guardrails.",
-                },
-                {
-                  open: false,
-                  q: "Will this produce a roadmap or use-case list?",
-                  a: "It can, but the goal is not a long list. The goal is a clear view of what should move first.",
-                },
-                {
-                  open: false,
-                  q: "Do we need to commit to a build project?",
-                  a: "No. Some clients continue internally. Some move into team training. Some define a workflow development project with Origin.",
-                },
-              ].map((it, i) => (
-                <details className="bp-faq-item" key={i} open={it.open}>
-                  <summary>
-                    <span className="qnum">
-                      Q · {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className="qtext">{it.q}</span>
-                    <span className="plus" aria-hidden="true" />
-                  </summary>
-                  <div className="ans">{it.a}</div>
-                </details>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ─── SECTION 9: CTA ────────────────────────────────────── */}
+        {/* ─── SECTION 7: CTA ────────────────────────────────────── */}
         <section className="bp-cta" data-screen-label="Final CTA" id="contact">
           <div className="wrap">
             <div className="bp-cta-inner">

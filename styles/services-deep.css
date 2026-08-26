@@ -6242,3 +6242,113 @@
     gap: 16px;
   }
 }
+
+/* ─── Draft strategy update 3: "How the engagement works" ────────────
+   Three-step grid + compact trust card. Replaces the previous
+   full-width Mike Bayes bio section on /draft/services/strategy.      */
+.bp-page .bp-howitworks {
+  padding: 96px 0 72px;
+}
+.bp-page .bp-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 48px;
+}
+.bp-page .bp-step {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 28px 26px;
+  border: 1px solid rgba(245, 240, 228, 0.1);
+  border-radius: 14px;
+  background: linear-gradient(
+    170deg,
+    rgba(245, 240, 228, 0.03) 0%,
+    rgba(245, 240, 228, 0) 100%
+  );
+}
+.bp-page .bp-step-num {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: rgba(150, 133, 96, 0.95);
+}
+.bp-page .bp-step h3 {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 600;
+  font-size: 21px;
+  color: rgba(245, 240, 228, 0.96);
+  margin: 0;
+}
+.bp-page .bp-step p {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(245, 240, 228, 0.6);
+  margin: 0;
+}
+
+/* Compact trust card */
+.bp-page .bp-trust-card {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-top: 40px;
+  padding: 22px 26px;
+  border: 1px solid rgba(150, 133, 96, 0.28);
+  border-radius: 14px;
+  background: linear-gradient(
+    120deg,
+    rgba(150, 133, 96, 0.07) 0%,
+    rgba(150, 133, 96, 0) 70%
+  );
+}
+.bp-page .bp-trust-photo {
+  flex: 0 0 auto;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid rgba(150, 133, 96, 0.4);
+}
+.bp-page .bp-trust-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.bp-page .bp-trust-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.bp-page .bp-trust-label {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: rgba(245, 240, 228, 0.95);
+}
+.bp-page .bp-trust-body p {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: rgba(245, 240, 228, 0.62);
+  margin: 0;
+  max-width: 78ch;
+}
+
+@media (max-width: 900px) {
+  .bp-page .bp-howitworks {
+    padding: 64px 0 48px;
+  }
+  .bp-page .bp-steps {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .bp-page .bp-trust-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
