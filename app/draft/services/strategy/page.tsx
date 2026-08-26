@@ -132,10 +132,8 @@ export default function DraftLeadershipEnablementPage() {
           <div className="wrap">
             <div className="bp-intro-grid">
               <div>
-                <div className="bp-intro-eyebrow">— Why this matters</div>
-                <h2 className="bp-intro-h2">
-                  AI adoption needs leadership before it needs more tools.
-                </h2>
+                <div className="bp-intro-eyebrow">— Decisions before tools</div>
+                <h2 className="bp-intro-h2">Decisions before tools.</h2>
                 <span className="bp-intro-tag">direction &gt; tools</span>
               </div>
               <div className="bp-intro-body">
@@ -146,9 +144,9 @@ export default function DraftLeadershipEnablementPage() {
                   </strong>
                 </p>
                 <p>
-                  The harder part is deciding what is allowed, what is useful,
-                  what is risky, and where AI should become part of the way
-                  work gets done.
+                  The question is no longer whether AI matters. It is what
+                  should be allowed, where it belongs, who owns it, and what
+                  is worth doing first.
                 </p>
               </div>
             </div>
@@ -199,30 +197,29 @@ export default function DraftLeadershipEnablementPage() {
           <div className="chapter-rule">
             <span className="pill-marker">
               <span className="dot" />
-              What it can include
+              What leaders need to decide
             </span>
           </div>
         </div>
 
         {/* ─── SECTION 3: WHAT IT CAN INCLUDE ────────────────────── */}
-        <section className="bp-work" data-screen-label="What it can include">
+        <section className="bp-work" data-screen-label="What leaders need to decide">
           <div className="wrap">
             <div className="bp-work-head">
               <div>
                 <div className="eyebrow">
                   <span className="bar" />
-                  What it can include
+                  What leaders need to decide
                 </div>
                 <h2 className="section-h2" style={{ marginTop: 24 }}>
-                  What leadership enablement{" "}
-                  <span className="muted">can include.</span>
+                  What we help{" "}
+                  <span className="muted">leadership decide.</span>
                 </h2>
               </div>
               <p className="section-lede lede">
-                The work is shaped around where your organization is starting.
-                Some clients need a leadership session. Some need clearer
-                standards. Some need to identify the first workflow worth
-                improving.
+                The work depends on where your organization is starting. Some
+                teams need shared direction. Some need clearer standards. Some
+                need to identify the first workflow worth improving.
               </p>
             </div>
 
@@ -230,23 +227,23 @@ export default function DraftLeadershipEnablementPage() {
               {[
                 [
                   "01",
-                  "Leadership alignment",
-                  "Create shared direction around where AI fits, what matters, and what should move first.",
+                  "Where AI belongs",
+                  "Which teams, workflows, and business problems are worth attention first.",
                 ],
                 [
                   "02",
-                  "Responsible-use guidance",
-                  "Clarify tool use, data boundaries, review expectations, and decision guardrails.",
+                  "What rules matter",
+                  "Tool use, data boundaries, review expectations, and risk guardrails.",
                 ],
                 [
                   "03",
-                  "Opportunity prioritization",
-                  "Separate useful AI opportunities from distractions and identify where to focus first.",
+                  "What is worth pursuing",
+                  "The AI opportunities that have enough value, fit, and ownership to move forward.",
                 ],
                 [
                   "04",
-                  "Adoption planning",
-                  "Decide what teams need next: training, workflow support, a pilot, or a defined build.",
+                  "What happens next",
+                  "Whether the next step is training, workflow support, a pilot, or a defined build.",
                 ],
               ].map(([num, title, body]) => (
                 <div className="bp-work-cell" key={num}>
@@ -260,21 +257,20 @@ export default function DraftLeadershipEnablementPage() {
         </section>
 
         {/* ─── SECTION 4: WHERE TRAINING FITS ────────────────────── */}
-        <section className="bp-training" data-screen-label="Where training fits">
+        <section className="bp-training" data-screen-label="Team readiness">
           <div className="wrap">
             <div className="bp-training-head">
               <div className="eyebrow">
                 <span className="bar" />
-                AI training
+                Team readiness
               </div>
               <h2 className="section-h2" style={{ marginTop: 24 }}>
-                Leadership alignment often leads{" "}
-                <span className="muted">to team training.</span>
+                Alignment does not help{" "}
+                <span className="muted">if the team cannot use it.</span>
               </h2>
               <p className="bp-training-body">
-                Once leaders know where AI fits, teams need examples,
-                standards, and hands-on training tied to the work they
-                actually do.
+                Once leadership has direction, teams need examples, standards,
+                and hands-on AI training tied to the work they actually do.
               </p>
             </div>
 
@@ -310,16 +306,17 @@ export default function DraftLeadershipEnablementPage() {
         </section>
 
         {/* ─── SECTION 5: WHAT YOU LEAVE WITH ────────────────────── */}
-        <section className="bp-outputs" data-screen-label="What you leave with">
+        <section className="bp-outputs" data-screen-label="Clarity to act">
           <div className="wrap">
             <div className="bp-outputs-head">
               <div>
                 <div className="eyebrow">
                   <span className="bar" />
-                  Outcomes
+                  Clarity to act
                 </div>
                 <h2 className="section-h2" style={{ marginTop: 24 }}>
-                  What you <span className="muted">leave with.</span>
+                  Clarity your team{" "}
+                  <span className="muted">can act on.</span>
                 </h2>
               </div>
               <p className="section-lede lede">
@@ -332,7 +329,7 @@ export default function DraftLeadershipEnablementPage() {
               {[
                 [
                   "01",
-                  "Shared leadership direction.",
+                  "Shared direction.",
                   "A clearer view of where AI fits, what matters most, and what should move first.",
                 ],
                 [
@@ -364,16 +361,16 @@ export default function DraftLeadershipEnablementPage() {
         </section>
 
         {/* ─── SECTION 6: WHEN THIS FITS ─────────────────────────── */}
-        <section className="bp-fit" data-screen-label="When this fits">
+        <section className="bp-fit" data-screen-label="If this sounds familiar">
           <div className="wrap">
             <div className="bp-fit-head">
               <div className="eyebrow">
                 <span className="bar" />
-                When this fits
+                If this sounds familiar
               </div>
               <h2 className="section-h2" style={{ marginTop: 24 }}>
-                When Leadership AI Enablement{" "}
-                <span className="muted">makes sense.</span>
+                You are probably here because{" "}
+                <span className="muted">one of these is true.</span>
               </h2>
               <p className="section-lede">
                 This work is for organizations that know AI matters, but need
@@ -385,19 +382,19 @@ export default function DraftLeadershipEnablementPage() {
             <div className="bp-fit-grid">
               {[
                 [
-                  "Your leadership team needs a shared view of AI.",
+                  "Your leadership team does not yet share the same view of AI.",
                   "Clarify where AI fits, what matters, and what decisions need to be made.",
                 ],
                 [
-                  "Teams are using AI inconsistently.",
+                  "People are using AI, but inconsistently.",
                   "Create shared expectations, examples, and responsible-use guidance.",
                 ],
                 [
-                  "You have AI ideas but no way to prioritize them.",
+                  "You have too many AI ideas and no clear filter.",
                   "Separate useful opportunities from distractions and decide what should move first.",
                 ],
                 [
-                  "You see workflow potential but need to define the first step.",
+                  "You see workflow potential, but the first move is unclear.",
                   "Turn the strongest opportunity into a clearer path: training, pilot, workflow improvement, or build.",
                 ],
               ].map(([h, sub], i) => (
@@ -415,24 +412,24 @@ export default function DraftLeadershipEnablementPage() {
         </section>
 
         {/* ─── SECTION 7: WHERE THIS LEADS ───────────────────────── */}
-        <section className="bp-bridge" data-screen-label="Where this leads">
+        <section className="bp-bridge" data-screen-label="The next move">
           <div className="wrap">
             <div className="bp-bridge-head">
               <div className="eyebrow">
                 <span className="bar" />
-                Where this leads
+                The next move
               </div>
               <h2 className="section-h2" style={{ marginTop: 24 }}>
-                Where this <span className="muted">can lead.</span>
+                The next step{" "}
+                <span className="muted">should become obvious.</span>
               </h2>
             </div>
 
             <p className="bp-rail-statement">
-              Some clients use this work to align leaders. Others use it to
-              prepare teams for AI training. Some identify a workflow worth
-              improving or a tool worth building. The goal is not a long
-              strategy document. The goal is a clearer organization and a
-              sharper next step.
+              Sometimes the next step is team training. Sometimes it is a
+              workflow worth improving. Sometimes it is a tool, assistant,
+              automation, or integration. The point is to stop guessing and
+              choose the next move with intent.
             </p>
 
             <div className="bp-next-grid">
@@ -470,16 +467,17 @@ export default function DraftLeadershipEnablementPage() {
         </section>
 
         {/* ─── SECTION 8: FAQ ────────────────────────────────────── */}
-        <section className="bp-faq" data-screen-label="Common questions">
+        <section className="bp-faq" data-screen-label="Leadership questions">
           <div className="wrap">
             <div className="bp-faq-head">
               <div>
                 <div className="eyebrow">
                   <span className="bar" />
-                  Common questions
+                  Leadership questions
                 </div>
                 <h2 className="section-h2" style={{ marginTop: 24 }}>
-                  Questions, <span className="muted">answered.</span>
+                  Questions leaders{" "}
+                  <span className="muted">usually ask.</span>
                 </h2>
               </div>
               <p className="section-lede lede">
