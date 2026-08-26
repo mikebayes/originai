@@ -81,13 +81,12 @@ export default function DraftServicesPage() {
                 AI services for companies{" "}
                 <span className="muted">moving from interest to adoption.</span>
               </h1>
+              {/* Location language is handled in SEO metadata and the
+                  footer, not repeated in every service-page hero. */}
               <p className="s-hero-sub">
                 Origin helps organizations adopt AI through leadership
                 alignment, team training, workflow development, and ongoing
                 improvement.
-              </p>
-              <p className="s-hero-sub s-hero-sub--secondary">
-                Based in Winnipeg, we work with organizations across Canada.
               </p>
             </div>
 

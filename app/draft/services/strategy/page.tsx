@@ -86,16 +86,12 @@ export default function DraftLeadershipEnablementPage() {
               <span className="accent">where AI fits.</span>
             </h1>
 
+            {/* Location language is handled in SEO metadata and the footer,
+                not repeated in every service-page hero. */}
             <p className="bp-hero-sub">
               Origin helps leadership teams align around AI priorities,
               responsible use, team adoption, and workflow opportunities worth
               pursuing.
-            </p>
-
-            <p className="bp-hero-sub bp-hero-sub--secondary">
-              Based in Winnipeg, we work with organizations across Canada
-              through focused leadership sessions, AI consulting, and
-              enablement programs.
             </p>
 
             <div className="bp-hero-actions">
