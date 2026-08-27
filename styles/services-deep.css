@@ -6816,3 +6816,60 @@
     font-size: 18px;
   }
 }
+
+/* ─── Draft build update 6: accent system replaces text eyebrows ──────
+   Two accent marks, used with restraint:
+     .bp-streak  — the homepage .hero-mark (glowing dot + fading
+                   hairline), used ONCE on the page above the first body
+                   heading. Brand accent, not a label replacement.
+     .bp-rule    — a short subtle teal rule for secondary sections.
+   Both sit above the heading, so .bp-h2--accented drops the old
+   margin-top that the removed text eyebrow used to provide.           */
+
+.bp-page .bp-streak {
+  display: inline-flex;
+  margin-bottom: 22px;
+}
+
+.bp-page .bp-rule {
+  display: block;
+  width: 34px;
+  height: 2px;
+  margin-bottom: 20px;
+  background: linear-gradient(
+    90deg,
+    rgba(93, 168, 156, 0.9) 0%,
+    rgba(93, 168, 156, 0.35) 100%
+  );
+}
+
+/* Strategy page uses the brass accent, keep the rule on-palette there
+   if this system is promoted beyond the build page. */
+.bp-page--strategy .bp-rule {
+  background: linear-gradient(
+    90deg,
+    rgba(150, 133, 96, 0.9) 0%,
+    rgba(150, 133, 96, 0.35) 100%
+  );
+}
+
+/* Headings that now sit under an accent mark instead of a text eyebrow */
+.bp-page .bp-h2--accented {
+  margin-top: 0;
+}
+
+/* CTA without an eyebrow: recover the space the eyebrow occupied so the
+   panel does not read top-heavy. */
+.bp-page .bp-cta-inner--bare {
+  padding-top: 8px;
+}
+
+@media (max-width: 900px) {
+  .bp-page .bp-streak {
+    margin-bottom: 18px;
+  }
+  .bp-page .bp-rule {
+    width: 28px;
+    margin-bottom: 16px;
+  }
+}

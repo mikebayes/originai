@@ -47,6 +47,11 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
+/* Review route: never serve a cached copy. Scoped to this draft page
+   only, so the live marketing pages keep their static generation. */
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 void EVENTUAL_SEO_TITLE;
 void EVENTUAL_SEO_DESCRIPTION;
 
@@ -137,11 +142,13 @@ export default function DraftWorkflowDevelopmentPage() {
           <div className="wrap">
             <div className="bp-work-head">
               <div>
-                <div className="eyebrow">
-                  <span className="bar" />
-                  Where build starts
-                </div>
-                <h2 className="section-h2" style={{ marginTop: 24 }}>
+                {/* Homepage brand streak. Used once on this page, as the
+                    accent that opens the body content after the hero. */}
+                <span className="hero-mark bp-streak" aria-hidden="true">
+                  <span className="hero-mark-dot" />
+                  <span className="hero-mark-line" />
+                </span>
+                <h2 className="section-h2 bp-h2--accented">
                   Useful AI tools start{" "}
                   <span className="muted">with real business problems.</span>
                 </h2>
@@ -198,11 +205,8 @@ export default function DraftWorkflowDevelopmentPage() {
           <div className="wrap">
             <div className="bp-work-head">
               <div>
-                <div className="eyebrow">
-                  <span className="bar" />
-                  Where this shows up
-                </div>
-                <h2 className="section-h2" style={{ marginTop: 24 }}>
+                <span className="bp-rule" aria-hidden="true" />
+                <h2 className="section-h2 bp-h2--accented">
                   Where AI can make{" "}
                   <span className="muted">the biggest difference.</span>
                 </h2>
@@ -259,11 +263,8 @@ export default function DraftWorkflowDevelopmentPage() {
         <section className="bp-forms" data-screen-label="What we build">
           <div className="wrap">
             <div className="bp-forms-head">
-              <div className="eyebrow">
-                <span className="bar" />
-                What we build
-              </div>
-              <h2 className="section-h2 bp-forms-h2">
+              <span className="bp-rule" aria-hidden="true" />
+              <h2 className="section-h2 bp-forms-h2 bp-h2--accented">
                 What the solution{" "}
                 <span className="muted">can become.</span>
               </h2>
@@ -310,11 +311,8 @@ export default function DraftWorkflowDevelopmentPage() {
           <div className="wrap">
             <div className="bp-work-head">
               <div>
-                <div className="eyebrow">
-                  <span className="bar" />
-                  How it works
-                </div>
-                <h2 className="section-h2" style={{ marginTop: 24 }}>
+                <span className="bp-rule" aria-hidden="true" />
+                <h2 className="section-h2 bp-h2--accented">
                   From idea{" "}
                   <span className="muted">to launch.</span>
                 </h2>
@@ -376,11 +374,11 @@ export default function DraftWorkflowDevelopmentPage() {
         {/* ─── SECTION 6: CTA ────────────────────────────────────── */}
         <section className="bp-cta" data-screen-label="Final CTA" id="contact">
           <div className="wrap">
-            <div className="bp-cta-inner">
-              <div className="bp-cta-eyebrow">
-                <span className="dot" />
-                Talk to us
-              </div>
+            {/* Option A chosen: no eyebrow, no accent mark. The CTA panel
+                background and the button pair already carry the section,
+                and a third streak on the page would dilute the one that
+                opens the body content. */}
+            <div className="bp-cta-inner bp-cta-inner--bare">
               <h2>Have something worth building?</h2>
               <p>
                 Start with a 30-minute call. We&rsquo;ll talk through the
