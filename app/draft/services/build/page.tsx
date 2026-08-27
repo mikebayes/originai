@@ -95,7 +95,7 @@ export default function DraftWorkflowDevelopmentPage() {
             {/* One subheadline only. Location language lives in SEO
                 metadata and the footer, not in hero copy. */}
             <p className="bp-hero-sub">
-              Origin turns recurring business work into focused AI tools,
+              Origin turns recurring business processes into focused AI tools,
               assistants, automations, integrations, and internal systems your
               team can actually use.
             </p>
@@ -117,7 +117,7 @@ export default function DraftWorkflowDevelopmentPage() {
               </div>
               <div className="bp-hero-foot-col">
                 <div className="k">Best fit</div>
-                <div className="v">Recurring work with clear value</div>
+                <div className="v">Recurring process with clear value</div>
               </div>
               <div className="bp-hero-foot-col">
                 <div className="k">Outputs</div>
@@ -143,14 +143,13 @@ export default function DraftWorkflowDevelopmentPage() {
                 </div>
                 <h2 className="section-h2" style={{ marginTop: 24 }}>
                   Useful AI tools start{" "}
-                  <span className="muted">with real work.</span>
+                  <span className="muted">with real business problems.</span>
                 </h2>
               </div>
               <p className="section-lede lede">
-                The strongest build opportunities usually come from work that
-                already exists. They show up when leaders clarify priorities,
-                when teams use AI in training, or when a recurring process is
-                clearly taking too much time, coordination, or judgment.
+                The strongest build opportunities usually appear when a team is
+                dealing with a process that takes too much time, depends on too
+                much coordination, or requires the same judgment over and over.
               </p>
             </div>
 
@@ -160,7 +159,7 @@ export default function DraftWorkflowDevelopmentPage() {
                 <h3>Identified through leadership enablement</h3>
                 <p>
                   Leadership aligns on priorities, risk, ownership, and the
-                  workflows worth exploring.
+                  opportunities worth exploring.
                 </p>
                 <span className="bp-origin-link">
                   Leadership AI Enablement{" "}
@@ -175,17 +174,17 @@ export default function DraftWorkflowDevelopmentPage() {
                 <span className="bp-origin-mark" aria-hidden="true" />
                 <h3>Discovered through team training</h3>
                 <p>
-                  Staff uncover repeatable AI use cases while working with real
+                  Staff uncover repeatable use cases while working with real
                   documents, tasks, and decisions.
                 </p>
               </div>
 
               <div className="bp-origin-cell">
                 <span className="bp-origin-mark" aria-hidden="true" />
-                <h3>Brought as a known workflow problem</h3>
+                <h3>Brought as a known process problem</h3>
                 <p>
-                  A team already knows the process is too manual,
-                  inconsistent, slow, or difficult to scale.
+                  A team already knows something is too manual, inconsistent,
+                  slow, or difficult to scale.
                 </p>
               </div>
             </div>
@@ -204,42 +203,43 @@ export default function DraftWorkflowDevelopmentPage() {
                   Where this shows up
                 </div>
                 <h2 className="section-h2" style={{ marginTop: 24 }}>
-                  The work we can{" "}
-                  <span className="muted">help improve.</span>
+                  Where AI can make{" "}
+                  <span className="muted">the biggest difference.</span>
                 </h2>
               </div>
               <p className="section-lede lede">
-                AI build opportunities usually start with recurring work: sales
-                follow-up, proposal preparation, customer response, content
-                production, reporting, document review, or knowledge lookup.
+                The best opportunities usually sit inside familiar business
+                activities: sales follow-up, proposal preparation, customer
+                response, content production, reporting, document review, and
+                knowledge lookup.
               </p>
             </div>
 
             <div className="bp-domain-grid">
               {[
                 [
-                  "Sales and proposal workflows",
+                  "Sales and proposal operations",
                   "Qualify opportunities, prepare proposals, reuse approved language, summarize client needs, and support follow-up.",
                 ],
                 [
-                  "Customer response workflows",
+                  "Customer response",
                   "Triage requests, draft responses, find answers, and route issues with human review built in.",
                 ],
                 [
-                  "Service delivery workflows",
+                  "Service delivery",
                   "Structure intake, handoffs, approvals, status updates, and recurring coordination.",
                 ],
                 [
-                  "Content and marketing workflows",
+                  "Content and marketing",
                   "Plan, draft, review, repurpose, and adapt content using brand, audience, and channel guidance.",
                 ],
                 [
-                  "Dashboards and insight workflows",
+                  "Dashboards and insights",
                   "Turn data, reports, feedback, and activity into clearer dashboards, summaries, trends, and next-step recommendations.",
                 ],
                 [
-                  "Knowledge and document workflows",
-                  "Help teams find answers, review documents, compare information, and work from policies, procedures, training material, or past work.",
+                  "Knowledge and documents",
+                  "Help teams find answers, review documents, compare information, and use policies, procedures, training material, or past work.",
                 ],
               ].map(([h, p], i) => (
                 <div className="bp-domain-cell" key={i}>
@@ -264,12 +264,12 @@ export default function DraftWorkflowDevelopmentPage() {
                 What we build
               </div>
               <h2 className="section-h2 bp-forms-h2">
-                The form depends{" "}
-                <span className="muted">on the work.</span>
+                What the solution{" "}
+                <span className="muted">can become.</span>
               </h2>
               <p className="bp-forms-lede">
-                Once the work is clear, we choose the right shape for the
-                solution.
+                Once the opportunity is clear, we choose the right shape for
+                the solution.
               </p>
             </div>
 
@@ -281,19 +281,19 @@ export default function DraftWorkflowDevelopmentPage() {
                 ],
                 [
                   "Automations",
-                  "Move information, prepare outputs, route work, or reduce repetitive handoffs.",
+                  "Move information, prepare outputs, route requests, or reduce repetitive handoffs.",
                 ],
                 [
                   "Integrations",
-                  "Connect the documents, data, systems, and tools the work depends on.",
+                  "Connect the documents, data, systems, and tools the process depends on.",
                 ],
                 [
                   "Internal tools",
-                  "Focused applications built around how a team actually works.",
+                  "Focused applications built around how a team operates.",
                 ],
                 [
                   "Custom AI software",
-                  "Owned software when the workflow is valuable enough to build around directly.",
+                  "Owned software when the opportunity is valuable enough to build around directly.",
                 ],
               ].map(([h, p], i) => (
                 <div className="bp-form-cell" key={i}>
@@ -315,12 +315,12 @@ export default function DraftWorkflowDevelopmentPage() {
                   How it works
                 </div>
                 <h2 className="section-h2" style={{ marginTop: 24 }}>
-                  From recurring work{" "}
-                  <span className="muted">to usable tool.</span>
+                  From idea{" "}
+                  <span className="muted">to launch.</span>
                 </h2>
               </div>
               <p className="section-lede lede">
-                We define the work first, then build only what the workflow
+                We define the process first, then build only what the solution
                 needs.
               </p>
             </div>
@@ -343,12 +343,12 @@ export default function DraftWorkflowDevelopmentPage() {
                   [
                     "02",
                     "Prototype",
-                    "Create a focused first version to prove the workflow can improve.",
+                    "Create a focused first version to prove the approach can help.",
                   ],
                   [
                     "03",
                     "Build",
-                    "Develop the assistant, automation, integration, internal tool, or software around the validated workflow.",
+                    "Develop the assistant, automation, integration, internal tool, or software around the validated approach.",
                   ],
                   [
                     "04",
@@ -381,11 +381,11 @@ export default function DraftWorkflowDevelopmentPage() {
                 <span className="dot" />
                 Talk to us
               </div>
-              <h2>Have a process that should work better?</h2>
+              <h2>Have something worth building?</h2>
               <p>
                 Start with a 30-minute call. We&rsquo;ll talk through the
-                work, the people involved, and whether an AI tool or workflow
-                system is the right next step.
+                process, the people involved, and whether an AI tool or
+                workflow system is the right next step.
               </p>
               <div className="bp-cta-actions">
                 <a href="/contact" className="pill pill-primary">
