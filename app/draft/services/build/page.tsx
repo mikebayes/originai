@@ -198,9 +198,11 @@ export default function DraftWorkflowDevelopmentPage() {
             <div className="bp-work-head">
               <div>
                 <span className="bp-rule" aria-hidden="true" />
+                {/* Plain heading. The split-colour treatment is reserved
+                    for the hero and the first body section so it does not
+                    read as the same component five times. */}
                 <h2 className="section-h2 bp-h2--accented">
-                  Where AI can make{" "}
-                  <span className="muted">the biggest difference.</span>
+                  Where AI can make the biggest difference.
                 </h2>
               </div>
               <p className="section-lede lede">
@@ -256,8 +258,7 @@ export default function DraftWorkflowDevelopmentPage() {
             <div className="bp-forms-head">
               <span className="bp-rule" aria-hidden="true" />
               <h2 className="section-h2 bp-forms-h2 bp-h2--accented">
-                What the solution{" "}
-                <span className="muted">can become.</span>
+                What the solution can become.
               </h2>
               <p className="bp-forms-lede">
                 Once the opportunity is clear, we choose the right shape for
@@ -304,8 +305,7 @@ export default function DraftWorkflowDevelopmentPage() {
               <div>
                 <span className="bp-rule" aria-hidden="true" />
                 <h2 className="section-h2 bp-h2--accented">
-                  From idea{" "}
-                  <span className="muted">to launch.</span>
+                  From idea to launch.
                 </h2>
               </div>
               <p className="section-lede lede">
