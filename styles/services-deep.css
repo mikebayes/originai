@@ -6873,3 +6873,40 @@
     margin-bottom: 16px;
   }
 }
+
+/* ─── Draft build update 7: hero + accent cleanup ─────────────────────
+   Accents now appear only at the start of major sections. Card-level
+   mini accent lines are retired; cards rely on typography, spacing,
+   border, and hover instead.                                          */
+
+/* Card-level accents removed from the markup. These rules are kept as
+   no-ops so any stale markup cannot reintroduce the mini lines. */
+.bp-page .bp-origin-mark,
+.bp-page .bp-domain-rule {
+  display: none;
+}
+
+/* Cards lose the accent, so recover the space it occupied and let the
+   title sit at the top of the card. */
+.bp-page .bp-origin-cell {
+  gap: 10px;
+}
+.bp-page .bp-domain-cell {
+  gap: 10px;
+}
+
+/* Hero: breadcrumb-only meta row, no eyebrow below it. Give the H1 the
+   breathing room the removed eyebrow used to provide. */
+.bp-page .bp-hero-meta--crumb-only {
+  justify-content: flex-start;
+  margin-bottom: 0;
+}
+.bp-page .bp-hero-h1--bare {
+  margin-top: 40px;
+}
+
+@media (max-width: 900px) {
+  .bp-page .bp-hero-h1--bare {
+    margin-top: 26px;
+  }
+}

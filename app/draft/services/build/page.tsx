@@ -77,22 +77,17 @@ export default function DraftWorkflowDevelopmentPage() {
             className="wrap bp-hero"
             data-screen-label="Workflow development hero"
           >
-            <div className="bp-hero-meta">
+            {/* Breadcrumb only. No progress marker, no duplicate service
+                label, no decorative accent above the H1. */}
+            <div className="bp-hero-meta bp-hero-meta--crumb-only">
               <span>
                 <a href="/services">← Services</a>
                 <span className="crumb-sep">/</span>
                 <span>AI Workflow Development</span>
               </span>
-              <span>03 / 04 — Workflows</span>
             </div>
 
-            <div className="bp-hero-eyebrow">
-              <span className="dot" />
-              <span>AI Workflow Development</span>
-              <span className="bar" />
-            </div>
-
-            <h1 className="bp-hero-h1">
+            <h1 className="bp-hero-h1 bp-hero-h1--bare">
               Build AI tools around the work{" "}
               <span className="accent">your team already does.</span>
             </h1>
@@ -155,14 +150,13 @@ export default function DraftWorkflowDevelopmentPage() {
               </div>
               <p className="section-lede lede">
                 The strongest build opportunities usually appear when a team is
-                dealing with a process that takes too much time, depends on too
-                much coordination, or requires the same judgment over and over.
+                dealing with work that takes too much time, depends on too much
+                coordination, or requires the same judgment over and over.
               </p>
             </div>
 
             <div className="bp-origin-grid">
               <a href="/services/strategy" className="bp-origin-cell is-link">
-                <span className="bp-origin-mark" aria-hidden="true" />
                 <h3>Identified through leadership enablement</h3>
                 <p>
                   Leadership aligns on priorities, risk, ownership, and the
@@ -178,7 +172,6 @@ export default function DraftWorkflowDevelopmentPage() {
                   route exists. Omitted for now so the draft has no dead
                   links. */}
               <div className="bp-origin-cell">
-                <span className="bp-origin-mark" aria-hidden="true" />
                 <h3>Discovered through team training</h3>
                 <p>
                   Staff uncover repeatable use cases while working with real
@@ -187,10 +180,9 @@ export default function DraftWorkflowDevelopmentPage() {
               </div>
 
               <div className="bp-origin-cell">
-                <span className="bp-origin-mark" aria-hidden="true" />
-                <h3>Brought as a known process problem</h3>
+                <h3>Brought as a known workflow problem</h3>
                 <p>
-                  A team already knows something is too manual, inconsistent,
+                  A team already knows a process is too manual, inconsistent,
                   slow, or difficult to scale.
                 </p>
               </div>
@@ -247,7 +239,6 @@ export default function DraftWorkflowDevelopmentPage() {
                 ],
               ].map(([h, p], i) => (
                 <div className="bp-domain-cell" key={i}>
-                  <span className="bp-domain-rule" aria-hidden="true" />
                   <h3>{h}</h3>
                   <p>{p}</p>
                 </div>
@@ -318,7 +309,7 @@ export default function DraftWorkflowDevelopmentPage() {
                 </h2>
               </div>
               <p className="section-lede lede">
-                We define the process first, then build only what the solution
+                We define the workflow first, then build only what the solution
                 needs.
               </p>
             </div>
