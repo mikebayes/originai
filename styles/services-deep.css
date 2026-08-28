@@ -7509,3 +7509,16 @@
     min-height: 190px;
   }
 }
+
+/* Stacked section head: heading and intro share one column instead of
+   the default heading-left / lede-right split. Used on the training
+   page's customization section so the intro reads as part of the same
+   block, directly under the heading. */
+.bp-page .bp-work-head--stacked {
+  display: block;
+}
+.bp-page .bp-work-head--stacked .section-lede {
+  margin-top: 20px;
+  max-width: 68ch;
+  text-align: left;
+}

@@ -191,18 +191,21 @@ export default function DraftTeamAITrainingPage() {
             four items happen in order before the session. */}
         <section className="bp-custom" data-screen-label="How we customize the training">
           <div className="wrap">
-            <div className="bp-work-head">
+            {/* Stacked head: the intro sits directly under the heading in
+                the same column rather than in a right-hand rail, so it
+                reads as one block before the image + process row. */}
+            <div className="bp-work-head bp-work-head--stacked">
               <div>
                 <span className="bp-rule" aria-hidden="true" />
                 <h2 className="section-h2 bp-h2--accented">
                   Customized before anyone joins the session.
                 </h2>
+                <p className="section-lede lede">
+                  Before training, we gather enough context to make the session
+                  relevant to the team, their roles, and the examples they are
+                  likely to recognize.
+                </p>
               </div>
-              <p className="section-lede lede">
-                Before training, we gather enough context to make the session
-                relevant to the team, their roles, and the examples they are
-                likely to recognize.
-              </p>
             </div>
 
             {/* Visual paired with a connected step rail, so the image reads
