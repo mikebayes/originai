@@ -93,15 +93,15 @@ export default function DraftTeamAITrainingPage() {
             </div>
 
             <h1 className="bp-hero-h1 bp-hero-h1--bare">
-              AI training built around the work{" "}
-              <span className="accent">your team actually does.</span>
+              AI training shaped around{" "}
+              <span className="accent">your team&rsquo;s real work.</span>
             </h1>
 
             {/* One subheadline only. */}
             <p className="bp-hero-sub">
               Origin helps teams use AI with more confidence, consistency, and
               judgment by tailoring training around their roles, tools,
-              documents, decisions, and real workflow opportunities.
+              documents, decisions, and real opportunities.
             </p>
 
             <div className="bp-hero-actions">
@@ -128,7 +128,7 @@ export default function DraftTeamAITrainingPage() {
               <div className="bp-hero-foot-col">
                 <div className="k">Outputs</div>
                 <div className="v">
-                  Training, examples, use cases, and next-step opportunities
+                  Training, examples, use cases, and next steps
                 </div>
               </div>
             </div>
@@ -149,14 +149,13 @@ export default function DraftTeamAITrainingPage() {
                   <span className="hero-mark-line" />
                 </span>
                 <h2 className="section-h2 bp-h2--accented">
-                  Training should start with the work,{" "}
-                  <span className="muted">not the tool.</span>
+                  The session should feel like your team,{" "}
+                  <span className="muted">not a generic demo.</span>
                 </h2>
               </div>
               <p className="section-lede lede">
-                The most useful AI training is tied to the tasks people already
-                handle: writing, research, analysis, reporting, customer
-                response, content, documents, decisions, and coordination.
+                The most useful AI training is tied to the roles, tasks,
+                documents, decisions, and examples people already recognize.
               </p>
             </div>
 
@@ -171,7 +170,7 @@ export default function DraftTeamAITrainingPage() {
               <div className="bp-origin-cell">
                 <h3>Real tasks</h3>
                 <p>
-                  Training uses familiar work patterns such as drafting,
+                  Training uses familiar patterns such as drafting,
                   summarizing, comparing, reviewing, researching, and
                   reporting.
                 </p>
@@ -201,7 +200,8 @@ export default function DraftTeamAITrainingPage() {
               </div>
               <p className="section-lede lede">
                 Before training, we gather enough context to make the session
-                relevant to the team instead of generic.
+                relevant to the team, their roles, and the examples they are
+                likely to recognize.
               </p>
             </div>
 
@@ -210,7 +210,7 @@ export default function DraftTeamAITrainingPage() {
                 [
                   "01",
                   "Pre-session survey",
-                  "Participants share their current AI use, comfort level, concerns, tools, and examples of work that could be improved.",
+                  "Participants share current AI use, comfort level, concerns, tools, and examples of tasks that could be improved.",
                 ],
                 [
                   "02",
@@ -220,7 +220,7 @@ export default function DraftTeamAITrainingPage() {
                 [
                   "03",
                   "Example selection",
-                  "We choose examples that reflect the team's real work, not generic AI demos.",
+                  "We choose examples that reflect the team's actual context, not generic AI demos.",
                 ],
                 [
                   "04",
@@ -257,12 +257,12 @@ export default function DraftTeamAITrainingPage() {
               <div>
                 <span className="bp-rule" aria-hidden="true" />
                 <h2 className="section-h2 bp-h2--accented">
-                  What teams learn to do better.
+                  What the team gets better at.
                 </h2>
               </div>
               <p className="section-lede lede">
-                The focus is on useful, responsible AI habits that improve
-                everyday work without removing judgment.
+                The focus is on responsible AI habits that improve everyday
+                tasks without removing judgment.
               </p>
             </div>
 
@@ -316,8 +316,7 @@ export default function DraftTeamAITrainingPage() {
               </div>
               <p className="section-lede lede">
                 The best sessions combine short instruction, live examples,
-                hands-on exercises, and discussion about where AI fits in the
-                team&rsquo;s actual work.
+                hands-on exercises, and discussion about where AI fits.
               </p>
             </div>
 
@@ -415,11 +414,11 @@ export default function DraftTeamAITrainingPage() {
         <section className="bp-cta" data-screen-label="Final CTA" id="contact">
           <div className="wrap">
             <div className="bp-cta-inner bp-cta-inner--bare">
-              <h2>Want AI training built around your team?</h2>
+              <h2>Want training built around your team?</h2>
               <p>
                 Start with a 30-minute call. We&rsquo;ll talk about your
-                people, the work they do, and where AI training could create
-                the most value.
+                people, the tasks they handle, and where AI training could
+                create the most value.
               </p>
               <div className="bp-cta-actions">
                 <a href="/contact" className="pill pill-primary">
