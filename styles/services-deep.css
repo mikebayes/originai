@@ -7073,3 +7073,66 @@
     padding-top: 24px;
   }
 }
+
+/* ─── Draft Team AI Training page (/draft/services/ai-training) ───────
+   Inherits the refined bp-page--workflow hero scale and card system.
+   Adds: a wide visual slot, a two-column hairline step list, and
+   spacing for the customization section.                              */
+
+.bp-page--training .bp-custom {
+  padding: 76px 0 72px;
+}
+
+/* Wide visual slot: full content width rather than the flow-grid column */
+.bp-page .ph-slot--wide {
+  margin-top: 44px;
+  min-height: 300px;
+}
+
+/* Two-column hairline step list. Used where there is no side visual, so
+   four steps do not run as one tall single column. */
+.bp-page .bp-flow-steps--two-col {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 48px;
+  row-gap: 0;
+  margin-top: 44px;
+}
+.bp-page .bp-flow-steps--two-col .bp-flow-step {
+  border-bottom: 1px solid rgba(245, 240, 228, 0.07);
+}
+/* Keep the last row borderless on both columns */
+.bp-page .bp-flow-steps--two-col .bp-flow-step:nth-last-child(-n + 2) {
+  border-bottom: none;
+}
+.bp-page .bp-flow-steps--two-col .bp-flow-step p {
+  max-width: 46ch;
+}
+
+/* The training page's "where this leads" reuses .bp-origin, so give the
+   second instance a little separation from the section above it. */
+.bp-page--training .bp-origin + .bp-domains,
+.bp-page--training .bp-howitworks + .bp-origin {
+  padding-top: 72px;
+}
+
+@media (max-width: 900px) {
+  .bp-page--training .bp-custom {
+    padding: 52px 0 48px;
+  }
+  .bp-page .ph-slot--wide {
+    margin-top: 30px;
+    min-height: 200px;
+  }
+  .bp-page .bp-flow-steps--two-col {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+    margin-top: 30px;
+  }
+  .bp-page .bp-flow-steps--two-col .bp-flow-step:nth-last-child(-n + 2) {
+    border-bottom: 1px solid rgba(245, 240, 228, 0.07);
+  }
+  .bp-page .bp-flow-steps--two-col .bp-flow-step:last-child {
+    border-bottom: none;
+  }
+}
