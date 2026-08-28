@@ -7401,3 +7401,111 @@
     padding: 48px 0 44px;
   }
 }
+
+/* ─── AI Training update 3: calmer customization section ──────────────
+   The vertical timeline (line, dots, nodes, mini-cards) is retired in
+   favour of a clean numbered list with hairline dividers. The rail
+   selectors are neutralised so stale markup cannot bring the decoration
+   back.                                                                */
+
+.bp-page .bp-rail,
+.bp-page .bp-rail-step,
+.bp-page .bp-rail-node,
+.bp-page .bp-rail-dot,
+.bp-page .bp-train-caption {
+  display: none;
+}
+
+/* No panel or overlay behind this section */
+.bp-page--training .bp-custom {
+  background: none;
+}
+
+/* Image sits top-aligned beside the list, no sticky behaviour */
+.bp-page--training .bp-train-grid {
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 48px;
+  align-items: start;
+}
+
+/* Softer placeholder treatment: quieter hatch, calmer border */
+.bp-page--training .ph-slot--train {
+  min-height: 400px;
+  border-style: solid;
+  border-color: rgba(245, 240, 228, 0.09);
+  background-color: #0b1110;
+  background-image: radial-gradient(
+    90% 70% at 50% 35%,
+    rgba(93, 168, 156, 0.05) 0%,
+    rgba(93, 168, 156, 0) 72%
+  );
+}
+.bp-page--training .ph-slot--train .ph-slot-label {
+  border: none;
+  background: none;
+  padding: 0;
+  color: rgba(245, 240, 228, 0.3);
+}
+
+/* ── Clean numbered process list ───────────────────────────────────── */
+.bp-page .bp-proclist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.bp-page .bp-proc {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  gap: 18px;
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(245, 240, 228, 0.07);
+}
+.bp-page .bp-proc:first-child {
+  padding-top: 0;
+}
+.bp-page .bp-proc:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.bp-page .bp-proc-num {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: rgba(93, 168, 156, 0.85);
+  padding-top: 3px;
+}
+.bp-page .bp-proc-body h3 {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 600;
+  font-size: 18.5px;
+  color: rgba(245, 240, 228, 0.96);
+  margin: 0 0 7px;
+}
+.bp-page .bp-proc-body p {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14.5px;
+  line-height: 1.62;
+  color: rgba(245, 240, 228, 0.6);
+  margin: 0;
+  max-width: 56ch;
+}
+
+@media (max-width: 1100px) {
+  .bp-page--training .bp-train-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .bp-page--training .ph-slot--train {
+    min-height: 240px;
+  }
+}
+@media (max-width: 900px) {
+  .bp-page .bp-proc {
+    grid-template-columns: 32px minmax(0, 1fr);
+    gap: 14px;
+    padding: 18px 0;
+  }
+  .bp-page--training .ph-slot--train {
+    min-height: 190px;
+  }
+}

@@ -216,18 +216,15 @@ export default function DraftTeamAITrainingPage() {
                 warm, and real. Avoid futuristic AI imagery, robots,
                 abstract sparkles, or generic stock-photo cheese. */}
             <div className="bp-train-grid">
-              <figure className="bp-train-figure">
-                <div className="ph-slot ph-slot--train" aria-hidden="true">
-                  <span className="ph-slot-label">
-                    Training environment visual
-                  </span>
-                </div>
-                <figcaption className="bp-train-caption">
-                  Sessions run on-site, remote, or hybrid.
-                </figcaption>
-              </figure>
+              <div className="ph-slot ph-slot--train" aria-hidden="true">
+                <span className="ph-slot-label">
+                  Training environment visual
+                </span>
+              </div>
 
-              <ol className="bp-rail">
+              {/* Clean numbered list. No timeline line, no dots, no cards,
+                  no panel. Hairline dividers only. */}
+              <ol className="bp-proclist">
                 {[
                   [
                     "01",
@@ -250,12 +247,9 @@ export default function DraftTeamAITrainingPage() {
                     "The workshop is shaped around the group's needs, risks, opportunities, and adoption level.",
                   ],
                 ].map(([num, title, body]) => (
-                  <li className="bp-rail-step" key={num}>
-                    <span className="bp-rail-node" aria-hidden="true">
-                      <span className="bp-rail-dot" />
-                    </span>
-                    <div className="bp-rail-body">
-                      <span className="bp-rail-num">{num}</span>
+                  <li className="bp-proc" key={num}>
+                    <span className="bp-proc-num">{num}</span>
+                    <div className="bp-proc-body">
                       <h3>{title}</h3>
                       <p>{body}</p>
                     </div>
