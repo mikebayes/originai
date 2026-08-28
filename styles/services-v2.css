@@ -1590,3 +1590,78 @@
 .svcs-v2 .pill-ghost:hover {
   background: rgba(93, 168, 156, 0.12);
 }
+
+/* ─── Draft services page: visual normalization ───────────────────────
+   Brings /draft/services onto the same accent system as the Build and
+   AI Training drafts: streak once, teal rules after, no text eyebrows,
+   minimal placeholder slots.                                           */
+
+/* Accent marks (mirrors the bp-page versions) */
+.svcs-draft .bp-streak {
+  display: inline-flex;
+  margin-bottom: 22px;
+}
+.svcs-draft .bp-rule {
+  display: block;
+  width: 34px;
+  height: 2px;
+  margin-bottom: 20px;
+  background: linear-gradient(
+    90deg,
+    rgba(93, 168, 156, 0.9) 0%,
+    rgba(93, 168, 156, 0.35) 100%
+  );
+}
+.svcs-draft .bp-h2--accented {
+  margin-top: 0;
+}
+
+/* Hero H1 no longer has an eyebrow above it */
+.svcs-draft .s-hero-h1.bp-hero-h1--bare {
+  margin-top: 0;
+}
+
+/* Minimal placeholder slot, replacing the verbose .ph-visual card */
+.svcs-draft .ph-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 150px;
+  border: 1px solid rgba(245, 240, 228, 0.09);
+  border-radius: 12px;
+  background-color: #0b1110;
+  background-image: radial-gradient(
+    90% 70% at 50% 35%,
+    rgba(93, 168, 156, 0.05) 0%,
+    rgba(93, 168, 156, 0) 72%
+  );
+}
+.svcs-draft .ph-slot-label {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 228, 0.3);
+}
+.svcs-draft .start-tile .ph-slot {
+  min-height: 130px;
+}
+
+/* Retire the old verbose placeholder treatment on this page */
+.svcs-draft .ph-visual,
+.svcs-draft .ph-tag,
+.svcs-draft .ph-note {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .svcs-draft .bp-streak {
+    margin-bottom: 18px;
+  }
+  .svcs-draft .bp-rule {
+    width: 28px;
+    margin-bottom: 16px;
+  }
+}

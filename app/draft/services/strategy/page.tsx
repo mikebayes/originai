@@ -76,22 +76,17 @@ export default function DraftLeadershipEnablementPage() {
             className="wrap bp-hero"
             data-screen-label="Leadership enablement hero"
           >
-            <div className="bp-hero-meta">
+            {/* Breadcrumb only. No progress marker, no duplicate service
+                label, no decorative accent above the H1. */}
+            <div className="bp-hero-meta bp-hero-meta--crumb-only">
               <span>
                 <a href="/services">← Services</a>
                 <span className="crumb-sep">/</span>
                 <span>Leadership AI Enablement</span>
               </span>
-              <span>01 / 04 — Leadership</span>
             </div>
 
-            <div className="bp-hero-eyebrow">
-              <span className="dot" />
-              <span>Leadership AI Enablement</span>
-              <span className="bar" />
-            </div>
-
-            <h1 className="bp-hero-h1">
+            <h1 className="bp-hero-h1 bp-hero-h1--bare">
               Help your leadership team decide{" "}
               <span className="accent">where AI fits.</span>
             </h1>
@@ -137,11 +132,13 @@ export default function DraftLeadershipEnablementPage() {
         <section className="bp-fit" data-screen-label="If this sounds familiar">
           <div className="wrap">
             <div className="bp-fit-head">
-              <div className="eyebrow">
-                <span className="bar" />
-                If this sounds familiar
-              </div>
-              <h2 className="section-h2" style={{ marginTop: 24 }}>
+              {/* Homepage brand streak. Used once, opening the body
+                  content after the hero. */}
+              <span className="hero-mark bp-streak" aria-hidden="true">
+                <span className="hero-mark-dot" />
+                <span className="hero-mark-line" />
+              </span>
+              <h2 className="section-h2 bp-h2--accented">
                 You are probably here because{" "}
                 <span className="muted">one of these is true.</span>
               </h2>
@@ -172,10 +169,6 @@ export default function DraftLeadershipEnablementPage() {
                 ],
               ].map(([h, sub], i) => (
                 <div className="bp-fit-cell" key={i}>
-                  <span className="bp-fit-mark" aria-hidden="true">
-                    <span className="dot" />
-                    <span className="bar" />
-                  </span>
                   <h3>{h}</h3>
                   <p>{sub}</p>
                 </div>
@@ -184,14 +177,6 @@ export default function DraftLeadershipEnablementPage() {
           </div>
         </section>
 
-        <div className="wrap">
-          <div className="chapter-rule">
-            <span className="pill-marker">
-              <span className="dot" />
-              What leaders need to decide
-            </span>
-          </div>
-        </div>
 
         {/* ─── SECTION 3: WHAT LEADERS NEED TO DECIDE ────────────── */}
         <section
@@ -201,13 +186,9 @@ export default function DraftLeadershipEnablementPage() {
           <div className="wrap">
             <div className="bp-work-head">
               <div>
-                <div className="eyebrow">
-                  <span className="bar" />
-                  What leaders need to decide
-                </div>
-                <h2 className="section-h2" style={{ marginTop: 24 }}>
-                  What we help{" "}
-                  <span className="muted">leadership decide.</span>
+                <span className="bp-rule" aria-hidden="true" />
+                <h2 className="section-h2 bp-h2--accented">
+                  What we help leadership decide.
                 </h2>
               </div>
               <p className="section-lede lede">
@@ -255,13 +236,9 @@ export default function DraftLeadershipEnablementPage() {
           <div className="wrap">
             <div className="bp-work-head">
               <div>
-                <div className="eyebrow">
-                  <span className="bar" />
-                  How it works
-                </div>
-                <h2 className="section-h2" style={{ marginTop: 24 }}>
-                  How the{" "}
-                  <span className="muted">engagement works.</span>
+                <span className="bp-rule" aria-hidden="true" />
+                <h2 className="section-h2 bp-h2--accented">
+                  How the engagement works.
                 </h2>
               </div>
               <p className="section-lede lede">
@@ -321,13 +298,9 @@ export default function DraftLeadershipEnablementPage() {
           <div className="wrap">
             <div className="bp-outputs-head">
               <div>
-                <div className="eyebrow">
-                  <span className="bar" />
-                  Clarity to act
-                </div>
-                <h2 className="section-h2" style={{ marginTop: 24 }}>
-                  Clarity your team{" "}
-                  <span className="muted">can act on.</span>
+                <span className="bp-rule" aria-hidden="true" />
+                <h2 className="section-h2 bp-h2--accented">
+                  Clarity your team can act on.
                 </h2>
               </div>
               <p className="section-lede lede">
@@ -375,13 +348,9 @@ export default function DraftLeadershipEnablementPage() {
         <section className="bp-bridge" data-screen-label="The next move">
           <div className="wrap">
             <div className="bp-bridge-head">
-              <div className="eyebrow">
-                <span className="bar" />
-                The next move
-              </div>
-              <h2 className="section-h2" style={{ marginTop: 24 }}>
-                The next step{" "}
-                <span className="muted">should become obvious.</span>
+              <span className="bp-rule" aria-hidden="true" />
+              <h2 className="section-h2 bp-h2--accented">
+                The next step should become obvious.
               </h2>
             </div>
 
@@ -429,11 +398,8 @@ export default function DraftLeadershipEnablementPage() {
         {/* ─── SECTION 7: CTA ────────────────────────────────────── */}
         <section className="bp-cta" data-screen-label="Final CTA" id="contact">
           <div className="wrap">
-            <div className="bp-cta-inner">
-              <div className="bp-cta-eyebrow">
-                <span className="dot" />
-                Talk to us
-              </div>
+            {/* No eyebrow. The CTA panel carries the section. */}
+            <div className="bp-cta-inner bp-cta-inner--bare">
               <h2>Ready to align your team around AI?</h2>
               <p>
                 Let&rsquo;s talk about your leadership team, your people, and

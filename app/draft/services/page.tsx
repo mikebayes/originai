@@ -49,12 +49,10 @@ void EVENTUAL_SEO_DESCRIPTION;
 /* ─── Visual placeholder block ──────────────────────────────────────
    Polished dashed card in the Origin dark style. Describes the image
    or graphic that will eventually live in the slot.                  */
-function Placeholder({ label, note }: { label: string; note: string }) {
+function Placeholder({ label }: { label: string }) {
   return (
-    <div className="ph-visual" aria-hidden="true">
-      <span className="ph-tag">Visual placeholder</span>
-      <span className="ph-label">{label}</span>
-      <span className="ph-note">{note}</span>
+    <div className="ph-slot" aria-hidden="true">
+      <span className="ph-slot-label">{label}</span>
     </div>
   );
 }
@@ -74,10 +72,8 @@ export default function DraftServicesPage() {
         <section className="wrap s-hero" data-screen-label="Draft services hero">
           <div className="s-hero-grid">
             <div>
-              <div className="s-hero-eyebrow">
-                <span className="bar" />Services
-              </div>
-              <h1 className="s-hero-h1">
+              {/* No eyebrow. The H1 states the page. */}
+              <h1 className="s-hero-h1 bp-hero-h1--bare">
                 AI services for companies{" "}
                 <span className="muted">moving from interest to adoption.</span>
               </h1>
@@ -130,24 +126,18 @@ export default function DraftServicesPage() {
           </div>
         </section>
 
-        {/* Hero → sections bridge (same decorative element as live page) */}
-        <div className="hero-bridge" aria-hidden="true">
-          <div className="hero-bridge-inner wrap">
-            <span className="hb-rule" />
-            <span className="hb-marker">
-              <span className="hb-dot" />
-              <span className="hb-label">What we do</span>
-            </span>
-            <span className="hb-rule" />
-          </div>
-        </div>
 
         {/* ─── SECTION 2: WHAT WE DO (four cards, 2x2) ─────────── */}
         <section className="wrap section" data-screen-label="What we do">
           <div className="s-head">
             <div>
-              <span className="s-eyebrow">What we do</span>
-              <h2 className="s-h2">
+              {/* Homepage brand streak. Used once, opening the body
+                  content after the hero. */}
+              <span className="hero-mark bp-streak" aria-hidden="true">
+                <span className="hero-mark-dot" />
+                <span className="hero-mark-line" />
+              </span>
+              <h2 className="s-h2 bp-h2--accented">
                 AI services built around{" "}
                 <span className="muted">how companies adopt AI.</span>
               </h2>
@@ -164,10 +154,10 @@ export default function DraftServicesPage() {
             <article className="svc-card" id="leadership">
               <div className="svc-card-visual quad-visual">
                 <span className="svc-card-badge">Leadership</span>
-                <Placeholder
-                  label="Leadership session"
-                  note="Leadership workshop or planning session. Senior team in discussion. Human and credible, dark Origin treatment."
-                />
+                {/* ART DIRECTION (internal, do not render as page text):
+                    Leadership workshop or planning session. Senior team in
+                    discussion. Human and credible, dark Origin treatment. */}
+                <Placeholder label="Leadership session" />
               </div>
               <div className="svc-card-body">
                 <span className="svc-card-num">Leadership</span>
@@ -190,10 +180,10 @@ export default function DraftServicesPage() {
             <article className="svc-card" id="team">
               <div className="svc-card-visual quad-visual">
                 <span className="svc-card-badge">Team</span>
-                <Placeholder
-                  label="Team AI training"
-                  note="Guided AI workshop. People working with laptops, hands-on and business-oriented."
-                />
+                {/* ART DIRECTION (internal, do not render as page text):
+                    Guided AI workshop. People working with laptops, hands-on and
+                    business-oriented. */}
+                <Placeholder label="Team AI training" />
               </div>
               <div className="svc-card-body">
                 <span className="svc-card-num">Team</span>
@@ -217,10 +207,11 @@ export default function DraftServicesPage() {
             <article className="svc-card" id="workflows">
               <div className="svc-card-visual quad-visual">
                 <span className="svc-card-badge">Workflows</span>
-                <Placeholder
-                  label="Workflow assistant UI"
-                  note="Product-style visual. Workflow assistant, document analysis interface, or approval flow. More product-like than photo-like."
-                />
+                {/* ART DIRECTION (internal, do not render as page text):
+                    Product-style visual. Workflow assistant, document analysis
+                    interface, or approval flow. More product-like than
+                    photo-like. */}
+                <Placeholder label="Workflow assistant UI" />
               </div>
               <div className="svc-card-body">
                 <span className="svc-card-num">Workflows</span>
@@ -244,10 +235,10 @@ export default function DraftServicesPage() {
             <article className="svc-card" id="improvement">
               <div className="svc-card-visual quad-visual">
                 <span className="svc-card-badge">Improvement</span>
-                <Placeholder
-                  label="Improvement dashboard"
-                  note="Dashboard or monitoring card. Support metrics and an improvement roadmap trending up."
-                />
+                {/* ART DIRECTION (internal, do not render as page text):
+                    Dashboard or monitoring card. Support metrics and an
+                    improvement roadmap trending up. */}
+                <Placeholder label="Improvement dashboard" />
               </div>
               <div className="svc-card-body">
                 <span className="svc-card-num">Improvement</span>
@@ -272,10 +263,9 @@ export default function DraftServicesPage() {
           <div className="wrap engage-inner">
             <div className="s-head">
               <div>
-                <span className="s-eyebrow">How we engage</span>
-                <h2 className="s-h2">
-                  A simple path from interest{" "}
-                  <span className="muted">to adoption.</span>
+                <span className="bp-rule" aria-hidden="true" />
+                <h2 className="s-h2 bp-h2--accented">
+                  A simple path from interest to adoption.
                 </h2>
               </div>
               <p className="s-lede">
@@ -372,10 +362,9 @@ export default function DraftServicesPage() {
         <section className="wrap section" data-screen-label="Where clients start">
           <div className="s-head">
             <div>
-              <span className="s-eyebrow">Where clients start</span>
-              <h2 className="s-h2">
-                You do not need to know{" "}
-                <span className="muted">exactly where to start.</span>
+              <span className="bp-rule" aria-hidden="true" />
+              <h2 className="s-h2 bp-h2--accented">
+                You do not need to know exactly where to start.
               </h2>
             </div>
             <p className="s-lede">
@@ -387,10 +376,9 @@ export default function DraftServicesPage() {
 
           <div className="start-tiles">
             <article className="start-tile">
-              <Placeholder
-                label="Leadership session"
-                note="Leadership workshop image. Planning table, senior group."
-              />
+              {/* ART DIRECTION (internal, do not render as page text):
+                  Leadership workshop image. Planning table, senior group. */}
+              <Placeholder label="Leadership session" />
               <h3 className="start-tile-title">Leadership session</h3>
               <p className="start-tile-body">
                 For organizations that need clarity on AI priorities,
@@ -399,10 +387,9 @@ export default function DraftServicesPage() {
             </article>
 
             <article className="start-tile">
-              <Placeholder
-                label="Team AI training"
-                note="Training or workshop image. Hands-on, real teams at work."
-              />
+              {/* ART DIRECTION (internal, do not render as page text):
+                  Training or workshop image. Hands-on, real teams at work. */}
+              <Placeholder label="Team AI training" />
               <h3 className="start-tile-title">Team AI training</h3>
               <p className="start-tile-body">
                 For teams that need hands-on AI training tied to their actual
@@ -411,10 +398,9 @@ export default function DraftServicesPage() {
             </article>
 
             <article className="start-tile">
-              <Placeholder
-                label="Workflow opportunity"
-                note="Workflow diagram or UI mockup. Product-style, not photo."
-              />
+              {/* ART DIRECTION (internal, do not render as page text):
+                  Workflow diagram or UI mockup. Product-style, not photo. */}
+              <Placeholder label="Workflow opportunity" />
               <h3 className="start-tile-title">Workflow opportunity</h3>
               <p className="start-tile-body">
                 For teams that already see a workflow that could be faster,
@@ -428,10 +414,9 @@ export default function DraftServicesPage() {
         <section className="wrap section" data-screen-label="Customer spotlight">
           <div className="s-head">
             <div>
-              <span className="s-eyebrow">Customer spotlight</span>
-              <h2 className="s-h2">
-                How leaders are{" "}
-                <span className="muted">putting AI to work.</span>
+              <span className="bp-rule" aria-hidden="true" />
+              <h2 className="s-h2 bp-h2--accented">
+                How leaders are putting AI to work.
               </h2>
             </div>
             <p className="s-lede">
@@ -503,9 +488,7 @@ export default function DraftServicesPage() {
         {/* ─── SECTION 6: CTA ──────────────────────────────────── */}
         <section className="wrap section draft-cta" data-screen-label="CTA">
           <div className="draft-cta-inner">
-            <h2 className="s-h2">
-              Ready to <span className="muted">put AI to work?</span>
-            </h2>
+            <h2 className="s-h2">Ready to put AI to work?</h2>
             <p className="draft-cta-body">
               Start with a 30-minute call. We&rsquo;ll talk through your team,
               your workflows, and where AI may be worth pursuing first.
