@@ -7136,3 +7136,268 @@
     border-bottom: none;
   }
 }
+
+/* ─── AI Training update 2: density + layout variety ──────────────────
+   Three distinct treatments so consecutive sections stop reading as the
+   same component:
+     .bp-train-grid / .bp-rail  — visual paired with a vertical step rail
+     .bp-skills                 — compact hairline capability list
+     .bp-hrail                  — horizontal session timeline
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Customization: visual + vertical rail ──────────────────────────── */
+.bp-page .bp-train-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 44px;
+  align-items: start;
+  margin-top: 44px;
+}
+.bp-page .bp-train-figure {
+  margin: 0;
+  position: sticky;
+  top: 96px;
+}
+.bp-page .ph-slot--train {
+  min-height: 380px;
+  border-style: dashed;
+  border-color: rgba(93, 168, 156, 0.28);
+  background-color: #0a0f0e;
+  background-image:
+    repeating-linear-gradient(
+      135deg,
+      rgba(93, 168, 156, 0.05) 0px,
+      rgba(93, 168, 156, 0.05) 1px,
+      rgba(93, 168, 156, 0) 1px,
+      rgba(93, 168, 156, 0) 11px
+    ),
+    radial-gradient(
+      80% 60% at 50% 40%,
+      rgba(93, 168, 156, 0.07) 0%,
+      rgba(93, 168, 156, 0) 70%
+    );
+}
+.bp-page .ph-slot--train .ph-slot-label {
+  padding: 7px 14px;
+  border: 1px solid rgba(93, 168, 156, 0.3);
+  border-radius: 999px;
+  background: rgba(10, 15, 14, 0.85);
+  color: rgba(245, 240, 228, 0.45);
+}
+.bp-page .bp-train-caption {
+  margin-top: 14px;
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: rgba(245, 240, 228, 0.35);
+}
+
+/* Vertical connected rail */
+.bp-page .bp-rail {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.bp-page .bp-rail-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 20px;
+  padding-bottom: 28px;
+}
+.bp-page .bp-rail-step:last-child {
+  padding-bottom: 0;
+}
+.bp-page .bp-rail-node {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-top: 7px;
+}
+/* Connecting line between nodes */
+.bp-page .bp-rail-step:not(:last-child) .bp-rail-node::after {
+  content: "";
+  position: absolute;
+  top: 20px;
+  bottom: -28px;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    rgba(93, 168, 156, 0.4) 0%,
+    rgba(93, 168, 156, 0.12) 100%
+  );
+}
+.bp-page .bp-rail-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 12px rgba(93, 168, 156, 0.55);
+  flex-shrink: 0;
+}
+.bp-page .bp-rail-num {
+  display: block;
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  color: rgba(93, 168, 156, 0.85);
+  margin-bottom: 5px;
+}
+.bp-page .bp-rail-body h3 {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: rgba(245, 240, 228, 0.96);
+  margin: 0 0 6px;
+}
+.bp-page .bp-rail-body p {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: rgba(245, 240, 228, 0.6);
+  margin: 0;
+}
+
+/* ── What the team gets better at: compact capability list ─────────── */
+.bp-page .bp-skills {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 40px;
+  row-gap: 0;
+  margin-top: 40px;
+  border-top: 1px solid rgba(245, 240, 228, 0.08);
+}
+.bp-page .bp-skill {
+  padding: 20px 0 18px;
+  border-bottom: 1px solid rgba(245, 240, 228, 0.08);
+}
+.bp-page .bp-skill h3 {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: rgba(245, 240, 228, 0.94);
+  margin: 0 0 5px;
+}
+.bp-page .bp-skill p {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: rgba(245, 240, 228, 0.55);
+  margin: 0;
+}
+
+/* ── Session timeline: horizontal rail ──────────────────────────────── */
+.bp-page .bp-hrail {
+  position: relative;
+  list-style: none;
+  margin: 44px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px;
+}
+/* Line running behind the nodes */
+.bp-page .bp-hrail::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(93, 168, 156, 0) 0%,
+    rgba(93, 168, 156, 0.38) 8%,
+    rgba(93, 168, 156, 0.38) 92%,
+    rgba(93, 168, 156, 0) 100%
+  );
+}
+.bp-page .bp-hrail-step {
+  position: relative;
+  padding-top: 26px;
+}
+.bp-page .bp-hrail-node {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+}
+.bp-page .bp-hrail-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #0a0f0e;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 12px rgba(93, 168, 156, 0.4);
+}
+.bp-page .bp-hrail-num {
+  display: block;
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  color: rgba(93, 168, 156, 0.8);
+  margin-bottom: 6px;
+}
+.bp-page .bp-hrail-step h3 {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 600;
+  font-size: 19px;
+  color: rgba(245, 240, 228, 0.96);
+  margin: 0 0 7px;
+}
+.bp-page .bp-hrail-step p {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(245, 240, 228, 0.58);
+  margin: 0;
+}
+
+/* Slightly lighter section padding across the training page */
+.bp-page--training .bp-domains {
+  padding: 68px 0 64px;
+}
+.bp-page--training .bp-howitworks {
+  padding: 68px 0 68px;
+}
+
+@media (max-width: 1100px) {
+  .bp-page .bp-train-grid {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+  .bp-page .bp-train-figure {
+    position: static;
+  }
+  .bp-page .ph-slot--train {
+    min-height: 240px;
+  }
+  .bp-page .bp-skills {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 32px;
+  }
+  .bp-page .bp-hrail {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 28px;
+  }
+  .bp-page .bp-hrail::before {
+    display: none;
+  }
+}
+@media (max-width: 900px) {
+  .bp-page .bp-skills,
+  .bp-page .bp-hrail {
+    grid-template-columns: 1fr;
+  }
+  .bp-page .bp-hrail {
+    gap: 26px;
+    margin-top: 30px;
+  }
+  .bp-page .ph-slot--train {
+    min-height: 190px;
+  }
+  .bp-page--training .bp-domains,
+  .bp-page--training .bp-howitworks {
+    padding: 48px 0 44px;
+  }
+}

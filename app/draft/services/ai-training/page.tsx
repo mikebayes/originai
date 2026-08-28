@@ -205,38 +205,9 @@ export default function DraftTeamAITrainingPage() {
               </p>
             </div>
 
-            <div className="bp-steps bp-steps--four">
-              {[
-                [
-                  "01",
-                  "Pre-session survey",
-                  "Participants share current AI use, comfort level, concerns, tools, and examples of tasks that could be improved.",
-                ],
-                [
-                  "02",
-                  "Role and workflow review",
-                  "We look for common tasks, bottlenecks, documents, decisions, and recurring patterns across the team.",
-                ],
-                [
-                  "03",
-                  "Example selection",
-                  "We choose examples that reflect the team's actual context, not generic AI demos.",
-                ],
-                [
-                  "04",
-                  "Session design",
-                  "The workshop is shaped around the group's needs, risks, opportunities, and adoption level.",
-                ],
-              ].map(([num, title, body]) => (
-                <div className="bp-step" key={num}>
-                  <span className="bp-step-num">{num}</span>
-                  <h3>{title}</h3>
-                  <p>{body}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* Human training environment visual.
+            {/* Visual paired with a connected step rail, so the image reads
+                as a planned part of the section rather than a standalone
+                empty band.
 
                 ART DIRECTION (internal, do not render as page text):
                 Use a real human business training environment: facilitator
@@ -244,8 +215,53 @@ export default function DraftTeamAITrainingPage() {
                 examples or discussing workflows. Should feel professional,
                 warm, and real. Avoid futuristic AI imagery, robots,
                 abstract sparkles, or generic stock-photo cheese. */}
-            <div className="ph-slot ph-slot--flow ph-slot--wide" aria-hidden="true">
-              <span className="ph-slot-label">Training environment visual</span>
+            <div className="bp-train-grid">
+              <figure className="bp-train-figure">
+                <div className="ph-slot ph-slot--train" aria-hidden="true">
+                  <span className="ph-slot-label">
+                    Training environment visual
+                  </span>
+                </div>
+                <figcaption className="bp-train-caption">
+                  Sessions run on-site, remote, or hybrid.
+                </figcaption>
+              </figure>
+
+              <ol className="bp-rail">
+                {[
+                  [
+                    "01",
+                    "Pre-session survey",
+                    "Participants share current AI use, comfort level, concerns, tools, and examples of tasks that could be improved.",
+                  ],
+                  [
+                    "02",
+                    "Role and workflow review",
+                    "We look for common tasks, bottlenecks, documents, decisions, and recurring patterns across the team.",
+                  ],
+                  [
+                    "03",
+                    "Example selection",
+                    "We choose examples that reflect the team's actual context, not generic AI demos.",
+                  ],
+                  [
+                    "04",
+                    "Session design",
+                    "The workshop is shaped around the group's needs, risks, opportunities, and adoption level.",
+                  ],
+                ].map(([num, title, body]) => (
+                  <li className="bp-rail-step" key={num}>
+                    <span className="bp-rail-node" aria-hidden="true">
+                      <span className="bp-rail-dot" />
+                    </span>
+                    <div className="bp-rail-body">
+                      <span className="bp-rail-num">{num}</span>
+                      <h3>{title}</h3>
+                      <p>{body}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
             </div>
           </div>
         </section>
@@ -266,34 +282,36 @@ export default function DraftTeamAITrainingPage() {
               </p>
             </div>
 
-            <div className="bp-domain-grid">
+            {/* Compact hairline list rather than six bordered cards, so the
+                section reads as capability rather than a course syllabus. */}
+            <div className="bp-skills">
               {[
                 [
                   "Prompt with context",
-                  "Give AI clearer instructions, source material, constraints, and intended outcomes.",
+                  "Clearer instructions, source material, constraints, and intended outcomes.",
                 ],
                 [
                   "Review and improve outputs",
-                  "Evaluate AI responses, refine drafts, catch gaps, and apply human judgment.",
+                  "Evaluate responses, refine drafts, catch gaps, apply judgment.",
                 ],
                 [
                   "Summarize and synthesize",
-                  "Turn documents, notes, reports, or feedback into clearer summaries and next steps.",
+                  "Turn documents, notes, or feedback into clear summaries and next steps.",
                 ],
                 [
                   "Draft and adapt content",
-                  "Create stronger first drafts, rewrite for audience and channel, and apply brand or tone guidance.",
+                  "Stronger first drafts, rewritten for audience, channel, and tone.",
                 ],
                 [
                   "Research and compare",
-                  "Use AI to explore options, compare information, and prepare better questions.",
+                  "Explore options, compare information, prepare better questions.",
                 ],
                 [
                   "Work responsibly",
-                  "Understand boundaries around privacy, accuracy, sensitive information, and review.",
+                  "Boundaries around privacy, accuracy, sensitive information, and review.",
                 ],
               ].map(([h, p], i) => (
-                <div className="bp-domain-cell" key={i}>
+                <div className="bp-skill" key={i}>
                   <h3>{h}</h3>
                   <p>{p}</p>
                 </div>
@@ -320,7 +338,9 @@ export default function DraftTeamAITrainingPage() {
               </p>
             </div>
 
-            <ol className="bp-flow-steps bp-flow-steps--two-col">
+            {/* Horizontal rail. Reads as a session timeline and keeps this
+                section visually distinct from the vertical rail above. */}
+            <ol className="bp-hrail">
               {[
                 [
                   "01",
@@ -340,15 +360,16 @@ export default function DraftTeamAITrainingPage() {
                 [
                   "04",
                   "Capture",
-                  "Document useful patterns, concerns, and opportunities that should be explored further.",
+                  "Document useful patterns, concerns, and opportunities to explore further.",
                 ],
               ].map(([num, title, body]) => (
-                <li className="bp-flow-step" key={num}>
-                  <span className="bp-flow-num">{num}</span>
-                  <div>
-                    <h3>{title}</h3>
-                    <p>{body}</p>
-                  </div>
+                <li className="bp-hrail-step" key={num}>
+                  <span className="bp-hrail-node" aria-hidden="true">
+                    <span className="bp-hrail-dot" />
+                  </span>
+                  <span className="bp-hrail-num">{num}</span>
+                  <h3>{title}</h3>
+                  <p>{body}</p>
                 </li>
               ))}
             </ol>
