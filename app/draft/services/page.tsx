@@ -57,6 +57,58 @@ function Placeholder({ label }: { label: string }) {
   );
 }
 
+/* ─── Leadership AI Enablement card art ─────────────────────────────
+   Small embedded service-card visual, not a feature image.
+
+   Reads as a decision artifact: three leadership inputs on the left
+   converge on a single decision node, then one prioritized path is
+   carried forward while two alternates fade. Sequence ticks along the
+   chosen path imply ordering without labels.
+
+   Deliberately excluded: people, photography, dashboards, arrowheads,
+   readable interface text, neon, network webs. Hairline geometry in the
+   muted teal only, on the card's own dark ground.                     */
+function LeadershipCardArt() {
+  return (
+    <div className="lead-art" aria-hidden="true">
+      <svg viewBox="0 0 320 180" fill="none" preserveAspectRatio="xMidYMid meet">
+        {/* Baseline hairlines, very low contrast, for structure only */}
+        <line x1="0" y1="46" x2="320" y2="46" className="la-grid" />
+        <line x1="0" y1="134" x2="320" y2="134" className="la-grid" />
+
+        {/* Three leadership inputs converging on the decision node */}
+        <path d="M34 46 C 74 46, 92 90, 128 90" className="la-in" />
+        <path d="M34 90 L128 90" className="la-in" />
+        <path d="M34 134 C 74 134, 92 90, 128 90" className="la-in" />
+
+        <circle cx="34" cy="46" r="2.6" className="la-dot" />
+        <circle cx="34" cy="90" r="2.6" className="la-dot" />
+        <circle cx="34" cy="134" r="2.6" className="la-dot" />
+
+        {/* Two alternates, set aside */}
+        <path d="M146 90 C 186 90, 200 58, 252 58" className="la-alt" />
+        <path d="M146 90 C 186 90, 200 122, 252 122" className="la-alt" />
+        <circle cx="252" cy="58" r="2.2" className="la-alt-dot" />
+        <circle cx="252" cy="122" r="2.2" className="la-alt-dot" />
+
+        {/* The prioritized path forward */}
+        <path d="M146 90 L286 90" className="la-path" />
+        <line x1="188" y1="85" x2="188" y2="95" className="la-tick" />
+        <line x1="222" y1="85" x2="222" y2="95" className="la-tick" />
+        <line x1="256" y1="85" x2="256" y2="95" className="la-tick" />
+
+        {/* Decision node */}
+        <circle cx="137" cy="90" r="9" className="la-node-ring" />
+        <circle cx="137" cy="90" r="2.8" className="la-node-core" />
+
+        {/* Terminal: what moves first */}
+        <circle cx="290" cy="90" r="7" className="la-end-halo" />
+        <circle cx="290" cy="90" r="3.2" className="la-end" />
+      </svg>
+    </div>
+  );
+}
+
 export default function DraftServicesPage() {
   return (
     <main>
@@ -154,10 +206,7 @@ export default function DraftServicesPage() {
             <article className="svc-card" id="leadership">
               <div className="svc-card-visual quad-visual">
                 <span className="svc-card-badge">Leadership</span>
-                {/* ART DIRECTION (internal, do not render as page text):
-                    Leadership workshop or planning session. Senior team in
-                    discussion. Human and credible, dark Origin treatment. */}
-                <Placeholder label="Leadership session" />
+                <LeadershipCardArt />
               </div>
               <div className="svc-card-body">
                 <span className="svc-card-num">Leadership</span>

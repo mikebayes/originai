@@ -9082,3 +9082,32 @@
     object-position: center 40%;
   }
 }
+
+/* ─── Draft AI Training: modest image size reduction ──────────────────
+   The photograph was reading a little dominant against the four numbered
+   items beside it. Reduced within the existing layout only, no redesign:
+
+     - column split 0.8fr / 1.2fr -> 0.72fr / 1.28fr (about 10% narrower)
+     - a 440px width cap so it does not grow past that on wide screens
+     - top-aligned rather than stretched, so the frame sits with the
+       heading instead of filling the row height
+
+   Frame treatment, rounded corners, crop, grain, and vignette all
+   unchanged. Copy, structure, typography, spacing, and the right-hand
+   content block are untouched.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.draft-hero--training .bp-train-grid {
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+  align-items: start;
+}
+.draft-hero--training .bp-train-figure {
+  max-width: 440px;
+}
+
+@media (max-width: 1100px) {
+  /* Stacked layout keeps its own cap from the earlier pass. */
+  .draft-hero--training .bp-train-figure {
+    max-width: 560px;
+  }
+}
