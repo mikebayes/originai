@@ -26,8 +26,20 @@ import {
  *   4. Managed AI Improvement     -> /services/managed
  *
  * No image panels anywhere on the page. The four service cards carry
- * small inline marks shared with the draft homepage, and the lower
- * starting-point section is a text-led chooser.
+ * small inline marks shared with the draft homepage.
+ *
+ * Sections:
+ *   1. Hero
+ *   2. What we do (four cards, 2x2)
+ *   3. A simple path from interest to adoption (journey rail)
+ *      + one-line reassurance note, not a section
+ *   4. Proof / testimonial
+ *   5. CTA
+ *
+ * The former "You do not need to know exactly where to start" section
+ * is gone. It listed the same services a third time, in a third format,
+ * with three more CTAs, and delayed the proof section. A single short
+ * note now carries the same reassurance.
  */
 
 /* ─── EVENTUAL SEO (for review, NOT active while draft) ──────────────
@@ -349,78 +361,29 @@ export default function DraftServicesPage() {
           </div>
         </section>
 
-        {/* ─── SECTION 4: WHERE CLIENTS START ──────────────────── */}
-        <section className="wrap section" data-screen-label="Where clients start">
-          <div className="s-head">
-            <div>
-              <span className="bp-rule" aria-hidden="true" />
-              <h2 className="s-h2 bp-h2--accented">
-                You do not need to know exactly where to start.
-              </h2>
-            </div>
-            <p className="s-lede">
-              Most engagements begin with one of three questions. Pick the one
-              that sounds like your situation.
-            </p>
-          </div>
+        {/* ─── REASSURANCE NOTE ────────────────────────────────────
+            Replaces the former "You do not need to know exactly where to
+            start" section and its three chooser tiles.
 
-          {/* Starting-point chooser. Question-led so a visitor can match
-              their own situation in one read: index, title, the question
-              they are actually asking, one support line, CTA. Compact
-              tiles, deliberately lighter than the four service cards
-              above. No visual panels. */}
-          <div className="start-chooser">
-            {[
-              {
-                num: "01",
-                title: "Start with leadership alignment",
-                q: "Where does AI belong?",
-                support: "Decide priorities, standards, risks, and next steps.",
-                href: "/services/strategy",
-                cta: "Explore leadership enablement",
-              },
-              {
-                num: "02",
-                title: "Start with team training",
-                q: "How do our people use it well?",
-                support:
-                  "Build capability around real roles, tasks, and examples.",
-                href: "/services/ai-training",
-                cta: "Explore team training",
-              },
-              {
-                num: "03",
-                title: "Start with a workflow opportunity",
-                q: "What should we improve first?",
-                support:
-                  "Turn a known workflow into something faster, clearer, or easier to manage.",
-                href: "/services/build",
-                cta: "Explore workflow development",
-              },
-            ].map((o) => (
-              <a key={o.num} href={o.href} className="start-opt">
-                <span className="start-opt-head">
-                  <span className="start-opt-num">{o.num}</span>
-                  <span className="start-opt-title">{o.title}</span>
-                </span>
+            Why it shrank: the page already lists the four services, then
+            explains the path through them. A third explanatory block with
+            its own heading, grid, and three CTAs restated both and pushed
+            the proof section further down. The page now moves path →
+            short note → proof → final CTA, and the final CTA stays the
+            only conversion point on the page.
 
-                <span className="start-opt-q">
-                  <span className="start-opt-q-label">When the question is</span>
-                  <span className="start-opt-q-text">{o.q}</span>
-                </span>
+            Deliberately not a section: no heading, no rule, no grid, no
+            buttons, no images. It reads as a closing line on the path
+            section above it. */}
+        <aside className="start-note" data-screen-label="Reassurance note">
+          <p>
+            <strong>Not sure which path fits?</strong> That is normal. Most
+            conversations start with the situation in front of you, not a
+            finished AI plan.
+          </p>
+        </aside>
 
-                <span className="start-opt-support">{o.support}</span>
-
-                <span className="start-opt-cta">
-                  {o.cta}
-                  <span className="arrow" aria-hidden="true">→</span>
-                </span>
-              </a>
-            ))}
-          </div>
-        </section>
-
-        {/* ─── SECTION 5: PROOF / TESTIMONIAL ──────────────────── */}
+        {/* ─── SECTION 4: PROOF / TESTIMONIAL ──────────────────── */}
         <section className="wrap section" data-screen-label="Customer spotlight">
           <div className="s-head">
             <div>
@@ -495,7 +458,7 @@ export default function DraftServicesPage() {
           </div>
         </section>
 
-        {/* ─── SECTION 6: CTA ──────────────────────────────────── */}
+        {/* ─── SECTION 5: CTA ──────────────────────────────────── */}
         <section className="wrap section draft-cta" data-screen-label="CTA">
           <div className="draft-cta-inner">
             <h2 className="s-h2">Ready to put AI to work?</h2>
