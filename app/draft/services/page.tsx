@@ -25,8 +25,9 @@ import {
  *   3. AI Workflow Development    -> /services/build
  *   4. Managed AI Improvement     -> /services/managed
  *
- * Visuals are intentional placeholders (.ph-visual) describing the
- * intended image/graphic direction. No final images yet.
+ * No image panels anywhere on the page. The four service cards carry
+ * small inline marks shared with the draft homepage, and the lower
+ * starting-point section is a text-led chooser.
  */
 
 /* ─── EVENTUAL SEO (for review, NOT active while draft) ──────────────
@@ -51,17 +52,6 @@ export const metadata: Metadata = {
 // draft is under review.
 void EVENTUAL_SEO_TITLE;
 void EVENTUAL_SEO_DESCRIPTION;
-
-/* ─── Visual placeholder block ──────────────────────────────────────
-   Polished dashed card in the Origin dark style. Describes the image
-   or graphic that will eventually live in the slot.                  */
-function Placeholder({ label }: { label: string }) {
-  return (
-    <div className="ph-slot" aria-hidden="true">
-      <span className="ph-slot-label">{label}</span>
-    </div>
-  );
-}
 
 export default function DraftServicesPage() {
   return (
@@ -375,39 +365,62 @@ export default function DraftServicesPage() {
             </p>
           </div>
 
-          <div className="start-tiles">
-            <article className="start-tile">
-              {/* ART DIRECTION (internal, do not render as page text):
-                  Leadership workshop image. Planning table, senior group. */}
-              <Placeholder label="Leadership session" />
-              <h3 className="start-tile-title">Leadership session</h3>
-              <p className="start-tile-body">
-                For organizations that need clarity on AI priorities,
-                standards, risks, and next steps.
-              </p>
-            </article>
+          {/* Starting-point chooser. Deliberately lighter than the four
+              service cards above: no framed visuals, no borders on three
+              sides, no card fill. A hairline top rule with a small teal
+              index number carries each option, so this reads as a set of
+              routes rather than a second services grid. */}
+          <div className="start-chooser">
+            <a href="/services/strategy" className="start-opt">
+              <span className="start-opt-num">01</span>
+              <span className="start-opt-body">
+                <span className="start-opt-title">
+                  Start with leadership alignment
+                </span>
+                <span className="start-opt-desc">
+                  For organizations that need clarity on AI priorities,
+                  standards, risks, and next steps.
+                </span>
+                <span className="start-opt-cta">
+                  Explore leadership enablement
+                  <span className="arrow" aria-hidden="true">→</span>
+                </span>
+              </span>
+            </a>
 
-            <article className="start-tile">
-              {/* ART DIRECTION (internal, do not render as page text):
-                  Training or workshop image. Hands-on, real teams at work. */}
-              <Placeholder label="Team AI training" />
-              <h3 className="start-tile-title">Team AI training</h3>
-              <p className="start-tile-body">
-                For teams that need hands-on AI training tied to their actual
-                work.
-              </p>
-            </article>
+            <a href="/services/ai-training" className="start-opt">
+              <span className="start-opt-num">02</span>
+              <span className="start-opt-body">
+                <span className="start-opt-title">
+                  Start with team training
+                </span>
+                <span className="start-opt-desc">
+                  For teams that need hands-on AI training tied to their
+                  actual work.
+                </span>
+                <span className="start-opt-cta">
+                  Explore team training
+                  <span className="arrow" aria-hidden="true">→</span>
+                </span>
+              </span>
+            </a>
 
-            <article className="start-tile">
-              {/* ART DIRECTION (internal, do not render as page text):
-                  Workflow diagram or UI mockup. Product-style, not photo. */}
-              <Placeholder label="Workflow opportunity" />
-              <h3 className="start-tile-title">Workflow opportunity</h3>
-              <p className="start-tile-body">
-                For teams that already see a workflow that could be faster,
-                more consistent, or easier to manage.
-              </p>
-            </article>
+            <a href="/services/build" className="start-opt">
+              <span className="start-opt-num">03</span>
+              <span className="start-opt-body">
+                <span className="start-opt-title">
+                  Start with a workflow opportunity
+                </span>
+                <span className="start-opt-desc">
+                  For teams that already see a process that could be faster,
+                  more consistent, or easier to manage.
+                </span>
+                <span className="start-opt-cta">
+                  Explore workflow development
+                  <span className="arrow" aria-hidden="true">→</span>
+                </span>
+              </span>
+            </a>
           </div>
         </section>
 

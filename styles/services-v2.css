@@ -1981,3 +1981,111 @@
     transform: none;
   }
 }
+
+/* ─── Draft services hub: starting-point chooser ──────────────────────
+   Replaces the three .start-tile cards, which each carried a framed
+   placeholder panel and read as a second services grid competing with
+   the four cards above.
+
+   This is deliberately the lightest treatment on the page: no card fill,
+   no full border, no visual panel. Each option is a hairline top rule, a
+   small teal index number, a title, one line of qualifying copy, and a
+   CTA. Reads as a set of routes, not a card grid.
+
+   Gated on .svcs-draft, which only /draft/services carries.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.svcs-draft .start-chooser {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 44px;
+}
+
+.svcs-draft .start-opt {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 14px;
+  padding: 20px 0 4px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  transition: border-color 220ms ease-out;
+}
+.svcs-draft .start-opt:hover {
+  border-top-color: rgba(93, 168, 156, 0.55);
+}
+
+.svcs-draft .start-opt-num {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: rgba(93, 168, 156, 0.8);
+  padding-top: 3px;
+  transition: color 220ms ease-out;
+}
+.svcs-draft .start-opt:hover .start-opt-num {
+  color: rgba(93, 168, 156, 1);
+}
+
+.svcs-draft .start-opt-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.svcs-draft .start-opt-title {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.3;
+  color: rgba(255, 255, 255, 0.94);
+  transition: color 220ms ease-out;
+}
+.svcs-draft .start-opt:hover .start-opt-title {
+  color: #fff;
+}
+.svcs-draft .start-opt-desc {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14.5px;
+  line-height: 1.58;
+  color: rgba(255, 255, 255, 0.55);
+}
+.svcs-draft .start-opt-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: rgba(93, 168, 156, 0.85);
+  transition: color 220ms ease-out;
+}
+.svcs-draft .start-opt-cta .arrow {
+  display: inline-block;
+  transition: transform 220ms ease-out;
+}
+.svcs-draft .start-opt:hover .start-opt-cta {
+  color: rgba(93, 168, 156, 1);
+}
+.svcs-draft .start-opt:hover .start-opt-cta .arrow {
+  transform: translateX(4px);
+}
+
+/* Retire the old tile treatment on this page */
+.svcs-draft .start-tiles,
+.svcs-draft .start-tile {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .svcs-draft .start-chooser {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    margin-top: 32px;
+  }
+  .svcs-draft .start-opt {
+    grid-template-columns: 26px minmax(0, 1fr);
+    gap: 12px;
+    padding: 18px 0 14px;
+  }
+}
