@@ -22,8 +22,8 @@ import Footer from "@/components/Footer";
  *
  * Sections:
  *   1. Hero
- *   2. Point of view (no visible label)
- *   3. The Origin AI capability model (6 cards + fluency callout)
+ *   2. Connected adoption belief (no visible label)
+ *   3. AI-capable organization model (circular framework + list)
  *   4. Principles that shape the work (6 items)
  *   5. What we believe / what we avoid (two columns)
  *   6. How the approach turns into services (4 linked steps)
@@ -121,8 +121,10 @@ export default function DraftApproachPage() {
 
         <div className="bp-fade-down" aria-hidden="true" />
 
-        {/* ─── SECTION 2: POINT OF VIEW (no visible label) ────────── */}
-        <section className="bp-intro" data-screen-label="Point of view">
+        {/* ─── SECTION 2: CONNECTED ADOPTION BELIEF ──────────────
+            Constructive framing. States what works rather than what
+            companies are doing wrong. No cards, no eyebrow. */}
+        <section className="bp-intro" data-screen-label="Connected adoption">
           <div className="wrap">
             <div className="bp-work-head bp-work-head--stacked">
               <div>
@@ -133,26 +135,30 @@ export default function DraftApproachPage() {
                   <span className="hero-mark-line" />
                 </span>
                 <h2 className="section-h2 bp-h2--accented">
-                  Most AI efforts do not fail because{" "}
-                  <span className="muted">the model is wrong.</span>
+                  AI adoption works when the organization is{" "}
+                  <span className="muted">connected around it.</span>
                 </h2>
                 <p className="section-lede lede">
-                  They fail because the organization is unclear on where AI
-                  belongs, what problem it should solve, who owns the work,
-                  and how people will actually use it.
+                  AI adoption is strongest when leadership direction, team
+                  capability, governance, and workflow opportunities reinforce
+                  each other. These cannot sit in separate lanes if the goal is
+                  meaningful adoption.
                 </p>
                 <p className="section-lede lede bp-pov-second">
-                  We start with the decisions, the people, and the workflows,
-                  then move toward systems that fit the business. The tools
-                  matter, but they are downstream of clarity.
+                  Origin&rsquo;s approach connects those pieces, then helps turn
+                  the strongest opportunities into training, workflows, tools,
+                  and ongoing improvement.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ─── SECTION 3: CAPABILITY MODEL ───────────────────────── */}
-        <section className="bp-model" data-screen-label="Capability model">
+        {/* ─── SECTION 3: AI-CAPABLE ORGANIZATION MODEL ──────────
+            Centerpiece of the page. Ported from the live approach page's
+            circular framework and toned down for the new dark system:
+            softer halo, no bright cyan in the ring, restrained glow. */}
+        <section className="bp-frame" data-screen-label="Capability model">
           <div className="wrap">
             <div className="bp-work-head">
               <div>
@@ -162,54 +168,161 @@ export default function DraftApproachPage() {
                 </h2>
               </div>
               <p className="section-lede lede">
-                AI capability is not a maturity ladder. It is a connected
-                system of reinforcing capabilities.
+                Not a maturity ladder. A connected system of reinforcing
+                capabilities. AI creates value when these six elements work
+                together.
               </p>
             </div>
 
-            <div className="bp-model-grid">
-              {[
-                [
-                  "Leadership direction",
-                  "Leaders decide where AI belongs and what outcomes matter.",
-                ],
-                [
-                  "Executive ownership",
-                  "Senior leaders stay close enough to remove barriers and keep momentum.",
-                ],
-                [
-                  "Working systems",
-                  "AI creates value when it is embedded into workflows, software, and day-to-day operations.",
-                ],
-                [
-                  "Buildable use cases",
-                  "Ideas are filtered into focused opportunities that are worth acting on.",
-                ],
-                [
-                  "Policy and governance",
-                  "Clear guardrails help people use AI safely without stalling progress.",
-                ],
-                [
-                  "AI fluency",
-                  "Teams understand the concepts, risks, and possibilities, not just one tool.",
-                ],
-              ].map(([h, p], i) => (
-                <div className="bp-model-cell" key={i}>
-                  <h3>{h}</h3>
-                  <p>{p}</p>
-                </div>
-              ))}
+            <div className="bp-frame-grid">
+              <div className="bp-frame-diagram" aria-hidden="true">
+                <svg
+                  viewBox="0 0 600 600"
+                  xmlns="http://www.w3.org/2000/svg"
+                  preserveAspectRatio="xMidYMid meet"
+                >
+                  <defs>
+                    <radialGradient id="draftHalo" cx="0.5" cy="0.5" r="0.5">
+                      <stop offset="0%" stopColor="#5DA89C" stopOpacity="0.13" />
+                      <stop offset="60%" stopColor="#5DA89C" stopOpacity="0.03" />
+                      <stop offset="100%" stopColor="#5DA89C" stopOpacity="0" />
+                    </radialGradient>
+                    <linearGradient id="draftRing" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stopColor="#5DA89C" stopOpacity="0.38" />
+                      <stop offset="50%" stopColor="#5DA89C" stopOpacity="0.22" />
+                      <stop offset="100%" stopColor="#5DA89C" stopOpacity="0.38" />
+                    </linearGradient>
+                  </defs>
+
+                  <circle cx="300" cy="300" r="290" fill="url(#draftHalo)" />
+                  <circle
+                    cx="300"
+                    cy="300"
+                    r="270"
+                    fill="none"
+                    stroke="rgba(255,255,255,0.055)"
+                    strokeWidth="0.5"
+                    strokeDasharray="2 7"
+                  />
+
+                  {/* Connective web between nodes, held well back */}
+                  <g stroke="rgba(93,168,156,0.13)" strokeWidth="0.5" fill="none">
+                    <line x1="300" y1="100" x2="473" y2="200" />
+                    <line x1="473" y1="200" x2="473" y2="400" />
+                    <line x1="473" y1="400" x2="300" y2="500" />
+                    <line x1="300" y1="500" x2="127" y2="400" />
+                    <line x1="127" y1="400" x2="127" y2="200" />
+                    <line x1="127" y1="200" x2="300" y2="100" />
+                    <line x1="300" y1="100" x2="473" y2="400" stroke="rgba(93,168,156,0.085)" />
+                    <line x1="300" y1="100" x2="127" y2="400" stroke="rgba(93,168,156,0.085)" />
+                    <line x1="473" y1="200" x2="300" y2="500" stroke="rgba(93,168,156,0.085)" />
+                    <line x1="473" y1="200" x2="127" y2="400" stroke="rgba(93,168,156,0.085)" />
+                    <line x1="127" y1="200" x2="300" y2="500" stroke="rgba(93,168,156,0.085)" />
+                    <line x1="127" y1="200" x2="473" y2="400" stroke="rgba(93,168,156,0.085)" />
+                    <line x1="300" y1="300" x2="300" y2="100" stroke="rgba(93,168,156,0.07)" />
+                    <line x1="300" y1="300" x2="473" y2="200" stroke="rgba(93,168,156,0.07)" />
+                    <line x1="300" y1="300" x2="473" y2="400" stroke="rgba(93,168,156,0.07)" />
+                    <line x1="300" y1="300" x2="300" y2="500" stroke="rgba(93,168,156,0.07)" />
+                    <line x1="300" y1="300" x2="127" y2="400" stroke="rgba(93,168,156,0.07)" />
+                    <line x1="300" y1="300" x2="127" y2="200" stroke="rgba(93,168,156,0.07)" />
+                  </g>
+
+                  <circle
+                    cx="300"
+                    cy="300"
+                    r="235"
+                    fill="none"
+                    stroke="url(#draftRing)"
+                    strokeWidth="1"
+                  />
+
+                  {/* Center */}
+                  <g>
+                    <circle cx="300" cy="300" r="84" fill="#07100f" stroke="rgba(93,168,156,0.32)" strokeWidth="1" />
+                    <circle cx="300" cy="300" r="84" fill="none" stroke="rgba(93,168,156,0.07)" strokeWidth="14" />
+                    <text x="300" y="294" textAnchor="middle" fontFamily="Inter Tight, sans-serif" fontWeight="500" fontSize="18" fill="rgba(245,240,228,0.96)">AI-capable</text>
+                    <text x="300" y="318" textAnchor="middle" fontFamily="Inter Tight, sans-serif" fontWeight="500" fontSize="18" fill="rgba(245,240,228,0.96)">organization</text>
+                  </g>
+
+                  {/* Six capability nodes around the ring */}
+                  {[
+                    { x: 195, y: 74,  num: "01", label: "Leadership Direction", dotX: 220, dotY: 102 },
+                    { x: 368, y: 174, num: "02", label: "Executive Ownership",  dotX: 393, dotY: 202 },
+                    { x: 368, y: 374, num: "03", label: "Working Systems",      dotX: 393, dotY: 402 },
+                    { x: 195, y: 474, num: "04", label: "Buildable Use Cases",  dotX: 220, dotY: 502 },
+                    { x: 22,  y: 374, num: "05", label: "Policy & Governance",  dotX: 47,  dotY: 402 },
+                    { x: 22,  y: 174, num: "06", label: "AI Fluency",           dotX: 47,  dotY: 202 },
+                  ].map((n) => (
+                    <g key={n.num}>
+                      <rect x={n.x} y={n.y} width="210" height="56" rx="28" fill="#080f10" stroke="rgba(93,168,156,0.38)" strokeWidth="1" />
+                      <circle cx={n.dotX} cy={n.dotY} r="3.5" fill="#5DA89C" />
+                      <text x={n.dotX + 14} y={n.dotY - 4} fontFamily="JetBrains Mono, monospace" fontSize="9.5" letterSpacing="2.4" fill="rgba(93,168,156,0.9)">{n.num}</text>
+                      <text x={n.dotX + 14} y={n.dotY + 14} fontFamily="Inter Tight, sans-serif" fontWeight="500" fontSize="14" fill="rgba(245,240,228,0.95)">{n.label}</text>
+                    </g>
+                  ))}
+                </svg>
+              </div>
+
+              {/* Supporting items: hairline numbered list, not a card grid,
+                  since the model already carries the structure. */}
+              <ol className="bp-frame-list">
+                {[
+                  [
+                    "01",
+                    "Leadership Direction",
+                    "Leaders decide where AI belongs and what outcomes matter.",
+                  ],
+                  [
+                    "02",
+                    "Executive Ownership",
+                    "Senior leaders stay close enough to remove barriers and keep momentum.",
+                  ],
+                  [
+                    "03",
+                    "Working Systems",
+                    "AI creates value when it is embedded into workflows, software, and day-to-day operations.",
+                  ],
+                  [
+                    "04",
+                    "Buildable Use Cases",
+                    "Ideas are filtered into focused opportunities that are worth acting on.",
+                  ],
+                  [
+                    "05",
+                    "Policy & Governance",
+                    "Clear guardrails help people use AI safely without stalling progress.",
+                  ],
+                  [
+                    "06",
+                    "AI Fluency",
+                    "Teams understand the concepts, risks, and possibilities, not just one tool.",
+                  ],
+                ].map(([num, title, body]) => (
+                  <li className="bp-frame-item" key={num}>
+                    <span className="num">{num}</span>
+                    <div>
+                      <h3>{title}</h3>
+                      <p>{body}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
             </div>
 
-            {/* Compact callout closing the model */}
-            <div className="bp-callout">
-              <h3>Build fluency, not dependency.</h3>
-              <p>
-                The landscape will keep changing. Organizations need the
-                judgment to evaluate and adopt the right tools as they evolve,
-                instead of anchoring themselves to one vendor or platform.
-              </p>
-            </div>
+            {/* Fluency note. Reads as a conclusion to the model, not a
+                second card competing with it. */}
+            <aside className="bp-fluency">
+              <span className="bp-fluency-rule" aria-hidden="true" />
+              <div>
+                <h3>Build fluency, not dependency.</h3>
+                <p>
+                  The landscape will keep changing. Organizations need the
+                  judgment to evaluate and adopt the right tools as they
+                  evolve, instead of anchoring themselves to one vendor or
+                  platform.
+                </p>
+              </div>
+            </aside>
           </div>
         </section>
 
@@ -281,7 +394,7 @@ export default function DraftApproachPage() {
               <div>
                 <span className="bp-rule" aria-hidden="true" />
                 <h2 className="section-h2 bp-h2--accented">
-                  What we believe. What we avoid.
+                  What we believe, and what we avoid.
                 </h2>
               </div>
             </div>
@@ -328,8 +441,8 @@ export default function DraftApproachPage() {
                 </h2>
               </div>
               <p className="section-lede lede">
-                Our services move organizations from clarity, to capability,
-                to systems, to ongoing improvement.
+                Our services move organizations from alignment, to
+                capability, to systems, to ongoing improvement.
               </p>
             </div>
 
@@ -340,34 +453,37 @@ export default function DraftApproachPage() {
                   "Leadership AI Enablement",
                   "Clarify where AI belongs, what to act on first, and who owns what.",
                   "/services/strategy",
+                  "Explore leadership enablement",
                 ],
                 [
                   "02",
                   "Team AI Training",
                   "Build team fluency around roles, tasks, examples, and responsible use.",
                   "/services/ai-training",
+                  "Explore team training",
                 ],
                 [
                   "03",
                   "AI Workflow Development",
                   "Turn high-value opportunities into focused AI tools, automations, integrations, or internal systems.",
                   "/services/build",
+                  "Explore workflow development",
                 ],
                 [
                   "04",
                   "Managed AI Improvement",
                   "Improve, support, and expand what is live.",
                   "/services/managed",
+                  "Explore managed improvement",
                 ],
-              ].map(([num, title, body, href]) => (
+              ].map(([num, title, body, href, cta]) => (
                 <li className="bp-handoff-step" key={num}>
                   <a href={href}>
                     <span className="bp-handoff-num">{num}</span>
                     <h3>{title}</h3>
                     <p>{body}</p>
                     <span className="bp-handoff-link">
-                      Learn more{" "}
-                      <span className="arrow" aria-hidden="true">→</span>
+                      {cta} <span className="arrow" aria-hidden="true">→</span>
                     </span>
                   </a>
                 </li>
