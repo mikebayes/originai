@@ -118,6 +118,15 @@ export default function DraftInsightsPage() {
               Short pieces from Origin&rsquo;s team on AI adoption, workflow
               development, and the decisions that shape useful systems.
             </p>
+
+            {/* Quiet descriptor row. Plain mono text with hairline
+                separators, deliberately not pills and not a filter bar. */}
+            <p className="bp-ins-topics" aria-hidden="true">
+              <span>Adoption</span>
+              <span>Build</span>
+              <span>Workflow</span>
+              <span>Leadership</span>
+            </p>
           </section>
         </div>
 

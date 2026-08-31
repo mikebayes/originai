@@ -8865,3 +8865,105 @@
 .draft-hero--team .bp-statement-points {
   justify-content: center;
 }
+
+/* ─── Draft insights update 2: hero confidence ─────────────────────────
+   The hero read as a small text block floating in a large empty band.
+   Fixes: larger H1, wider readable sub, a quiet topic row to anchor the
+   composition, and tighter hero-to-grid spacing so the two feel related.
+   Still editorial: no split-colour heading, no CTAs, no imagery.
+   Scoped to .draft-hero--insights.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── H1: up from clamp(34px, 4.2vw, 46px) ────────────────────────── */
+.draft-hero--insights .bp-ins-hero-h1 {
+  font-size: clamp(42px, 5.6vw, 68px);
+  line-height: 1.02;
+  letter-spacing: -0.022em;
+  max-width: 18ch;
+}
+
+/* ── Subheadline: slightly larger and wider ──────────────────────── */
+.draft-hero--insights .bp-ins-hero-sub {
+  margin-top: 22px;
+  max-width: 62ch;
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(245, 240, 228, 0.68);
+}
+
+/* ── Streak: aligned to the text column, a touch more presence ───── */
+.draft-hero--insights .bp-streak {
+  margin-bottom: 26px;
+}
+.draft-hero--insights .hero-mark-line {
+  width: 76px;
+}
+
+/* ── Topic row: plain mono text with hairline separators ─────────── */
+.draft-hero--insights .bp-ins-topics {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 26px;
+  margin: 34px 0 0;
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 228, 0.34);
+}
+.draft-hero--insights .bp-ins-topics span {
+  position: relative;
+}
+.draft-hero--insights .bp-ins-topics span:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 10px;
+  background: rgba(93, 168, 156, 0.32);
+}
+
+/* ── Hero band: less empty air, better balance ───────────────────── */
+.draft-hero--insights .bp-hero--compact {
+  padding-top: 84px !important;
+  padding-bottom: 76px !important;
+}
+
+/* ── Hero to grid: tighter so they read as one composition ───────── */
+.draft-hero--insights .bp-ins-simple-wrap {
+  padding-top: 40px;
+}
+
+@media (max-width: 900px) {
+  .draft-hero--insights .bp-ins-hero-h1 {
+    font-size: clamp(32px, 9vw, 44px);
+    max-width: 20ch;
+  }
+  .draft-hero--insights .bp-ins-hero-sub {
+    font-size: 16.5px;
+    margin-top: 18px;
+  }
+  .draft-hero--insights .bp-streak {
+    margin-bottom: 20px;
+  }
+  .draft-hero--insights .hero-mark-line {
+    width: 56px;
+  }
+  .draft-hero--insights .bp-ins-topics {
+    margin-top: 26px;
+    gap: 8px 22px;
+  }
+  .draft-hero--insights .bp-ins-topics span:not(:last-child)::after {
+    right: -12px;
+  }
+  .draft-hero--insights .bp-hero--compact {
+    padding-top: 56px !important;
+    padding-bottom: 48px !important;
+  }
+  .draft-hero--insights .bp-ins-simple-wrap {
+    padding-top: 28px;
+  }
+}
