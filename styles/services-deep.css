@@ -8302,3 +8302,126 @@
     gap: 16px;
   }
 }
+
+/* ─── Draft managed update 2: de-boxing pass ──────────────────────────
+   The live managed page gives each section its own flat background plus
+   hairline borders, which stacks the page into visible panels:
+
+     .bp-intro    background #050a08
+     .bp-define   background #03100b + border-top + border-bottom
+     .bp-outputs  background #000
+     .bp-faq      gradient opening on #051a13
+
+   On this draft, all of that is replaced by one continuous page surface
+   so rhythm comes from spacing and the teal accents instead of rules.
+   Gated on .draft-hero--managed, so the live page keeps its panels.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* One continuous surface behind every body section */
+.draft-hero--managed {
+  background:
+    radial-gradient(
+      120% 60% at 50% 0%,
+      rgba(93, 168, 156, 0.03) 0%,
+      rgba(93, 168, 156, 0) 55%
+    ),
+    linear-gradient(180deg, #06090a 0%, #070b0c 55%, #06090a 100%);
+}
+
+/* Strip per-section backgrounds and the hard section rules */
+.draft-hero--managed .bp-intro,
+.draft-hero--managed .bp-define,
+.draft-hero--managed .bp-domains,
+.draft-hero--managed .bp-howitworks,
+.draft-hero--managed .bp-applies,
+.draft-hero--managed .bp-outputs,
+.draft-hero--managed .bp-faq {
+  background: none;
+  border-top: none;
+  border-bottom: none;
+}
+
+/* ── Vertical rhythm matched to the build / training / strategy drafts
+   Consistent 72 to 80px openings, with extra air before the monthly
+   rhythm so it reads as a new major section rather than a continuation
+   of the definition above it. ─────────────────────────────────────── */
+.draft-hero--managed .bp-intro {
+  padding: 80px 0 52px;
+}
+.draft-hero--managed .bp-define {
+  padding: 0 0 40px;
+}
+.draft-hero--managed .bp-domains {
+  padding: 76px 0 72px;
+}
+/* Monthly rhythm: the extra top padding is the deliberate breath */
+.draft-hero--managed .bp-howitworks {
+  padding: 96px 0 80px;
+}
+.draft-hero--managed .bp-applies {
+  padding: 76px 0 72px;
+}
+.draft-hero--managed .bp-outputs {
+  padding: 76px 0 76px;
+}
+.draft-hero--managed .bp-faq {
+  padding: 76px 0 72px;
+}
+
+/* ── Monthly rhythm rail: guide the eye, do not dominate ─────────── */
+.draft-hero--managed .bp-hrail::before {
+  background: linear-gradient(
+    90deg,
+    rgba(93, 168, 156, 0) 0%,
+    rgba(93, 168, 156, 0.24) 10%,
+    rgba(93, 168, 156, 0.24) 90%,
+    rgba(93, 168, 156, 0) 100%
+  );
+}
+/* Clear the sticky nav when the section is scrolled to */
+.draft-hero--managed .bp-howitworks {
+  scroll-margin-top: 96px;
+}
+
+/* ── FAQ: quieter than the primary content above it ──────────────── */
+.draft-hero--managed .bp-faq-item {
+  border-bottom-color: rgba(245, 240, 228, 0.06);
+}
+.draft-hero--managed .bp-faq-item summary {
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+.draft-hero--managed .bp-faq-item .qtext {
+  font-size: 16.5px;
+  color: rgba(245, 240, 228, 0.88);
+}
+.draft-hero--managed .bp-faq-item .qnum {
+  color: rgba(93, 168, 156, 0.62);
+}
+.draft-hero--managed .bp-faq-item .ans {
+  font-size: 14.5px;
+  color: rgba(245, 240, 228, 0.55);
+}
+
+/* ── CTA sits on the same surface, no panel edge above it ────────── */
+.draft-hero--managed .bp-cta {
+  border-top: none;
+}
+
+@media (max-width: 900px) {
+  .draft-hero--managed .bp-intro {
+    padding: 52px 0 36px;
+  }
+  .draft-hero--managed .bp-define {
+    padding: 0 0 28px;
+  }
+  .draft-hero--managed .bp-domains,
+  .draft-hero--managed .bp-applies,
+  .draft-hero--managed .bp-outputs,
+  .draft-hero--managed .bp-faq {
+    padding: 52px 0 48px;
+  }
+  .draft-hero--managed .bp-howitworks {
+    padding: 64px 0 52px;
+  }
+}
