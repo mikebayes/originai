@@ -2042,3 +2042,150 @@
     font-size: 14.5px;
   }
 }
+
+/* ─── Draft services hero: service-model artifact ─────────────────────
+   Overrides for the hero's right-hand card on /draft/services only.
+
+   The base .svcs-v2 .svc-diagram / .svc-row rules near the top of this
+   file are shared with the LIVE hero (components/ServicesV2Hero.tsx) and
+   are deliberately left alone. Everything here is gated on
+   .svcs-draft .svc-model, which is 0,3,0 specificity against the base
+   rules' 0,2,0, so these win regardless of source order.
+
+   Design intent: an intentional service-model diagram, not a mockup.
+     - no status chip, no footer, no placeholder language
+     - no highlighted row. The previous filled-teal Workflow row made
+       one of four services look primary, contradicting the page.
+     - direction is carried by a hairline rail through the index column
+       plus a very slight teal warming from 01 to 04. Sequence, not
+       hierarchy. The delta between first and last is ~18% opacity, so
+       no single row reads as dominant.
+     - rows are flatter and tighter than the live version so four fit at
+       hero height without the card growing taller than the copy column.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Card shell: slightly calmer than the live version, since there is no
+   longer a footer or status light to balance the top-right glow. */
+.svcs-draft .svc-diagram.svc-model {
+  padding: 24px;
+  background:
+    radial-gradient(
+      86% 58% at 82% 0%,
+      rgba(93, 168, 156, 0.075) 0%,
+      rgba(93, 168, 156, 0) 58%
+    ),
+    linear-gradient(165deg, #0c1416 0%, #0a1012 62%, #060a0c 100%);
+}
+
+.svcs-draft .svc-model .svc-diagram-head {
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.07);
+}
+.svcs-draft .svc-model .svc-diagram-title {
+  font-size: 10.5px;
+  letter-spacing: 0.13em;
+  color: rgba(255, 255, 255, 0.46);
+}
+
+/* ── Row stack + connecting rail ─────────────────────────────────── */
+.svcs-draft .svc-model .svc-rows {
+  gap: 2px;
+}
+
+/* Rail sits behind the index column and spans rows 1 through 4, fading
+   at both ends so it has no hard terminals. */
+.svcs-draft .svc-model .svc-model-rail {
+  position: absolute;
+  left: 25px;
+  top: 14px;
+  bottom: 14px;
+  width: 1px;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(93, 168, 156, 0) 0%,
+    rgba(93, 168, 156, 0.22) 14%,
+    rgba(93, 168, 156, 0.34) 86%,
+    rgba(93, 168, 156, 0) 100%
+  );
+}
+
+/* ── Rows: one shared treatment, no featured state ───────────────── */
+.svcs-draft .svc-model .svc-row {
+  grid-template-columns: 30px 1fr auto;
+  gap: 14px;
+  padding: 13px 14px 13px 12px;
+  border-radius: 10px;
+  background: transparent;
+  border: 0.5px solid transparent;
+  border-top-color: rgba(255, 255, 255, 0.055);
+  box-shadow: none;
+}
+/* First row needs no divider, the head rule above already closes it. */
+.svcs-draft .svc-model .svc-row:first-of-type {
+  border-top-color: transparent;
+}
+
+/* Index: dot-on-rail. The teal warms marginally down the stack. */
+.svcs-draft .svc-model .svc-row-num {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9.5px;
+  letter-spacing: 0.06em;
+  text-transform: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #0a1012;
+  border: 0.5px solid rgba(93, 168, 156, 0.26);
+  color: rgba(93, 168, 156, 0.62);
+}
+.svcs-draft .svc-model .svc-row[data-step="2"] .svc-row-num {
+  border-color: rgba(93, 168, 156, 0.3);
+  color: rgba(93, 168, 156, 0.68);
+}
+.svcs-draft .svc-model .svc-row[data-step="3"] .svc-row-num {
+  border-color: rgba(93, 168, 156, 0.34);
+  color: rgba(93, 168, 156, 0.74);
+}
+.svcs-draft .svc-model .svc-row[data-step="4"] .svc-row-num {
+  border-color: rgba(93, 168, 156, 0.38);
+  color: rgba(93, 168, 156, 0.8);
+}
+
+.svcs-draft .svc-model .svc-row-name {
+  font-size: 15.5px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.svcs-draft .svc-model .svc-row-tag {
+  font-size: 9.5px;
+  letter-spacing: 0.11em;
+  color: rgba(255, 255, 255, 0.34);
+}
+
+@media (max-width: 1080px) {
+  .svcs-draft .svc-diagram.svc-model {
+    padding: 20px;
+  }
+  .svcs-draft .svc-model .svc-row {
+    grid-template-columns: 26px 1fr auto;
+    gap: 12px;
+    padding: 12px 10px;
+  }
+  .svcs-draft .svc-model .svc-row-num {
+    width: 24px;
+    height: 24px;
+  }
+  .svcs-draft .svc-model .svc-model-rail {
+    left: 22px;
+  }
+  .svcs-draft .svc-model .svc-row-name {
+    font-size: 14.5px;
+  }
+}

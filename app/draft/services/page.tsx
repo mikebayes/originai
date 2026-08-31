@@ -94,41 +94,66 @@ export default function DraftServicesPage() {
               </p>
             </div>
 
-            {/* Right rail — four-part service model card.
-                Placeholder for the eventual designed 4-part visual. */}
-            <aside className="svc-diagram" aria-label="Four-part service model">
+            {/* Right rail — the four-part service model, as a finished
+                artifact rather than a placeholder mockup.
+
+                Changes from the earlier version:
+                  - "Placeholder" status chip and the "Visual placeholder"
+                    footer are both gone. The card now reads as intended
+                    design, not a stand-in.
+                  - The highlighted Workflow row is removed. Emphasis on
+                    one row implied Workflow was the primary service,
+                    which is the exact positioning this page moves away
+                    from. All four rows now share one treatment.
+                  - What signals direction instead: the teal index and
+                    hairline rail warm very slightly from 01 to 04, which
+                    reads as sequence, not hierarchy. No row is dominant.
+                  - The left column carries a numeric index rather than a
+                    category word, since the category was already implied
+                    by the service name beside it.
+                  - The verb tags (Align, Train, Develop, Improve) carry
+                    the caption content per row, so the footer is dropped
+                    entirely. Shorter card, better at hero size.
+
+                Draft-only class svc-model scopes every override. The
+                base .svcs-v2 rules are shared with the live hero via
+                components/ServicesV2Hero.tsx and are not touched. */}
+            <aside
+              className="svc-diagram svc-model"
+              aria-label="Origin AI service model: four service areas"
+            >
               <div className="svc-diagram-head">
                 <span className="svc-diagram-title">
                   Origin · Service model
                 </span>
-                <span className="svc-diagram-status">
-                  <span className="dot" />Placeholder
-                </span>
               </div>
+
               <div className="svc-rows">
-                <div className="svc-row">
-                  <span className="svc-row-num">Leadership</span>
+                {/* Continuous hairline rail behind the index column, so
+                    the four rows read as one connected model rather than
+                    a stacked list. */}
+                <span className="svc-model-rail" aria-hidden="true" />
+
+                <div className="svc-row" data-step="1">
+                  <span className="svc-row-num">01</span>
                   <span className="svc-row-name">Leadership AI Enablement</span>
                   <span className="svc-row-tag">Align</span>
                 </div>
-                <div className="svc-row">
-                  <span className="svc-row-num">Team</span>
+                <div className="svc-row" data-step="2">
+                  <span className="svc-row-num">02</span>
                   <span className="svc-row-name">Team AI Enablement</span>
                   <span className="svc-row-tag">Train</span>
                 </div>
-                <div className="svc-row center">
-                  <span className="svc-row-num">Workflows</span>
+                <div className="svc-row" data-step="3">
+                  <span className="svc-row-num">03</span>
                   <span className="svc-row-name">AI Workflow Development</span>
                   <span className="svc-row-tag">Develop</span>
                 </div>
-                <div className="svc-row">
-                  <span className="svc-row-num">Improvement</span>
+                <div className="svc-row" data-step="4">
+                  <span className="svc-row-num">04</span>
                   <span className="svc-row-name">Managed AI Improvement</span>
                   <span className="svc-row-tag">Improve</span>
                 </div>
-              </div>
-              <div className="svc-diagram-foot">
-                <span>Visual placeholder · four-part Origin service model</span>
               </div>
             </aside>
           </div>
