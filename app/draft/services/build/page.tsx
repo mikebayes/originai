@@ -392,28 +392,32 @@ export default function DraftWorkflowDevelopmentPage() {
                 >
                   <defs>
                     <radialGradient id="wfPanelGlow">
-                      <stop offset="0%" stopColor="#5da89c" stopOpacity="0.16" />
+                      <stop offset="0%" stopColor="#5da89c" stopOpacity="0.15" />
                       <stop offset="100%" stopColor="#5da89c" stopOpacity="0" />
                     </radialGradient>
                     <radialGradient id="wfNodeGlow">
-                      <stop offset="0%" stopColor="#5da89c" stopOpacity="0.34" />
+                      <stop offset="0%" stopColor="#5da89c" stopOpacity="0.32" />
                       <stop offset="100%" stopColor="#5da89c" stopOpacity="0" />
                     </radialGradient>
+                    <radialGradient id="wfDrop">
+                      <stop offset="0%" stopColor="#000000" stopOpacity="0.5" />
+                      <stop offset="100%" stopColor="#000000" stopOpacity="0" />
+                    </radialGradient>
                     <linearGradient id="wfPanelFill" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#5da89c" stopOpacity="0.11" />
-                      <stop offset="100%" stopColor="#5da89c" stopOpacity="0.02" />
+                      <stop offset="0%" stopColor="#5da89c" stopOpacity="0.12" />
+                      <stop offset="100%" stopColor="#5da89c" stopOpacity="0.022" />
                     </linearGradient>
-                    {/* userSpaceOnUse: both of these paint zero-width
-                        vertical lines, whose object bounding box is
-                        degenerate, which silently drops an
-                        objectBoundingBox gradient entirely. */}
+                    {/* userSpaceOnUse: these paint zero-width vertical
+                        lines, whose object bounding box is degenerate,
+                        which silently drops an objectBoundingBox
+                        gradient entirely. */}
                     <linearGradient
                       id="wfSpine"
                       gradientUnits="userSpaceOnUse"
-                      x1="311"
-                      y1="100"
-                      x2="311"
-                      y2="240"
+                      x1="302"
+                      y1="96"
+                      x2="302"
+                      y2="226"
                     >
                       <stop offset="0%" stopColor="#5da89c" stopOpacity="0.06" />
                       <stop offset="20%" stopColor="#5da89c" stopOpacity="0.32" />
@@ -423,130 +427,194 @@ export default function DraftWorkflowDevelopmentPage() {
                     <linearGradient
                       id="wfFade"
                       gradientUnits="userSpaceOnUse"
-                      x1="311"
-                      y1="100"
-                      x2="311"
-                      y2="74"
+                      x1="302"
+                      y1="96"
+                      x2="302"
+                      y2="72"
                     >
                       <stop offset="0%" stopColor="#5da89c" stopOpacity="0.2" />
                       <stop offset="100%" stopColor="#5da89c" stopOpacity="0" />
                     </linearGradient>
                   </defs>
 
-                  {/* Soft light behind the definition panel */}
+                  {/* Soft light behind the workflow module */}
                   <ellipse
-                    cx="216"
-                    cy="170"
-                    rx="104"
-                    ry="88"
+                    cx="214"
+                    cy="160"
+                    rx="106"
+                    ry="90"
                     fill="url(#wfPanelGlow)"
                   />
 
-                  {/* ── LEFT: unstructured input fragments ──────────── */}
+                  {/* ── LEFT: inputs ─────────────────────────────────
+                      Two of the three sit on a faint offset ghost card,
+                      which reads as more of the same arriving behind it.
+                      The middle one is dashed and carries no stack: the
+                      incomplete input. */}
                   <g className="wf-frags">
-                    <g transform="rotate(-3.2 66 78)">
+                    <g transform="rotate(-2.2 65 79)">
                       <rect
-                        x="26"
-                        y="52"
-                        width="80"
-                        height="52"
+                        x="28"
+                        y="58"
+                        width="82"
+                        height="50"
+                        rx="4"
+                        className="wf-ghost"
+                      />
+                      <rect
+                        x="24"
+                        y="54"
+                        width="82"
+                        height="50"
                         rx="4"
                         className="wf-frag-box"
                       />
-                      <path d="M37 68 H79" className="wf-frag-line" />
-                      <path d="M37 79 H92" className="wf-frag-line" />
-                      <path d="M37 90 H62" className="wf-frag-line wf-dim" />
+                      <path d="M32 66 V 92" className="wf-frag-edge" />
+                      <path d="M37 70 H79" className="wf-frag-line" />
+                      <path d="M37 81 H94" className="wf-frag-line" />
+                      <path d="M37 92 H64" className="wf-frag-line wf-dim" />
                     </g>
 
-                    <g transform="rotate(2.6 68 148)">
+                    <g transform="rotate(1.8 67 146)">
                       <rect
-                        x="34"
-                        y="126"
-                        width="70"
-                        height="45"
+                        x="30"
+                        y="122"
+                        width="74"
+                        height="48"
                         rx="4"
                         className="wf-frag-box wf-frag-box--dashed"
                       />
-                      <path d="M45 139 H90" className="wf-frag-line" />
-                      <path d="M45 150 H72" className="wf-frag-line wf-dim" />
-                      <path d="M45 160 H84" className="wf-frag-line wf-dim" />
+                      <path d="M41 136 H88" className="wf-frag-line" />
+                      <path d="M41 147 H70" className="wf-frag-line wf-dim" />
+                      <path d="M41 158 H82" className="wf-frag-line wf-dim" />
                     </g>
 
-                    <g transform="rotate(-1.4 64 216)">
+                    <g transform="rotate(-1.2 64 215)">
                       <rect
-                        x="24"
-                        y="192"
-                        width="82"
-                        height="49"
+                        x="26"
+                        y="194"
+                        width="84"
+                        height="50"
+                        rx="4"
+                        className="wf-ghost"
+                      />
+                      <rect
+                        x="22"
+                        y="190"
+                        width="84"
+                        height="50"
                         rx="4"
                         className="wf-frag-box"
                       />
-                      <path d="M35 207 H70" className="wf-frag-line wf-dim" />
-                      <path d="M35 218 H95" className="wf-frag-line" />
-                      <path d="M35 229 H58" className="wf-frag-line wf-dim" />
+                      <path d="M30 202 V 228" className="wf-frag-edge" />
+                      <path d="M35 206 H72" className="wf-frag-line wf-dim" />
+                      <path d="M35 217 H97" className="wf-frag-line" />
+                      <path d="M35 228 H60" className="wf-frag-line wf-dim" />
                     </g>
                   </g>
 
-                  {/* Convergence: unclear work funnelling into definition */}
+                  {/* Convergence into the module's three entry ports */}
                   <g className="wf-converge">
-                    <path d="M108 79 C 136 86, 150 128, 166 152" />
-                    <path d="M106 148 C 130 154, 144 162, 166 168" />
-                    <path d="M108 216 C 134 210, 148 198, 166 186" />
+                    <path d="M108 80 C 134 88, 150 122, 162 140" />
+                    <path d="M105 147 C 128 152, 146 157, 162 161" />
+                    <path d="M108 214 C 134 208, 150 194, 162 182" />
                   </g>
 
-                  {/* ── CENTRE: the defined workflow ────────────────── */}
+                  {/* ── CENTRE: the defined workflow ────────────────
+                      Soft drop under the panel for depth, an inner
+                      header band, a small module block, and explicit
+                      entry / exit ports so the direction of travel is
+                      legible without arrows. */}
+                  <ellipse
+                    cx="214"
+                    cy="218"
+                    rx="58"
+                    ry="10"
+                    fill="url(#wfDrop)"
+                  />
                   <rect
-                    x="167"
-                    y="119"
-                    width="94"
-                    height="102"
+                    x="165"
+                    y="112"
+                    width="98"
+                    height="100"
                     rx="9"
                     fill="url(#wfPanelFill)"
                     className="wf-panel"
                   />
-                  <path d="M181 142 H239" className="wf-panel-line" />
-                  <path d="M181 156 H225" className="wf-panel-line" />
-                  <path d="M181 170 H233" className="wf-panel-line" />
-                  <circle cx="185" cy="197" r="3.4" className="wf-panel-node" />
-                  <path d="M192 197 H247" className="wf-panel-line wf-dim" />
+                  {/* Top-edge highlight: catches light, adds depth */}
+                  <path d="M174 112.6 H254" className="wf-panel-hi" />
+                  {/* Header band, then the defined steps */}
+                  <path d="M165 133 H263" className="wf-panel-band" />
+                  <path d="M179 149 H241" className="wf-panel-line" />
+                  <path d="M179 162 H227" className="wf-panel-line" />
+                  <path d="M179 175 H235" className="wf-panel-line wf-dim" />
+                  {/* One resolved module inside the workflow */}
+                  <rect
+                    x="179"
+                    y="190"
+                    width="28"
+                    height="12"
+                    rx="3"
+                    className="wf-module"
+                  />
+                  <path d="M213 196 H247" className="wf-panel-line wf-dim" />
 
-                  {/* ── RIGHT: the ordered system ───────────────────── */}
-                  {/* Trunk out of the panel into the spine */}
-                  <path d="M261 170 H311" className="wf-route" />
+                  {/* Ports */}
+                  <circle cx="165" cy="140" r="2" className="wf-port" />
+                  <circle cx="165" cy="161" r="2" className="wf-port" />
+                  <circle cx="165" cy="182" r="2" className="wf-port" />
+                  <circle cx="263" cy="161" r="2.6" className="wf-port-out" />
 
-                  {/* Spine */}
+                  {/* ── RIGHT: the ordered system ───────────────────
+                      Three aligned outputs on a spine, held by a faint
+                      bracket so they read as one system rather than
+                      three loose ends. */}
+                  <path d="M266 161 H302" className="wf-route" />
                   <path
-                    d="M311 100 V 240"
+                    d="M302 96 V 226"
                     stroke="url(#wfSpine)"
                     strokeWidth="1"
                   />
 
-                  {/* Spine legs + nodes. Equal-length outputs. */}
-                  <path d="M311 114 H352" className="wf-leg" />
-                  <circle cx="311" cy="114" r="4" className="wf-node" />
-                  <circle cx="357" cy="114" r="3" className="wf-tip" />
-
-                  <path d="M311 226 H352" className="wf-leg" />
-                  <circle cx="311" cy="226" r="4" className="wf-node" />
-                  <circle cx="357" cy="226" r="3" className="wf-tip" />
-
-                  {/* Validated route: the straight line out of the panel.
-                      Only highlighted element on the canvas. */}
-                  <circle
-                    cx="311"
-                    cy="170"
-                    r="17"
-                    fill="url(#wfNodeGlow)"
+                  <path d="M302 110 H340" className="wf-leg" />
+                  <circle cx="302" cy="110" r="4" className="wf-node" />
+                  <rect
+                    x="340"
+                    y="104"
+                    width="20"
+                    height="12"
+                    rx="2.5"
+                    className="wf-out"
                   />
-                  <path d="M311 170 H354" className="wf-leg wf-leg--live" />
-                  <circle cx="311" cy="170" r="5.4" className="wf-node-live" />
-                  <circle cx="360" cy="170" r="3.2" className="wf-tip-live" />
 
-                  {/* Scope considered, not built. The spine simply keeps
-                      going and fades out, rather than turning a corner,
-                      which read as a stray box edge. */}
+                  <path d="M302 212 H340" className="wf-leg" />
+                  <circle cx="302" cy="212" r="4" className="wf-node" />
+                  <rect
+                    x="340"
+                    y="206"
+                    width="20"
+                    height="12"
+                    rx="2.5"
+                    className="wf-out"
+                  />
+
+                  {/* Validated route: the straight line out of the
+                      module. Only highlighted element on the canvas. */}
+                  <circle cx="302" cy="161" r="17" fill="url(#wfNodeGlow)" />
+                  <path d="M302 161 H338" className="wf-leg wf-leg--live" />
+                  <circle cx="302" cy="161" r="5.4" className="wf-node-live" />
+                  <rect
+                    x="338"
+                    y="153"
+                    width="26"
+                    height="16"
+                    rx="3"
+                    className="wf-out wf-out--live"
+                  />
+
+                  {/* Scope considered, not built. Fades out. */}
                   <path
-                    d="M311 100 V 76"
+                    d="M302 96 V 72"
                     stroke="url(#wfFade)"
                     strokeWidth="1"
                     strokeDasharray="2 4"
