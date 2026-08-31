@@ -7729,3 +7729,322 @@
 .draft-hero .bp-fade-down {
   background: linear-gradient(180deg, #06090a 0%, rgba(6, 9, 10, 0) 100%);
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   DRAFT APPROACH PAGE  ·  /draft/approach  ONLY
+   All selectors gated on .draft-hero--approach or .bp-page--approach
+   combined with .draft-hero, so the live /approach route is untouched.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Hero: point-of-view page, most dimensional of the draft family
+   without tipping into the pillar page's diagonal sheen. ──────────── */
+.draft-hero--approach .bp-hero-shell {
+  background:
+    linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent calc(100% - 240px),
+      rgba(6, 9, 10, 0.55) calc(100% - 80px),
+      #06090a 100%
+    ),
+    radial-gradient(
+      70% 78% at 80% 6%,
+      rgba(93, 168, 156, 0.105) 0%,
+      rgba(93, 168, 156, 0) 62%
+    ),
+    radial-gradient(
+      58% 62% at 14% 32%,
+      rgba(56, 116, 108, 0.135) 0%,
+      rgba(56, 116, 108, 0) 66%
+    ),
+    radial-gradient(
+      50% 55% at 90% 94%,
+      rgba(0, 0, 0, 0.47) 0%,
+      rgba(0, 0, 0, 0) 68%
+    ),
+    linear-gradient(167deg, #0a0e12 0%, #0b1a1b 45%, #0d2726 77%, #07100f 100%);
+}
+
+/* ── Point of view: second paragraph spacing ─────────────────────── */
+.draft-hero--approach .bp-pov-second {
+  margin-top: 18px;
+}
+.draft-hero--approach .bp-intro {
+  padding: 84px 0 64px;
+}
+
+/* ── Capability model: 3x2 grid, restrained cards ────────────────── */
+.draft-hero--approach .bp-model {
+  padding: 72px 0 76px;
+}
+.draft-hero--approach .bp-model-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 44px;
+}
+.draft-hero--approach .bp-model-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 26px 24px;
+  border: 1px solid rgba(245, 240, 228, 0.09);
+  border-radius: 14px;
+  background: linear-gradient(
+    170deg,
+    rgba(245, 240, 228, 0.03) 0%,
+    rgba(245, 240, 228, 0) 100%
+  );
+  transition: border-color 0.2s ease;
+}
+.draft-hero--approach .bp-model-cell:hover {
+  border-color: rgba(93, 168, 156, 0.35);
+}
+.draft-hero--approach .bp-model-cell h3 {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: rgba(245, 240, 228, 0.96);
+  margin: 0;
+}
+.draft-hero--approach .bp-model-cell p {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: rgba(245, 240, 228, 0.6);
+  margin: 0;
+}
+
+/* Fluency callout closing the model */
+.draft-hero--approach .bp-callout {
+  margin-top: 28px;
+  padding: 28px 30px;
+  border: 1px solid rgba(93, 168, 156, 0.26);
+  border-radius: 16px;
+  background: linear-gradient(
+    120deg,
+    rgba(93, 168, 156, 0.07) 0%,
+    rgba(93, 168, 156, 0) 72%
+  );
+}
+.draft-hero--approach .bp-callout h3 {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 600;
+  font-size: 21px;
+  color: rgba(245, 240, 228, 0.97);
+  margin: 0 0 10px;
+}
+.draft-hero--approach .bp-callout p {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 15px;
+  line-height: 1.62;
+  color: rgba(245, 240, 228, 0.62);
+  margin: 0;
+  max-width: 86ch;
+}
+
+/* ── Principles: numbered hairline list, 2 across ────────────────── */
+.draft-hero--approach .bp-principles {
+  padding: 68px 0 72px;
+}
+.draft-hero--approach .bp-prin-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 48px;
+  row-gap: 0;
+  margin-top: 44px;
+  border-top: 1px solid rgba(245, 240, 228, 0.07);
+}
+.draft-hero--approach .bp-prin {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 16px;
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(245, 240, 228, 0.07);
+}
+.draft-hero--approach .bp-prin-num {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: rgba(93, 168, 156, 0.8);
+  padding-top: 4px;
+}
+.draft-hero--approach .bp-prin h3 {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  color: rgba(245, 240, 228, 0.95);
+  margin: 0 0 5px;
+}
+.draft-hero--approach .bp-prin p {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14px;
+  line-height: 1.58;
+  color: rgba(245, 240, 228, 0.57);
+  margin: 0;
+}
+
+/* ── Believe / avoid: two scannable columns ──────────────────────── */
+.draft-hero--approach .bp-contrast {
+  padding: 68px 0 72px;
+}
+.draft-hero--approach .bp-contrast-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 40px;
+}
+.draft-hero--approach .bp-col {
+  padding: 30px 28px;
+  border: 1px solid rgba(245, 240, 228, 0.09);
+  border-radius: 16px;
+  background: linear-gradient(
+    170deg,
+    rgba(245, 240, 228, 0.025) 0%,
+    rgba(245, 240, 228, 0) 100%
+  );
+}
+.draft-hero--approach .bp-col-title {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  color: rgba(245, 240, 228, 0.95);
+  margin: 0 0 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(245, 240, 228, 0.08);
+}
+.draft-hero--approach .bp-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.draft-hero--approach .bp-col li {
+  position: relative;
+  padding: 9px 0 9px 22px;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  color: rgba(245, 240, 228, 0.66);
+}
+/* Believe column: small teal tick. Avoid column: muted dash. */
+.draft-hero--approach .bp-col--believe li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 17px;
+  width: 9px;
+  height: 2px;
+  background: rgba(93, 168, 156, 0.9);
+}
+.draft-hero--approach .bp-col--avoid li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 17px;
+  width: 9px;
+  height: 2px;
+  background: rgba(245, 240, 228, 0.22);
+}
+.draft-hero--approach .bp-col--avoid li {
+  color: rgba(245, 240, 228, 0.52);
+}
+
+/* ── Approach → services rail ────────────────────────────────────── */
+.draft-hero--approach .bp-handoff {
+  padding: 68px 0 76px;
+}
+.draft-hero--approach .bp-handoff-rail {
+  list-style: none;
+  margin: 44px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+.draft-hero--approach .bp-handoff-step a {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  height: 100%;
+  padding: 26px 22px 22px;
+  border: 1px solid rgba(245, 240, 228, 0.09);
+  border-radius: 14px;
+  background: linear-gradient(
+    170deg,
+    rgba(245, 240, 228, 0.03) 0%,
+    rgba(245, 240, 228, 0) 100%
+  );
+  text-decoration: none;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.draft-hero--approach .bp-handoff-step a:hover {
+  border-color: rgba(93, 168, 156, 0.42);
+  transform: translateY(-2px);
+}
+.draft-hero--approach .bp-handoff-num {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: rgba(93, 168, 156, 0.85);
+}
+.draft-hero--approach .bp-handoff-step h3 {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.3;
+  color: rgba(245, 240, 228, 0.96);
+  margin: 0;
+}
+.draft-hero--approach .bp-handoff-step p {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14px;
+  line-height: 1.58;
+  color: rgba(245, 240, 228, 0.58);
+  margin: 0;
+  flex: 1 1 auto;
+}
+.draft-hero--approach .bp-handoff-link {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: rgba(93, 168, 156, 1);
+  margin-top: 6px;
+}
+
+@media (max-width: 1100px) {
+  .draft-hero--approach .bp-model-grid,
+  .draft-hero--approach .bp-handoff-rail {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .draft-hero--approach .bp-prin-grid {
+    column-gap: 32px;
+  }
+}
+@media (max-width: 900px) {
+  .draft-hero--approach .bp-model-grid,
+  .draft-hero--approach .bp-handoff-rail,
+  .draft-hero--approach .bp-prin-grid,
+  .draft-hero--approach .bp-contrast-grid {
+    grid-template-columns: 1fr;
+  }
+  .draft-hero--approach .bp-model-grid,
+  .draft-hero--approach .bp-handoff-rail,
+  .draft-hero--approach .bp-contrast-grid {
+    gap: 16px;
+  }
+  .draft-hero--approach .bp-intro {
+    padding: 52px 0 44px;
+  }
+  .draft-hero--approach .bp-model,
+  .draft-hero--approach .bp-principles,
+  .draft-hero--approach .bp-contrast,
+  .draft-hero--approach .bp-handoff {
+    padding: 48px 0 48px;
+  }
+  .draft-hero--approach .bp-callout {
+    padding: 24px 22px;
+  }
+  .draft-hero--approach .bp-col {
+    padding: 24px 22px;
+  }
+}
