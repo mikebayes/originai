@@ -1978,71 +1978,6 @@
   }
 }
 
-/* ─── Draft services hub: reassurance note ────────────────────────────
-   Replaces the whole starting-point chooser block that used to live
-   here (.start-chooser / .start-opt / .start-opt-*), and the earlier
-   .start-card grid before it. Both are removed: no markup references
-   them any longer.
-
-   Rationale: the page already lists the four services, then walks the
-   path through them. A third block restating the same three routes with
-   three more CTAs was repetition, and it pushed the proof section and
-   the final CTA further down the page.
-
-   What is left is a single quiet line that reads as a closing note on
-   the path section above it. Not a section: no heading, no rule, no
-   grid, no button, no image. Left-aligned to the content column, with
-   a short teal marker so it does not read as orphaned body copy.
-   ═══════════════════════════════════════════════════════════════════ */
-
-.svcs-draft .start-note {
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-.svcs-draft .start-note p {
-  position: relative;
-  max-width: 620px;
-  margin: 0;
-  padding: 0 0 0 20px;
-  font-family: var(--font-inter), sans-serif;
-  font-size: 15px;
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.5);
-}
-
-/* Short teal marker, same language as .bp-rule but vertical and quiet.
-   Anchors the note to the column edge without becoming an eyebrow. */
-.svcs-draft .start-note p::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.42em;
-  bottom: 0.42em;
-  width: 2px;
-  border-radius: 1px;
-  background: linear-gradient(
-    180deg,
-    rgba(93, 168, 156, 0.5) 0%,
-    rgba(93, 168, 156, 0.08) 100%
-  );
-}
-
-.svcs-draft .start-note strong {
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.86);
-}
-
-@media (max-width: 900px) {
-  .svcs-draft .start-note {
-    padding: 0 20px;
-  }
-  .svcs-draft .start-note p {
-    font-size: 14.5px;
-  }
-}
-
 /* ─── Draft services hero: service-model artifact ─────────────────────
    Overrides for the hero's right-hand card on /draft/services only.
 
@@ -2052,140 +1987,250 @@
    .svcs-draft .svc-model, which is 0,3,0 specificity against the base
    rules' 0,2,0, so these win regardless of source order.
 
-   Design intent: an intentional service-model diagram, not a mockup.
-     - no status chip, no footer, no placeholder language
-     - no highlighted row. The previous filled-teal Workflow row made
-       one of four services look primary, contradicting the page.
-     - direction is carried by a hairline rail through the index column
-       plus a very slight teal warming from 01 to 04. Sequence, not
-       hierarchy. The delta between first and last is ~18% opacity, so
-       no single row reads as dominant.
-     - rows are flatter and tighter than the live version so four fit at
-       hero height without the card growing taller than the copy column.
+   Correcting the previous pass: that version stripped the rows down to
+   hairline dividers on a transparent fill, which cut the card's height
+   and mass so far that it read as a nav widget next to a large hero
+   headline. Substantial row blocks are back: filled, bordered, 16/18
+   padding, 10px apart, 17px names. The card is roughly 60% taller than
+   the stripped version and holds its side of the hero grid.
+
+   Where the energy comes from, without featuring one service:
+     - Each row is a real block with fill, border, and an inner top
+       highlight, so the model has weight.
+     - A teal accent bar sits on each row's left edge, and both the bar
+       and the row's teal tint step up very slightly from 01 to 04. The
+       total delta is small (fill 2.2% to 4.6%), so the stack glows
+       gently toward adoption rather than spotlighting a winner.
+     - The connector rail shows only in the 10px gaps between blocks,
+       reading as short segments joining the four services.
+   The previous filled-teal Workflow row is gone for good: emphasising
+   one of four services contradicted the page's whole repositioning.
+
+   No status chip, no footer, no placeholder language anywhere.
    ═══════════════════════════════════════════════════════════════════ */
 
-/* Card shell: slightly calmer than the live version, since there is no
-   longer a footer or status light to balance the top-right glow. */
+/* ── Card shell: more presence than the live version ─────────────── */
 .svcs-draft .svc-diagram.svc-model {
-  padding: 24px;
+  padding: 26px;
+  border-radius: 20px;
   background:
     radial-gradient(
-      86% 58% at 82% 0%,
-      rgba(93, 168, 156, 0.075) 0%,
-      rgba(93, 168, 156, 0) 58%
+      88% 62% at 82% 0%,
+      rgba(93, 168, 156, 0.11) 0%,
+      rgba(93, 168, 156, 0) 60%
     ),
-    linear-gradient(165deg, #0c1416 0%, #0a1012 62%, #060a0c 100%);
+    linear-gradient(165deg, #0c1416 0%, #0a1012 60%, #060a0c 100%);
+  border: 0.5px solid rgba(255, 255, 255, 0.11);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.05) inset,
+    0 36px 70px -22px rgba(0, 0, 0, 0.66);
 }
 
 .svcs-draft .svc-model .svc-diagram-head {
-  margin-bottom: 16px;
-  padding-bottom: 14px;
-  border-bottom: 0.5px solid rgba(255, 255, 255, 0.07);
+  margin-bottom: 18px;
+  padding-bottom: 15px;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.075);
 }
 .svcs-draft .svc-model .svc-diagram-title {
-  font-size: 10.5px;
-  letter-spacing: 0.13em;
-  color: rgba(255, 255, 255, 0.46);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.5);
 }
 
-/* ── Row stack + connecting rail ─────────────────────────────────── */
+/* ── Row stack ───────────────────────────────────────────────────── */
 .svcs-draft .svc-model .svc-rows {
-  gap: 2px;
+  gap: 10px;
 }
 
-/* Rail sits behind the index column and spans rows 1 through 4, fading
-   at both ends so it has no hard terminals. */
+/* Connector rail. Sits below the row fills (rows are z-index 1), so it
+   is visible only in the gaps between blocks: four services joined by
+   short teal segments rather than one continuous line over the top. */
 .svcs-draft .svc-model .svc-model-rail {
   position: absolute;
-  left: 25px;
-  top: 14px;
-  bottom: 14px;
+  left: 32px;
+  top: 8px;
+  bottom: 8px;
   width: 1px;
+  z-index: 0;
   pointer-events: none;
   background: linear-gradient(
     180deg,
-    rgba(93, 168, 156, 0) 0%,
-    rgba(93, 168, 156, 0.22) 14%,
-    rgba(93, 168, 156, 0.34) 86%,
-    rgba(93, 168, 156, 0) 100%
+    rgba(93, 168, 156, 0.16) 0%,
+    rgba(93, 168, 156, 0.42) 100%
   );
 }
 
-/* ── Rows: one shared treatment, no featured state ───────────────── */
+/* ── Rows: substantial blocks, one shared treatment ─────────────── */
 .svcs-draft .svc-model .svc-row {
-  grid-template-columns: 30px 1fr auto;
-  gap: 14px;
-  padding: 13px 14px 13px 12px;
-  border-radius: 10px;
-  background: transparent;
-  border: 0.5px solid transparent;
-  border-top-color: rgba(255, 255, 255, 0.055);
-  box-shadow: none;
-}
-/* First row needs no divider, the head rule above already closes it. */
-.svcs-draft .svc-model .svc-row:first-of-type {
-  border-top-color: transparent;
+  position: relative;
+  z-index: 1;
+  grid-template-columns: 38px 1fr auto;
+  gap: 16px;
+  padding: 16px 18px 16px 16px;
+  border-radius: 12px;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      165deg,
+      rgba(93, 168, 156, 0.05) 0%,
+      rgba(93, 168, 156, 0) 70%
+    ),
+    rgba(255, 255, 255, 0.026);
+  border: 0.5px solid rgba(255, 255, 255, 0.075);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.035) inset;
 }
 
-/* Index: dot-on-rail. The teal warms marginally down the stack. */
+/* Left accent bar. Steps up marginally down the stack. */
+.svcs-draft .svc-model .svc-row::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  bottom: 12px;
+  width: 2px;
+  border-radius: 0 2px 2px 0;
+  background: rgba(93, 168, 156, 0.3);
+}
+.svcs-draft .svc-model .svc-row[data-step="2"]::after {
+  background: rgba(93, 168, 156, 0.4);
+}
+.svcs-draft .svc-model .svc-row[data-step="3"]::after {
+  background: rgba(93, 168, 156, 0.5);
+}
+.svcs-draft .svc-model .svc-row[data-step="4"]::after {
+  background: rgba(93, 168, 156, 0.6);
+}
+
+/* Teal tint steps 2.2% to 4.6%. Small enough that no row reads as
+   featured, large enough that the stack has direction. */
+.svcs-draft .svc-model .svc-row[data-step="4"] {
+  background:
+    linear-gradient(
+      165deg,
+      rgba(93, 168, 156, 0.085) 0%,
+      rgba(93, 168, 156, 0) 72%
+    ),
+    rgba(255, 255, 255, 0.03);
+  border-color: rgba(93, 168, 156, 0.16);
+}
+.svcs-draft .svc-model .svc-row[data-step="3"] {
+  background:
+    linear-gradient(
+      165deg,
+      rgba(93, 168, 156, 0.072) 0%,
+      rgba(93, 168, 156, 0) 72%
+    ),
+    rgba(255, 255, 255, 0.028);
+  border-color: rgba(93, 168, 156, 0.12);
+}
+
+/* ── Index node ──────────────────────────────────────────────────── */
 .svcs-draft .svc-model .svc-row-num {
   position: relative;
   z-index: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 9.5px;
-  letter-spacing: 0.06em;
-  text-transform: none;
-  width: 26px;
-  height: 26px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  background: #0a1012;
-  border: 0.5px solid rgba(93, 168, 156, 0.26);
-  color: rgba(93, 168, 156, 0.62);
+  font-size: 10.5px;
+  letter-spacing: 0.05em;
+  text-transform: none;
+  background: rgba(6, 10, 12, 0.92);
+  border: 0.5px solid rgba(93, 168, 156, 0.32);
+  color: rgba(93, 168, 156, 0.72);
 }
-.svcs-draft .svc-model .svc-row[data-step="2"] .svc-row-num {
-  border-color: rgba(93, 168, 156, 0.3);
-  color: rgba(93, 168, 156, 0.68);
-}
-.svcs-draft .svc-model .svc-row[data-step="3"] .svc-row-num {
-  border-color: rgba(93, 168, 156, 0.34);
-  color: rgba(93, 168, 156, 0.74);
-}
+.svcs-draft .svc-model .svc-row[data-step="3"] .svc-row-num,
 .svcs-draft .svc-model .svc-row[data-step="4"] .svc-row-num {
-  border-color: rgba(93, 168, 156, 0.38);
-  color: rgba(93, 168, 156, 0.8);
+  border-color: rgba(93, 168, 156, 0.42);
+  color: rgba(93, 168, 156, 0.86);
 }
 
 .svcs-draft .svc-model .svc-row-name {
-  font-size: 15.5px;
+  font-size: 17px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.3;
+  color: rgba(255, 255, 255, 0.94);
 }
 
 .svcs-draft .svc-model .svc-row-tag {
-  font-size: 9.5px;
-  letter-spacing: 0.11em;
-  color: rgba(255, 255, 255, 0.34);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.42);
 }
 
 @media (max-width: 1080px) {
   .svcs-draft .svc-diagram.svc-model {
-    padding: 20px;
+    padding: 22px;
   }
   .svcs-draft .svc-model .svc-row {
-    grid-template-columns: 26px 1fr auto;
-    gap: 12px;
-    padding: 12px 10px;
+    grid-template-columns: 34px 1fr auto;
+    gap: 13px;
+    padding: 14px 15px 14px 14px;
   }
   .svcs-draft .svc-model .svc-row-num {
-    width: 24px;
-    height: 24px;
+    width: 29px;
+    height: 29px;
   }
   .svcs-draft .svc-model .svc-model-rail {
-    left: 22px;
+    left: 28px;
   }
   .svcs-draft .svc-model .svc-row-name {
+    font-size: 15.5px;
+  }
+}
+
+/* Phones: the tag column crowds the name at narrow widths. */
+@media (max-width: 560px) {
+  .svcs-draft .svc-model .svc-row {
+    grid-template-columns: 30px 1fr;
+  }
+  .svcs-draft .svc-model .svc-row-tag {
+    display: none;
+  }
+  .svcs-draft .svc-model .svc-model-rail {
+    left: 26px;
+  }
+}
+
+/* ─── Draft services path section: closing reassurance note ───────────
+   Lives inside .engage-inner, below the four-phase rail, above the
+   engage section's bottom edge. The previous version sat between two
+   <section> elements and therefore past the engage background boundary,
+   which made it read as an orphan line between sections.
+
+   Treatment: a hairline top rule spanning the content column ties it to
+   the phases above, then one short line. No heading, no grid, no
+   button, no card, no link. Deliberately the quietest text on the page.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.svcs-draft .path-note {
+  margin: 52px 0 0;
+  padding-top: 26px;
+  border-top: 0.5px solid rgba(255, 255, 255, 0.07);
+}
+
+.svcs-draft .path-note p {
+  max-width: 660px;
+  margin: 0;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.svcs-draft .path-note strong {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+@media (max-width: 900px) {
+  .svcs-draft .path-note {
+    margin-top: 38px;
+    padding-top: 22px;
+  }
+  .svcs-draft .path-note p {
     font-size: 14.5px;
   }
 }

@@ -383,30 +383,26 @@ export default function DraftServicesPage() {
                 </div>
               </div>
             </div>
+
+            {/* Closing reassurance, inside this section by design.
+                It previously sat between </section> and the next one,
+                which put it past the engage section's background edge
+                and made it read as an orphan between two sections. It
+                now lives inside .engage-inner, below the four phases and
+                above the section's own bottom boundary, so the section
+                reads: heading + intro, four-step path, short note.
+
+                Not a CTA: no heading, no rule, no grid, no button, no
+                card, no link. */}
+            <aside className="path-note" data-screen-label="Reassurance note">
+              <p>
+                <strong>Not sure which path fits?</strong> That is normal.
+                Most conversations start with the situation in front of you,
+                not a finished AI plan.
+              </p>
+            </aside>
           </div>
         </section>
-
-        {/* ─── REASSURANCE NOTE ────────────────────────────────────
-            Replaces the former "You do not need to know exactly where to
-            start" section and its three chooser tiles.
-
-            Why it shrank: the page already lists the four services, then
-            explains the path through them. A third explanatory block with
-            its own heading, grid, and three CTAs restated both and pushed
-            the proof section further down. The page now moves path →
-            short note → proof → final CTA, and the final CTA stays the
-            only conversion point on the page.
-
-            Deliberately not a section: no heading, no rule, no grid, no
-            buttons, no images. It reads as a closing line on the path
-            section above it. */}
-        <aside className="start-note" data-screen-label="Reassurance note">
-          <p>
-            <strong>Not sure which path fits?</strong> That is normal. Most
-            conversations start with the situation in front of you, not a
-            finished AI plan.
-          </p>
-        </aside>
 
         {/* ─── SECTION 4: PROOF / TESTIMONIAL ──────────────────── */}
         <section className="wrap section" data-screen-label="Customer spotlight">
