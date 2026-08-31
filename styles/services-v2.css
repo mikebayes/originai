@@ -1839,3 +1839,145 @@
     padding-top: 16px;
   }
 }
+
+/* ─── Draft services hub: card polish ─────────────────────────────────
+   Finishing pass on the inline-mark direction. No concept change: the
+   marks stay small, the framed image panels stay gone.
+
+     1. Marks 64x40 -> 72x45 with a touch more stroke weight and a
+        faint teal ground behind them, so they read as intentional
+        rather than incidental. Still hairline, still muted.
+     2. Card padding pulled in now that the visual band is gone. The
+        22px gap between the mark and the body was inherited from a
+        layout that had a 200px panel above it.
+     3. Hover: border warms to teal, card lifts 4px, a soft teal glow
+        appears, the mark's focal node brightens, and the CTA arrow
+        slides. All 240ms, all subtle.
+
+   Gated on .svcs-draft, which only /draft/services carries.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── 1. Marks: slightly larger, slightly more present ────────────── */
+.svcs-draft .svc-mark-row {
+  padding: 24px 24px 0;
+}
+.svcs-draft .svc-mark-row svg {
+  width: 72px;
+  height: 45px;
+  display: block;
+  overflow: visible;
+}
+/* Faint ground so the mark sits on something rather than floating */
+.svcs-draft .svc-mark-row {
+  position: relative;
+}
+.svcs-draft .svc-mark-row::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  width: 96px;
+  height: 68px;
+  border-radius: 10px;
+  background: radial-gradient(
+    80% 80% at 40% 40%,
+    rgba(93, 168, 156, 0.055) 0%,
+    rgba(93, 168, 156, 0) 72%
+  );
+  pointer-events: none;
+}
+
+/* Stroke weights nudged up a step from the homepage values */
+.svcs-draft .dh-mk-line {
+  stroke: rgba(93, 168, 156, 0.4);
+  stroke-width: 1.1;
+}
+.svcs-draft .dh-mk-line-strong {
+  stroke: rgba(93, 168, 156, 0.82);
+  stroke-width: 1.4;
+}
+.svcs-draft .dh-mk-dot {
+  fill: rgba(93, 168, 156, 0.6);
+}
+.svcs-draft .dh-mk-node {
+  fill: none;
+  stroke: rgba(93, 168, 156, 0.95);
+  stroke-width: 1.5;
+}
+.svcs-draft .dh-mk-box {
+  fill: none;
+  stroke: rgba(93, 168, 156, 0.48);
+  stroke-width: 1.1;
+}
+
+/* ── 2. Tighter card rhythm ──────────────────────────────────────── */
+.svcs-draft .quad .svc-card-body {
+  padding: 18px 24px 22px;
+  gap: 11px;
+}
+.svcs-draft .quad .svc-card-foot {
+  padding-top: 16px;
+}
+
+/* ── 3. Hover: quiet depth, clear affordance ─────────────────────── */
+.svcs-draft .quad .svc-card {
+  transition: transform 240ms ease-out, border-color 240ms ease-out,
+    box-shadow 240ms ease-out;
+}
+.svcs-draft .quad .svc-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(93, 168, 156, 0.42);
+  box-shadow:
+    0 1px 0 rgba(93, 168, 156, 0.1) inset,
+    0 0 60px -26px rgba(93, 168, 156, 0.4),
+    0 36px 64px -24px rgba(0, 0, 0, 0.72);
+}
+/* The mark responds, so the card feels like one object */
+.svcs-draft .quad .svc-card .dh-mk-node,
+.svcs-draft .quad .svc-card .dh-mk-line-strong,
+.svcs-draft .quad .svc-card .dh-mk-dot {
+  transition: stroke 240ms ease-out, fill 240ms ease-out;
+}
+.svcs-draft .quad .svc-card:hover .dh-mk-node {
+  stroke: rgba(93, 168, 156, 1);
+}
+.svcs-draft .quad .svc-card:hover .dh-mk-line-strong {
+  stroke: rgba(93, 168, 156, 0.95);
+}
+.svcs-draft .quad .svc-card:hover .dh-mk-dot {
+  fill: rgba(93, 168, 156, 0.78);
+}
+.svcs-draft .quad .svc-card:hover .svc-mark-row::before {
+  background: radial-gradient(
+    80% 80% at 40% 40%,
+    rgba(93, 168, 156, 0.09) 0%,
+    rgba(93, 168, 156, 0) 72%
+  );
+}
+/* CTA arrow slides, reinforcing that the card is a route */
+.svcs-draft .quad .svc-card .tlink .arrow {
+  display: inline-block;
+  transition: transform 240ms ease-out;
+}
+.svcs-draft .quad .svc-card:hover .tlink .arrow {
+  transform: translateX(4px);
+}
+
+@media (max-width: 900px) {
+  .svcs-draft .svc-mark-row {
+    padding: 20px 20px 0;
+  }
+  .svcs-draft .svc-mark-row::before {
+    left: 10px;
+    top: 10px;
+    width: 84px;
+    height: 60px;
+  }
+  .svcs-draft .quad .svc-card-body {
+    padding: 16px 20px 20px;
+  }
+  /* No lift on touch, it only ever renders as a stuck hover state */
+  .svcs-draft .quad .svc-card:hover {
+    transform: none;
+  }
+}
