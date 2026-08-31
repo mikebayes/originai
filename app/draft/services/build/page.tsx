@@ -60,7 +60,7 @@ export default function DraftWorkflowDevelopmentPage() {
     <main>
       {/* bp-page--workflow carries the per-page grid and spacing overrides
           for this page's card sections. */}
-      <div className="bp-page bp-page--workflow">
+      <div className="bp-page bp-page--workflow draft-hero draft-hero--build">
         <div className="bp-grain" aria-hidden="true" />
 
         {/* Internal draft banner. Delete when this page goes live. */}

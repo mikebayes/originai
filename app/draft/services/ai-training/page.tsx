@@ -67,7 +67,7 @@ export default function DraftTeamAITrainingPage() {
     <main>
       {/* bp-page--training inherits the workflow page's refined hero
           scale and card spacing, with its own grid overrides. */}
-      <div className="bp-page bp-page--workflow bp-page--training">
+      <div className="bp-page bp-page--workflow bp-page--training draft-hero draft-hero--training">
         <div className="bp-grain" aria-hidden="true" />
 
         {/* Internal draft banner. Delete when this page goes live. */}

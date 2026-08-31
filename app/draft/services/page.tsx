@@ -60,7 +60,7 @@ function Placeholder({ label }: { label: string }) {
 export default function DraftServicesPage() {
   return (
     <main>
-      <div className="svcs-v2 svcs-draft">
+      <div className="svcs-v2 svcs-draft draft-hero draft-hero--pillar">
         {/* Internal draft banner. Delete when this page goes live. */}
         <div className="draft-banner" role="note">
           Internal draft. Not indexed, not linked, live /services unchanged.

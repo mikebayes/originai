@@ -59,7 +59,7 @@ void EVENTUAL_SEO_DESCRIPTION;
 export default function DraftLeadershipEnablementPage() {
   return (
     <main>
-      <div className="bp-page bp-page--strategy">
+      <div className="bp-page bp-page--strategy draft-hero draft-hero--strategy">
         <div className="bp-grain" aria-hidden="true" />
 
         {/* Internal draft banner. Delete when this page goes live. */}
