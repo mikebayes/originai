@@ -219,11 +219,22 @@ export default function DraftTeamAITrainingPage() {
                 warm, and real. Avoid futuristic AI imagery, robots,
                 abstract sparkles, or generic stock-photo cheese. */}
             <div className="bp-train-grid">
-              <div className="ph-slot ph-slot--train" aria-hidden="true">
-                <span className="ph-slot-label">
-                  Training environment visual
-                </span>
-              </div>
+              {/* Supporting credibility image, not a hero. Same rounded
+                  frame, hairline border, grain, and vignette treatment used
+                  elsewhere on the draft pages. Cropped 4/5 with the focal
+                  point held high so the trainer, the participants, and the
+                  glass-window setting all survive at every width. */}
+              <figure className="bp-train-figure">
+                <div className="bp-train-frame">
+                  <img
+                    src="/images/ai-training-session.jpg"
+                    alt="An Origin AI facilitator leading a team training session in a boardroom"
+                    loading="lazy"
+                  />
+                  <span className="bp-train-grain" aria-hidden="true" />
+                  <span className="bp-train-vignette" aria-hidden="true" />
+                </div>
+              </figure>
 
               {/* Clean numbered list. No timeline line, no dots, no cards,
                   no panel. Hairline dividers only. */}
