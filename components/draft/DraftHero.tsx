@@ -13,10 +13,14 @@ import ScrollIndicator from "../ScrollIndicator";
  * corner caption, and the scroll indicator.
  *
  * Subheadline change: the live version reads "AI software, strategy, and
- * operations, focused on measurable business outcomes." That names three
- * capabilities but not the arc. The draft names the movement from
- * interest to working systems and adds enablement and ongoing
- * improvement, which the live line omits.
+ * operations, focused on measurable business outcomes." The draft names
+ * the three service categories a buyer actually searches for (AI
+ * consulting, training, workflow development) and states the arc from
+ * interest to working systems.
+ *
+ * Deliberately excluded: "senior team" (it appeared again immediately in
+ * the section below, so it read as a repeated claim) and any location
+ * language, which is carried by the section below and the footer.
  */
 export default function DraftHero() {
   return (
@@ -37,9 +41,8 @@ export default function DraftHero() {
           </span>
           <h1 className="h1 display">We build the AI your business runs on.</h1>
           <p className="sub">
-            Strategy, software, and enablement from one senior team. We help
-            organizations move from AI interest to working systems, then keep
-            improving them.
+            AI consulting, training, and workflow development for
+            organizations ready to turn AI interest into working systems.
           </p>
           <div className="cta-stack">
             <a href="/contact" className="pill pill-primary">

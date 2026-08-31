@@ -30,15 +30,13 @@ export default function DraftWhoWeAre() {
             </span>
 
             <h2 className="dh-who-h2 display">
-              A small senior team that helps organizations{" "}
+              A senior team helping organizations{" "}
               <span className="muted">put AI to work.</span>
             </h2>
 
             <p className="dh-who-lede">
-              Origin AI is a Winnipeg-based senior team working with
-              organizations across Canada. We help leaders and their teams
-              decide where AI fits, build the systems that support it, and
-              stay close after launch as adoption grows.
+              Origin helps leaders and teams decide where AI fits, build the
+              systems that support it, and keep improving what goes live.
             </p>
 
             {/* Three capability points, each a route into the site. */}

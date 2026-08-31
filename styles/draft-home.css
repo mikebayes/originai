@@ -586,3 +586,64 @@
     max-width: 720px;
   }
 }
+
+/* ═══ WHO WE ARE: LEFT COLUMN HEIGHT REDUCTION ══════════════════════
+   The copy is shorter now, but the left column was still running tall.
+   Three adjustments, no content removed:
+
+     1. Heading measure widened from the 620px column cap to 24ch, and
+        the clamp ceiling lowered slightly. "A senior team helping
+        organizations put AI to work." now breaks over about three lines
+        at desktop instead of four.
+     2. Lede and list gaps tightened.
+     3. Capability list padding reduced from 20px to 15px per row, which
+        removes roughly 30px of column height across the three items
+        without making them feel cramped.
+
+   The image column is left at its current width. With the copy shorter
+   the two columns now read close to balanced, so no size change.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.draft-home .dh-who-h2 {
+  /* was clamp(32px, 3.6vw, 50px) */
+  font-size: clamp(31px, 3.3vw, 45px);
+  line-height: 1.09;
+  max-width: 24ch;
+}
+
+.draft-home .dh-who-lede {
+  margin-top: 22px;
+  font-size: 17px;
+  max-width: 52ch;
+}
+
+/* Tighter list rhythm */
+.draft-home .dh-caps {
+  margin-top: 34px;
+}
+.draft-home .dh-cap a {
+  padding: 15px 0;
+}
+.draft-home .dh-cap-body {
+  gap: 4px;
+}
+.draft-home .dh-cap-desc {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .draft-home .dh-who-h2 {
+    max-width: none;
+  }
+  .draft-home .dh-who-lede {
+    margin-top: 18px;
+    font-size: 16px;
+  }
+  .draft-home .dh-caps {
+    margin-top: 28px;
+  }
+  .draft-home .dh-cap a {
+    padding: 15px 0;
+  }
+}
