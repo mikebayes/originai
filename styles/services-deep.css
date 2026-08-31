@@ -8558,3 +8558,119 @@
     right: -14px;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   DRAFT INSIGHTS HUB  ·  /draft/insights  ONLY
+   Gated on .draft-hero--insights, so the live /insights styling (which
+   shares .bp-page--insights) is untouched.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Hero: quietest of the draft family. Editorial, not sales. The
+   compact shell means less vertical room, so the light is broad and
+   low-contrast rather than a focal glow. ─────────────────────────── */
+.draft-hero--insights .bp-hero-shell {
+  background:
+    linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent calc(100% - 180px),
+      rgba(6, 9, 10, 0.55) calc(100% - 60px),
+      #06090a 100%
+    ),
+    radial-gradient(
+      92% 90% at 58% 6%,
+      rgba(93, 168, 156, 0.075) 0%,
+      rgba(93, 168, 156, 0) 68%
+    ),
+    radial-gradient(
+      72% 70% at 20% 46%,
+      rgba(62, 122, 116, 0.095) 0%,
+      rgba(62, 122, 116, 0) 74%
+    ),
+    linear-gradient(174deg, #0a0e10 0%, #0b1918 52%, #0c2120 82%, #070f0f 100%);
+}
+.draft-hero--insights .bp-hero-shell::before {
+  background-image: repeating-linear-gradient(
+    118deg,
+    rgba(255, 255, 255, 0.007) 0 1px,
+    transparent 1px 124px
+  );
+}
+
+/* Streak sits above the H1 where the eyebrow used to be */
+.draft-hero--insights .bp-streak {
+  margin-bottom: 20px;
+}
+.draft-hero--insights .bp-ins-hero-h1 {
+  margin-top: 0;
+}
+
+/* ── One continuous surface behind the grid and CTA ─────────────── */
+.draft-hero--insights {
+  background:
+    radial-gradient(
+      120% 50% at 50% 0%,
+      rgba(93, 168, 156, 0.025) 0%,
+      rgba(93, 168, 156, 0) 55%
+    ),
+    linear-gradient(180deg, #06090a 0%, #070b0c 60%, #06090a 100%);
+}
+.draft-hero--insights .bp-ins-simple-wrap,
+.draft-hero--insights .bp-ins-cta {
+  background: none;
+  border-top: none;
+  border-bottom: none;
+}
+
+/* ── Cards: toned down to sit on the darker surface ─────────────── */
+.draft-hero--insights .bp-ins-simple-card {
+  border-color: rgba(245, 240, 228, 0.075);
+  background: linear-gradient(
+    172deg,
+    rgba(245, 240, 228, 0.022) 0%,
+    rgba(245, 240, 228, 0) 100%
+  );
+}
+.draft-hero--insights .bp-ins-simple-card:hover {
+  border-color: rgba(93, 168, 156, 0.34);
+}
+.draft-hero--insights .bp-ins-tag {
+  border-color: rgba(93, 168, 156, 0.3);
+  color: rgba(93, 168, 156, 0.9);
+}
+.draft-hero--insights .bp-ins-simple-excerpt {
+  color: rgba(245, 240, 228, 0.58);
+}
+.draft-hero--insights .bp-ins-simple-foot {
+  border-top-color: rgba(245, 240, 228, 0.07);
+}
+
+/* ── CTA strip: rule plus a real lead line, no eyebrow ──────────── */
+.draft-hero--insights .bp-ins-cta {
+  padding: 68px 0 84px;
+}
+.draft-hero--insights .bp-ins-cta-eyebrow {
+  display: none;
+}
+.draft-hero--insights .bp-ins-cta-h2 {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 600;
+  font-size: clamp(22px, 2.2vw, 28px);
+  line-height: 1.25;
+  color: rgba(245, 240, 228, 0.96);
+  margin: 0 0 12px;
+  max-width: 30ch;
+}
+.draft-hero--insights .bp-ins-cta-line {
+  color: rgba(245, 240, 228, 0.6);
+  max-width: 56ch;
+}
+
+@media (max-width: 900px) {
+  .draft-hero--insights .bp-streak {
+    margin-bottom: 16px;
+  }
+  .draft-hero--insights .bp-ins-cta {
+    padding: 48px 0 60px;
+  }
+}
