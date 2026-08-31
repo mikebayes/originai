@@ -8845,3 +8845,23 @@
     margin-top: 20px;
   }
 }
+
+/* ─── Draft team update 2: center the statement section accents ────────
+   .bp-statement-inner is text-align:center, but two children were not
+   following it:
+     1. .bp-rule is display:block with a fixed 34px width and no auto
+        margins, so it sat hard left under a centered heading.
+     2. The update-1 rule switched .bp-statement-points from the base
+        inline-flex to flex without setting justify-content, which
+        left-aligned the proof-point row.
+   Both are corrected here. Scoped to .draft-hero--team.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.draft-hero--team .bp-statement-inner .bp-rule {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.draft-hero--team .bp-statement-points {
+  justify-content: center;
+}
