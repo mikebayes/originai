@@ -314,13 +314,8 @@ export default function DraftWorkflowDevelopmentPage() {
               </p>
             </div>
 
-            {/* Steps on the left, workflow visual on the right at desktop.
-                Stacks on mobile.
-
-                ART DIRECTION (internal, do not render as page text):
-                A product-style visual showing workflow steps, documents,
-                decisions, approvals, dashboards, or handoffs with AI support
-                embedded inside the process. */}
+            {/* Steps on the left, workflow artifact on the right at
+                desktop. Stacks on mobile. */}
             <div className="bp-flow-grid">
               <ol className="bp-flow-steps">
                 {[
@@ -355,8 +350,208 @@ export default function DraftWorkflowDevelopmentPage() {
                 ))}
               </ol>
 
-              <div className="ph-slot ph-slot--flow" aria-hidden="true">
-                <span className="ph-slot-label">Workflow visual</span>
+              {/* ── Workflow artifact ─────────────────────────────────
+                  Replaces the dashed "Workflow visual" placeholder slot.
+                  Built with inline SVG rather than an image so it uses
+                  the site's own accent value and needs no asset.
+
+                  Reads left to right, supporting the section lede "We
+                  define the workflow first, then build only what the
+                  solution needs":
+
+                    left    three tilted fragments with broken, uneven
+                            interior lines. Work as it actually arrives:
+                            unstructured, inconsistent, partly missing.
+                            Dashed connectors converge from all three.
+                    centre  one small defined panel, softly lit. The
+                            definition step. Deliberately the smallest
+                            element on the canvas, because defining is
+                            not where the bulk sits.
+                    right   an ordered spine with three aligned nodes and
+                            equal-length outputs. Same content, now a
+                            system.
+
+                  The middle node on the spine is the validated route: it
+                  sits on the straight line out of the panel and carries
+                  a soft halo. It is the only highlighted element.
+
+                  One dashed stub leaves the spine at the top and fades
+                  out. That is scope considered and not built, which is
+                  the "only what the solution needs" half of the lede.
+
+                  No text, no arrows, no people, no dashboard, no network
+                  graphic. Hairlines and one accent hue throughout. */}
+              <div className="wf-art" aria-hidden="true">
+                <div className="wf-art-glow" />
+                <svg
+                  className="wf-svg"
+                  viewBox="0 0 420 296"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  preserveAspectRatio="xMidYMid meet"
+                >
+                  <defs>
+                    <radialGradient id="wfPanelGlow">
+                      <stop offset="0%" stopColor="#5da89c" stopOpacity="0.16" />
+                      <stop offset="100%" stopColor="#5da89c" stopOpacity="0" />
+                    </radialGradient>
+                    <radialGradient id="wfNodeGlow">
+                      <stop offset="0%" stopColor="#5da89c" stopOpacity="0.34" />
+                      <stop offset="100%" stopColor="#5da89c" stopOpacity="0" />
+                    </radialGradient>
+                    <linearGradient id="wfPanelFill" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#5da89c" stopOpacity="0.11" />
+                      <stop offset="100%" stopColor="#5da89c" stopOpacity="0.02" />
+                    </linearGradient>
+                    {/* userSpaceOnUse: both of these paint zero-width
+                        vertical lines, whose object bounding box is
+                        degenerate, which silently drops an
+                        objectBoundingBox gradient entirely. */}
+                    <linearGradient
+                      id="wfSpine"
+                      gradientUnits="userSpaceOnUse"
+                      x1="311"
+                      y1="100"
+                      x2="311"
+                      y2="240"
+                    >
+                      <stop offset="0%" stopColor="#5da89c" stopOpacity="0.06" />
+                      <stop offset="20%" stopColor="#5da89c" stopOpacity="0.32" />
+                      <stop offset="80%" stopColor="#5da89c" stopOpacity="0.32" />
+                      <stop offset="100%" stopColor="#5da89c" stopOpacity="0.06" />
+                    </linearGradient>
+                    <linearGradient
+                      id="wfFade"
+                      gradientUnits="userSpaceOnUse"
+                      x1="311"
+                      y1="100"
+                      x2="311"
+                      y2="74"
+                    >
+                      <stop offset="0%" stopColor="#5da89c" stopOpacity="0.2" />
+                      <stop offset="100%" stopColor="#5da89c" stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
+
+                  {/* Soft light behind the definition panel */}
+                  <ellipse
+                    cx="216"
+                    cy="170"
+                    rx="104"
+                    ry="88"
+                    fill="url(#wfPanelGlow)"
+                  />
+
+                  {/* ── LEFT: unstructured input fragments ──────────── */}
+                  <g className="wf-frags">
+                    <g transform="rotate(-3.2 66 78)">
+                      <rect
+                        x="26"
+                        y="52"
+                        width="80"
+                        height="52"
+                        rx="4"
+                        className="wf-frag-box"
+                      />
+                      <path d="M37 68 H79" className="wf-frag-line" />
+                      <path d="M37 79 H92" className="wf-frag-line" />
+                      <path d="M37 90 H62" className="wf-frag-line wf-dim" />
+                    </g>
+
+                    <g transform="rotate(2.6 68 148)">
+                      <rect
+                        x="34"
+                        y="126"
+                        width="70"
+                        height="45"
+                        rx="4"
+                        className="wf-frag-box wf-frag-box--dashed"
+                      />
+                      <path d="M45 139 H90" className="wf-frag-line" />
+                      <path d="M45 150 H72" className="wf-frag-line wf-dim" />
+                      <path d="M45 160 H84" className="wf-frag-line wf-dim" />
+                    </g>
+
+                    <g transform="rotate(-1.4 64 216)">
+                      <rect
+                        x="24"
+                        y="192"
+                        width="82"
+                        height="49"
+                        rx="4"
+                        className="wf-frag-box"
+                      />
+                      <path d="M35 207 H70" className="wf-frag-line wf-dim" />
+                      <path d="M35 218 H95" className="wf-frag-line" />
+                      <path d="M35 229 H58" className="wf-frag-line wf-dim" />
+                    </g>
+                  </g>
+
+                  {/* Convergence: unclear work funnelling into definition */}
+                  <g className="wf-converge">
+                    <path d="M108 79 C 136 86, 150 128, 166 152" />
+                    <path d="M106 148 C 130 154, 144 162, 166 168" />
+                    <path d="M108 216 C 134 210, 148 198, 166 186" />
+                  </g>
+
+                  {/* ── CENTRE: the defined workflow ────────────────── */}
+                  <rect
+                    x="167"
+                    y="119"
+                    width="94"
+                    height="102"
+                    rx="9"
+                    fill="url(#wfPanelFill)"
+                    className="wf-panel"
+                  />
+                  <path d="M181 142 H239" className="wf-panel-line" />
+                  <path d="M181 156 H225" className="wf-panel-line" />
+                  <path d="M181 170 H233" className="wf-panel-line" />
+                  <circle cx="185" cy="197" r="3.4" className="wf-panel-node" />
+                  <path d="M192 197 H247" className="wf-panel-line wf-dim" />
+
+                  {/* ── RIGHT: the ordered system ───────────────────── */}
+                  {/* Trunk out of the panel into the spine */}
+                  <path d="M261 170 H311" className="wf-route" />
+
+                  {/* Spine */}
+                  <path
+                    d="M311 100 V 240"
+                    stroke="url(#wfSpine)"
+                    strokeWidth="1"
+                  />
+
+                  {/* Spine legs + nodes. Equal-length outputs. */}
+                  <path d="M311 114 H352" className="wf-leg" />
+                  <circle cx="311" cy="114" r="4" className="wf-node" />
+                  <circle cx="357" cy="114" r="3" className="wf-tip" />
+
+                  <path d="M311 226 H352" className="wf-leg" />
+                  <circle cx="311" cy="226" r="4" className="wf-node" />
+                  <circle cx="357" cy="226" r="3" className="wf-tip" />
+
+                  {/* Validated route: the straight line out of the panel.
+                      Only highlighted element on the canvas. */}
+                  <circle
+                    cx="311"
+                    cy="170"
+                    r="17"
+                    fill="url(#wfNodeGlow)"
+                  />
+                  <path d="M311 170 H354" className="wf-leg wf-leg--live" />
+                  <circle cx="311" cy="170" r="5.4" className="wf-node-live" />
+                  <circle cx="360" cy="170" r="3.2" className="wf-tip-live" />
+
+                  {/* Scope considered, not built. The spine simply keeps
+                      going and fades out, rather than turning a corner,
+                      which read as a stray box edge. */}
+                  <path
+                    d="M311 100 V 76"
+                    stroke="url(#wfFade)"
+                    strokeWidth="1"
+                    strokeDasharray="2 4"
+                  />
+                </svg>
               </div>
             </div>
           </div>

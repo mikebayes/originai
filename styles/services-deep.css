@@ -9111,3 +9111,159 @@
     max-width: 560px;
   }
 }
+
+/* ─── Draft build page: workflow artifact ──────────────────────────────
+   Replaces the dashed .ph-slot--flow placeholder in the "From idea to
+   launch." section on /draft/services/build.
+
+   Gated on .draft-hero--build, which exists only on that draft page, so
+   the live /services/build route and every other .bp-page are untouched.
+   The old .bp-page .ph-slot--flow rules stay in place, unused here.
+
+   Reads left to right: unstructured fragments, one small defined panel,
+   an ordered spine. Hairlines and one accent hue. No text, no arrows.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.draft-hero--build .wf-art {
+  position: relative;
+  align-self: stretch;
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 18px;
+  border-radius: 16px;
+  border: 0.5px solid rgba(255, 255, 255, 0.09);
+  background:
+    radial-gradient(
+      92% 70% at 78% 6%,
+      rgba(93, 168, 156, 0.075) 0%,
+      rgba(93, 168, 156, 0) 62%
+    ),
+    linear-gradient(168deg, #0b1214 0%, #090f11 58%, #060a0b 100%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 34px 66px -24px rgba(0, 0, 0, 0.62);
+}
+
+/* Very faint diagonal hairline field. Same texture language as the
+   placeholder it replaces, at roughly half the strength. */
+.draft-hero--build .wf-art::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(93, 168, 156, 0.026) 0px,
+    rgba(93, 168, 156, 0.026) 1px,
+    rgba(93, 168, 156, 0) 1px,
+    rgba(93, 168, 156, 0) 13px
+  );
+}
+
+/* Soft ground under the artwork, keeps the corners from feeling empty */
+.draft-hero--build .wf-art-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    58% 50% at 50% 52%,
+    rgba(93, 168, 156, 0.035) 0%,
+    rgba(93, 168, 156, 0) 76%
+  );
+}
+
+.draft-hero--build .wf-svg {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  max-height: 290px;
+}
+
+/* ── Left: unstructured fragments ────────────────────────────────── */
+.draft-hero--build .wf-frag-box {
+  fill: rgba(255, 255, 255, 0.014);
+  stroke: rgba(255, 255, 255, 0.15);
+  stroke-width: 1;
+}
+.draft-hero--build .wf-frag-box--dashed {
+  stroke: rgba(255, 255, 255, 0.12);
+  stroke-dasharray: 3 3.5;
+}
+.draft-hero--build .wf-frag-line {
+  stroke: rgba(255, 255, 255, 0.2);
+  stroke-width: 1;
+  stroke-linecap: round;
+}
+.draft-hero--build .wf-dim {
+  stroke: rgba(255, 255, 255, 0.1);
+}
+
+/* Dashed convergence into the definition panel */
+.draft-hero--build .wf-converge path {
+  stroke: rgba(255, 255, 255, 0.14);
+  stroke-width: 1;
+  stroke-dasharray: 2 4;
+  fill: none;
+}
+
+/* ── Centre: the defined workflow ────────────────────────────────── */
+.draft-hero--build .wf-panel {
+  stroke: rgba(93, 168, 156, 0.3);
+  stroke-width: 1;
+}
+.draft-hero--build .wf-panel-line {
+  stroke: rgba(93, 168, 156, 0.4);
+  stroke-width: 1;
+  stroke-linecap: round;
+}
+.draft-hero--build .wf-panel-line.wf-dim {
+  stroke: rgba(93, 168, 156, 0.2);
+}
+.draft-hero--build .wf-panel-node {
+  fill: rgba(93, 168, 156, 0.55);
+}
+
+/* ── Right: the ordered system ───────────────────────────────────── */
+.draft-hero--build .wf-route {
+  stroke: rgba(93, 168, 156, 0.42);
+  stroke-width: 1;
+}
+.draft-hero--build .wf-leg {
+  stroke: rgba(93, 168, 156, 0.26);
+  stroke-width: 1;
+}
+.draft-hero--build .wf-node {
+  fill: #080d0e;
+  stroke: rgba(93, 168, 156, 0.42);
+  stroke-width: 1;
+}
+.draft-hero--build .wf-tip {
+  fill: rgba(93, 168, 156, 0.34);
+}
+
+/* The validated route. One step brighter than everything else, not two. */
+.draft-hero--build .wf-leg--live {
+  stroke: rgba(93, 168, 156, 0.62);
+}
+.draft-hero--build .wf-node-live {
+  fill: #0a1315;
+  stroke: rgba(93, 168, 156, 0.78);
+  stroke-width: 1.2;
+}
+.draft-hero--build .wf-tip-live {
+  fill: rgba(93, 168, 156, 0.7);
+}
+
+@media (max-width: 900px) {
+  .draft-hero--build .wf-art {
+    min-height: 240px;
+    padding: 14px;
+  }
+  .draft-hero--build .wf-svg {
+    max-height: 214px;
+  }
+}
