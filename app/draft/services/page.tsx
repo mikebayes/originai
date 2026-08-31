@@ -412,19 +412,25 @@ export default function DraftServicesPage() {
             section moves to adoption language, which also matches the
             page's positioning better than "putting AI to work."
 
-            The quote, attribution, and selected-clients row below are
-            unchanged. */}
+            Heading history: "How leaders are putting AI to work." repeated
+            the final CTA's phrase, and "What adoption looks like in
+            practice." over-explained a section whose job is credibility.
+            The plain version lets the quote and the client names carry it.
+
+            The right-hand lede is removed. s-head--solo drops the grid to
+            one column so the heading does not sit in a 1.3fr well with an
+            empty column beside it.
+
+            The quote, attribution, Tripwire card, engagement label, and
+            selected-clients row below are unchanged. */}
         <section className="wrap section" data-screen-label="Customer spotlight">
-          <div className="s-head">
+          <div className="s-head s-head--solo">
             <div>
               <span className="bp-rule" aria-hidden="true" />
               <h2 className="s-h2 bp-h2--accented">
-                What adoption looks like in practice.
+                Companies we&rsquo;ve helped.
               </h2>
             </div>
-            <p className="s-lede">
-              A sample of the work, outcomes, and people behind it.
-            </p>
           </div>
 
           <div className="proof-feature">

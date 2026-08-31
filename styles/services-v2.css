@@ -2234,3 +2234,28 @@
     font-size: 14.5px;
   }
 }
+
+/* ─── Draft services proof section: heading without a lede ────────────
+   The base .svcs-v2 .s-head is a two-column grid (1.3fr / 1fr) built to
+   pair a heading with a right-hand lede. The proof section's lede is
+   gone, so without this the heading would sit in a 1.3fr well with an
+   empty column beside it and a 64px bottom margin sized for two blocks.
+
+   s-head--solo collapses it to one column and trims the gap below, so
+   the heading sits closer to the testimonial it introduces.
+
+   Draft-only class. The base rule and every live section using it are
+   untouched.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.svcs-draft .s-head.s-head--solo {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  margin-bottom: 48px;
+}
+
+@media (max-width: 900px) {
+  .svcs-draft .s-head.s-head--solo {
+    margin-bottom: 32px;
+  }
+}
