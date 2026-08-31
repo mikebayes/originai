@@ -8425,3 +8425,136 @@
     padding: 64px 0 52px;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   DRAFT TEAM PAGE  ·  /draft/team  ONLY
+   Gated on .draft-hero--team, so the live /team styling (which shares
+   .bp-page--team) is untouched.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Hero: same charcoal family, marginally warmer and softer than the
+   service pages. This is the people page, so the light is gentler and
+   more centred rather than a tight focal glow. ────────────────────── */
+.draft-hero--team .bp-hero-shell {
+  background:
+    linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent calc(100% - 240px),
+      rgba(6, 9, 10, 0.55) calc(100% - 80px),
+      #06090a 100%
+    ),
+    radial-gradient(
+      86% 84% at 60% 8%,
+      rgba(93, 168, 156, 0.09) 0%,
+      rgba(93, 168, 156, 0) 66%
+    ),
+    radial-gradient(
+      70% 66% at 22% 42%,
+      rgba(66, 128, 120, 0.115) 0%,
+      rgba(66, 128, 120, 0) 72%
+    ),
+    radial-gradient(
+      46% 50% at 88% 94%,
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(0, 0, 0, 0) 70%
+    ),
+    linear-gradient(172deg, #0a0f11 0%, #0c1b1a 50%, #0e2422 80%, #071211 100%);
+}
+/* Quietest line texture of the draft family */
+.draft-hero--team .bp-hero-shell::before {
+  background-image: repeating-linear-gradient(
+    118deg,
+    rgba(255, 255, 255, 0.008) 0 1px,
+    transparent 1px 116px
+  );
+}
+
+/* ── One continuous surface, no per-section panels ───────────────── */
+.draft-hero--team {
+  background:
+    radial-gradient(
+      120% 55% at 50% 0%,
+      rgba(93, 168, 156, 0.028) 0%,
+      rgba(93, 168, 156, 0) 55%
+    ),
+    linear-gradient(180deg, #06090a 0%, #070b0c 55%, #06090a 100%);
+}
+.draft-hero--team .bp-team,
+.draft-hero--team .bp-statement {
+  background: none;
+  border-top: none;
+  border-bottom: none;
+}
+
+/* ── Section rhythm matched to the other drafts ──────────────────── */
+.draft-hero--team .bp-team {
+  padding: 80px 0 76px;
+}
+.draft-hero--team .bp-statement {
+  padding: 76px 0 80px;
+}
+
+/* ── Statement section: rule replaces the eyebrow ────────────────── */
+.draft-hero--team .bp-statement-inner {
+  max-width: 840px;
+}
+.draft-hero--team .bp-statement-h2 {
+  margin-top: 0;
+}
+
+/* Proof points as a plain inline row. The old dot bullets read as
+   leftover eyebrow language. */
+.draft-hero--team .bp-statement-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 32px;
+  list-style: none;
+  margin: 30px 0 0;
+  padding: 0;
+}
+.draft-hero--team .bp-statement-points li {
+  position: relative;
+  padding: 0;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(245, 240, 228, 0.72);
+}
+.draft-hero--team .bp-statement-points li::before {
+  content: none;
+}
+/* Thin teal separators between items rather than bullets */
+.draft-hero--team .bp-statement-points li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -17px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 13px;
+  background: rgba(93, 168, 156, 0.35);
+}
+.draft-hero--team .bp-statement-dot {
+  display: none;
+}
+
+/* ── CTA sits on the same surface ────────────────────────────────── */
+.draft-hero--team .bp-cta {
+  border-top: none;
+}
+
+@media (max-width: 900px) {
+  .draft-hero--team .bp-team {
+    padding: 52px 0 48px;
+  }
+  .draft-hero--team .bp-statement {
+    padding: 48px 0 52px;
+  }
+  .draft-hero--team .bp-statement-points {
+    gap: 12px 26px;
+  }
+  .draft-hero--team .bp-statement-points li:not(:last-child)::after {
+    right: -14px;
+  }
+}
