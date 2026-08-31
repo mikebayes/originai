@@ -309,3 +309,232 @@
     margin-bottom: 32px;
   }
 }
+
+/* ═══ SERVICES: FOUR EQUAL-WEIGHT CARDS ═════════════════════════════
+   Replaces the asymmetric featured-left layout. 2x2 on desktop so each
+   card has room for a title, body, and CTA without crowding.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.draft-home .dh-svcs {
+  position: relative;
+  isolation: isolate;
+  padding: 118px 0 122px;
+  background:
+    radial-gradient(
+      88% 62% at 16% 4%,
+      rgba(93, 168, 156, 0.06) 0%,
+      rgba(93, 168, 156, 0) 60%
+    ),
+    radial-gradient(
+      74% 60% at 88% 82%,
+      rgba(50, 108, 104, 0.055) 0%,
+      rgba(50, 108, 104, 0) 66%
+    ),
+    linear-gradient(180deg, #050a0c 0%, #071214 46%, #050a0c 100%);
+}
+/* Diagonal hairlines, same family as the draft service pages */
+.draft-home .dh-svcs-grain {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    118deg,
+    rgba(255, 255, 255, 0.011) 0 1px,
+    transparent 1px 104px
+  );
+}
+.draft-home .dh-svcs-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 56px;
+}
+
+/* ── Section head ────────────────────────────────────────────────── */
+.draft-home .dh-svcs-head {
+  max-width: 780px;
+  margin-bottom: 56px;
+}
+.draft-home .dh-svcs-h2 {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 500;
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0;
+  text-wrap: balance;
+}
+.draft-home .dh-svcs-h2 .muted {
+  color: rgba(255, 255, 255, 0.46);
+}
+.draft-home .dh-svcs-lede {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.62);
+  margin: 22px 0 0;
+  max-width: 62ch;
+}
+
+/* ── 2x2 grid ────────────────────────────────────────────────────── */
+.draft-home .dh-svcs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+/* ── Card ────────────────────────────────────────────────────────── */
+.draft-home .dh-svc {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 30px 26px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: linear-gradient(
+    168deg,
+    rgba(255, 255, 255, 0.032) 0%,
+    rgba(255, 255, 255, 0) 62%
+  );
+  text-decoration: none;
+  transition: border-color 0.22s ease, transform 0.22s ease,
+    background 0.22s ease;
+}
+.draft-home .dh-svc:hover {
+  border-color: rgba(93, 168, 156, 0.36);
+  transform: translateY(-2px);
+  background: linear-gradient(
+    168deg,
+    rgba(93, 168, 156, 0.05) 0%,
+    rgba(93, 168, 156, 0) 64%
+  );
+}
+
+/* Number + label row */
+.draft-home .dh-svc-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+.draft-home .dh-svc-num {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: rgba(93, 168, 156, 0.85);
+}
+.draft-home .dh-svc-label {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.34);
+}
+
+/* System mark */
+.draft-home .dh-svc-mark {
+  margin: 24px 0 22px;
+  height: 40px;
+}
+.draft-home .dh-svc-mark svg {
+  width: 64px;
+  height: 40px;
+  display: block;
+  overflow: visible;
+}
+.draft-home .dh-mk-line {
+  stroke: rgba(93, 168, 156, 0.34);
+  stroke-width: 1;
+}
+.draft-home .dh-mk-line-strong {
+  stroke: rgba(93, 168, 156, 0.72);
+  stroke-width: 1.2;
+}
+.draft-home .dh-mk-dot {
+  fill: rgba(93, 168, 156, 0.5);
+}
+.draft-home .dh-mk-node {
+  fill: none;
+  stroke: rgba(93, 168, 156, 0.9);
+  stroke-width: 1.4;
+}
+.draft-home .dh-mk-box {
+  fill: none;
+  stroke: rgba(93, 168, 156, 0.4);
+  stroke-width: 1;
+}
+.draft-home .dh-svc:hover .dh-mk-node {
+  stroke: rgba(93, 168, 156, 1);
+}
+
+/* Copy */
+.draft-home .dh-svc-title {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 600;
+  font-size: 21px;
+  line-height: 1.26;
+  color: rgba(255, 255, 255, 0.96);
+  margin: 0 0 10px;
+}
+.draft-home .dh-svc-body {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.58);
+  margin: 0;
+  flex: 1 1 auto;
+}
+
+/* CTA */
+.draft-home .dh-svc-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 24px;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(93, 168, 156, 0.92);
+}
+.draft-home .dh-svc-arrow {
+  transform: translateX(0);
+  transition: transform 0.22s ease;
+}
+.draft-home .dh-svc:hover .dh-svc-cta {
+  color: rgba(93, 168, 156, 1);
+}
+.draft-home .dh-svc:hover .dh-svc-arrow {
+  transform: translateX(4px);
+}
+
+@media (max-width: 900px) {
+  .draft-home .dh-svcs {
+    padding: 72px 0 76px;
+  }
+  .draft-home .dh-svcs-inner {
+    padding: 0 24px;
+  }
+  .draft-home .dh-svcs-head {
+    margin-bottom: 36px;
+  }
+  .draft-home .dh-svcs-lede {
+    font-size: 16px;
+    margin-top: 18px;
+  }
+  .draft-home .dh-svcs-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .draft-home .dh-svc {
+    padding: 26px 24px 22px;
+  }
+  .draft-home .dh-svc-mark {
+    margin: 20px 0 18px;
+  }
+  .draft-home .dh-svc-title {
+    font-size: 19px;
+  }
+}
