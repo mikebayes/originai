@@ -359,68 +359,64 @@ export default function DraftServicesPage() {
               </h2>
             </div>
             <p className="s-lede">
-              You do not need to arrive with a finished AI plan or a software
-              idea. Most engagements start with a leadership question, a team
-              capability gap, or a workflow that needs to work better.
+              Most engagements begin with one of three questions. Pick the one
+              that sounds like your situation.
             </p>
           </div>
 
-          {/* Starting-point chooser. Deliberately lighter than the four
-              service cards above: no framed visuals, no borders on three
-              sides, no card fill. A hairline top rule with a small teal
-              index number carries each option, so this reads as a set of
-              routes rather than a second services grid. */}
+          {/* Starting-point chooser. Question-led so a visitor can match
+              their own situation in one read: index, title, the question
+              they are actually asking, one support line, CTA. Compact
+              tiles, deliberately lighter than the four service cards
+              above. No visual panels. */}
           <div className="start-chooser">
-            <a href="/services/strategy" className="start-opt">
-              <span className="start-opt-num">01</span>
-              <span className="start-opt-body">
-                <span className="start-opt-title">
-                  Start with leadership alignment
+            {[
+              {
+                num: "01",
+                title: "Start with leadership alignment",
+                q: "Where does AI belong?",
+                support: "Decide priorities, standards, risks, and next steps.",
+                href: "/services/strategy",
+                cta: "Explore leadership enablement",
+              },
+              {
+                num: "02",
+                title: "Start with team training",
+                q: "How do our people use it well?",
+                support:
+                  "Build capability around real roles, tasks, and examples.",
+                href: "/services/ai-training",
+                cta: "Explore team training",
+              },
+              {
+                num: "03",
+                title: "Start with a workflow opportunity",
+                q: "What should we improve first?",
+                support:
+                  "Turn a known workflow into something faster, clearer, or easier to manage.",
+                href: "/services/build",
+                cta: "Explore workflow development",
+              },
+            ].map((o) => (
+              <a key={o.num} href={o.href} className="start-opt">
+                <span className="start-opt-head">
+                  <span className="start-opt-num">{o.num}</span>
+                  <span className="start-opt-title">{o.title}</span>
                 </span>
-                <span className="start-opt-desc">
-                  For organizations that need clarity on AI priorities,
-                  standards, risks, and next steps.
-                </span>
-                <span className="start-opt-cta">
-                  Explore leadership enablement
-                  <span className="arrow" aria-hidden="true">→</span>
-                </span>
-              </span>
-            </a>
 
-            <a href="/services/ai-training" className="start-opt">
-              <span className="start-opt-num">02</span>
-              <span className="start-opt-body">
-                <span className="start-opt-title">
-                  Start with team training
+                <span className="start-opt-q">
+                  <span className="start-opt-q-label">When the question is</span>
+                  <span className="start-opt-q-text">{o.q}</span>
                 </span>
-                <span className="start-opt-desc">
-                  For teams that need hands-on AI training tied to their
-                  actual work.
-                </span>
-                <span className="start-opt-cta">
-                  Explore team training
-                  <span className="arrow" aria-hidden="true">→</span>
-                </span>
-              </span>
-            </a>
 
-            <a href="/services/build" className="start-opt">
-              <span className="start-opt-num">03</span>
-              <span className="start-opt-body">
-                <span className="start-opt-title">
-                  Start with a workflow opportunity
-                </span>
-                <span className="start-opt-desc">
-                  For teams that already see a process that could be faster,
-                  more consistent, or easier to manage.
-                </span>
+                <span className="start-opt-support">{o.support}</span>
+
                 <span className="start-opt-cta">
-                  Explore workflow development
+                  {o.cta}
                   <span className="arrow" aria-hidden="true">→</span>
                 </span>
-              </span>
-            </a>
+              </a>
+            ))}
           </div>
         </section>
 

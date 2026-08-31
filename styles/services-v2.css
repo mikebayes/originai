@@ -2089,3 +2089,167 @@
     padding: 18px 0 14px;
   }
 }
+
+/* ─── Draft services hub: chooser refined to compact tiles ────────────
+   The previous version was a hairline rule plus a paragraph, which read
+   as three text columns. This version is question-led and structured, so
+   a visitor can match their own situation in one scan:
+
+     index + title      (what this route is)
+     "When the question is" + the question   (do I recognise myself here)
+     support line       (what actually happens)
+     CTA                (where it goes)
+
+   Tiles now have a light fill and full border so they read as choices,
+   but stay clearly below the four service cards above: no lift on hover,
+   thinner border, smaller type, flatter shadow. Overrides the earlier
+   .start-opt block further up this file.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.svcs-draft .start-chooser {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 44px;
+}
+
+.svcs-draft .start-opt {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 22px 22px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  background: linear-gradient(
+    172deg,
+    rgba(255, 255, 255, 0.022) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  text-decoration: none;
+  transition: border-color 220ms ease-out, background 220ms ease-out;
+}
+.svcs-draft .start-opt:hover {
+  border-color: rgba(93, 168, 156, 0.34);
+  background: linear-gradient(
+    172deg,
+    rgba(93, 168, 156, 0.04) 0%,
+    rgba(93, 168, 156, 0) 72%
+  );
+}
+
+/* ── Index + title ───────────────────────────────────────────────── */
+.svcs-draft .start-opt-head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+.svcs-draft .start-opt-num {
+  flex: 0 0 auto;
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  color: rgba(93, 168, 156, 0.75);
+  padding-top: 0;
+  transition: color 220ms ease-out;
+}
+.svcs-draft .start-opt:hover .start-opt-num {
+  color: rgba(93, 168, 156, 1);
+}
+.svcs-draft .start-opt-title {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 600;
+  font-size: 16.5px;
+  line-height: 1.28;
+  color: rgba(255, 255, 255, 0.95);
+  transition: color 220ms ease-out;
+}
+.svcs-draft .start-opt:hover .start-opt-title {
+  color: #fff;
+}
+
+/* ── The question. The scan anchor. ──────────────────────────────── */
+.svcs-draft .start-opt-q {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 16px 0 0;
+}
+.svcs-draft .start-opt-q-label {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+}
+.svcs-draft .start-opt-q-text {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1.3;
+  color: rgba(93, 168, 156, 0.92);
+}
+.svcs-draft .start-opt-q-text::before {
+  content: "\201C";
+}
+.svcs-draft .start-opt-q-text::after {
+  content: "\201D";
+}
+
+/* ── Support line ────────────────────────────────────────────────── */
+.svcs-draft .start-opt-support {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.52);
+  padding: 12px 0 0;
+}
+
+/* ── CTA ─────────────────────────────────────────────────────────── */
+.svcs-draft .start-opt-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 18px;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(93, 168, 156, 0.82);
+  transition: color 220ms ease-out;
+}
+.svcs-draft .start-opt-cta .arrow {
+  display: inline-block;
+  transition: transform 220ms ease-out;
+}
+.svcs-draft .start-opt:hover .start-opt-cta {
+  color: rgba(93, 168, 156, 1);
+}
+.svcs-draft .start-opt:hover .start-opt-cta .arrow {
+  transform: translateX(4px);
+}
+
+/* Retire the earlier paragraph-based markup hooks */
+.svcs-draft .start-opt-body,
+.svcs-draft .start-opt-desc {
+  display: contents;
+}
+
+@media (max-width: 900px) {
+  .svcs-draft .start-chooser {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 32px;
+  }
+  .svcs-draft .start-opt {
+    padding: 20px 20px 18px;
+  }
+  .svcs-draft .start-opt-q {
+    padding-top: 14px;
+  }
+  .svcs-draft .start-opt-cta {
+    padding-top: 14px;
+  }
+}
