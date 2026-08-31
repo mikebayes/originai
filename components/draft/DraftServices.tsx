@@ -139,11 +139,11 @@ export default function DraftServices() {
         <header className="dh-svcs-head" data-reveal>
           <span className="dh-rule" aria-hidden="true" />
           <h2 className="dh-svcs-h2 display">
-            Four ways we help organizations move from{" "}
+            Our AI services. Four ways to move from{" "}
             <span className="muted">interest to adoption.</span>
           </h2>
           <p className="dh-svcs-lede">
-            Start with the need in front of you. Leadership alignment, team
+            Start with the need in front of you. Leadership enablement, team
             training, workflow development, and managed improvement can stand
             alone or work together.
           </p>

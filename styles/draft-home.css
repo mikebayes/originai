@@ -538,3 +538,51 @@
     font-size: 19px;
   }
 }
+
+/* ═══ WHO WE ARE: IMAGE REBALANCE ═══════════════════════════════════
+   The photograph was reading as a supporting thumbnail rather than a
+   credibility anchor. Three changes, no crop risk:
+
+     1. Column split moves from 1.08fr / 0.92fr to 0.94fr / 1.06fr, so
+        the image now takes slightly more than half the section width.
+        That is roughly a 20% gain in rendered width at desktop.
+     2. The 1312/1199 aspect ratio is preserved, so nothing crops. The
+        frame simply scales up with its column.
+     3. The copy column gets a max-width so the extra image width does
+        not stretch the lede into an uncomfortable measure.
+
+   Gap tightens slightly to keep the pair reading as one composition.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.draft-home .dh-who-grid {
+  grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
+  gap: 64px;
+}
+
+/* Keep the text column readable at the narrower width */
+.draft-home .dh-who-copy {
+  max-width: 620px;
+}
+
+/* A slightly deeper shadow and a marginally stronger edge so the larger
+   frame still feels seated rather than floating. */
+.draft-home .dh-who-photo-frame {
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 44px 88px -28px rgba(0, 0, 0, 0.72),
+    0 12px 32px -10px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 1100px) {
+  /* Stacked: let the image run wider than the earlier 560px cap. */
+  .draft-home .dh-who-grid {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+  .draft-home .dh-who-copy {
+    max-width: none;
+  }
+  .draft-home .dh-who-photo {
+    max-width: 720px;
+  }
+}
