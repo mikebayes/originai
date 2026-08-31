@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import HeroNav from "@/components/HeroNav";
 import Footer from "@/components/Footer";
+import {
+  MarkAlign,
+  MarkRoster,
+  MarkFlow,
+  MarkSteps,
+} from "@/components/draft/ServiceMarks";
 
 /**
  * /draft/services — DRAFT of the repositioned Services page.
@@ -53,58 +59,6 @@ function Placeholder({ label }: { label: string }) {
   return (
     <div className="ph-slot" aria-hidden="true">
       <span className="ph-slot-label">{label}</span>
-    </div>
-  );
-}
-
-/* ─── Leadership AI Enablement card art ─────────────────────────────
-   Small embedded service-card visual, not a feature image.
-
-   Reads as a decision artifact: three leadership inputs on the left
-   converge on a single decision node, then one prioritized path is
-   carried forward while two alternates fade. Sequence ticks along the
-   chosen path imply ordering without labels.
-
-   Deliberately excluded: people, photography, dashboards, arrowheads,
-   readable interface text, neon, network webs. Hairline geometry in the
-   muted teal only, on the card's own dark ground.                     */
-function LeadershipCardArt() {
-  return (
-    <div className="lead-art" aria-hidden="true">
-      <svg viewBox="0 0 320 180" fill="none" preserveAspectRatio="xMidYMid meet">
-        {/* Baseline hairlines, very low contrast, for structure only */}
-        <line x1="0" y1="46" x2="320" y2="46" className="la-grid" />
-        <line x1="0" y1="134" x2="320" y2="134" className="la-grid" />
-
-        {/* Three leadership inputs converging on the decision node */}
-        <path d="M34 46 C 74 46, 92 90, 128 90" className="la-in" />
-        <path d="M34 90 L128 90" className="la-in" />
-        <path d="M34 134 C 74 134, 92 90, 128 90" className="la-in" />
-
-        <circle cx="34" cy="46" r="2.6" className="la-dot" />
-        <circle cx="34" cy="90" r="2.6" className="la-dot" />
-        <circle cx="34" cy="134" r="2.6" className="la-dot" />
-
-        {/* Two alternates, set aside */}
-        <path d="M146 90 C 186 90, 200 58, 252 58" className="la-alt" />
-        <path d="M146 90 C 186 90, 200 122, 252 122" className="la-alt" />
-        <circle cx="252" cy="58" r="2.2" className="la-alt-dot" />
-        <circle cx="252" cy="122" r="2.2" className="la-alt-dot" />
-
-        {/* The prioritized path forward */}
-        <path d="M146 90 L286 90" className="la-path" />
-        <line x1="188" y1="85" x2="188" y2="95" className="la-tick" />
-        <line x1="222" y1="85" x2="222" y2="95" className="la-tick" />
-        <line x1="256" y1="85" x2="256" y2="95" className="la-tick" />
-
-        {/* Decision node */}
-        <circle cx="137" cy="90" r="9" className="la-node-ring" />
-        <circle cx="137" cy="90" r="2.8" className="la-node-core" />
-
-        {/* Terminal: what moves first */}
-        <circle cx="290" cy="90" r="7" className="la-end-halo" />
-        <circle cx="290" cy="90" r="3.2" className="la-end" />
-      </svg>
     </div>
   );
 }
@@ -204,9 +158,11 @@ export default function DraftServicesPage() {
           <div className="quad">
             {/* Card 1 — Leadership */}
             <article className="svc-card" id="leadership">
-              <div className="svc-card-visual quad-visual">
-                <span className="svc-card-badge">Leadership</span>
-                <LeadershipCardArt />
+              {/* Small inline mark, shared with the draft homepage service
+                  cards. Replaces the previous full-height framed image
+                  band so the four cards stay scannable. */}
+              <div className="svc-mark-row" aria-hidden="true">
+                <MarkAlign />
               </div>
               <div className="svc-card-body">
                 <span className="svc-card-num">Leadership</span>
@@ -227,12 +183,11 @@ export default function DraftServicesPage() {
 
             {/* Card 2 — Team */}
             <article className="svc-card" id="team">
-              <div className="svc-card-visual quad-visual">
-                <span className="svc-card-badge">Team</span>
-                {/* ART DIRECTION (internal, do not render as page text):
-                    Guided AI workshop. People working with laptops, hands-on and
-                    business-oriented. */}
-                <Placeholder label="Team AI training" />
+              {/* Small inline mark, shared with the draft homepage service
+                  cards. Replaces the previous full-height framed image
+                  band so the four cards stay scannable. */}
+              <div className="svc-mark-row" aria-hidden="true">
+                <MarkRoster />
               </div>
               <div className="svc-card-body">
                 <span className="svc-card-num">Team</span>
@@ -254,13 +209,11 @@ export default function DraftServicesPage() {
 
             {/* Card 3 — Workflows */}
             <article className="svc-card" id="workflows">
-              <div className="svc-card-visual quad-visual">
-                <span className="svc-card-badge">Workflows</span>
-                {/* ART DIRECTION (internal, do not render as page text):
-                    Product-style visual. Workflow assistant, document analysis
-                    interface, or approval flow. More product-like than
-                    photo-like. */}
-                <Placeholder label="Workflow assistant UI" />
+              {/* Small inline mark, shared with the draft homepage service
+                  cards. Replaces the previous full-height framed image
+                  band so the four cards stay scannable. */}
+              <div className="svc-mark-row" aria-hidden="true">
+                <MarkFlow />
               </div>
               <div className="svc-card-body">
                 <span className="svc-card-num">Workflows</span>
@@ -282,12 +235,11 @@ export default function DraftServicesPage() {
 
             {/* Card 4 — Improvement */}
             <article className="svc-card" id="improvement">
-              <div className="svc-card-visual quad-visual">
-                <span className="svc-card-badge">Improvement</span>
-                {/* ART DIRECTION (internal, do not render as page text):
-                    Dashboard or monitoring card. Support metrics and an
-                    improvement roadmap trending up. */}
-                <Placeholder label="Improvement dashboard" />
+              {/* Small inline mark, shared with the draft homepage service
+                  cards. Replaces the previous full-height framed image
+                  band so the four cards stay scannable. */}
+              <div className="svc-mark-row" aria-hidden="true">
+                <MarkSteps />
               </div>
               <div className="svc-card-body">
                 <span className="svc-card-num">Improvement</span>

@@ -1761,3 +1761,81 @@
     max-height: 140px;
   }
 }
+
+/* ─── Draft services hub: inline card marks ───────────────────────────
+   Replaces the framed image band that previously sat at the top of each
+   quad card. That band was 200px min-height plus padding, which pushed
+   every card title far down and meant only two of the four cards were
+   visible on a desktop screen. A services hub has to be scannable.
+
+   The mark is the same 64x40 hairline geometry used by the draft
+   homepage service cards, so the two places that list these four
+   services now share one visual language.
+
+   The .svc-card-badge span was also dropped from these cards: it
+   duplicated the .svc-card-num label directly beneath it.
+
+   Gated on .svcs-draft, which only /draft/services carries.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.svcs-draft .quad .svc-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.svcs-draft .svc-mark-row {
+  padding: 26px 26px 0;
+}
+.svcs-draft .svc-mark-row svg {
+  width: 64px;
+  height: 40px;
+  display: block;
+  overflow: visible;
+}
+
+/* Mark stroke language, matched to the draft homepage cards */
+.svcs-draft .dh-mk-line {
+  stroke: rgba(93, 168, 156, 0.34);
+  stroke-width: 1;
+}
+.svcs-draft .dh-mk-line-strong {
+  stroke: rgba(93, 168, 156, 0.72);
+  stroke-width: 1.2;
+}
+.svcs-draft .dh-mk-dot {
+  fill: rgba(93, 168, 156, 0.5);
+}
+.svcs-draft .dh-mk-node {
+  fill: none;
+  stroke: rgba(93, 168, 156, 0.9);
+  stroke-width: 1.4;
+}
+.svcs-draft .dh-mk-box {
+  fill: none;
+  stroke: rgba(93, 168, 156, 0.4);
+  stroke-width: 1;
+}
+.svcs-draft .quad .svc-card:hover .dh-mk-node {
+  stroke: rgba(93, 168, 156, 1);
+}
+
+/* Body sits directly under the mark now, no framed band above it. */
+.svcs-draft .quad .svc-card-body {
+  padding-top: 20px;
+}
+
+/* Retire the old framed visual on this page in case any stale markup
+   references it. */
+.svcs-draft .quad .svc-card-visual,
+.svcs-draft .quad .quad-visual {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .svcs-draft .svc-mark-row {
+    padding: 22px 22px 0;
+  }
+  .svcs-draft .quad .svc-card-body {
+    padding-top: 16px;
+  }
+}
