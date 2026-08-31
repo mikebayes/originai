@@ -403,13 +403,11 @@ export default function DraftApproachPage() {
               <div className="bp-col bp-col--believe">
                 <h3 className="bp-col-title">What we believe</h3>
                 <ul>
-                  <li>AI adoption starts with leadership clarity.</li>
+                  <li>AI adoption needs leadership clarity.</li>
                   <li>Fluency matters more than tool chasing.</li>
                   <li>The best use cases are tied to real work.</li>
-                  <li>
-                    Systems should fit the business, not the other way around.
-                  </li>
-                  <li>AI should improve outcomes, not just activity.</li>
+                  <li>Systems should fit the business.</li>
+                  <li>AI should improve outcomes.</li>
                 </ul>
               </div>
 
@@ -417,12 +415,11 @@ export default function DraftApproachPage() {
                 <h3 className="bp-col-title">What we avoid</h3>
                 <ul>
                   <li>Random experiments with no owner.</li>
-                  <li>Training that never connects to the work.</li>
+                  <li>Training disconnected from the work.</li>
                   <li>
-                    Software that adds complexity without changing the
-                    outcome.
+                    Software that adds complexity without changing outcomes.
                   </li>
-                  <li>Governance that creates fear instead of clarity.</li>
+                  <li>Governance that creates fear.</li>
                   <li>Buying tools before the problem is clear.</li>
                 </ul>
               </div>
@@ -453,28 +450,28 @@ export default function DraftApproachPage() {
                   "Leadership AI Enablement",
                   "Clarify where AI belongs, what to act on first, and who owns what.",
                   "/services/strategy",
-                  "Explore leadership enablement",
+                  "Leadership enablement",
                 ],
                 [
                   "02",
                   "Team AI Training",
                   "Build team fluency around roles, tasks, examples, and responsible use.",
                   "/services/ai-training",
-                  "Explore team training",
+                  "Team training",
                 ],
                 [
                   "03",
                   "AI Workflow Development",
                   "Turn high-value opportunities into focused AI tools, automations, integrations, or internal systems.",
                   "/services/build",
-                  "Explore workflow development",
+                  "Workflow development",
                 ],
                 [
                   "04",
                   "Managed AI Improvement",
                   "Improve, support, and expand what is live.",
                   "/services/managed",
-                  "Explore managed improvement",
+                  "Managed improvement",
                 ],
               ].map(([num, title, body, href, cta]) => (
                 <li className="bp-handoff-step" key={num}>
