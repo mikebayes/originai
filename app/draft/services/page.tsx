@@ -88,9 +88,9 @@ export default function DraftServicesPage() {
               {/* Location language is handled in SEO metadata and the
                   footer, not repeated in every service-page hero. */}
               <p className="s-hero-sub">
-                Origin helps organizations adopt AI through leadership
-                alignment, team training, workflow development, and ongoing
-                improvement.
+                Origin helps organizations move from AI interest to adoption
+                through leadership alignment, team training, workflow
+                development, and ongoing improvement.
               </p>
             </div>
 
@@ -404,17 +404,26 @@ export default function DraftServicesPage() {
           </div>
         </section>
 
-        {/* ─── SECTION 4: PROOF / TESTIMONIAL ──────────────────── */}
+        {/* ─── SECTION 4: PROOF / TESTIMONIAL ────────────────────
+            Heading was "How leaders are putting AI to work." which sat
+            directly above the final CTA's "Ready to put AI to work?" and
+            repeated the phrase across two adjacent sections. The CTA
+            keeps the phrase, since that is the conversion line; this
+            section moves to adoption language, which also matches the
+            page's positioning better than "putting AI to work."
+
+            The quote, attribution, and selected-clients row below are
+            unchanged. */}
         <section className="wrap section" data-screen-label="Customer spotlight">
           <div className="s-head">
             <div>
               <span className="bp-rule" aria-hidden="true" />
               <h2 className="s-h2 bp-h2--accented">
-                How leaders are putting AI to work.
+                What adoption looks like in practice.
               </h2>
             </div>
             <p className="s-lede">
-              A sample of the work and the people behind it.
+              A sample of the work, outcomes, and people behind it.
             </p>
           </div>
 
