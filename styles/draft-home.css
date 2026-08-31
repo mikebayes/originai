@@ -647,3 +647,58 @@
     padding: 15px 0;
   }
 }
+
+/* ═══ WHO WE ARE: FINAL BALANCE ═════════════════════════════════════
+   The copy is now much shorter (two-line heading, two-line paragraph,
+   three single-line rows), so the left column dropped well below the
+   image height and the photograph started to feel oversized.
+
+   Column split pulled back from 0.94fr / 1.06fr to an even 1fr / 1fr.
+   That is roughly a 6% reduction in image width, small enough to keep
+   the anchor weight gained in the earlier pass.
+
+   The heading also gets its own measure now that it is short, so
+   "A senior team, close to the AI work." breaks cleanly over two lines
+   rather than stretching wide and reading thin.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.draft-home .dh-who-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 60px;
+}
+
+.draft-home .dh-who-h2 {
+  max-width: 20ch;
+}
+
+/* Rows are one line each now, so they can sit tighter still. */
+.draft-home .dh-cap a {
+  padding: 13px 0;
+  align-items: center;
+}
+.draft-home .dh-cap-num {
+  padding-top: 0;
+}
+.draft-home .dh-cap-arrow {
+  padding-top: 0;
+}
+.draft-home .dh-cap-title {
+  font-size: 16.5px;
+}
+.draft-home .dh-cap-desc {
+  font-size: 13.5px;
+}
+
+@media (max-width: 1100px) {
+  .draft-home .dh-who-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 900px) {
+  .draft-home .dh-who-h2 {
+    max-width: none;
+  }
+  .draft-home .dh-cap a {
+    padding: 14px 0;
+  }
+}

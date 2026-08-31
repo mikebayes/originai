@@ -30,27 +30,27 @@ export default function DraftWhoWeAre() {
             </span>
 
             <h2 className="dh-who-h2 display">
-              A senior team helping organizations{" "}
-              <span className="muted">put AI to work.</span>
+              A senior team,{" "}
+              <span className="muted">close to the AI work.</span>
             </h2>
 
             <p className="dh-who-lede">
-              Origin helps leaders and teams decide where AI fits, build the
-              systems that support it, and keep improving what goes live.
+              Origin helps leaders and teams decide where AI fits, build what
+              is worth building, and keep improving what goes live.
             </p>
 
-            {/* Three capability points, each a route into the site. */}
+            {/* Three rows, deliberately not cards. The full services card
+                grid appears immediately below this section. */}
             <ul className="dh-caps" aria-label="What we do">
               <li className="dh-cap">
                 <a href="/services/strategy">
                   <span className="dh-cap-num">01</span>
                   <span className="dh-cap-body">
                     <span className="dh-cap-title">
-                      AI strategy and leadership enablement
+                      Leadership AI Enablement
                     </span>
                     <span className="dh-cap-desc">
-                      Get leadership aligned on where AI belongs, what matters,
-                      and what should move first.
+                      Decide where AI fits and what moves first.
                     </span>
                   </span>
                   <span className="dh-cap-arrow" aria-hidden="true">
@@ -64,11 +64,10 @@ export default function DraftWhoWeAre() {
                   <span className="dh-cap-num">02</span>
                   <span className="dh-cap-body">
                     <span className="dh-cap-title">
-                      Custom AI software and workflow systems
+                      AI Workflow Development
                     </span>
                     <span className="dh-cap-desc">
-                      Build the tools, automations, and integrations that fit
-                      how your team actually works.
+                      Build tools and workflows around real work.
                     </span>
                   </span>
                   <span className="dh-cap-arrow" aria-hidden="true">
@@ -82,11 +81,10 @@ export default function DraftWhoWeAre() {
                   <span className="dh-cap-num">03</span>
                   <span className="dh-cap-body">
                     <span className="dh-cap-title">
-                      Managed AI improvement after launch
+                      Managed AI Improvement
                     </span>
                     <span className="dh-cap-desc">
-                      Keep what is live supported, refined, and expanded as the
-                      business learns what works.
+                      Keep live systems supported and improving.
                     </span>
                   </span>
                   <span className="dh-cap-arrow" aria-hidden="true">
