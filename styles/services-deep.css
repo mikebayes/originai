@@ -8674,3 +8674,174 @@
     padding: 48px 0 60px;
   }
 }
+
+/* ─── Draft managed update 3: tonal variation + compact cadence ────────
+   Update 2 flattened every section to transparent to kill the boxed
+   panels, which overcorrected into a flat black tunnel. This restores
+   movement using large soft radial gradients per section so tone shifts
+   without any visible edge. Also styles the four-step cadence row that
+   replaced the standalone rhythm section, and retires the now-unused
+   outputs / hrail selectors on this page.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Base page surface: a slow charcoal-to-teal drift rather than flat. */
+.draft-hero--managed {
+  background:
+    radial-gradient(
+      140% 42% at 50% 0%,
+      rgba(93, 168, 156, 0.05) 0%,
+      rgba(93, 168, 156, 0) 60%
+    ),
+    linear-gradient(
+      180deg,
+      #06090a 0%,
+      #081113 26%,
+      #091a19 52%,
+      #081315 76%,
+      #06090a 100%
+    );
+}
+
+/* Per-section tone. Radials only, no backgrounds with hard edges, so
+   the transitions are invisible while the page still breathes. */
+.draft-hero--managed .bp-intro {
+  background: radial-gradient(
+    100% 90% at 12% 0%,
+    rgba(93, 168, 156, 0.035) 0%,
+    rgba(93, 168, 156, 0) 62%
+  );
+}
+.draft-hero--managed .bp-define {
+  background: radial-gradient(
+    92% 100% at 88% 30%,
+    rgba(70, 134, 126, 0.05) 0%,
+    rgba(70, 134, 126, 0) 66%
+  );
+}
+.draft-hero--managed .bp-domains {
+  background:
+    radial-gradient(
+      110% 80% at 50% 0%,
+      rgba(93, 168, 156, 0.05) 0%,
+      rgba(93, 168, 156, 0) 58%
+    ),
+    radial-gradient(
+      80% 70% at 6% 90%,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0) 62%
+    );
+}
+.draft-hero--managed .bp-applies {
+  background: radial-gradient(
+    96% 90% at 90% 50%,
+    rgba(62, 122, 116, 0.04) 0%,
+    rgba(62, 122, 116, 0) 68%
+  );
+}
+.draft-hero--managed .bp-faq {
+  background: radial-gradient(
+    120% 100% at 50% 100%,
+    rgba(93, 168, 156, 0.045) 0%,
+    rgba(93, 168, 156, 0) 62%
+  );
+}
+
+/* ── Reduced page height ─────────────────────────────────────────── */
+.draft-hero--managed .bp-intro {
+  padding: 76px 0 44px;
+}
+.draft-hero--managed .bp-define {
+  padding: 0 0 72px;
+}
+.draft-hero--managed .bp-domains {
+  padding: 72px 0 68px;
+}
+.draft-hero--managed .bp-applies {
+  padding: 68px 0 64px;
+}
+.draft-hero--managed .bp-faq {
+  padding: 68px 0 72px;
+}
+
+/* ── Boundary note: subtle, no rule or panel ─────────────────────── */
+.draft-hero--managed .bp-boundary-note {
+  margin: 26px 0 0;
+  max-width: 62ch;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: rgba(245, 240, 228, 0.44);
+}
+
+/* ── Compact four-step cadence row ───────────────────────────────── */
+.draft-hero--managed .bp-cadence {
+  list-style: none;
+  margin: 44px 0 0;
+  padding: 26px 0 0;
+  border-top: 1px solid rgba(245, 240, 228, 0.07);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 30px;
+}
+.draft-hero--managed .bp-cadence-step {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.draft-hero--managed .bp-cadence-num {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  color: rgba(93, 168, 156, 0.8);
+}
+.draft-hero--managed .bp-cadence-step h3 {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 600;
+  font-size: 16.5px;
+  color: rgba(245, 240, 228, 0.95);
+  margin: 0;
+}
+.draft-hero--managed .bp-cadence-step p {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: rgba(245, 240, 228, 0.55);
+  margin: 0;
+}
+
+/* ── Retire selectors no longer used on this page ────────────────── */
+.draft-hero--managed .bp-outputs,
+.draft-hero--managed .bp-howitworks,
+.draft-hero--managed .bp-hrail,
+.draft-hero--managed .bp-boundary {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  .draft-hero--managed .bp-cadence {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 26px 30px;
+  }
+}
+@media (max-width: 900px) {
+  .draft-hero--managed .bp-intro {
+    padding: 52px 0 32px;
+  }
+  .draft-hero--managed .bp-define {
+    padding: 0 0 48px;
+  }
+  .draft-hero--managed .bp-domains,
+  .draft-hero--managed .bp-applies,
+  .draft-hero--managed .bp-faq {
+    padding: 48px 0 48px;
+  }
+  .draft-hero--managed .bp-cadence {
+    grid-template-columns: 1fr;
+    margin-top: 32px;
+    padding-top: 22px;
+    gap: 22px;
+  }
+  .draft-hero--managed .bp-boundary-note {
+    margin-top: 20px;
+  }
+}
