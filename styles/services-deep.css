@@ -9267,3 +9267,105 @@
     max-height: 214px;
   }
 }
+
+/* ─── Draft strategy page: decision grid polish ────────────────────────
+   Light pass on the 2x2 grid in "What we help leadership decide." on
+   /draft/services/strategy. Concept and layout unchanged.
+
+   Gated on .draft-hero--strategy, which exists only on the draft page.
+   The base .bp-work-cell rules (~L356) and the shared
+   .bp-page--strategy 2-col rule are used by the LIVE strategy page and
+   are not touched.
+
+   Problem: the base cell is min-height 240px with 36px padding and a
+   24px gap under the index. Each of these four cells holds a one-line
+   title and a two-line body, roughly 90px of content, so at 100% zoom
+   they read as four large empty boxes.
+
+   Changes:
+     1. min-height 240 -> 172, padding 36/30 -> 28/26. Content-led rather
+        than a fixed tall box, so cells still equalise to the tallest
+        card in the row without carrying dead space.
+     2. The index is now a header row: teal numeral plus a hairline rule
+        running to the cell's right padding. That lifts 01-04 from 30%
+        white to a legible teal, aligns them to the copy below, and is
+        the subtle default-state detail the cells were missing. No icon,
+        no graphic.
+     3. Grid hairlines nudged from 8% to 11% white so the four cells read
+        as a deliberate frame at default state.
+
+   Hover is preserved exactly (background: #0a1410) with the index rule
+   and numeral warming alongside it.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.draft-hero--strategy .bp-work-grid {
+  background: rgba(255, 255, 255, 0.11);
+  border-color: rgba(255, 255, 255, 0.11);
+}
+
+.draft-hero--strategy .bp-work-cell {
+  min-height: 172px;
+  padding: 28px 26px 30px;
+}
+
+/* Index becomes a header row: numeral + hairline to the right edge. */
+.draft-hero--strategy .bp-work-cell .num {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  color: rgba(93, 168, 156, 0.72);
+  transition: color 200ms ease-out;
+}
+.draft-hero--strategy .bp-work-cell .num::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(93, 168, 156, 0.26) 0%,
+    rgba(93, 168, 156, 0.04) 100%
+  );
+  transition: background 200ms ease-out;
+}
+
+/* Hover: base background change is inherited. Index warms with it. */
+.draft-hero--strategy .bp-work-cell:hover .num {
+  color: rgba(93, 168, 156, 0.95);
+}
+.draft-hero--strategy .bp-work-cell:hover .num::after {
+  background: linear-gradient(
+    90deg,
+    rgba(93, 168, 156, 0.42) 0%,
+    rgba(93, 168, 156, 0.06) 100%
+  );
+}
+
+/* Title and body tightened to match the shorter cell. Copy unchanged. */
+.draft-hero--strategy .bp-work-cell h3 {
+  font-size: 18.5px;
+  margin: 0 0 10px;
+}
+.draft-hero--strategy .bp-work-cell p {
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .draft-hero--strategy .bp-work-cell {
+    min-height: 152px;
+    padding: 24px 22px 26px;
+  }
+}
+
+@media (max-width: 640px) {
+  .draft-hero--strategy .bp-work-cell {
+    min-height: 0;
+    padding: 22px 20px 24px;
+  }
+  .draft-hero--strategy .bp-work-cell .num {
+    margin-bottom: 14px;
+  }
+}
