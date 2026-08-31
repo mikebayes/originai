@@ -1,0 +1,311 @@
+/* ═══════════════════════════════════════════════════════════════════
+   DRAFT HOMEPAGE  ·  /draft  ONLY
+   ───────────────────────────────────────────────────────────────────
+   Every selector is gated on .draft-home, a class applied only to the
+   draft homepage <main>. The live homepage never carries it, so nothing
+   here can reach production.
+
+   Sections defined:
+     .dh-who      — who we are / what we do (replaces Problem)
+     .dh-beliefs  — condensed text-led beliefs
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Draft banner, sits above the hero */
+.draft-home .draft-banner--home {
+  position: relative;
+  z-index: 60;
+  text-align: center;
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(93, 168, 156, 0.85);
+  background: rgba(93, 168, 156, 0.08);
+  border-bottom: 1px solid rgba(93, 168, 156, 0.25);
+  padding: 8px 16px;
+}
+
+/* ═══ WHO WE ARE / WHAT WE DO ═══════════════════════════════════════ */
+
+.draft-home .dh-who {
+  position: relative;
+  isolation: isolate;
+  padding: 128px 0 120px;
+  background:
+    radial-gradient(
+      90% 70% at 82% 8%,
+      rgba(93, 168, 156, 0.07) 0%,
+      rgba(93, 168, 156, 0) 62%
+    ),
+    radial-gradient(
+      70% 60% at 10% 60%,
+      rgba(58, 118, 110, 0.06) 0%,
+      rgba(58, 118, 110, 0) 66%
+    ),
+    linear-gradient(180deg, #050a0c 0%, #071114 48%, #050a0c 100%);
+}
+.draft-home .dh-who-grain {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.16;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+.draft-home .dh-who-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 56px;
+}
+.draft-home .dh-who-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  gap: 72px;
+  align-items: center;
+}
+
+/* ── Copy column ─────────────────────────────────────────────────── */
+.draft-home .dh-who-mark {
+  display: inline-flex;
+  margin-bottom: 26px;
+}
+.draft-home .dh-who-h2 {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 500;
+  font-size: clamp(32px, 3.6vw, 50px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0;
+  text-wrap: balance;
+}
+.draft-home .dh-who-h2 .muted {
+  color: rgba(255, 255, 255, 0.46);
+}
+.draft-home .dh-who-lede {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 17.5px;
+  line-height: 1.62;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 26px 0 0;
+  max-width: 56ch;
+}
+
+/* ── Three capability points ─────────────────────────────────────── */
+.draft-home .dh-caps {
+  list-style: none;
+  margin: 40px 0 0;
+  padding: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.draft-home .dh-cap {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.draft-home .dh-cap a {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) 20px;
+  align-items: start;
+  gap: 16px;
+  padding: 20px 0;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+.draft-home .dh-cap a:hover {
+  opacity: 1;
+}
+.draft-home .dh-cap-num {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: rgba(93, 168, 156, 0.82);
+  padding-top: 4px;
+}
+.draft-home .dh-cap-body {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.draft-home .dh-cap-title {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.95);
+}
+.draft-home .dh-cap-desc {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.55);
+}
+.draft-home .dh-cap-arrow {
+  font-size: 15px;
+  color: rgba(93, 168, 156, 0.6);
+  padding-top: 3px;
+  transform: translateX(0);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+.draft-home .dh-cap a:hover .dh-cap-arrow {
+  transform: translateX(4px);
+  color: rgba(93, 168, 156, 1);
+}
+.draft-home .dh-cap a:hover .dh-cap-title {
+  color: #fff;
+}
+
+/* ── Photograph column ───────────────────────────────────────────── */
+.draft-home .dh-who-photo {
+  margin: 0;
+}
+.draft-home .dh-who-photo-frame {
+  position: relative;
+  width: 100%;
+  /* Natural aspect of the source (1312x1199) so nothing crops. */
+  aspect-ratio: 1312 / 1199;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 0.5px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 30px 60px -20px rgba(0, 0, 0, 0.65),
+    0 8px 24px -8px rgba(0, 0, 0, 0.45);
+  isolation: isolate;
+  background: #0a1012;
+}
+.draft-home .dh-who-photo-img {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url("/images/beliefs_anchor.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.draft-home .dh-who-photo-grain {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.14;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+.draft-home .dh-who-photo-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.45) 100%),
+    radial-gradient(
+      120% 80% at 50% 50%,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(0, 0, 0, 0.35) 100%
+    );
+}
+
+/* ═══ BELIEFS, CONDENSED ════════════════════════════════════════════ */
+
+.draft-home .dh-beliefs {
+  position: relative;
+  padding: 96px 0 100px;
+  background: linear-gradient(180deg, #050a0c 0%, #060d0f 50%, #050a0c 100%);
+}
+.draft-home .dh-beliefs-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 56px;
+}
+.draft-home .dh-beliefs-head {
+  margin-bottom: 44px;
+}
+.draft-home .dh-rule {
+  display: block;
+  width: 34px;
+  height: 2px;
+  margin-bottom: 20px;
+  background: linear-gradient(
+    90deg,
+    rgba(93, 168, 156, 0.9) 0%,
+    rgba(93, 168, 156, 0.35) 100%
+  );
+}
+.draft-home .dh-beliefs-h2 {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 500;
+  font-size: clamp(26px, 2.6vw, 36px);
+  line-height: 1.12;
+  letter-spacing: -0.018em;
+  color: #fff;
+  margin: 0;
+}
+.draft-home .dh-beliefs-row {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 44px;
+}
+.draft-home .dh-belief h3 {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 1.3;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0 0 10px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(93, 168, 156, 0.32);
+}
+.draft-home .dh-belief p {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.58);
+  margin: 0;
+}
+
+/* ═══ RESPONSIVE ════════════════════════════════════════════════════ */
+
+@media (max-width: 1100px) {
+  .draft-home .dh-who-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .draft-home .dh-who-photo {
+    max-width: 560px;
+  }
+  .draft-home .dh-beliefs-row {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 900px) {
+  .draft-home .dh-who {
+    padding: 76px 0 72px;
+  }
+  .draft-home .dh-who-inner,
+  .draft-home .dh-beliefs-inner {
+    padding: 0 24px;
+  }
+  .draft-home .dh-who-lede {
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  .draft-home .dh-caps {
+    margin-top: 32px;
+  }
+  .draft-home .dh-cap a {
+    grid-template-columns: 28px minmax(0, 1fr) 18px;
+    gap: 12px;
+    padding: 18px 0;
+  }
+  .draft-home .dh-beliefs {
+    padding: 64px 0 68px;
+  }
+  .draft-home .dh-beliefs-head {
+    margin-bottom: 32px;
+  }
+}
