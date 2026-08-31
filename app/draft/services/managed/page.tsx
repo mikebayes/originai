@@ -24,7 +24,7 @@ import Footer from "@/components/Footer";
  * Sections:
  *   1. Hero
  *   2. Launch is not the finish line
- *   3. A monthly rhythm (+ boundary line + compact four-step row)
+ *   3. A monthly rhythm for improvement (+ boundary note + step row)
  *   4. What the monthly scope covers (6 cards)
  *   5. What managed improvement can support (6 light items)
  *   6. Questions, answered (4)
@@ -149,14 +149,11 @@ export default function DraftManagedImprovementPage() {
                   <span className="muted">the finish line.</span>
                 </h2>
                 <p className="section-lede lede">
-                  The first version gets AI into the business. Once people
-                  start using it, the real opportunities, gaps, risks, and
-                  improvements become easier to see.
-                </p>
-                <p className="section-lede lede bp-second-para">
-                  Managed AI Improvement gives clients a defined way to keep
-                  improving what is live, support adoption, and decide what
-                  should change next.
+                  Once people start using an AI system, workflow, or adoption
+                  standard, the real opportunities and gaps become easier to
+                  see. Managed AI Improvement gives clients a defined way to
+                  keep improving what is live, support adoption, and decide
+                  what should change next.
                 </p>
               </div>
             </div>
@@ -172,12 +169,13 @@ export default function DraftManagedImprovementPage() {
               <div>
                 <span className="bp-rule" aria-hidden="true" />
                 <h2 className="section-h2 bp-h2--accented">
-                  A monthly rhythm for AI systems, adoption, and improvement.
+                  A monthly rhythm for improvement.
                 </h2>
                 <p className="section-lede lede">
                   Managed AI Improvement is a defined monthly agreement for
                   organizations that want a senior team staying close to their
-                  AI work after launch, training, or initial enablement.
+                  AI systems, workflows, and adoption efforts after launch,
+                  training, or initial enablement.
                 </p>
                 <p className="section-lede lede bp-second-para">
                   It can include development, support, backlog management,

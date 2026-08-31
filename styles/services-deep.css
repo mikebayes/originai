@@ -8967,3 +8967,16 @@
     padding-top: 28px;
   }
 }
+
+/* ─── Draft managed update 4: boundary note recedes further ────────────
+   With the rhythm section's copy tightened, the boundary note was the
+   third text block in a row and started reading as another paragraph.
+   Pulled down in size and opacity, and tucked closer to the step row so
+   it reads as a footnote to the definition rather than a new thought. */
+.draft-hero--managed .bp-boundary-note {
+  margin-top: 22px;
+  max-width: 58ch;
+  font-size: 13.5px;
+  line-height: 1.58;
+  color: rgba(245, 240, 228, 0.38);
+}
