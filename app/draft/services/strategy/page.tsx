@@ -192,9 +192,9 @@ export default function DraftLeadershipEnablementPage() {
                 </h2>
               </div>
               <p className="section-lede lede">
-                The work depends on where your organization is starting. Some
-                teams need shared direction. Some need clearer standards. Some
-                need to identify the first workflow worth improving.
+                The work depends on what is unclear. Sometimes the issue is
+                direction. Sometimes it is safe use. Sometimes it is choosing
+                the first opportunity worth acting on.
               </p>
             </div>
 
@@ -207,8 +207,8 @@ export default function DraftLeadershipEnablementPage() {
                 ],
                 [
                   "02",
-                  "What rules matter",
-                  "Tool use, data boundaries, review expectations, and risk guardrails.",
+                  "How AI should be used",
+                  "Clear expectations for tool use, data handling, review, and accountability.",
                 ],
                 [
                   "03",
