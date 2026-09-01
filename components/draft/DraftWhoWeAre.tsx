@@ -1,19 +1,31 @@
 /**
- * DRAFT homepage: "who we are / what we do" section.
+ * DRAFT homepage: the first section after the hero.
  *
  * Replaces the live Problem section ("AI ambition is everywhere. Working
  * systems aren't.") which read as category commentary rather than an
  * answer to the three questions a first-time visitor actually has: who
  * are these guys, what do they do, why would I work with them.
  *
- * Structure: copy left, human photograph right, three capability points
- * beneath the copy. Each point links to its service page so the section
- * doubles as a route into the site.
+ * Leads with what Origin does, not with who Origin is. The previous
+ * heading ("A senior team, close to the AI work.") spent the page's best
+ * position on a credibility claim, and "close to the AI work" was too
+ * abstract to tell a first-time visitor anything. The heading and lede
+ * now name the surfaces AI gets applied to. Seniority is still carried
+ * by the About section and the team page, where it is evidenced.
+ *
+ * Structure is unchanged: copy left, human photograph right, three
+ * capability points beneath the copy. Each point links to its service
+ * page so the section doubles as a route into the site.
  *
  * The photograph is /images/beliefs_anchor.jpg, moved up from the Beliefs
  * section where it sat below the fold. It is the only image on the page
  * besides the hero, and it carries the human credibility this section
  * needs. Beliefs is text-led in the draft as a result.
+ *
+ * Sizing: the photo is held at 75% of its column and centred on both
+ * axes at desktop (see .dh-who-photo in styles/draft-home.css). At full
+ * column width it outweighed the copy; the section reads better with the
+ * copy carrying the message and the image supplying atmosphere.
  */
 export default function DraftWhoWeAre() {
   return (
@@ -29,14 +41,16 @@ export default function DraftWhoWeAre() {
               <span className="hero-mark-line" />
             </span>
 
+            {/* Two-tone treatment retained from the previous heading so
+                the section's visual language is unchanged. */}
             <h2 className="dh-who-h2 display">
-              A senior team,{" "}
-              <span className="muted">close to the AI work.</span>
+              Make AI useful{" "}
+              <span className="muted">where the work actually happens.</span>
             </h2>
 
             <p className="dh-who-lede">
-              Origin helps leaders and teams decide where AI fits, build what
-              is worth building, and keep improving what goes live.
+              Origin helps organizations apply AI to the decisions, documents,
+              workflows, and systems that already run the business.
             </p>
 
             {/* Three rows, deliberately not cards. The full services card

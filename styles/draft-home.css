@@ -702,3 +702,30 @@
     padding: 14px 0;
   }
 }
+
+/* ─── Draft homepage: post-hero section photo sizing ──────────────────
+   The photo sat at 100% of its grid column, which at the desktop 1fr/1fr
+   split made it visually heavier than the copy beside it. Holding it at
+   75% and centring it lets the copy carry the message while the image
+   supplies credibility and atmosphere.
+
+   Desktop only (>1100px). Below that the grid collapses to one column
+   and the existing max-width rules take over, so a percentage width
+   there would shrink the photo for no reason.
+
+   The frame keeps its own aspect-ratio, radius, border, shadow, grain,
+   and vignette. Nothing is cropped: the width change scales the frame,
+   and the aspect-ratio scales the height with it.
+   ═══════════════════════════════════════════════════════════════════ */
+
+@media (min-width: 1101px) {
+  .draft-home .dh-who-photo {
+    width: 75%;
+    /* Horizontal centring within the column */
+    margin-inline: auto;
+    /* Vertical centring against the text block. The grid already sets
+       align-items: center; this is explicit so a later grid change
+       cannot quietly drop it. */
+    align-self: center;
+  }
+}

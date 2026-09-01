@@ -15,12 +15,15 @@ import ScrollIndicator from "../ScrollIndicator";
  * Subheadline change: the live version reads "AI software, strategy, and
  * operations, focused on measurable business outcomes." The draft names
  * the three service categories a buyer actually searches for (AI
- * consulting, training, workflow development) and states the arc from
- * interest to working systems.
+ * consulting, training, workflow development) and lands on everyday
+ * work, which is where the rest of the page now points.
  *
- * Deliberately excluded: "senior team" (it appeared again immediately in
- * the section below, so it read as a repeated claim) and any location
- * language, which is carried by the section below and the footer.
+ * Earlier draft wording was "turn AI interest into working systems."
+ * That framed the outcome as a system; "make AI part of everyday work"
+ * frames it as adoption, matching the section below and the services.
+ *
+ * Deliberately excluded: "senior team" and any location language. Both
+ * are carried elsewhere on the page and in the footer.
  */
 export default function DraftHero() {
   return (
@@ -42,7 +45,7 @@ export default function DraftHero() {
           <h1 className="h1 display">We build the AI your business runs on.</h1>
           <p className="sub">
             AI consulting, training, and workflow development for
-            organizations ready to turn AI interest into working systems.
+            organizations ready to make AI part of everyday work.
           </p>
           <div className="cta-stack">
             <a href="/contact" className="pill pill-primary">
