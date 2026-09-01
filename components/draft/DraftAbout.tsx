@@ -89,7 +89,13 @@ export default function DraftAbout() {
                 </span>
               </div>
             </div>
-            <h3 className="about-title">Three partners, close to the work.</h3>
+            {/* Was "Three partners, close to the work." The count was not
+                the point, and "close to the work" echoed the first
+                post-hero section's earlier heading. This states the same
+                claim plainly and lets the portraits, the Senior /
+                operators & builders label, and the body copy evidence it
+                rather than the heading asserting it twice. */}
+            <h3 className="about-title">The people doing the work.</h3>
             <p className="about-body">
               Business, technology, and marketing operators based in Winnipeg.
               Strategy, engineering, and delivery under one roof.

@@ -703,56 +703,48 @@
   }
 }
 
-/* ─── Draft homepage: post-hero section photo sizing ──────────────────
-   The photo sat at 100% of its grid column, which at the desktop 1fr/1fr
-   split made it visually heavier than the copy beside it. Holding it at
-   75% and centring it lets the copy carry the message while the image
-   supplies credibility and atmosphere.
+/* ─── Draft homepage: post-hero photo size and centring ───────────────
+   Supersedes the two earlier appended blocks (photo sizing, then photo
+   vertical alignment), which stacked contradictory declarations on
+   .dh-who-photo and relied on the grid's align-items to do the vertical
+   centring. Consolidated into one block.
+
+   Why the earlier approach was fragile: the size lived on the <figure>
+   (width: 75%), which meant the figure was shorter than the grid row and
+   its position depended on align-items on .dh-who-grid. That rule is set
+   once near the top of this file and the grid is re-declared twice
+   further down, so the centring was correct but easy to lose and hard to
+   reason about.
+
+   The approach here removes the dependency entirely:
+     - the figure stretches to fill the full row height
+     - the figure becomes a flex container that centres its only child on
+       both axes
+     - the 75% width moves off the figure and onto the frame
+
+   Rendered size is identical: previously 75% of the column via the
+   figure, now 75% of the column via the frame inside a full-width
+   figure. The frame keeps its own aspect-ratio, so height scales with
+   width and nothing is cropped. No fixed margins, no nudge values.
 
    Desktop only (>1100px). Below that the grid collapses to one column
-   and the existing max-width rules take over, so a percentage width
-   there would shrink the photo for no reason.
-
-   The frame keeps its own aspect-ratio, radius, border, shadow, grain,
-   and vignette. Nothing is cropped: the width change scales the frame,
-   and the aspect-ratio scales the height with it.
+   and the existing max-width rules take over.
    ═══════════════════════════════════════════════════════════════════ */
 
 @media (min-width: 1101px) {
   .draft-home .dh-who-photo {
-    width: 75%;
-    /* Horizontal centring within the column */
-    margin-inline: auto;
-    /* Vertical centring against the text block. The grid already sets
-       align-items: center; this is explicit so a later grid change
-       cannot quietly drop it. */
-    align-self: center;
-  }
-}
-
-/* ─── Draft homepage: post-hero photo vertical alignment ──────────────
-   The base .dh-who-grid sets align-items: center, but two later
-   top-level rules re-declare the grid (columns and gap only) further
-   down this file, which makes the centring easy to lose track of and
-   easy to break with the next grid edit. Re-asserted here explicitly,
-   last in the cascade, on both the grid and the two children.
-
-   margin-block: 0 guards against the figure's default user-agent
-   margin reappearing and pushing the photo off centre.
-
-   Width stays at the 75% set in the block above. Nothing is resized or
-   cropped here; this rule only affects position.
-   ═══════════════════════════════════════════════════════════════════ */
-
-@media (min-width: 1101px) {
-  .draft-home .dh-who-grid {
+    /* Fill the row so the flex centring has the full height to work
+       against, not just the image's own height. */
+    align-self: stretch;
+    display: flex;
     align-items: center;
+    justify-content: center;
+    width: auto;
+    margin: 0;
   }
-  .draft-home .dh-who-copy {
-    align-self: center;
-  }
-  .draft-home .dh-who-photo {
-    align-self: center;
-    margin-block: 0;
+
+  /* Size now lives on the frame. Same 75% of the column as before. */
+  .draft-home .dh-who-photo-frame {
+    width: 75%;
   }
 }
