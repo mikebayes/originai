@@ -729,3 +729,30 @@
     align-self: center;
   }
 }
+
+/* ─── Draft homepage: post-hero photo vertical alignment ──────────────
+   The base .dh-who-grid sets align-items: center, but two later
+   top-level rules re-declare the grid (columns and gap only) further
+   down this file, which makes the centring easy to lose track of and
+   easy to break with the next grid edit. Re-asserted here explicitly,
+   last in the cascade, on both the grid and the two children.
+
+   margin-block: 0 guards against the figure's default user-agent
+   margin reappearing and pushing the photo off centre.
+
+   Width stays at the 75% set in the block above. Nothing is resized or
+   cropped here; this rule only affects position.
+   ═══════════════════════════════════════════════════════════════════ */
+
+@media (min-width: 1101px) {
+  .draft-home .dh-who-grid {
+    align-items: center;
+  }
+  .draft-home .dh-who-copy {
+    align-self: center;
+  }
+  .draft-home .dh-who-photo {
+    align-self: center;
+    margin-block: 0;
+  }
+}

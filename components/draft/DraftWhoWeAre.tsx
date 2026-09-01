@@ -49,12 +49,19 @@ export default function DraftWhoWeAre() {
             </h2>
 
             <p className="dh-who-lede">
-              Origin helps organizations apply AI to the decisions, documents,
-              workflows, and systems that already run the business.
+              Origin helps leaders and teams find where AI can help, train
+              around real work, and turn the right opportunities into useful
+              tools and workflows.
             </p>
 
             {/* Three rows, deliberately not cards. The full services card
-                grid appears immediately below this section. */}
+                grid appears immediately below this section.
+
+                Managed AI Improvement is deliberately absent here. This
+                list now tracks the arc the photograph shows, leaders and
+                teams working through where AI helps, so it runs align,
+                train, build. Managed sits after launch and is covered by
+                the services grid below. */}
             <ul className="dh-caps" aria-label="What we do">
               <li className="dh-cap">
                 <a href="/services/strategy">
@@ -73,15 +80,17 @@ export default function DraftWhoWeAre() {
                 </a>
               </li>
 
+              {/* TODO (launch blocker for this link, NOT draft-scoped):
+                  /services/ai-training does not exist yet. This link 404s
+                  until that route ships. Same TODO already tracked in
+                  app/draft/services/page.tsx and the build page. */}
               <li className="dh-cap">
-                <a href="/services/build">
+                <a href="/services/ai-training">
                   <span className="dh-cap-num">02</span>
                   <span className="dh-cap-body">
-                    <span className="dh-cap-title">
-                      AI Workflow Development
-                    </span>
+                    <span className="dh-cap-title">Team AI Training</span>
                     <span className="dh-cap-desc">
-                      Build tools and workflows around real work.
+                      Build capability around real roles, tasks, and examples.
                     </span>
                   </span>
                   <span className="dh-cap-arrow" aria-hidden="true">
@@ -91,14 +100,15 @@ export default function DraftWhoWeAre() {
               </li>
 
               <li className="dh-cap">
-                <a href="/services/managed">
+                <a href="/services/build">
                   <span className="dh-cap-num">03</span>
                   <span className="dh-cap-body">
                     <span className="dh-cap-title">
-                      Managed AI Improvement
+                      AI Workflow Development
                     </span>
                     <span className="dh-cap-desc">
-                      Keep live systems supported and improving.
+                      Turn the right opportunities into usable tools and
+                      workflows.
                     </span>
                   </span>
                   <span className="dh-cap-arrow" aria-hidden="true">
