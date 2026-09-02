@@ -456,7 +456,7 @@ export const articles: Article[] = [
       },
       {
         type: "paragraph",
-        text: "[AI training, hands-on experimentation, and a clear roadmap](/services/strategy) create the foundation for meaningful adoption. Once people are comfortable using AI in their own work, automation becomes a natural next step rather than a forced initiative.",
+        text: "[AI training](/services/ai-training), hands-on experimentation, and [a clear roadmap](/services/strategy) create the foundation for meaningful adoption. Once people are comfortable using AI in their own work, automation becomes a natural next step rather than a forced initiative.",
       },
 
       {
@@ -573,7 +573,7 @@ export const articles: Article[] = [
     slug: "why-internal-business-apps-are-about-to-explode",
     title: "Why Internal Business Apps Are About to Explode",
     excerpt:
-      "Custom internal applications used to fail the cost-benefit test for most SMBs. That equation is shifting. As AI-assisted development and modern deployment workflows reduce iteration friction, smaller targeted operational apps are becoming the more practical option.",
+      "Custom internal applications used to fail the cost-benefit test for most SMBs. That equation is shifting. As AI-assisted development and modern deployment workflows reduce iteration friction, smaller targeted operational apps are becoming the more realistic option.",
     date: "2026-05-03",
     authorId: "mike-bayes",
     readingTime: "5 min read",
@@ -732,7 +732,7 @@ export const articles: Article[] = [
       },
       {
         type: "paragraph",
-        text: "Curiosity opens the door, but capability is what delivers results. Teams that invest in [structured AI training and a clear strategy](/services/strategy) move faster, work smarter, and get real value from AI.",
+        text: "Curiosity opens the door, but capability is what delivers results. Teams that invest in [structured AI training](/services/ai-training) and [a clear strategy](/services/strategy) move faster, work smarter, and get real value from AI.",
       },
     ],
   },
