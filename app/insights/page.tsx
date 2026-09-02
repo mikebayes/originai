@@ -68,8 +68,20 @@ export default function InsightsRoute() {
               <span className="hero-mark-line" />
             </span>
 
+            {/* Was "Notes from the work." Changed because it did not say
+                what the page is. All seven articles are positions on an
+                adoption decision rather than reports from client sites, so
+                "field notes" would have overclaimed what the content is.
+                This states plainly that the page is Origin's point of
+                view, which is also what makes it worth citing.
+
+                The subheadline below already carries the topic list, so
+                the H1 does not need to describe the page as well.
+
+                Deliberately avoids "actually": two of the article titles
+                visible on this page already use it. */}
             <h1 className="bp-hero-h1 bp-ins-hero-h1 bp-hero-h1--bare">
-              Notes from the work.
+              How we think about AI adoption.
             </h1>
 
             <p className="bp-hero-sub bp-ins-hero-sub">

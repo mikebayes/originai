@@ -77,11 +77,15 @@ export default function ServicesPage() {
           <div className="s-hero-grid">
             <div>
               {/* No eyebrow. The H1 states the page. */}
+              {/* Shortened 2026-09-02. The previous tail, "from leadership
+                  alignment to live systems.", ran seven words over three
+                  lines, so the muted half was longer than the white half
+                  and stopped reading as an accent. The two-tone device
+                  works when the tail is short, as on /team ("is the team
+                  you get.") and /services/strategy ("where AI fits."). */}
               <h1 className="s-hero-h1 bp-hero-h1--bare">
                 AI consulting services,{" "}
-                <span className="muted">
-                  from leadership alignment to live systems.
-                </span>
+                <span className="muted">built around real work.</span>
               </h1>
               {/* Location language is handled in SEO metadata and the
                   footer, not repeated in every service-page hero. */}

@@ -103,7 +103,21 @@
   color: var(--ink);
   text-wrap: balance;
 }
-.svcs-v2 .s-hero-h1 .muted{ color: rgba(255,255,255,0.45); font-weight: 500; }
+/* Was rgba(255,255,255,0.45), which composites to about #777 on this
+   background. The subheadline below it is var(--ink-muted) = #A8A8A8, so
+   the supporting copy was BRIGHTER than half the headline: inverted
+   hierarchy.
+
+   0.78 composites to about #c7c7c7, which restores a descending ladder
+   with steps large enough to actually read:
+       H1 white   #ffffff  255
+       H1 muted   #c7c7c7  199   (-56)
+       sub        #a8a8a8  168   (-31)
+   0.62 was tried first and was not enough: it lands at 161, still below
+   the sub's 168, so the inversion survived. */
+.svcs-v2 .s-hero-h1 .muted{
+  color: rgba(255,255,255,0.78); font-weight: 500;
+}
 .svcs-v2 .s-hero-sub{
   margin: 28px 0 0;
   font-family: var(--font-inter), sans-serif;
