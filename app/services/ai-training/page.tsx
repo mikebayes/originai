@@ -233,11 +233,11 @@ export default function TeamAITrainingPage() {
                 warm, and real. Avoid futuristic AI imagery, robots,
                 abstract sparkles, or generic stock-photo cheese. */}
             <div className="bp-train-grid">
-              {/* Supporting credibility image, not a hero. Same rounded
-                  frame, hairline border, grain, and vignette treatment used
-                  elsewhere on the draft pages. Cropped 4/5 with the focal
-                  point held high so the trainer, the participants, and the
-                  glass-window setting all survive at every width. */}
+              {/* Supporting credibility image, not a hero. Same rounded frame,
+                  hairline border, grain, and vignette treatment used on the other
+                  service pages. Cropped 4/5 with the focal point held high so the
+                  trainer, the participants, and the glass-window setting all
+                  survive at every width. */}
               <figure className="bp-train-figure">
                 <div className="bp-train-frame">
                   <img

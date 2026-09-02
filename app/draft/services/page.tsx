@@ -6,7 +6,7 @@ import {
   MarkRoster,
   MarkFlow,
   MarkSteps,
-} from "@/components/draft/ServiceMarks";
+} from "@/components/ServiceMarks";
 
 /**
  * /draft/services — DRAFT of the repositioned Services page.
@@ -68,7 +68,7 @@ void EVENTUAL_SEO_DESCRIPTION;
 export default function DraftServicesPage() {
   return (
     <main>
-      <div className="svcs-v2 svcs-draft svc-dark svc-dark--pillar">
+      <div className="svcs-v2 svcs-refined svc-dark svc-dark--pillar">
         {/* Internal draft banner. Delete when this page goes live. */}
         <div className="draft-banner" role="note">
           Internal draft. Not indexed, not linked, live /services unchanged.
@@ -495,14 +495,14 @@ export default function DraftServicesPage() {
         </section>
 
         {/* ─── SECTION 5: CTA ──────────────────────────────────── */}
-        <section className="wrap section draft-cta" data-screen-label="CTA">
-          <div className="draft-cta-inner">
+        <section className="wrap section svcs-cta" data-screen-label="CTA">
+          <div className="svcs-cta-inner">
             <h2 className="s-h2">Ready to put AI to work?</h2>
-            <p className="draft-cta-body">
+            <p className="svcs-cta-body">
               Start with a 30-minute call. We&rsquo;ll talk through your team,
               your workflows, and where AI may be worth pursuing first.
             </p>
-            <div className="draft-cta-actions">
+            <div className="svcs-cta-actions">
               <a href="/contact" className="pill pill-primary">
                 Book a discovery session
                 <span className="arrow" aria-hidden="true">→</span>

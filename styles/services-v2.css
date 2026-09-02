@@ -1410,7 +1410,7 @@
 /* ═══════════════════════════════════════════════════════════════════
    DRAFT SERVICES PAGE (/draft/services) — repositioned four-part model.
    Scoped under .svcs-v2 like everything else in this file. The extra
-   .svcs-draft class on the page wrapper is available for draft-only
+   .svcs-refined class on the page wrapper is available for draft-only
    overrides. Delete this block or promote it when the draft ships.
    ═══════════════════════════════════════════════════════════════════ */
 
@@ -1563,20 +1563,20 @@
 }
 
 /* ─── Draft CTA ─────────────────────────────────────────────────── */
-.svcs-v2 .draft-cta-inner {
+.svcs-v2 .svcs-cta-inner {
   text-align: center;
   max-width: 620px;
   margin: 0 auto;
   padding: 24px 0 40px;
 }
-.svcs-v2 .draft-cta-body {
+.svcs-v2 .svcs-cta-body {
   font-family: var(--font-inter), sans-serif;
   font-size: 17px;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.68);
   margin: 18px 0 28px;
 }
-.svcs-v2 .draft-cta-actions {
+.svcs-v2 .svcs-cta-actions {
   display: flex;
   justify-content: center;
   gap: 14px;
@@ -1597,11 +1597,11 @@
    minimal placeholder slots.                                           */
 
 /* Accent marks (mirrors the bp-page versions) */
-.svcs-draft .bp-streak {
+.svcs-refined .bp-streak {
   display: inline-flex;
   margin-bottom: 22px;
 }
-.svcs-draft .bp-rule {
+.svcs-refined .bp-rule {
   display: block;
   width: 34px;
   height: 2px;
@@ -1612,17 +1612,17 @@
     rgba(93, 168, 156, 0.35) 100%
   );
 }
-.svcs-draft .bp-h2--accented {
+.svcs-refined .bp-h2--accented {
   margin-top: 0;
 }
 
 /* Hero H1 no longer has an eyebrow above it */
-.svcs-draft .s-hero-h1.bp-hero-h1--bare {
+.svcs-refined .s-hero-h1.bp-hero-h1--bare {
   margin-top: 0;
 }
 
 /* Minimal placeholder slot, replacing the verbose .ph-visual card */
-.svcs-draft .ph-slot {
+.svcs-refined .ph-slot {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1638,7 +1638,7 @@
     rgba(93, 168, 156, 0) 72%
   );
 }
-.svcs-draft .ph-slot-label {
+.svcs-refined .ph-slot-label {
   font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
   font-size: 11px;
   letter-spacing: 0.14em;
@@ -1646,17 +1646,17 @@
   color: rgba(245, 240, 228, 0.3);
 }
 /* Retire the old verbose placeholder treatment on this page */
-.svcs-draft .ph-visual,
-.svcs-draft .ph-tag,
-.svcs-draft .ph-note {
+.svcs-refined .ph-visual,
+.svcs-refined .ph-tag,
+.svcs-refined .ph-note {
   display: none;
 }
 
 @media (max-width: 900px) {
-  .svcs-draft .bp-streak {
+  .svcs-refined .bp-streak {
     margin-bottom: 18px;
   }
-  .svcs-draft .bp-rule {
+  .svcs-refined .bp-rule {
     width: 28px;
     margin-bottom: 16px;
   }
@@ -1667,10 +1667,10 @@
    existing .svc-card-visual area, so card layout, padding, title, body,
    and CTA are all untouched.
 
-   Gated on .svcs-draft, which only /draft/services carries.
+   Gated on .svcs-refined, which only /draft/services carries.
    ═══════════════════════════════════════════════════════════════════ */
 
-.svcs-draft .lead-art {
+.svcs-refined .lead-art {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1687,7 +1687,7 @@
     rgba(93, 168, 156, 0) 74%
   );
 }
-.svcs-draft .lead-art svg {
+.svcs-refined .lead-art svg {
   width: 100%;
   height: auto;
   max-height: 168px;
@@ -1696,64 +1696,64 @@
 }
 
 /* Structural hairlines, barely present */
-.svcs-draft .la-grid {
+.svcs-refined .la-grid {
   stroke: rgba(245, 240, 228, 0.045);
   stroke-width: 1;
   stroke-dasharray: 2 7;
 }
 
 /* Converging leadership inputs */
-.svcs-draft .la-in {
+.svcs-refined .la-in {
   stroke: rgba(93, 168, 156, 0.26);
   stroke-width: 1;
 }
-.svcs-draft .la-dot {
+.svcs-refined .la-dot {
   fill: rgba(93, 168, 156, 0.45);
 }
 
 /* Alternates, set aside */
-.svcs-draft .la-alt {
+.svcs-refined .la-alt {
   stroke: rgba(245, 240, 228, 0.1);
   stroke-width: 1;
 }
-.svcs-draft .la-alt-dot {
+.svcs-refined .la-alt-dot {
   fill: rgba(245, 240, 228, 0.14);
 }
 
 /* The prioritized path */
-.svcs-draft .la-path {
+.svcs-refined .la-path {
   stroke: rgba(93, 168, 156, 0.72);
   stroke-width: 1.3;
 }
-.svcs-draft .la-tick {
+.svcs-refined .la-tick {
   stroke: rgba(93, 168, 156, 0.3);
   stroke-width: 1;
 }
 
 /* Decision node */
-.svcs-draft .la-node-ring {
+.svcs-refined .la-node-ring {
   fill: #0a1011;
   stroke: rgba(93, 168, 156, 0.65);
   stroke-width: 1.2;
 }
-.svcs-draft .la-node-core {
+.svcs-refined .la-node-core {
   fill: rgba(93, 168, 156, 0.9);
 }
 
 /* Terminal point */
-.svcs-draft .la-end-halo {
+.svcs-refined .la-end-halo {
   fill: rgba(93, 168, 156, 0.12);
 }
-.svcs-draft .la-end {
+.svcs-refined .la-end {
   fill: rgba(93, 168, 156, 0.95);
 }
 
 @media (max-width: 900px) {
-  .svcs-draft .lead-art {
+  .svcs-refined .lead-art {
     min-height: 128px;
     padding: 14px 16px;
   }
-  .svcs-draft .lead-art svg {
+  .svcs-refined .lead-art svg {
     max-height: 140px;
   }
 }
@@ -1771,18 +1771,18 @@
    The .svc-card-badge span was also dropped from these cards: it
    duplicated the .svc-card-num label directly beneath it.
 
-   Gated on .svcs-draft, which only /draft/services carries.
+   Gated on .svcs-refined, which only /draft/services carries.
    ═══════════════════════════════════════════════════════════════════ */
 
-.svcs-draft .quad .svc-card {
+.svcs-refined .quad .svc-card {
   display: flex;
   flex-direction: column;
 }
 
-.svcs-draft .svc-mark-row {
+.svcs-refined .svc-mark-row {
   padding: 26px 26px 0;
 }
-.svcs-draft .svc-mark-row svg {
+.svcs-refined .svc-mark-row svg {
   width: 64px;
   height: 40px;
   display: block;
@@ -1790,48 +1790,48 @@
 }
 
 /* Mark stroke language, matched to the draft homepage cards */
-.svcs-draft .dh-mk-line {
+.svcs-refined .dh-mk-line {
   stroke: rgba(93, 168, 156, 0.34);
   stroke-width: 1;
 }
-.svcs-draft .dh-mk-line-strong {
+.svcs-refined .dh-mk-line-strong {
   stroke: rgba(93, 168, 156, 0.72);
   stroke-width: 1.2;
 }
-.svcs-draft .dh-mk-dot {
+.svcs-refined .dh-mk-dot {
   fill: rgba(93, 168, 156, 0.5);
 }
-.svcs-draft .dh-mk-node {
+.svcs-refined .dh-mk-node {
   fill: none;
   stroke: rgba(93, 168, 156, 0.9);
   stroke-width: 1.4;
 }
-.svcs-draft .dh-mk-box {
+.svcs-refined .dh-mk-box {
   fill: none;
   stroke: rgba(93, 168, 156, 0.4);
   stroke-width: 1;
 }
-.svcs-draft .quad .svc-card:hover .dh-mk-node {
+.svcs-refined .quad .svc-card:hover .dh-mk-node {
   stroke: rgba(93, 168, 156, 1);
 }
 
 /* Body sits directly under the mark now, no framed band above it. */
-.svcs-draft .quad .svc-card-body {
+.svcs-refined .quad .svc-card-body {
   padding-top: 20px;
 }
 
 /* Retire the old framed visual on this page in case any stale markup
    references it. */
-.svcs-draft .quad .svc-card-visual,
-.svcs-draft .quad .quad-visual {
+.svcs-refined .quad .svc-card-visual,
+.svcs-refined .quad .quad-visual {
   display: none;
 }
 
 @media (max-width: 900px) {
-  .svcs-draft .svc-mark-row {
+  .svcs-refined .svc-mark-row {
     padding: 22px 22px 0;
   }
-  .svcs-draft .quad .svc-card-body {
+  .svcs-refined .quad .svc-card-body {
     padding-top: 16px;
   }
 }
@@ -1850,24 +1850,24 @@
         appears, the mark's focal node brightens, and the CTA arrow
         slides. All 240ms, all subtle.
 
-   Gated on .svcs-draft, which only /draft/services carries.
+   Gated on .svcs-refined, which only /draft/services carries.
    ═══════════════════════════════════════════════════════════════════ */
 
 /* ── 1. Marks: slightly larger, slightly more present ────────────── */
-.svcs-draft .svc-mark-row {
+.svcs-refined .svc-mark-row {
   padding: 24px 24px 0;
 }
-.svcs-draft .svc-mark-row svg {
+.svcs-refined .svc-mark-row svg {
   width: 72px;
   height: 45px;
   display: block;
   overflow: visible;
 }
 /* Faint ground so the mark sits on something rather than floating */
-.svcs-draft .svc-mark-row {
+.svcs-refined .svc-mark-row {
   position: relative;
 }
-.svcs-draft .svc-mark-row::before {
+.svcs-refined .svc-mark-row::before {
   content: "";
   position: absolute;
   left: 12px;
@@ -1884,43 +1884,43 @@
 }
 
 /* Stroke weights nudged up a step from the homepage values */
-.svcs-draft .dh-mk-line {
+.svcs-refined .dh-mk-line {
   stroke: rgba(93, 168, 156, 0.4);
   stroke-width: 1.1;
 }
-.svcs-draft .dh-mk-line-strong {
+.svcs-refined .dh-mk-line-strong {
   stroke: rgba(93, 168, 156, 0.82);
   stroke-width: 1.4;
 }
-.svcs-draft .dh-mk-dot {
+.svcs-refined .dh-mk-dot {
   fill: rgba(93, 168, 156, 0.6);
 }
-.svcs-draft .dh-mk-node {
+.svcs-refined .dh-mk-node {
   fill: none;
   stroke: rgba(93, 168, 156, 0.95);
   stroke-width: 1.5;
 }
-.svcs-draft .dh-mk-box {
+.svcs-refined .dh-mk-box {
   fill: none;
   stroke: rgba(93, 168, 156, 0.48);
   stroke-width: 1.1;
 }
 
 /* ── 2. Tighter card rhythm ──────────────────────────────────────── */
-.svcs-draft .quad .svc-card-body {
+.svcs-refined .quad .svc-card-body {
   padding: 18px 24px 22px;
   gap: 11px;
 }
-.svcs-draft .quad .svc-card-foot {
+.svcs-refined .quad .svc-card-foot {
   padding-top: 16px;
 }
 
 /* ── 3. Hover: quiet depth, clear affordance ─────────────────────── */
-.svcs-draft .quad .svc-card {
+.svcs-refined .quad .svc-card {
   transition: transform 240ms ease-out, border-color 240ms ease-out,
     box-shadow 240ms ease-out;
 }
-.svcs-draft .quad .svc-card:hover {
+.svcs-refined .quad .svc-card:hover {
   transform: translateY(-4px);
   border-color: rgba(93, 168, 156, 0.42);
   box-shadow:
@@ -1929,21 +1929,21 @@
     0 36px 64px -24px rgba(0, 0, 0, 0.72);
 }
 /* The mark responds, so the card feels like one object */
-.svcs-draft .quad .svc-card .dh-mk-node,
-.svcs-draft .quad .svc-card .dh-mk-line-strong,
-.svcs-draft .quad .svc-card .dh-mk-dot {
+.svcs-refined .quad .svc-card .dh-mk-node,
+.svcs-refined .quad .svc-card .dh-mk-line-strong,
+.svcs-refined .quad .svc-card .dh-mk-dot {
   transition: stroke 240ms ease-out, fill 240ms ease-out;
 }
-.svcs-draft .quad .svc-card:hover .dh-mk-node {
+.svcs-refined .quad .svc-card:hover .dh-mk-node {
   stroke: rgba(93, 168, 156, 1);
 }
-.svcs-draft .quad .svc-card:hover .dh-mk-line-strong {
+.svcs-refined .quad .svc-card:hover .dh-mk-line-strong {
   stroke: rgba(93, 168, 156, 0.95);
 }
-.svcs-draft .quad .svc-card:hover .dh-mk-dot {
+.svcs-refined .quad .svc-card:hover .dh-mk-dot {
   fill: rgba(93, 168, 156, 0.78);
 }
-.svcs-draft .quad .svc-card:hover .svc-mark-row::before {
+.svcs-refined .quad .svc-card:hover .svc-mark-row::before {
   background: radial-gradient(
     80% 80% at 40% 40%,
     rgba(93, 168, 156, 0.09) 0%,
@@ -1951,29 +1951,29 @@
   );
 }
 /* CTA arrow slides, reinforcing that the card is a route */
-.svcs-draft .quad .svc-card .tlink .arrow {
+.svcs-refined .quad .svc-card .tlink .arrow {
   display: inline-block;
   transition: transform 240ms ease-out;
 }
-.svcs-draft .quad .svc-card:hover .tlink .arrow {
+.svcs-refined .quad .svc-card:hover .tlink .arrow {
   transform: translateX(4px);
 }
 
 @media (max-width: 900px) {
-  .svcs-draft .svc-mark-row {
+  .svcs-refined .svc-mark-row {
     padding: 20px 20px 0;
   }
-  .svcs-draft .svc-mark-row::before {
+  .svcs-refined .svc-mark-row::before {
     left: 10px;
     top: 10px;
     width: 84px;
     height: 60px;
   }
-  .svcs-draft .quad .svc-card-body {
+  .svcs-refined .quad .svc-card-body {
     padding: 16px 20px 20px;
   }
   /* No lift on touch, it only ever renders as a stuck hover state */
-  .svcs-draft .quad .svc-card:hover {
+  .svcs-refined .quad .svc-card:hover {
     transform: none;
   }
 }
@@ -1984,7 +1984,7 @@
    The base .svcs-v2 .svc-diagram / .svc-row rules near the top of this
    file are shared with the LIVE hero (components/ServicesV2Hero.tsx) and
    are deliberately left alone. Everything here is gated on
-   .svcs-draft .svc-model, which is 0,3,0 specificity against the base
+   .svcs-refined .svc-model, which is 0,3,0 specificity against the base
    rules' 0,2,0, so these win regardless of source order.
 
    Correcting the previous pass: that version stripped the rows down to
@@ -2010,7 +2010,7 @@
    ═══════════════════════════════════════════════════════════════════ */
 
 /* ── Card shell: more presence than the live version ─────────────── */
-.svcs-draft .svc-diagram.svc-model {
+.svcs-refined .svc-diagram.svc-model {
   padding: 26px;
   border-radius: 20px;
   background:
@@ -2026,26 +2026,26 @@
     0 36px 70px -22px rgba(0, 0, 0, 0.66);
 }
 
-.svcs-draft .svc-model .svc-diagram-head {
+.svcs-refined .svc-model .svc-diagram-head {
   margin-bottom: 18px;
   padding-bottom: 15px;
   border-bottom: 0.5px solid rgba(255, 255, 255, 0.075);
 }
-.svcs-draft .svc-model .svc-diagram-title {
+.svcs-refined .svc-model .svc-diagram-title {
   font-size: 11px;
   letter-spacing: 0.14em;
   color: rgba(255, 255, 255, 0.5);
 }
 
 /* ── Row stack ───────────────────────────────────────────────────── */
-.svcs-draft .svc-model .svc-rows {
+.svcs-refined .svc-model .svc-rows {
   gap: 10px;
 }
 
 /* Connector rail. Sits below the row fills (rows are z-index 1), so it
    is visible only in the gaps between blocks: four services joined by
    short teal segments rather than one continuous line over the top. */
-.svcs-draft .svc-model .svc-model-rail {
+.svcs-refined .svc-model .svc-model-rail {
   position: absolute;
   left: 32px;
   top: 8px;
@@ -2061,7 +2061,7 @@
 }
 
 /* ── Rows: substantial blocks, one shared treatment ─────────────── */
-.svcs-draft .svc-model .svc-row {
+.svcs-refined .svc-model .svc-row {
   position: relative;
   z-index: 1;
   grid-template-columns: 38px 1fr auto;
@@ -2081,7 +2081,7 @@
 }
 
 /* Left accent bar. Steps up marginally down the stack. */
-.svcs-draft .svc-model .svc-row::after {
+.svcs-refined .svc-model .svc-row::after {
   content: "";
   position: absolute;
   left: 0;
@@ -2091,19 +2091,19 @@
   border-radius: 0 2px 2px 0;
   background: rgba(93, 168, 156, 0.3);
 }
-.svcs-draft .svc-model .svc-row[data-step="2"]::after {
+.svcs-refined .svc-model .svc-row[data-step="2"]::after {
   background: rgba(93, 168, 156, 0.4);
 }
-.svcs-draft .svc-model .svc-row[data-step="3"]::after {
+.svcs-refined .svc-model .svc-row[data-step="3"]::after {
   background: rgba(93, 168, 156, 0.5);
 }
-.svcs-draft .svc-model .svc-row[data-step="4"]::after {
+.svcs-refined .svc-model .svc-row[data-step="4"]::after {
   background: rgba(93, 168, 156, 0.6);
 }
 
 /* Teal tint steps 2.2% to 4.6%. Small enough that no row reads as
    featured, large enough that the stack has direction. */
-.svcs-draft .svc-model .svc-row[data-step="4"] {
+.svcs-refined .svc-model .svc-row[data-step="4"] {
   background:
     linear-gradient(
       165deg,
@@ -2113,7 +2113,7 @@
     rgba(255, 255, 255, 0.03);
   border-color: rgba(93, 168, 156, 0.16);
 }
-.svcs-draft .svc-model .svc-row[data-step="3"] {
+.svcs-refined .svc-model .svc-row[data-step="3"] {
   background:
     linear-gradient(
       165deg,
@@ -2125,7 +2125,7 @@
 }
 
 /* ── Index node ──────────────────────────────────────────────────── */
-.svcs-draft .svc-model .svc-row-num {
+.svcs-refined .svc-model .svc-row-num {
   position: relative;
   z-index: 1;
   display: inline-flex;
@@ -2141,55 +2141,55 @@
   border: 0.5px solid rgba(93, 168, 156, 0.32);
   color: rgba(93, 168, 156, 0.72);
 }
-.svcs-draft .svc-model .svc-row[data-step="3"] .svc-row-num,
-.svcs-draft .svc-model .svc-row[data-step="4"] .svc-row-num {
+.svcs-refined .svc-model .svc-row[data-step="3"] .svc-row-num,
+.svcs-refined .svc-model .svc-row[data-step="4"] .svc-row-num {
   border-color: rgba(93, 168, 156, 0.42);
   color: rgba(93, 168, 156, 0.86);
 }
 
-.svcs-draft .svc-model .svc-row-name {
+.svcs-refined .svc-model .svc-row-name {
   font-size: 17px;
   font-weight: 500;
   line-height: 1.3;
   color: rgba(255, 255, 255, 0.94);
 }
 
-.svcs-draft .svc-model .svc-row-tag {
+.svcs-refined .svc-model .svc-row-tag {
   font-size: 10px;
   letter-spacing: 0.1em;
   color: rgba(255, 255, 255, 0.42);
 }
 
 @media (max-width: 1080px) {
-  .svcs-draft .svc-diagram.svc-model {
+  .svcs-refined .svc-diagram.svc-model {
     padding: 22px;
   }
-  .svcs-draft .svc-model .svc-row {
+  .svcs-refined .svc-model .svc-row {
     grid-template-columns: 34px 1fr auto;
     gap: 13px;
     padding: 14px 15px 14px 14px;
   }
-  .svcs-draft .svc-model .svc-row-num {
+  .svcs-refined .svc-model .svc-row-num {
     width: 29px;
     height: 29px;
   }
-  .svcs-draft .svc-model .svc-model-rail {
+  .svcs-refined .svc-model .svc-model-rail {
     left: 28px;
   }
-  .svcs-draft .svc-model .svc-row-name {
+  .svcs-refined .svc-model .svc-row-name {
     font-size: 15.5px;
   }
 }
 
 /* Phones: the tag column crowds the name at narrow widths. */
 @media (max-width: 560px) {
-  .svcs-draft .svc-model .svc-row {
+  .svcs-refined .svc-model .svc-row {
     grid-template-columns: 30px 1fr;
   }
-  .svcs-draft .svc-model .svc-row-tag {
+  .svcs-refined .svc-model .svc-row-tag {
     display: none;
   }
-  .svcs-draft .svc-model .svc-model-rail {
+  .svcs-refined .svc-model .svc-model-rail {
     left: 26px;
   }
 }
@@ -2205,13 +2205,13 @@
    button, no card, no link. Deliberately the quietest text on the page.
    ═══════════════════════════════════════════════════════════════════ */
 
-.svcs-draft .path-note {
+.svcs-refined .path-note {
   margin: 52px 0 0;
   padding-top: 26px;
   border-top: 0.5px solid rgba(255, 255, 255, 0.07);
 }
 
-.svcs-draft .path-note p {
+.svcs-refined .path-note p {
   max-width: 660px;
   margin: 0;
   font-family: var(--font-inter), sans-serif;
@@ -2220,17 +2220,17 @@
   color: rgba(255, 255, 255, 0.48);
 }
 
-.svcs-draft .path-note strong {
+.svcs-refined .path-note strong {
   font-weight: 600;
   color: rgba(255, 255, 255, 0.82);
 }
 
 @media (max-width: 900px) {
-  .svcs-draft .path-note {
+  .svcs-refined .path-note {
     margin-top: 38px;
     padding-top: 22px;
   }
-  .svcs-draft .path-note p {
+  .svcs-refined .path-note p {
     font-size: 14.5px;
   }
 }
@@ -2248,14 +2248,14 @@
    untouched.
    ═══════════════════════════════════════════════════════════════════ */
 
-.svcs-draft .s-head.s-head--solo {
+.svcs-refined .s-head.s-head--solo {
   grid-template-columns: minmax(0, 1fr);
   gap: 0;
   margin-bottom: 48px;
 }
 
 @media (max-width: 900px) {
-  .svcs-draft .s-head.s-head--solo {
+  .svcs-refined .s-head.s-head--solo {
     margin-bottom: 32px;
   }
 }

@@ -356,10 +356,10 @@ export default function ApproachPage() {
             </div>
             <div className="bp-prog-stops">
               {[
-                { phase: "Phase 01", title: "Clarity",     desc: "Where AI belongs, what to act on first, who owns what.", svc: "Strategy & Training", href: "/services/strategy" },
-                { phase: "Phase 02", title: "Capability",  desc: "Leaders and teams build the fluency to choose, govern, and use AI.", svc: "Strategy & Training", href: "/services/strategy" },
-                { phase: "Phase 03", title: "Systems",     desc: "Custom AI software, agents, and workflows that fit the business.", svc: "AI Software & Systems", href: "/services/build" },
-                { phase: "Phase 04", title: "Improvement", desc: "Ongoing development, support, and optimization of what's live.", svc: "Managed AI", href: "/services/managed" },
+                { phase: "Phase 01", title: "Clarity",     desc: "Where AI belongs, what to act on first, who owns what.", svc: "Leadership AI Enablement", href: "/services/strategy" },
+                { phase: "Phase 02", title: "Capability",  desc: "Leaders and teams build the fluency to choose, govern, and use AI.", svc: "Leadership AI Enablement", href: "/services/strategy" },
+                { phase: "Phase 03", title: "Systems",     desc: "Custom AI software and workflow tools that fit the business.", svc: "AI Workflow Development", href: "/services/build" },
+                { phase: "Phase 04", title: "Improvement", desc: "Ongoing development, support, and optimization of what's live.", svc: "Managed AI Improvement", href: "/services/managed" },
               ].map((s) => (
                 <div className="bp-prog-stop" key={s.phase}>
                   <div className="bp-prog-marker"><span /></div>
