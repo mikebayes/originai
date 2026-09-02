@@ -9442,20 +9442,3 @@
   stroke: rgba(93, 168, 156, 0.6);
   stroke-width: 1;
 }
-
-/* ─── Team AI Training hero: secondary delivery line on small screens ──
-   .bp-page .bp-hero-sub--secondary is a fixed 16px at every width, but
-   .bp-page--workflow .bp-hero-sub steps down from 19.5px to 17px at
-   720px. Left alone, the secondary line would sit within 1px of the
-   subheadline on phones and the hierarchy would collapse.
-
-   Scoped to .bp-page--training so no other page that adopts the
-   secondary-sub pattern later is affected.
-   ═══════════════════════════════════════════════════════════════════ */
-
-@media (max-width: 720px) {
-  .bp-page--training .bp-hero-sub--secondary {
-    margin-top: 10px;
-    font-size: 14.5px;
-  }
-}

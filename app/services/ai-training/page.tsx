@@ -68,7 +68,6 @@ const SERVICE_JSON_LD = {
 };
 
 export default function TeamAITrainingPage() {
-
   return (
     <main>
       <script
@@ -109,19 +108,6 @@ export default function TeamAITrainingPage() {
               documents, decisions, and real opportunities.
             </p>
 
-            {/* Secondary delivery line. Deliberately quieter than the
-                subheadline above it: 16px against 19.5px, and a lower
-                opacity. It carries the Winnipeg and Canada signal without
-                lengthening the main paragraph, which read as tacked on when
-                the two were combined.
-
-                bp-hero-sub--secondary already existed in the .bp-page
-                namespace for exactly this treatment and was unused. */}
-            <p className="bp-hero-sub bp-hero-sub--secondary">
-              AI training for teams in Winnipeg and across Canada, delivered
-              on-site or remote.
-            </p>
-
             <div className="bp-hero-actions">
               <a href="/contact" className="pill pill-primary">
                 Book a discovery session
@@ -133,9 +119,17 @@ export default function TeamAITrainingPage() {
             </div>
 
             <div className="bp-hero-footer">
+              {/* Carries the Winnipeg / Canada signal. This field already
+                  described delivery, so geography belongs here rather than
+                  in a fourth column: .bp-hero-footer is a 3-col grid, and
+                  the values wrap to two lines by design (see the Outputs
+                  cell on /services/build for the same pattern). */}
               <div className="bp-hero-foot-col">
                 <div className="k">Format</div>
-                <div className="v">On-site, remote, or hybrid</div>
+                <div className="v">
+                  On-site or remote training for teams in Winnipeg and across
+                  Canada
+                </div>
               </div>
               <div className="bp-hero-foot-col">
                 <div className="k">Best fit</div>
