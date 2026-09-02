@@ -38,15 +38,25 @@ export default function ContactPage() {
           </div>
 
           <h1 className="bp-hero-h1">
-            Let&rsquo;s{" "}
-            <span className="accent">connect.</span>
+            Start with{" "}
+            <span className="accent">a conversation.</span>
           </h1>
 
+          {/* The four clauses map to the four services in order without
+              naming them: where AI fits (Leadership AI Enablement), the team
+              using it well (Team AI Training), what to build (AI Workflow
+              Development), keeping it live (Managed AI Improvement). Team
+              training was the one the old copy missed.
+          
+              Two echoes removed when the H1 changed. This used to end "Just a
+              conversation.", which now repeats the heading, and "the right
+              place to start" repeated "Start". Both also collided with Mike's
+              quote below, which already uses "conversations" and "start". */}
           <p className="bp-hero-sub">
-            If you&rsquo;re thinking about where AI might fit, what to build
-            first, or how to keep something live and improving, this is the
-            right place to start. No pitch deck, no scripted intake. Just a
-            conversation.
+            If you&rsquo;re thinking about where AI might fit, how to get your
+            team using it well, what to build first, or how to keep something
+            live and improving, we can help you think it through. No pitch
+            deck, no scripted intake.
           </p>
         </section>
       </div>
