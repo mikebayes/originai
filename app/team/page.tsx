@@ -129,18 +129,21 @@ export default function TeamRoute() {
               </a>
             </div>
 
+            {/* "3 partners" retired here along with "Three partners" in the
+                section 2 lede: the count was never the point. The strip now
+                names the disciplines instead, which is the actual claim. */}
             <div className="bp-hero-footer">
               <div className="bp-hero-foot-col">
                 <div className="k">Team</div>
-                <div className="v">3 partners</div>
+                <div className="v">Business, technology, marketing</div>
               </div>
               <div className="bp-hero-foot-col">
                 <div className="k">Model</div>
-                <div className="v">Senior-led</div>
+                <div className="v">Senior-led and hands-on</div>
               </div>
               <div className="bp-hero-foot-col">
-                <div className="k">Delivery</div>
-                <div className="v">End-to-end</div>
+                <div className="k">Focus</div>
+                <div className="v">Strategy, training, workflows</div>
               </div>
             </div>
           </section>

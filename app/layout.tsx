@@ -48,9 +48,9 @@ import "../styles/services-deep.css";
 import "../styles/services-build.css";
 // Dynamic motion: reveal animations, sticky nav, scroll indicator, hover, continuity
 import "../styles/dynamics.css";
-// DRAFT-ONLY homepage styles. Every selector is gated on .draft-home,
-// which only the /draft homepage carries, so live pages are unaffected.
-import "../styles/draft-home.css";
+// Homepage styles. Every selector is gated on .home-v2, which the
+// homepage carries, so other routes are unaffected.
+import "../styles/home-v2.css";
 
 // Global resets (loaded last so they don't get overridden)
 import "./globals.css";

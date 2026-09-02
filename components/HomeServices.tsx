@@ -1,5 +1,5 @@
 /**
- * DRAFT homepage services section.
+ * Homepage services section.
  *
  * Rewritten from the asymmetric featured-left layout (one large Build
  * card with the aurora field and review dashboard, two smaller support
@@ -114,7 +114,7 @@ const SERVICES = [
     num: "03",
     label: "Workflows",
     title: "AI Workflow Development",
-    body: "Turn high-value opportunities into focused AI tools, assistants, automations, integrations, or internal systems.",
+    body: "Turn high-value opportunities into focused AI tools, assistants, automations, integrations, or custom AI software.",
     href: "/services/build",
     cta: "Explore workflow development",
     Mark: MarkFlow,
@@ -130,7 +130,7 @@ const SERVICES = [
   },
 ];
 
-export default function DraftServices() {
+export default function HomeServices() {
   return (
     <section className="dh-svcs" data-screen-label="Services">
       <div className="dh-svcs-grain" aria-hidden="true" />
@@ -139,8 +139,8 @@ export default function DraftServices() {
         <header className="dh-svcs-head" data-reveal>
           <span className="dh-rule" aria-hidden="true" />
           <h2 className="dh-svcs-h2 display">
-            Our AI services. Four ways to move from{" "}
-            <span className="muted">interest to adoption.</span>
+            Our AI services.{" "}
+            <span className="muted">Four places to start.</span>
           </h2>
           <p className="dh-svcs-lede">
             Start with the need in front of you. Leadership enablement, team

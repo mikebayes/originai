@@ -1,5 +1,5 @@
 /**
- * DRAFT homepage "who we are" section, repositioned to avoid repeating
+ * Homepage "who we are" section, repositioned to avoid repeating
  * the new explanatory section near the top of the page.
  *
  * The live version opens "A small senior team that builds, strategizes,
@@ -42,7 +42,7 @@ const PRINCIPLES = [
   "Humans hold the judgment",
 ];
 
-export default function DraftAbout() {
+export default function HomeAbout() {
   return (
     <section className="stage" data-screen-label="About">
       <div className="stage-grain" aria-hidden="true" />
@@ -97,8 +97,9 @@ export default function DraftAbout() {
                 rather than the heading asserting it twice. */}
             <h3 className="about-title">The people doing the work.</h3>
             <p className="about-body">
-              Business, technology, and marketing operators based in Winnipeg.
-              Strategy, engineering, and delivery under one roof.
+              Business, technology, and marketing operators based in Winnipeg,
+              working with clients across Canada. Strategy, engineering, and
+              delivery under one roof.
             </p>
             <div className="about-foot">
               <a className="tlink" href="/team">

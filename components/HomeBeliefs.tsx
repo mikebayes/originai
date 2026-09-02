@@ -1,5 +1,5 @@
 /**
- * DRAFT homepage beliefs section, condensed.
+ * Homepage beliefs section, condensed.
  *
  * The live version is a two-column layout: photograph left, three
  * expanded beliefs right, plus top and bottom curve SVGs. The photograph
@@ -15,7 +15,7 @@
  * The three claims themselves are unchanged. This section should support
  * the page, not compete with the explanatory section above it.
  */
-export default function DraftBeliefs() {
+export default function HomeBeliefs() {
   return (
     <section className="dh-beliefs" data-screen-label="Beliefs">
       <div className="dh-beliefs-inner">

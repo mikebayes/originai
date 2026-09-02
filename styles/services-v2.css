@@ -987,7 +987,6 @@
   .svcs-v2 .s-hero-actions .pill{ width: 100%; justify-content: center; }
 }
 
-
 /* Extra breathing room between the trio cards and the engage section.
    Without this, the trio section's bottom padding (120px desktop, 80px
    mobile) plus the engage section's top padding can still feel too
@@ -1015,8 +1014,6 @@
     margin-top: 32px;
   }
 }
-
-
 
 /* ─── Card typography density on mobile ──────────────────────────────
    Cards on V2 felt under-filled compared to the homepage cards because
@@ -1047,7 +1044,6 @@
     font-size: 10.5px;
   }
 }
-
 
 /* ─── Hero → Trio bridge ──────────────────────────────────────────────
    Replaces the earlier diagonal accent band with the spec'd transition
@@ -1358,7 +1354,6 @@
   }
 }
 
-
 /* Mobile-only: lift the "— SERVICES" eyebrow out of the hero copy
    stack and pin it just below the floating Origin logo. The H1 + sub
    stay in flow with the existing 100px padding-top. The eyebrow
@@ -1405,7 +1400,6 @@
   .svcs-v2 .trio { gap: 24px; }
 }
 
-
 /* ─── Mobile reorder: lead with Build (AI Software & Systems) ───────
    Desktop layout puts Build in the visually-elevated middle slot.
    On mobile (stacked) the natural DOM order would lead with Strategy
@@ -1427,21 +1421,6 @@
    .svcs-refined class on the page wrapper is available for draft-only
    overrides. Delete this block or promote it when the draft ships.
    ═══════════════════════════════════════════════════════════════════ */
-
-/* Internal draft banner */
-.svcs-v2 .draft-banner {
-  position: relative;
-  z-index: 50;
-  text-align: center;
-  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(93, 168, 156, 0.85);
-  background: rgba(93, 168, 156, 0.08);
-  border-bottom: 1px solid rgba(93, 168, 156, 0.25);
-  padding: 8px 16px;
-}
 
 /* Secondary hero sentence, slightly quieter than the main sub */
 .svcs-v2 .s-hero-sub--secondary {

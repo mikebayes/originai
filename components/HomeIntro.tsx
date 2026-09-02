@@ -1,5 +1,5 @@
 /**
- * DRAFT homepage: the first section after the hero.
+ * Homepage: the first section after the hero.
  *
  * Replaces the live Problem section ("AI ambition is everywhere. Working
  * systems aren't.") which read as category commentary rather than an
@@ -22,12 +22,17 @@
  * besides the hero, and it carries the human credibility this section
  * needs. Beliefs is text-led in the draft as a result.
  *
+ * SEO note: "custom AI software" in the lede is deliberate. The homepage
+ * is the ranking URL for "custom AI software Winnipeg" (position 3), and
+ * the earlier draft of this section dropped the phrase entirely. Do not
+ * remove it without checking GSC first.
+ *
  * Sizing: the photo is held at 75% of its column and centred on both
- * axes at desktop (see .dh-who-photo in styles/draft-home.css). At full
+ * axes at desktop (see .dh-who-photo in styles/home-v2.css). At full
  * column width it outweighed the copy; the section reads better with the
  * copy carrying the message and the image supplying atmosphere.
  */
-export default function DraftWhoWeAre() {
+export default function HomeIntro() {
   return (
     <section className="dh-who" data-screen-label="Who we are">
       <div className="dh-who-grain" aria-hidden="true" />
@@ -51,7 +56,7 @@ export default function DraftWhoWeAre() {
             <p className="dh-who-lede">
               Origin helps leaders and teams find where AI can help, train
               around real work, and turn the right opportunities into useful
-              tools and workflows.
+              tools, workflows, and custom AI software.
             </p>
 
             {/* Three rows, deliberately not cards. The full services card

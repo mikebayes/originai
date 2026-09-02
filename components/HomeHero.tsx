@@ -1,9 +1,9 @@
-import HeroNav from "../HeroNav";
-import HeroPhotoLayer from "../HeroPhotoLayer";
-import ScrollIndicator from "../ScrollIndicator";
+import HeroNav from "./HeroNav";
+import HeroPhotoLayer from "./HeroPhotoLayer";
+import ScrollIndicator from "./ScrollIndicator";
 
 /**
- * DRAFT homepage hero.
+ * Homepage hero.
  *
  * Identical to components/Hero.tsx except for one refined subheadline.
  * Kept as a separate file so the live homepage hero is untouched.
@@ -25,7 +25,7 @@ import ScrollIndicator from "../ScrollIndicator";
  * Deliberately excluded: "senior team" and any location language. Both
  * are carried elsewhere on the page and in the footer.
  */
-export default function DraftHero() {
+export default function HomeHero() {
   return (
     <section className="hero" data-screen-label="Hero">
       <HeroPhotoLayer />

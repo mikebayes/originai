@@ -1,7 +1,7 @@
 /* ═══════════════════════════════════════════════════════════════════
    DRAFT HOMEPAGE  ·  /draft  ONLY
    ───────────────────────────────────────────────────────────────────
-   Every selector is gated on .draft-home, a class applied only to the
+   Every selector is gated on .home-v2, a class applied only to the
    draft homepage <main>. The live homepage never carries it, so nothing
    here can reach production.
 
@@ -10,24 +10,9 @@
      .dh-beliefs  — condensed text-led beliefs
    ═══════════════════════════════════════════════════════════════════ */
 
-/* Draft banner, sits above the hero */
-.draft-home .draft-banner--home {
-  position: relative;
-  z-index: 60;
-  text-align: center;
-  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(93, 168, 156, 0.85);
-  background: rgba(93, 168, 156, 0.08);
-  border-bottom: 1px solid rgba(93, 168, 156, 0.25);
-  padding: 8px 16px;
-}
-
 /* ═══ WHO WE ARE / WHAT WE DO ═══════════════════════════════════════ */
 
-.draft-home .dh-who {
+.home-v2 .dh-who {
   position: relative;
   isolation: isolate;
   padding: 128px 0 120px;
@@ -44,7 +29,7 @@
     ),
     linear-gradient(180deg, #050a0c 0%, #071114 48%, #050a0c 100%);
 }
-.draft-home .dh-who-grain {
+.home-v2 .dh-who-grain {
   position: absolute;
   inset: 0;
   z-index: 0;
@@ -53,14 +38,14 @@
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
 }
-.draft-home .dh-who-inner {
+.home-v2 .dh-who-inner {
   position: relative;
   z-index: 1;
   max-width: 1240px;
   margin: 0 auto;
   padding: 0 56px;
 }
-.draft-home .dh-who-grid {
+.home-v2 .dh-who-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
   gap: 72px;
@@ -68,11 +53,11 @@
 }
 
 /* ── Copy column ─────────────────────────────────────────────────── */
-.draft-home .dh-who-mark {
+.home-v2 .dh-who-mark {
   display: inline-flex;
   margin-bottom: 26px;
 }
-.draft-home .dh-who-h2 {
+.home-v2 .dh-who-h2 {
   font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
   font-size: clamp(32px, 3.6vw, 50px);
@@ -82,10 +67,10 @@
   margin: 0;
   text-wrap: balance;
 }
-.draft-home .dh-who-h2 .muted {
+.home-v2 .dh-who-h2 .muted {
   color: rgba(255, 255, 255, 0.46);
 }
-.draft-home .dh-who-lede {
+.home-v2 .dh-who-lede {
   font-family: var(--font-inter), sans-serif;
   font-size: 17.5px;
   line-height: 1.62;
@@ -95,16 +80,16 @@
 }
 
 /* ── Three capability points ─────────────────────────────────────── */
-.draft-home .dh-caps {
+.home-v2 .dh-caps {
   list-style: none;
   margin: 40px 0 0;
   padding: 0;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
-.draft-home .dh-cap {
+.home-v2 .dh-cap {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
-.draft-home .dh-cap a {
+.home-v2 .dh-cap a {
   display: grid;
   grid-template-columns: 34px minmax(0, 1fr) 20px;
   align-items: start;
@@ -113,54 +98,54 @@
   text-decoration: none;
   transition: opacity 0.2s ease;
 }
-.draft-home .dh-cap a:hover {
+.home-v2 .dh-cap a:hover {
   opacity: 1;
 }
-.draft-home .dh-cap-num {
+.home-v2 .dh-cap-num {
   font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
   font-size: 11px;
   letter-spacing: 0.08em;
   color: rgba(93, 168, 156, 0.82);
   padding-top: 4px;
 }
-.draft-home .dh-cap-body {
+.home-v2 .dh-cap-body {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
-.draft-home .dh-cap-title {
+.home-v2 .dh-cap-title {
   font-family: var(--font-inter-tight), sans-serif;
   font-weight: 600;
   font-size: 17px;
   line-height: 1.35;
   color: rgba(255, 255, 255, 0.95);
 }
-.draft-home .dh-cap-desc {
+.home-v2 .dh-cap-desc {
   font-family: var(--font-inter), sans-serif;
   font-size: 14.5px;
   line-height: 1.55;
   color: rgba(255, 255, 255, 0.55);
 }
-.draft-home .dh-cap-arrow {
+.home-v2 .dh-cap-arrow {
   font-size: 15px;
   color: rgba(93, 168, 156, 0.6);
   padding-top: 3px;
   transform: translateX(0);
   transition: transform 0.2s ease, color 0.2s ease;
 }
-.draft-home .dh-cap a:hover .dh-cap-arrow {
+.home-v2 .dh-cap a:hover .dh-cap-arrow {
   transform: translateX(4px);
   color: rgba(93, 168, 156, 1);
 }
-.draft-home .dh-cap a:hover .dh-cap-title {
+.home-v2 .dh-cap a:hover .dh-cap-title {
   color: #fff;
 }
 
 /* ── Photograph column ───────────────────────────────────────────── */
-.draft-home .dh-who-photo {
+.home-v2 .dh-who-photo {
   margin: 0;
 }
-.draft-home .dh-who-photo-frame {
+.home-v2 .dh-who-photo-frame {
   position: relative;
   width: 100%;
   /* Natural aspect of the source (1312x1199) so nothing crops. */
@@ -174,7 +159,7 @@
   isolation: isolate;
   background: #0a1012;
 }
-.draft-home .dh-who-photo-img {
+.home-v2 .dh-who-photo-img {
   position: absolute;
   inset: 0;
   z-index: 0;
@@ -182,7 +167,7 @@
   background-size: cover;
   background-position: center;
 }
-.draft-home .dh-who-photo-grain {
+.home-v2 .dh-who-photo-grain {
   position: absolute;
   inset: 0;
   z-index: 1;
@@ -191,7 +176,7 @@
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
 }
-.draft-home .dh-who-photo-vignette {
+.home-v2 .dh-who-photo-vignette {
   position: absolute;
   inset: 0;
   z-index: 2;
@@ -207,20 +192,20 @@
 
 /* ═══ BELIEFS, CONDENSED ════════════════════════════════════════════ */
 
-.draft-home .dh-beliefs {
+.home-v2 .dh-beliefs {
   position: relative;
   padding: 96px 0 100px;
   background: linear-gradient(180deg, #050a0c 0%, #060d0f 50%, #050a0c 100%);
 }
-.draft-home .dh-beliefs-inner {
+.home-v2 .dh-beliefs-inner {
   max-width: 1240px;
   margin: 0 auto;
   padding: 0 56px;
 }
-.draft-home .dh-beliefs-head {
+.home-v2 .dh-beliefs-head {
   margin-bottom: 44px;
 }
-.draft-home .dh-rule {
+.home-v2 .dh-rule {
   display: block;
   width: 34px;
   height: 2px;
@@ -231,7 +216,7 @@
     rgba(93, 168, 156, 0.35) 100%
   );
 }
-.draft-home .dh-beliefs-h2 {
+.home-v2 .dh-beliefs-h2 {
   font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
   font-size: clamp(26px, 2.6vw, 36px);
@@ -240,7 +225,7 @@
   color: #fff;
   margin: 0;
 }
-.draft-home .dh-beliefs-row {
+.home-v2 .dh-beliefs-row {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -248,7 +233,7 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 44px;
 }
-.draft-home .dh-belief h3 {
+.home-v2 .dh-belief h3 {
   font-family: var(--font-inter-tight), sans-serif;
   font-weight: 600;
   font-size: 19px;
@@ -258,7 +243,7 @@
   padding-top: 18px;
   border-top: 1px solid rgba(93, 168, 156, 0.32);
 }
-.draft-home .dh-belief p {
+.home-v2 .dh-belief p {
   font-family: var(--font-inter), sans-serif;
   font-size: 15px;
   line-height: 1.6;
@@ -269,43 +254,43 @@
 /* ═══ RESPONSIVE ════════════════════════════════════════════════════ */
 
 @media (max-width: 1100px) {
-  .draft-home .dh-who-grid {
+  .home-v2 .dh-who-grid {
     grid-template-columns: 1fr;
     gap: 48px;
   }
-  .draft-home .dh-who-photo {
+  .home-v2 .dh-who-photo {
     max-width: 560px;
   }
-  .draft-home .dh-beliefs-row {
+  .home-v2 .dh-beliefs-row {
     grid-template-columns: 1fr;
     gap: 30px;
   }
 }
 
 @media (max-width: 900px) {
-  .draft-home .dh-who {
+  .home-v2 .dh-who {
     padding: 76px 0 72px;
   }
-  .draft-home .dh-who-inner,
-  .draft-home .dh-beliefs-inner {
+  .home-v2 .dh-who-inner,
+  .home-v2 .dh-beliefs-inner {
     padding: 0 24px;
   }
-  .draft-home .dh-who-lede {
+  .home-v2 .dh-who-lede {
     font-size: 16px;
     margin-top: 20px;
   }
-  .draft-home .dh-caps {
+  .home-v2 .dh-caps {
     margin-top: 32px;
   }
-  .draft-home .dh-cap a {
+  .home-v2 .dh-cap a {
     grid-template-columns: 28px minmax(0, 1fr) 18px;
     gap: 12px;
     padding: 18px 0;
   }
-  .draft-home .dh-beliefs {
+  .home-v2 .dh-beliefs {
     padding: 64px 0 68px;
   }
-  .draft-home .dh-beliefs-head {
+  .home-v2 .dh-beliefs-head {
     margin-bottom: 32px;
   }
 }
@@ -315,7 +300,7 @@
    card has room for a title, body, and CTA without crowding.
    ═══════════════════════════════════════════════════════════════════ */
 
-.draft-home .dh-svcs {
+.home-v2 .dh-svcs {
   position: relative;
   isolation: isolate;
   padding: 118px 0 122px;
@@ -333,7 +318,7 @@
     linear-gradient(180deg, #050a0c 0%, #071214 46%, #050a0c 100%);
 }
 /* Diagonal hairlines, same family as the draft service pages */
-.draft-home .dh-svcs-grain {
+.home-v2 .dh-svcs-grain {
   position: absolute;
   inset: 0;
   z-index: 0;
@@ -344,7 +329,7 @@
     transparent 1px 104px
   );
 }
-.draft-home .dh-svcs-inner {
+.home-v2 .dh-svcs-inner {
   position: relative;
   z-index: 1;
   max-width: 1240px;
@@ -353,11 +338,11 @@
 }
 
 /* ── Section head ────────────────────────────────────────────────── */
-.draft-home .dh-svcs-head {
+.home-v2 .dh-svcs-head {
   max-width: 780px;
   margin-bottom: 56px;
 }
-.draft-home .dh-svcs-h2 {
+.home-v2 .dh-svcs-h2 {
   font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
   font-size: clamp(28px, 3vw, 42px);
@@ -367,10 +352,10 @@
   margin: 0;
   text-wrap: balance;
 }
-.draft-home .dh-svcs-h2 .muted {
+.home-v2 .dh-svcs-h2 .muted {
   color: rgba(255, 255, 255, 0.46);
 }
-.draft-home .dh-svcs-lede {
+.home-v2 .dh-svcs-lede {
   font-family: var(--font-inter), sans-serif;
   font-size: 17px;
   line-height: 1.6;
@@ -380,14 +365,14 @@
 }
 
 /* ── 2x2 grid ────────────────────────────────────────────────────── */
-.draft-home .dh-svcs-grid {
+.home-v2 .dh-svcs-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 22px;
 }
 
 /* ── Card ────────────────────────────────────────────────────────── */
-.draft-home .dh-svc {
+.home-v2 .dh-svc {
   display: flex;
   flex-direction: column;
   padding: 30px 30px 26px;
@@ -402,7 +387,7 @@
   transition: border-color 0.22s ease, transform 0.22s ease,
     background 0.22s ease;
 }
-.draft-home .dh-svc:hover {
+.home-v2 .dh-svc:hover {
   border-color: rgba(93, 168, 156, 0.36);
   transform: translateY(-2px);
   background: linear-gradient(
@@ -413,20 +398,20 @@
 }
 
 /* Number + label row */
-.draft-home .dh-svc-top {
+.home-v2 .dh-svc-top {
   display: flex;
   align-items: center;
   gap: 14px;
   padding-bottom: 18px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 }
-.draft-home .dh-svc-num {
+.home-v2 .dh-svc-num {
   font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
   font-size: 11px;
   letter-spacing: 0.1em;
   color: rgba(93, 168, 156, 0.85);
 }
-.draft-home .dh-svc-label {
+.home-v2 .dh-svc-label {
   font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
   font-size: 10.5px;
   letter-spacing: 0.14em;
@@ -435,43 +420,43 @@
 }
 
 /* System mark */
-.draft-home .dh-svc-mark {
+.home-v2 .dh-svc-mark {
   margin: 24px 0 22px;
   height: 40px;
 }
-.draft-home .dh-svc-mark svg {
+.home-v2 .dh-svc-mark svg {
   width: 64px;
   height: 40px;
   display: block;
   overflow: visible;
 }
-.draft-home .dh-mk-line {
+.home-v2 .dh-mk-line {
   stroke: rgba(93, 168, 156, 0.34);
   stroke-width: 1;
 }
-.draft-home .dh-mk-line-strong {
+.home-v2 .dh-mk-line-strong {
   stroke: rgba(93, 168, 156, 0.72);
   stroke-width: 1.2;
 }
-.draft-home .dh-mk-dot {
+.home-v2 .dh-mk-dot {
   fill: rgba(93, 168, 156, 0.5);
 }
-.draft-home .dh-mk-node {
+.home-v2 .dh-mk-node {
   fill: none;
   stroke: rgba(93, 168, 156, 0.9);
   stroke-width: 1.4;
 }
-.draft-home .dh-mk-box {
+.home-v2 .dh-mk-box {
   fill: none;
   stroke: rgba(93, 168, 156, 0.4);
   stroke-width: 1;
 }
-.draft-home .dh-svc:hover .dh-mk-node {
+.home-v2 .dh-svc:hover .dh-mk-node {
   stroke: rgba(93, 168, 156, 1);
 }
 
 /* Copy */
-.draft-home .dh-svc-title {
+.home-v2 .dh-svc-title {
   font-family: var(--font-inter-tight), sans-serif;
   font-weight: 600;
   font-size: 21px;
@@ -479,7 +464,7 @@
   color: rgba(255, 255, 255, 0.96);
   margin: 0 0 10px;
 }
-.draft-home .dh-svc-body {
+.home-v2 .dh-svc-body {
   font-family: var(--font-inter), sans-serif;
   font-size: 15px;
   line-height: 1.6;
@@ -489,7 +474,7 @@
 }
 
 /* CTA */
-.draft-home .dh-svc-cta {
+.home-v2 .dh-svc-cta {
   display: inline-flex;
   align-items: center;
   gap: 9px;
@@ -499,42 +484,42 @@
   font-weight: 500;
   color: rgba(93, 168, 156, 0.92);
 }
-.draft-home .dh-svc-arrow {
+.home-v2 .dh-svc-arrow {
   transform: translateX(0);
   transition: transform 0.22s ease;
 }
-.draft-home .dh-svc:hover .dh-svc-cta {
+.home-v2 .dh-svc:hover .dh-svc-cta {
   color: rgba(93, 168, 156, 1);
 }
-.draft-home .dh-svc:hover .dh-svc-arrow {
+.home-v2 .dh-svc:hover .dh-svc-arrow {
   transform: translateX(4px);
 }
 
 @media (max-width: 900px) {
-  .draft-home .dh-svcs {
+  .home-v2 .dh-svcs {
     padding: 72px 0 76px;
   }
-  .draft-home .dh-svcs-inner {
+  .home-v2 .dh-svcs-inner {
     padding: 0 24px;
   }
-  .draft-home .dh-svcs-head {
+  .home-v2 .dh-svcs-head {
     margin-bottom: 36px;
   }
-  .draft-home .dh-svcs-lede {
+  .home-v2 .dh-svcs-lede {
     font-size: 16px;
     margin-top: 18px;
   }
-  .draft-home .dh-svcs-grid {
+  .home-v2 .dh-svcs-grid {
     grid-template-columns: 1fr;
     gap: 16px;
   }
-  .draft-home .dh-svc {
+  .home-v2 .dh-svc {
     padding: 26px 24px 22px;
   }
-  .draft-home .dh-svc-mark {
+  .home-v2 .dh-svc-mark {
     margin: 20px 0 18px;
   }
-  .draft-home .dh-svc-title {
+  .home-v2 .dh-svc-title {
     font-size: 19px;
   }
 }
@@ -554,19 +539,19 @@
    Gap tightens slightly to keep the pair reading as one composition.
    ═══════════════════════════════════════════════════════════════════ */
 
-.draft-home .dh-who-grid {
+.home-v2 .dh-who-grid {
   grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
   gap: 64px;
 }
 
 /* Keep the text column readable at the narrower width */
-.draft-home .dh-who-copy {
+.home-v2 .dh-who-copy {
   max-width: 620px;
 }
 
 /* A slightly deeper shadow and a marginally stronger edge so the larger
    frame still feels seated rather than floating. */
-.draft-home .dh-who-photo-frame {
+.home-v2 .dh-who-photo-frame {
   border-color: rgba(255, 255, 255, 0.1);
   box-shadow:
     0 44px 88px -28px rgba(0, 0, 0, 0.72),
@@ -575,14 +560,14 @@
 
 @media (max-width: 1100px) {
   /* Stacked: let the image run wider than the earlier 560px cap. */
-  .draft-home .dh-who-grid {
+  .home-v2 .dh-who-grid {
     grid-template-columns: 1fr;
     gap: 44px;
   }
-  .draft-home .dh-who-copy {
+  .home-v2 .dh-who-copy {
     max-width: none;
   }
-  .draft-home .dh-who-photo {
+  .home-v2 .dh-who-photo {
     max-width: 720px;
   }
 }
@@ -604,46 +589,46 @@
    the two columns now read close to balanced, so no size change.
    ═══════════════════════════════════════════════════════════════════ */
 
-.draft-home .dh-who-h2 {
+.home-v2 .dh-who-h2 {
   /* was clamp(32px, 3.6vw, 50px) */
   font-size: clamp(31px, 3.3vw, 45px);
   line-height: 1.09;
   max-width: 24ch;
 }
 
-.draft-home .dh-who-lede {
+.home-v2 .dh-who-lede {
   margin-top: 22px;
   font-size: 17px;
   max-width: 52ch;
 }
 
 /* Tighter list rhythm */
-.draft-home .dh-caps {
+.home-v2 .dh-caps {
   margin-top: 34px;
 }
-.draft-home .dh-cap a {
+.home-v2 .dh-cap a {
   padding: 15px 0;
 }
-.draft-home .dh-cap-body {
+.home-v2 .dh-cap-body {
   gap: 4px;
 }
-.draft-home .dh-cap-desc {
+.home-v2 .dh-cap-desc {
   font-size: 14px;
   line-height: 1.5;
 }
 
 @media (max-width: 900px) {
-  .draft-home .dh-who-h2 {
+  .home-v2 .dh-who-h2 {
     max-width: none;
   }
-  .draft-home .dh-who-lede {
+  .home-v2 .dh-who-lede {
     margin-top: 18px;
     font-size: 16px;
   }
-  .draft-home .dh-caps {
+  .home-v2 .dh-caps {
     margin-top: 28px;
   }
-  .draft-home .dh-cap a {
+  .home-v2 .dh-cap a {
     padding: 15px 0;
   }
 }
@@ -662,43 +647,43 @@
    rather than stretching wide and reading thin.
    ═══════════════════════════════════════════════════════════════════ */
 
-.draft-home .dh-who-grid {
+.home-v2 .dh-who-grid {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 60px;
 }
 
-.draft-home .dh-who-h2 {
+.home-v2 .dh-who-h2 {
   max-width: 20ch;
 }
 
 /* Rows are one line each now, so they can sit tighter still. */
-.draft-home .dh-cap a {
+.home-v2 .dh-cap a {
   padding: 13px 0;
   align-items: center;
 }
-.draft-home .dh-cap-num {
+.home-v2 .dh-cap-num {
   padding-top: 0;
 }
-.draft-home .dh-cap-arrow {
+.home-v2 .dh-cap-arrow {
   padding-top: 0;
 }
-.draft-home .dh-cap-title {
+.home-v2 .dh-cap-title {
   font-size: 16.5px;
 }
-.draft-home .dh-cap-desc {
+.home-v2 .dh-cap-desc {
   font-size: 13.5px;
 }
 
 @media (max-width: 1100px) {
-  .draft-home .dh-who-grid {
+  .home-v2 .dh-who-grid {
     grid-template-columns: 1fr;
   }
 }
 @media (max-width: 900px) {
-  .draft-home .dh-who-h2 {
+  .home-v2 .dh-who-h2 {
     max-width: none;
   }
-  .draft-home .dh-cap a {
+  .home-v2 .dh-cap a {
     padding: 14px 0;
   }
 }
@@ -732,7 +717,7 @@
    ═══════════════════════════════════════════════════════════════════ */
 
 @media (min-width: 1101px) {
-  .draft-home .dh-who-photo {
+  .home-v2 .dh-who-photo {
     /* Fill the row so the flex centring has the full height to work
        against, not just the image's own height. */
     align-self: stretch;
@@ -744,7 +729,7 @@
   }
 
   /* Size now lives on the frame. Same 75% of the column as before. */
-  .draft-home .dh-who-photo-frame {
+  .home-v2 .dh-who-photo-frame {
     width: 75%;
   }
 }

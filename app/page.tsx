@@ -1,46 +1,62 @@
 import type { Metadata } from "next";
-import Hero from "@/components/Hero";
-import Problem from "@/components/Problem";
-import Beliefs from "@/components/Beliefs";
-import Services from "@/components/Services";
+import HomeHero from "@/components/HomeHero";
+import HomeIntro from "@/components/HomeIntro";
+import HomeServices from "@/components/HomeServices";
+import HomeBeliefs from "@/components/HomeBeliefs";
 import Proof from "@/components/Proof";
-import About from "@/components/About";
+import HomeAbout from "@/components/HomeAbout";
 import FinalCTA from "@/components/FinalCTA";
 
 /**
- * Homepage metadata.
+ * Homepage.
  *
- * This route previously had NO metadata export at all. Title, description,
- * and canonical were all inherited from app/layout.tsx, which meant the
- * highest-traffic page on the site had no declaration of its own and would
- * silently follow any future edit to the root layout.
+ * PHASE 4a (body copy only). Promoted from /draft. The previous version
+ * composed Hero, Problem, Beliefs, Services, About (all now unused).
  *
- * The strings below are byte-identical to what the layout was already
- * emitting, so this changes nothing that Google can see. It only makes the
- * homepage explicit and independent.
+ * ───────────────────────────────────────────────────────────────────────
+ * WHY THE METADATA BELOW IS UNCHANGED
+ * ───────────────────────────────────────────────────────────────────────
+ * The title, description, and canonical are byte-identical to what was
+ * live before this promotion. That is deliberate and it is the whole
+ * point of splitting Phase 4.
  *
- * Deliberately NOT set here:
+ * This page carries 96% of the site's clicks (416 of 434) and 89% of its
+ * impressions, and it is the ranking URL for:
  *
- *   openGraph — Next.js replaces a parent `openGraph` object wholesale
- *   rather than deep-merging it. Declaring a partial one here would drop
- *   the layout's og:image (/og-image.jpg, 1200x630), which exists
- *   specifically because Google was otherwise pulling a client logo from
- *   the page as the SERP thumbnail. The layout's openGraph already carries
- *   the correct title, description, and URL for this route.
+ *   custom AI software Winnipeg        position 3
+ *   AI company Winnipeg                position 5
+ *   AI consulting Winnipeg             position 6
+ *   AI consulting Manitoba             position 7
+ *   AI companies Winnipeg              position 10
+ *   Origin AI / Origin AI Winnipeg     position 1
  *
- *   twitter — same inheritance reasoning.
+ * Shipping new body copy AND a new title together would make it
+ * impossible to attribute any movement to either one. So 4a changes copy
+ * only. The title change (to "AI Consulting Winnipeg | AI Training &
+ * Workflow Development | Origin AI") is Phase 4b, two to three weeks
+ * later, once this has settled.
  *
- * Title note: kept exactly as-is for this pass. A keyword-led rewrite is
- * queued for the homepage promotion, where it ships alongside the body
- * copy rather than ahead of it. This page currently ranks position 3 for
- * "custom AI software Winnipeg" and positions 5 to 7 for several Winnipeg
- * and Manitoba AI consulting terms, so the title is not changed in
- * isolation.
+ * Note that the current title still contains "Custom AI Software", which
+ * is the strongest remaining signal protecting the position-3 ranking
+ * while the body copy is re-evaluated. That protection goes away in 4b,
+ * which is the other reason to separate them.
  *
- * Canonical is written as an absolute literal without a trailing slash to
- * match the layout's existing output exactly. Using "/" with metadataBase
- * would resolve to a trailing-slash variant and change the emitted tag.
+ * ───────────────────────────────────────────────────────────────────────
+ * PHRASES RESTORED BEFORE PROMOTION
+ * ───────────────────────────────────────────────────────────────────────
+ * The draft version of this page had dropped several terms the live page
+ * ranked on. Restored in visible copy:
+ *
+ *   "custom AI software"  x2  (HomeIntro lede, HomeServices workflow card)
+ *   "across Canada"       x1  (HomeAbout)
+ *
+ * Deliberately NOT restored: "AI strategy" and "roadmap". The
+ * positioning moved away from roadmap-led language on purpose, and
+ * /services/strategy now carries "AI strategy consulting" instead.
+ *
+ * H1 is unchanged: "We build the AI your business runs on."
  */
+
 export const metadata: Metadata = {
   title: "AI Consulting & Custom AI Software in Winnipeg | Origin AI",
   description:
@@ -52,13 +68,13 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <main>
-      <Hero />
-      <Problem />
-      <Beliefs />
-      <Services />
+    <main className="home-v2">
+      <HomeHero />
+      <HomeIntro />
+      <HomeServices />
+      <HomeBeliefs />
       <Proof />
-      <About />
+      <HomeAbout />
       <FinalCTA />
     </main>
   );
