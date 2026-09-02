@@ -124,15 +124,26 @@ const ORG_JSON_LD = {
     { "@type": "AdministrativeArea", name: "Manitoba" },
     { "@type": "City", name: "Winnipeg" },
   ],
+  // Aligned to the four-part service model (leadership enablement, team
+  // training, workflow development, managed improvement).
+  //
+  // Removed: "AI roadmap" (the positioning moved away from roadmap
+  // language), "Agentic AI" and "AI agents" (high volume but they attract
+  // the wrong audience and no page targets them).
+  //
+  // Added: "AI training" and "AI workflow development" (both are now
+  // real services), and "AI adoption" (the through-line of the site).
+  // "Managed AI" widened to "Managed AI services", which is the phrase
+  // people actually search.
   knowsAbout: [
     "AI consulting",
+    "AI training",
     "Custom AI software",
     "AI software development",
+    "AI workflow development",
     "AI strategy",
-    "AI roadmap",
-    "Agentic AI",
-    "AI agents",
-    "Managed AI",
+    "AI adoption",
+    "Managed AI services",
   ],
   sameAs: ["https://www.linkedin.com/company/origin-ai-tech"],
 };
