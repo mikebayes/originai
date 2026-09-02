@@ -21,7 +21,13 @@ export default function HomeBeliefs() {
       <div className="dh-beliefs-inner">
         <header className="dh-beliefs-head" data-reveal>
           <span className="dh-rule" aria-hidden="true" />
-          <h2 className="dh-beliefs-h2 display">What we believe.</h2>
+          <h2 className="dh-beliefs-h2 display">
+            How we think about AI work.
+          </h2>
+          <p className="dh-beliefs-lede">
+            AI adoption works when people stay accountable, systems fit the
+            business, and improvement continues after launch.
+          </p>
         </header>
 
         <ol className="dh-beliefs-row" data-reveal-stagger>

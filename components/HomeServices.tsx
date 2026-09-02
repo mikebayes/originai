@@ -139,8 +139,8 @@ export default function HomeServices() {
         <header className="dh-svcs-head" data-reveal>
           <span className="dh-rule" aria-hidden="true" />
           <h2 className="dh-svcs-h2 display">
-            Our AI services.{" "}
-            <span className="muted">Four places to start.</span>
+            AI services for organizations{" "}
+            <span className="muted">ready to make AI part of the work.</span>
           </h2>
           <p className="dh-svcs-lede">
             Start with the need in front of you. Leadership enablement, team

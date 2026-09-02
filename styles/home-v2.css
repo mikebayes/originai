@@ -733,3 +733,26 @@
     width: 75%;
   }
 }
+
+/* ─── Homepage beliefs: section subheading ─────────────────────────────
+   The beliefs header was previously a rule plus an H2 with nothing under
+   it, so this class did not exist. Values mirror .dh-svcs-lede so the two
+   homepage section subheadings match, with the max-width pulled in a
+   little because this one is a single sentence rather than three.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.home-v2 .dh-beliefs-lede {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.62);
+  margin: 20px 0 0;
+  max-width: 58ch;
+}
+
+@media (max-width: 900px) {
+  .home-v2 .dh-beliefs-lede {
+    font-size: 16px;
+    margin-top: 16px;
+  }
+}
