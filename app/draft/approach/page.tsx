@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
  * noindex/nofollow. The live /approach route is untouched.
  *
  * Aligned to the refined draft services visual system:
- *   - darker charcoal / deep teal hero via .draft-hero (draft-only class)
+ *   - darker charcoal / deep teal hero via .svc-dark (draft-only class)
  *   - breadcrumb only, no progress marker, no duplicate hero label
  *   - no all-caps text section eyebrows anywhere
  *   - one homepage streak above the first body heading, teal rules after
@@ -55,10 +55,10 @@ void EVENTUAL_SEO_DESCRIPTION;
 export default function DraftApproachPage() {
   return (
     <main>
-      {/* draft-hero + draft-hero--approach carry the new dark hero
+      {/* svc-dark + svc-dark--approach carry the new dark hero
           treatment. Both classes exist only on draft pages, so the live
           /approach route is unaffected. */}
-      <div className="bp-page bp-page--approach draft-hero draft-hero--approach">
+      <div className="bp-page bp-page--approach svc-dark svc-dark--approach">
         <div className="bp-grain" aria-hidden="true" />
 
         {/* Internal draft banner. Delete when this page goes live. */}

@@ -3,26 +3,27 @@ import HeroNav from "@/components/HeroNav";
 import Footer from "@/components/Footer";
 
 /**
- * /draft/services/ai-training — DRAFT Team AI Training page.
+ * /services/ai-training — Team AI Training.
  *
- * INTERNAL REVIEW ONLY. Not linked from nav, not in the sitemap,
- * noindex/nofollow. No live route is touched.
+ * Promoted from /draft/services/ai-training. This is the first page of the
+ * repositioned four-part service model to go live:
  *
- * Built on the refined /draft/services/build design system:
- *   - breadcrumb only in the hero, no progress marker, no duplicate
- *     service label, no decorative accent above the H1
- *   - no all-caps text eyebrows on body sections
- *   - one homepage streak above the first body heading, simple teal
- *     rules above the rest
- *   - two-tone headline treatment used sparingly (hero + one body
- *     section only)
- *   - no card-level accent lines
+ *   Leadership AI Enablement   /services/strategy
+ *   Team AI Training           /services/ai-training   <- this page
+ *   AI Workflow Development    /services/build
+ *   Managed AI Improvement     /services/managed
  *
- * Positioning: this is not a generic ChatGPT workshop. The
- * differentiator is customization, so section 3 ("Customized before
- * anyone joins the session") carries the pre-session survey, role and
- * workflow review, example selection, and session design. Training also
- * doubles as discovery: section 6 connects surfaced use cases to AI
+ * SEO job: primary "AI training Winnipeg", secondary "AI training company
+ * Winnipeg", "AI training for teams", "ChatGPT training", "AI workshops".
+ * GSC recorded 348 impressions for "ai training company winnipeg" at
+ * average position 35.87 with no dedicated page, which is what this page
+ * is here to capture.
+ *
+ * Positioning: this is not a generic ChatGPT workshop. The differentiator
+ * is customization, so the "Customized before anyone joins the session"
+ * section carries the pre-session survey, role and workflow review,
+ * example selection, and session design. Training also doubles as
+ * discovery: "Where training can lead" connects surfaced use cases to AI
  * Workflow Development and Leadership AI Enablement.
  *
  * Sections:
@@ -32,48 +33,53 @@ import Footer from "@/components/Footer";
  *   4. What teams learn (6 compact cards)
  *   5. What happens in the session (4 steps)
  *   6. Where training can lead (3 cards, 2 link out)
- *   7. CTA
+ *   7. Questions, answered (4)
+ *   8. CTA
  *
- * TODO (launch task, NOT draft-scoped): when the repositioning ships,
- * this page becomes /services/ai-training and the shared Services
- * dropdown in components/NavServicesDropdown.tsx and
- * NavServicesAccordion.tsx needs a fourth item pointing at it, plus the
- * renames noted on the other draft pages.
+ * Styling note: the dark hero treatment comes from the svc-dark /
+ * svc-dark--training classes in styles/services-deep.css. Those were
+ * originally named draft-hero and were renamed when this page shipped, so
+ * no production markup carries a draft-prefixed class. The draft pages
+ * still using that system were updated in the same pass.
  */
 
-/* ─── EVENTUAL SEO (for review, NOT active while draft) ──────────────
-   Location language lives here and in the footer, not in hero copy.   */
-const EVENTUAL_SEO_TITLE =
-  "AI Training Winnipeg | Team AI Training & Enablement | Origin AI";
-const EVENTUAL_SEO_DESCRIPTION =
-  "Origin AI provides customized AI training for teams in Winnipeg and across Canada, helping staff use AI in real work, improve adoption, and identify workflow opportunities.";
-
 export const metadata: Metadata = {
-  title: "DRAFT · Team AI Training | Origin AI",
-  description: "Internal draft. Not for publication.",
-  robots: { index: false, follow: false },
+  title: "AI Training Winnipeg | Team AI Training for Business | Origin AI",
+  description:
+    "AI training for teams in Winnipeg and across Canada. Origin AI helps staff use AI around real roles, tasks, documents, decisions, and workflows.",
+  alternates: { canonical: "https://www.originai.ca/services/ai-training" },
 };
 
-/* Review route: never serve a cached copy. Scoped to this draft page
-   only, so the live marketing pages keep their static generation. */
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
+const SERVICE_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://www.originai.ca/services/ai-training#service",
+  name: "Team AI Training",
+  description:
+    "Customized AI training for teams in Winnipeg and across Canada. Sessions are built around the roles, tasks, documents, decisions, and tools a team already works with, including ChatGPT, Microsoft Copilot, and Claude.",
+  provider: { "@id": "https://www.originai.ca/#organization" },
+  serviceType: "AI Training",
+  areaServed: [
+    { "@type": "Country", name: "Canada" },
+    { "@type": "AdministrativeArea", name: "Manitoba" },
+    { "@type": "City", name: "Winnipeg" },
+  ],
+  url: "https://www.originai.ca/services/ai-training",
+};
 
-void EVENTUAL_SEO_TITLE;
-void EVENTUAL_SEO_DESCRIPTION;
+export default function TeamAITrainingPage() {
 
-export default function DraftTeamAITrainingPage() {
   return (
     <main>
-      {/* bp-page--training inherits the workflow page's refined hero
-          scale and card spacing, with its own grid overrides. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICE_JSON_LD) }}
+      />
+      {/* bp-page--training inherits the workflow page's hero scale and
+          card spacing, with its own grid overrides. svc-dark carries the
+          dark hero treatment. */}
       <div className="bp-page bp-page--workflow bp-page--training svc-dark svc-dark--training">
         <div className="bp-grain" aria-hidden="true" />
-
-        {/* Internal draft banner. Delete when this page goes live. */}
-        <div className="draft-banner" role="note">
-          Internal draft. Not indexed, not linked, no live route affected.
-        </div>
 
         <div className="bp-hero-shell">
           <HeroNav />
@@ -97,11 +103,12 @@ export default function DraftTeamAITrainingPage() {
               <span className="accent">your team&rsquo;s real work.</span>
             </h1>
 
-            {/* One subheadline only. */}
             <p className="bp-hero-sub">
               Origin helps teams use AI with more confidence, consistency, and
               judgment by tailoring training around their roles, tools,
-              documents, decisions, and real opportunities.
+              documents, decisions, and real opportunities. We deliver AI
+              training for teams in Winnipeg and across Canada, on-site or
+              remote.
             </p>
 
             <div className="bp-hero-actions">
@@ -203,7 +210,9 @@ export default function DraftTeamAITrainingPage() {
                 <p className="section-lede lede">
                   Before training, we gather enough context to make the session
                   relevant to the team, their roles, and the examples they are
-                  likely to recognize.
+                  likely to recognize. Sessions can include tools such as
+                  ChatGPT, Microsoft Copilot, Claude, and other AI tools,
+                  depending on what the team actually uses.
                 </p>
               </div>
             </div>
@@ -438,7 +447,63 @@ export default function DraftTeamAITrainingPage() {
           </div>
         </section>
 
-        {/* ─── SECTION 7: CTA ────────────────────────────────────── */}
+        {/* ─── SECTION 7: QUESTIONS, ANSWERED ────────────────────── */}
+        {/* Reuses the .bp-faq system already on the live service pages. Head
+            uses this page's bp-rule pattern rather than the older all-caps
+            eyebrow so it matches the sections above. */}
+        <section className="bp-faq" data-screen-label="Common questions">
+          <div className="wrap">
+            <div className="bp-faq-head">
+              <div>
+                <span className="bp-rule" aria-hidden="true" />
+                <h2 className="section-h2 bp-h2--accented">
+                  Questions, <span className="muted">answered.</span>
+                </h2>
+              </div>
+              <p className="section-lede lede">
+                What teams tend to ask before booking a session.
+              </p>
+            </div>
+
+            <div className="bp-faq-list">
+              {[
+                {
+                  open: true,
+                  q: "Who is AI training for?",
+                  a: "Teams that already have access to AI tools but use them inconsistently. Most sessions are mixed groups: managers, coordinators, analysts, and the people handling day-to-day documents and decisions. AI training for teams works best when the room shares some of the same work.",
+                },
+                {
+                  open: false,
+                  q: "Do you train on specific tools?",
+                  a: "Yes. Sessions are built around the tools your team already has, so in practice this usually looks like ChatGPT training, Microsoft Copilot training, or a mix of both alongside whatever else is in use.",
+                },
+                {
+                  open: false,
+                  q: "Can training be delivered on-site in Winnipeg?",
+                  a: "Yes. Origin is a Winnipeg AI training company, so on-site sessions in the city are straightforward. For teams elsewhere in Canada we run the same session remotely, or travel when it makes sense.",
+                },
+                {
+                  open: false,
+                  q: "What do teams walk away with?",
+                  a: "Shared habits for using AI on real tasks, examples drawn from their own work, and a short list of workflow opportunities worth looking at next.",
+                },
+              ].map((it, i) => (
+                <details className="bp-faq-item" key={i} open={it.open}>
+                  <summary>
+                    <span className="qnum">
+                      Q · {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="qtext">{it.q}</span>
+                    <span className="plus" aria-hidden="true" />
+                  </summary>
+                  <div className="ans">{it.a}</div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ─── SECTION 8: CTA ────────────────────────────────────── */}
         {/* No eyebrow, no accent. The CTA panel carries the section. */}
         <section className="bp-cta" data-screen-label="Final CTA" id="contact">
           <div className="wrap">

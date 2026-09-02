@@ -15,8 +15,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     { url: "/", priority: 1.0, changeFrequency: "weekly" as const },
     { url: "/services", priority: 0.9, changeFrequency: "monthly" as const },
-    { url: "/services/build", priority: 0.9, changeFrequency: "monthly" as const },
     { url: "/services/strategy", priority: 0.9, changeFrequency: "monthly" as const },
+    // Team AI Training. 0.9 to match the other two primary service pages.
+    { url: "/services/ai-training", priority: 0.9, changeFrequency: "monthly" as const },
+    { url: "/services/build", priority: 0.9, changeFrequency: "monthly" as const },
     { url: "/services/managed", priority: 0.7, changeFrequency: "monthly" as const },
     { url: "/approach", priority: 0.7, changeFrequency: "monthly" as const },
     { url: "/team", priority: 0.7, changeFrequency: "monthly" as const },

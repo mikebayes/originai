@@ -30,10 +30,11 @@ import Footer from "@/components/Footer";
  *   6. Questions, answered (4)
  *   7. CTA
  *
- * TODO (launch task, NOT draft-scoped): Services dropdown labels live
- * in components/NavServicesDropdown.tsx and NavServicesAccordion.tsx,
- * shared by HeroNav and the global StickyNav. When the repositioning
- * ships, rename "Managed AI" to "Managed AI Improvement" there.
+ * Nav note: the global Services dropdown was renamed to the four-part
+ * model (Leadership AI Enablement, Team AI Training, AI Workflow
+ * Development, Managed AI Improvement) when /services/ai-training
+ * shipped. components/NavServicesDropdown.tsx and
+ * NavServicesAccordion.tsx are already up to date.
  */
 
 /* ─── EVENTUAL SEO (for review, NOT active while draft) ────────────── */
@@ -58,10 +59,10 @@ void EVENTUAL_SEO_DESCRIPTION;
 export default function DraftManagedImprovementPage() {
   return (
     <main>
-      {/* draft-hero + draft-hero--managed carry the dark hero treatment
+      {/* svc-dark + svc-dark--managed carry the dark hero treatment
           and this page's layout overrides. Both classes exist only on
           draft pages, so the live /services/managed route is unaffected. */}
-      <div className="bp-page bp-page--managed draft-hero draft-hero--managed">
+      <div className="bp-page bp-page--managed svc-dark svc-dark--managed">
         <div className="bp-grain" aria-hidden="true" />
 
         {/* Internal draft banner. Delete when this page goes live. */}

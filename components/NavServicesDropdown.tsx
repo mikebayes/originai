@@ -65,22 +65,45 @@ export default function NavServicesDropdown() {
         </a>
         <div className="nav-services-divider" aria-hidden="true" />
 
-        <a href="/services/build" className="nav-services-item" role="menuitem">
-          <span className="nav-services-item-title">AI Software &amp; Systems</span>
+        {/* Four services, ordered along the adoption arc: align, train,
+            build, improve. Renamed from the previous three-item set when
+            /services/ai-training shipped:
+              AI Strategy & Training -> Leadership AI Enablement
+              AI Software & Systems  -> AI Workflow Development
+              Managed AI             -> Managed AI Improvement
+              + Team AI Training (new route) */}
+        <a href="/services/strategy" className="nav-services-item" role="menuitem">
+          <span className="nav-services-item-title">
+            Leadership AI Enablement
+          </span>
           <span className="nav-services-item-desc">
-            Custom AI software, internal apps, and AI-enabled websites.
+            Align leaders on where AI fits and what moves first.
           </span>
         </a>
-        <a href="/services/strategy" className="nav-services-item" role="menuitem">
-          <span className="nav-services-item-title">AI Strategy &amp; Training</span>
+        <a
+          href="/services/ai-training"
+          className="nav-services-item"
+          role="menuitem"
+        >
+          <span className="nav-services-item-title">Team AI Training</span>
           <span className="nav-services-item-desc">
-            Leadership advisory, training, and use-case discovery.
+            AI training for teams, built around real roles and work.
+          </span>
+        </a>
+        <a href="/services/build" className="nav-services-item" role="menuitem">
+          <span className="nav-services-item-title">
+            AI Workflow Development
+          </span>
+          <span className="nav-services-item-desc">
+            Custom AI software, assistants, automations, and internal tools.
           </span>
         </a>
         <a href="/services/managed" className="nav-services-item" role="menuitem">
-          <span className="nav-services-item-title">Managed AI</span>
+          <span className="nav-services-item-title">
+            Managed AI Improvement
+          </span>
           <span className="nav-services-item-desc">
-            Ongoing development and support for what we build with you.
+            Ongoing support and improvement after AI goes live.
           </span>
         </a>
       </div>

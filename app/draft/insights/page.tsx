@@ -21,7 +21,7 @@ import {
  * structure; only the hero and CTA change.
  *
  * Visual alignment with the refined draft pages:
- *   - darker charcoal / deep teal hero via .draft-hero (draft-only)
+ *   - darker charcoal / deep teal hero via .svc-dark (draft-only)
  *   - no INSIGNTS hero eyebrow, no decorative top-right label
  *   - streak accent above the hero H1, teal rule above the CTA
  *   - no all-caps text eyebrows anywhere
@@ -83,10 +83,10 @@ export default function DraftInsightsPage() {
 
   return (
     <main>
-      {/* draft-hero + draft-hero--insights carry the new dark hero
+      {/* svc-dark + svc-dark--insights carry the new dark hero
           treatment. Both classes exist only on draft pages, so the live
           /insights route is unaffected. */}
-      <div className="bp-page bp-page--insights bp-page--insights-simple draft-hero draft-hero--insights">
+      <div className="bp-page bp-page--insights bp-page--insights-simple svc-dark svc-dark--insights">
         <div className="bp-grain" aria-hidden="true" />
 
         {/* Internal draft banner. Delete when this page goes live. */}

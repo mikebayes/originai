@@ -21,7 +21,7 @@ import {
  *
  * Four-part service model:
  *   1. Leadership AI Enablement   -> /services/strategy
- *   2. Team AI Enablement         -> /services/ai-training (route TBD)
+ *   2. Team AI Training           -> /services/ai-training
  *   3. AI Workflow Development    -> /services/build
  *   4. Managed AI Improvement     -> /services/managed
  *
@@ -68,7 +68,7 @@ void EVENTUAL_SEO_DESCRIPTION;
 export default function DraftServicesPage() {
   return (
     <main>
-      <div className="svcs-v2 svcs-draft draft-hero draft-hero--pillar">
+      <div className="svcs-v2 svcs-draft svc-dark svc-dark--pillar">
         {/* Internal draft banner. Delete when this page goes live. */}
         <div className="draft-banner" role="note">
           Internal draft. Not indexed, not linked, live /services unchanged.
@@ -141,7 +141,7 @@ export default function DraftServicesPage() {
                 </div>
                 <div className="svc-row" data-step="2">
                   <span className="svc-row-num">02</span>
-                  <span className="svc-row-name">Team AI Enablement</span>
+                  <span className="svc-row-name">Team AI Training</span>
                   <span className="svc-row-tag">Train</span>
                 </div>
                 <div className="svc-row" data-step="3">
@@ -218,7 +218,7 @@ export default function DraftServicesPage() {
               </div>
               <div className="svc-card-body">
                 <span className="svc-card-num">Team</span>
-                <h3 className="svc-card-title">Team AI Enablement</h3>
+                <h3 className="svc-card-title">Team AI Training</h3>
                 <p className="svc-card-promise">
                   AI training for teams, built around the work people already
                   do: writing, research, analysis, documents, decisions, and

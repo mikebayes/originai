@@ -26,13 +26,11 @@ import Footer from "@/components/Footer";
  * hero outputs strip), and the last of the generic workflow-encyclopedia
  * copy. "AI-enabled workflow" as a phrase is retired.
  *
- * TODO (launch task, NOT draft-scoped): Services dropdown labels live in
- * components/NavServicesDropdown.tsx and NavServicesAccordion.tsx, shared
- * by HeroNav and the global StickyNav. When the repositioning ships:
- *   "AI Software & Systems"  -> "AI Workflow Development"
- *   "AI Strategy & Training" -> "Leadership AI Enablement"
- *   "Managed AI"             -> "Managed AI Improvement"
- *   + add 4th item: "Team AI Enablement / AI Training" -> /services/ai-training
+ * Nav note: the global Services dropdown was renamed to the four-part
+ * model (Leadership AI Enablement, Team AI Training, AI Workflow
+ * Development, Managed AI Improvement) when /services/ai-training
+ * shipped. components/NavServicesDropdown.tsx and
+ * NavServicesAccordion.tsx are already up to date.
  */
 
 /* ─── EVENTUAL SEO (for review, NOT active while draft) ─────────────── */
@@ -60,7 +58,7 @@ export default function DraftWorkflowDevelopmentPage() {
     <main>
       {/* bp-page--workflow carries the per-page grid and spacing overrides
           for this page's card sections. */}
-      <div className="bp-page bp-page--workflow draft-hero draft-hero--build">
+      <div className="bp-page bp-page--workflow svc-dark svc-dark--build">
         <div className="bp-grain" aria-hidden="true" />
 
         {/* Internal draft banner. Delete when this page goes live. */}
@@ -168,9 +166,10 @@ export default function DraftWorkflowDevelopmentPage() {
                 </span>
               </a>
 
-              {/* TODO: link this card to /services/ai-training once that
-                  route exists. Omitted for now so the draft has no dead
-                  links. */}
+              {/* Phase 3 item: /services/ai-training is now live, so this
+                  card can become a link like its sibling above. Left as a
+                  plain cell here because this draft page is not part of the
+                  Phase 2 scope. */}
               <div className="bp-origin-cell">
                 <h3>Discovered through team training</h3>
                 <p>

@@ -71,14 +71,19 @@ export default function NavServicesAccordion({ onLinkClick }: Props) {
             <span>View all services</span>
             <span className="nav-services-mobile-overview-arrow" aria-hidden="true">→</span>
           </a>
-          <a href="/services/build" onClick={handleSubLinkClick}>
-            AI Software &amp; Systems
-          </a>
+          {/* Same four services and same order as the desktop dropdown in
+              NavServicesDropdown.tsx. Keep the two in sync. */}
           <a href="/services/strategy" onClick={handleSubLinkClick}>
-            AI Strategy &amp; Training
+            Leadership AI Enablement
+          </a>
+          <a href="/services/ai-training" onClick={handleSubLinkClick}>
+            Team AI Training
+          </a>
+          <a href="/services/build" onClick={handleSubLinkClick}>
+            AI Workflow Development
           </a>
           <a href="/services/managed" onClick={handleSubLinkClick}>
-            Managed AI
+            Managed AI Improvement
           </a>
         </div>
       </div>

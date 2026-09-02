@@ -10,7 +10,7 @@ import Footer from "@/components/Footer";
  *
  * Visual alignment pass, not a rebuild. Carries over from the refined
  * draft pages:
- *   - darker charcoal / deep teal hero via .draft-hero (draft-only)
+ *   - darker charcoal / deep teal hero via .svc-dark (draft-only)
  *   - breadcrumb only, no hero eyebrow, no top-right decorative label
  *   - no all-caps text section eyebrows
  *   - one homepage streak above the first body heading, teal rule after
@@ -94,10 +94,10 @@ const PARTNERS = [
 export default function DraftTeamPage() {
   return (
     <main>
-      {/* draft-hero + draft-hero--team carry the new dark hero treatment
+      {/* svc-dark + svc-dark--team carry the new dark hero treatment
           and this page's overrides. Both classes exist only on draft
           pages, so the live /team route is unaffected. */}
-      <div className="bp-page bp-page--team draft-hero draft-hero--team">
+      <div className="bp-page bp-page--team svc-dark svc-dark--team">
         <div className="bp-grain" aria-hidden="true" />
 
         {/* Internal draft banner. Delete when this page goes live. */}

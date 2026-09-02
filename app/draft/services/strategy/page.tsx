@@ -29,15 +29,11 @@ import Footer from "@/components/Footer";
  * hero shell, work grid, fit grid, outputs list, CTA) so no new visual
  * language is introduced.
  *
- * TODO (launch task, NOT draft-scoped): the Services dropdown labels
- * live in components/NavServicesDropdown.tsx and
- * components/NavServicesAccordion.tsx, shared by HeroNav and the global
- * StickyNav. They cannot change for this draft without affecting every
- * live page. When the repositioning ships, update both in one pass:
- *   "AI Software & Systems"  -> "AI Workflow Development"
- *   "AI Strategy & Training" -> "Leadership AI Enablement"
- *   "Managed AI"             -> "Managed AI Improvement"
- *   + add 4th item: "Team AI Enablement / AI Training" -> /services/ai-training
+ * Nav note: the global Services dropdown was renamed to the four-part
+ * model (Leadership AI Enablement, Team AI Training, AI Workflow
+ * Development, Managed AI Improvement) when /services/ai-training
+ * shipped. components/NavServicesDropdown.tsx and
+ * NavServicesAccordion.tsx are already up to date.
  */
 
 /* ─── EVENTUAL SEO (for review, NOT active while draft) ──────────────
@@ -59,7 +55,7 @@ void EVENTUAL_SEO_DESCRIPTION;
 export default function DraftLeadershipEnablementPage() {
   return (
     <main>
-      <div className="bp-page bp-page--strategy draft-hero draft-hero--strategy">
+      <div className="bp-page bp-page--strategy svc-dark svc-dark--strategy">
         <div className="bp-grain" aria-hidden="true" />
 
         {/* Internal draft banner. Delete when this page goes live. */}

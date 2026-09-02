@@ -80,10 +80,6 @@ export default function DraftWhoWeAre() {
                 </a>
               </li>
 
-              {/* TODO (launch blocker for this link, NOT draft-scoped):
-                  /services/ai-training does not exist yet. This link 404s
-                  until that route ships. Same TODO already tracked in
-                  app/draft/services/page.tsx and the build page. */}
               <li className="dh-cap">
                 <a href="/services/ai-training">
                   <span className="dh-cap-num">02</span>
