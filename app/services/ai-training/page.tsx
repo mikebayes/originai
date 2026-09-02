@@ -106,9 +106,20 @@ export default function TeamAITrainingPage() {
             <p className="bp-hero-sub">
               Origin helps teams use AI with more confidence, consistency, and
               judgment by tailoring training around their roles, tools,
-              documents, decisions, and real opportunities. We deliver AI
-              training for teams in Winnipeg and across Canada, on-site or
-              remote.
+              documents, decisions, and real opportunities.
+            </p>
+
+            {/* Secondary delivery line. Deliberately quieter than the
+                subheadline above it: 16px against 19.5px, and a lower
+                opacity. It carries the Winnipeg and Canada signal without
+                lengthening the main paragraph, which read as tacked on when
+                the two were combined.
+
+                bp-hero-sub--secondary already existed in the .bp-page
+                namespace for exactly this treatment and was unused. */}
+            <p className="bp-hero-sub bp-hero-sub--secondary">
+              AI training for teams in Winnipeg and across Canada, delivered
+              on-site or remote.
             </p>
 
             <div className="bp-hero-actions">
