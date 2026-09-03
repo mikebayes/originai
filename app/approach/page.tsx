@@ -219,18 +219,23 @@ export default function ApproachRoute() {
 
                   {/* Six capability nodes around the ring */}
                   {[
-                    { x: 195, y: 74,  num: "01", label: "Leadership Direction", dotX: 220, dotY: 102 },
-                    { x: 368, y: 174, num: "02", label: "Executive Ownership",  dotX: 393, dotY: 202 },
-                    { x: 368, y: 374, num: "03", label: "Working Systems",      dotX: 393, dotY: 402 },
-                    { x: 195, y: 474, num: "04", label: "Buildable Use Cases",  dotX: 220, dotY: 502 },
-                    { x: 22,  y: 374, num: "05", label: "Policy & Governance",  dotX: 47,  dotY: 402 },
-                    { x: 22,  y: 174, num: "06", label: "AI Fluency",           dotX: 47,  dotY: 202 },
+                    /* Pill y = vertex y - 28 (half the 56px height), so each pill
+                       centres exactly on its hexagon vertex. Every y used to be 2px
+                       higher, pushing all six pills low and leaving the canvas
+                       asymmetric: 74px above the top pill vs 70px below the bottom
+                       one. Both are 72px now. */
+                    { x: 195, y: 72,  num: "01", label: "Leadership Direction", dotX: 220, dotY: 100 },
+                    { x: 368, y: 172, num: "02", label: "Executive Ownership",  dotX: 393, dotY: 200 },
+                    { x: 368, y: 372, num: "03", label: "Working Systems",      dotX: 393, dotY: 400 },
+                    { x: 195, y: 472, num: "04", label: "Buildable Use Cases",  dotX: 220, dotY: 500 },
+                    { x: 22,  y: 372, num: "05", label: "Policy & Governance",  dotX: 47,  dotY: 400 },
+                    { x: 22,  y: 172, num: "06", label: "AI Fluency",           dotX: 47,  dotY: 200 },
                   ].map((n) => (
                     <g key={n.num}>
                       <rect x={n.x} y={n.y} width="210" height="56" rx="28" fill="#080f10" stroke="rgba(93,168,156,0.38)" strokeWidth="1" />
                       <circle cx={n.dotX} cy={n.dotY} r="3.5" fill="#5DA89C" />
-                      <text x={n.dotX + 14} y={n.dotY - 4} fontFamily="JetBrains Mono, monospace" fontSize="9.5" letterSpacing="2.4" fill="rgba(93,168,156,0.9)">{n.num}</text>
-                      <text x={n.dotX + 14} y={n.dotY + 14} fontFamily="Inter Tight, sans-serif" fontWeight="500" fontSize="14" fill="rgba(245,240,228,0.95)">{n.label}</text>
+                      <text x={n.dotX + 14} y={n.dotY - 6} fontFamily="JetBrains Mono, monospace" fontSize="9.5" letterSpacing="2.4" fill="rgba(93,168,156,0.9)">{n.num}</text>
+                      <text x={n.dotX + 14} y={n.dotY + 12} fontFamily="Inter Tight, sans-serif" fontWeight="500" fontSize="14" fill="rgba(245,240,228,0.95)">{n.label}</text>
                     </g>
                   ))}
                 </svg>
