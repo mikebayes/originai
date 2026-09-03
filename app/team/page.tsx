@@ -76,9 +76,9 @@ const PARTNERS = [
 export default function TeamRoute() {
   return (
     <main>
-      {/* svc-dark + svc-dark--team carry the new dark hero treatment
-          and this page's overrides. Both classes exist only on draft
-          pages, so the live /team route is unaffected. */}
+      {/* svc-dark + svc-dark--team carry the dark hero treatment and
+          this page's overrides. Shared with the other promoted pages so
+          they stay visually consistent. */}
       <div className="bp-page bp-page--team svc-dark svc-dark--team">
         <div className="bp-grain" aria-hidden="true" />
 
@@ -154,7 +154,7 @@ export default function TeamRoute() {
         {/* ─── SECTION 2: PARTNER CARDS ──────────────────────────── */}
         {/* Cards, photos, roles, bios, and chips preserved from the live
             page. The FOUNDING TEAM eyebrow is replaced by the streak. */}
-        <section className="bp-team" data-screen-label="The people leading the work">
+        <section className="bp-team" data-screen-label="Meet the team">
           <div className="wrap">
             <div className="bp-work-head">
               <div>
@@ -165,7 +165,7 @@ export default function TeamRoute() {
                   <span className="hero-mark-line" />
                 </span>
                 <h2 className="section-h2 bp-h2--accented">
-                  The people leading the work.
+                  Meet the team behind Origin AI.
                 </h2>
               </div>
               <p className="section-lede lede">
@@ -231,7 +231,7 @@ export default function TeamRoute() {
         <section className="bp-cta" data-screen-label="Final CTA" id="contact">
           <div className="wrap">
             <div className="bp-cta-inner bp-cta-inner--bare">
-              <h2>Talk with the team.</h2>
+              <h2>Talk with our team.</h2>
               <p>
                 Let&rsquo;s discuss where AI fits, what your team needs, and
                 which opportunities are worth turning into training,

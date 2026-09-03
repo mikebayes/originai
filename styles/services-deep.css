@@ -9050,7 +9050,7 @@
    Light pass on the 2x2 grid in "What we help leadership decide." on
    /draft/services/strategy. Concept and layout unchanged.
 
-   Gated on .svc-dark--strategy, which exists only on the draft page.
+   Gated on .svc-dark--strategy, which only this page carries.
    The base .bp-work-cell rules (~L356) and the shared
    .bp-page--strategy 2-col rule are used by the LIVE strategy page and
    are not touched.
@@ -9219,4 +9219,81 @@
   fill: rgba(93, 168, 156, 0.13);
   stroke: rgba(93, 168, 156, 0.6);
   stroke-width: 1;
+}
+
+/* ─── Strategy page: the next-step bridge section ──────────────────────
+   Refinement pass. The section read as a separate page: centred,
+   oversized, and using brass where the rest of the page had moved to
+   teal. Everything here is scoped to .svc-dark--strategy so the shared
+   .bp-bridge / .bp-next-* rules still serve any other page.
+
+   What was wrong, measured:
+     .bp-outputs padding-bottom 140 + .bp-bridge padding-top 130 put
+     270px of empty black between "Clarity your team can act on." and
+     this heading. .bp-bridge-head then added margin-bottom: 96px, which
+     left the statement floating well clear of its own heading.
+     .bp-rail-statement was centred at up to 28px, the only centred body
+     text on the page.
+
+   Accent: this page defines brass as a signal used SPARINGLY, and the
+   decision grid above already uses teal. Brass now appears only in the
+   hero, and these cards match the decision grid.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Close the gap above the section from the preceding side. */
+.svc-dark--strategy .bp-outputs {
+  padding-bottom: 76px;
+}
+
+.svc-dark--strategy .bp-bridge {
+  padding: 76px 0 84px;
+}
+
+/* Heading now sits with its statement instead of 96px above it. */
+.svc-dark--strategy .bp-bridge-head {
+  margin-bottom: 22px;
+}
+
+/* Was centred, up to 28px, inter-tight at 0.88 opacity: a page-level
+   statement. Retuned to match every other section lede on this page so
+   it reads as supporting copy, not a second headline. */
+.svc-dark--strategy .bp-rail-statement {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  letter-spacing: 0;
+  color: rgba(255, 255, 255, 0.72);
+  text-align: left;
+  margin: 0;
+  max-width: 64ch;
+}
+
+.svc-dark--strategy .bp-next-grid {
+  margin-top: 32px;
+}
+
+/* Brass -> teal, matching .svc-dark--strategy .bp-work-cell .num above. */
+.svc-dark--strategy .bp-next-label {
+  color: rgba(93, 168, 156, 0.75);
+}
+.svc-dark--strategy .bp-next-link {
+  color: rgba(93, 168, 156, 0.92);
+}
+.svc-dark--strategy .bp-next-card:hover {
+  border-color: rgba(93, 168, 156, 0.42);
+}
+
+@media (max-width: 900px) {
+  .svc-dark--strategy .bp-outputs {
+    padding-bottom: 56px;
+  }
+  .svc-dark--strategy .bp-bridge {
+    padding: 56px 0 64px;
+  }
+  .svc-dark--strategy .bp-bridge-head {
+    margin-bottom: 18px;
+  }
+  .svc-dark--strategy .bp-rail-statement {
+    font-size: 16.5px;
+  }
 }

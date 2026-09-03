@@ -194,7 +194,9 @@
 
 .home-v2 .dh-beliefs {
   position: relative;
-  padding: 96px 0 100px;
+  /* 96/100 -> 112/116. The band sits between two busy sections and the
+     black read as cramped against them. */
+  padding: 112px 0 116px;
   background: linear-gradient(180deg, #050a0c 0%, #060d0f 50%, #050a0c 100%);
 }
 .home-v2 .dh-beliefs-inner {
@@ -203,7 +205,8 @@
   padding: 0 56px;
 }
 .home-v2 .dh-beliefs-head {
-  margin-bottom: 44px;
+  /* 44 -> 52 now that the head carries a subheading as well as the H2. */
+  margin-bottom: 52px;
 }
 .home-v2 .dh-rule {
   display: block;

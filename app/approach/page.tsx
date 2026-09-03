@@ -33,9 +33,9 @@ export const metadata: Metadata = {
 export default function ApproachRoute() {
   return (
     <main>
-      {/* svc-dark + svc-dark--approach carry the new dark hero
-          treatment. Both classes exist only on draft pages, so the live
-          /approach route is unaffected. */}
+      {/* svc-dark + svc-dark--approach carry the dark hero treatment.
+          Shared with the other promoted pages so they stay visually
+          consistent. */}
       <div className="bp-page bp-page--approach svc-dark svc-dark--approach">
         <div className="bp-grain" aria-hidden="true" />
 
@@ -311,7 +311,7 @@ export default function ApproachRoute() {
               <div>
                 <span className="bp-rule" aria-hidden="true" />
                 <h2 className="section-h2 bp-h2--accented">
-                  Principles that shape the work.
+                  The principles that guide our work.
                 </h2>
               </div>
               <p className="section-lede lede">

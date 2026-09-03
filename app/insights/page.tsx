@@ -46,9 +46,8 @@ export default function InsightsRoute() {
 
   return (
     <main>
-      {/* svc-dark + svc-dark--insights carry the new dark hero
-          treatment. Both classes exist only on draft pages, so the live
-          /insights route is unaffected. */}
+      {/* svc-dark + svc-dark--insights carry the dark hero treatment.
+          This page keeps its own smaller type scale, which is deliberate. */}
       <div className="bp-page bp-page--insights bp-page--insights-simple svc-dark svc-dark--insights">
         <div className="bp-grain" aria-hidden="true" />
 

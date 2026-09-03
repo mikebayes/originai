@@ -22,7 +22,7 @@ export default function HomeBeliefs() {
         <header className="dh-beliefs-head" data-reveal>
           <span className="dh-rule" aria-hidden="true" />
           <h2 className="dh-beliefs-h2 display">
-            How we think about AI work.
+            How we think about AI adoption.
           </h2>
           <p className="dh-beliefs-lede">
             AI adoption works when people stay accountable, systems fit the

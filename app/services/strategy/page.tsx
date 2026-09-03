@@ -79,8 +79,8 @@ export default function LeadershipAIEnablementPage() {
             </div>
 
             <h1 className="bp-hero-h1 bp-hero-h1--bare">
-              Help your leadership team decide{" "}
-              <span className="accent">where AI fits.</span>
+              Help your leadership team{" "}
+              <span className="accent">make clear AI decisions.</span>
             </h1>
 
             {/* Location language is handled in SEO metadata and the footer,
@@ -134,13 +134,6 @@ export default function LeadershipAIEnablementPage() {
                 You are probably here because{" "}
                 <span className="muted">one of these is true.</span>
               </h2>
-              <p className="section-lede">
-                This is AI strategy consulting for leadership teams that need
-                to decide where AI fits, how it should be used, and what
-                should move first. It suits organizations that know AI matters
-                but want clearer direction before investing heavily in tools,
-                software, or internal change.
-              </p>
             </div>
 
             <div className="bp-fit-grid">
@@ -182,7 +175,7 @@ export default function LeadershipAIEnablementPage() {
               <div>
                 <span className="bp-rule" aria-hidden="true" />
                 <h2 className="section-h2 bp-h2--accented">
-                  What we help leadership decide.
+                  What we help your leadership team decide.
                 </h2>
               </div>
               <p className="section-lede lede">
@@ -238,7 +231,9 @@ export default function LeadershipAIEnablementPage() {
               <p className="section-lede lede">
                 Most Leadership AI Enablement engagements combine focused
                 leadership sessions, light discovery, and a clear set of
-                recommendations on where AI adoption should start.
+                recommendations on where AI adoption should start. It is AI
+                strategy consulting, scoped tightly and run by the people who
+                do the follow-on work.
               </p>
             </div>
 
@@ -345,7 +340,7 @@ export default function LeadershipAIEnablementPage() {
             <div className="bp-bridge-head">
               <span className="bp-rule" aria-hidden="true" />
               <h2 className="section-h2 bp-h2--accented">
-                The next step should become obvious.
+                The next step becomes clearer.
               </h2>
             </div>
 
