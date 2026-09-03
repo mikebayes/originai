@@ -7885,44 +7885,60 @@
   padding: 0;
   border-top: 1px solid rgba(245, 240, 228, 0.07);
 }
+
+/* Two-column row: a narrow number gutter and a content column holding the
+   title and paragraph, so both start from one left edge.
+
+   Number alignment, third attempt and the correct one. The first two got
+   the offsets right but the alignment MODE wrong:
+     padding-top: 4px     a magic value that drifts with any type change
+     matched line boxes   centred the 11px number against the 16.5px title,
+                          so it related to neither the title's cap-top nor
+                          its baseline. That is what read as detached.
+   Grid baseline alignment lines the number's baseline up with the first
+   baseline of the content column, which is the h3's. Exact, no font-metric
+   maths, and it survives future changes to font size or line-height. */
 .svc-dark--approach .bp-frame-item {
-    display: grid;
-    /* 28px holds "01" at 11px mono with 0.08em tracking (~15px) without the
-       19px of dead space the old 34px column left, which made the number
-       read as detached from its title. Indent is 42px now, was 50. */
-    grid-template-columns: 28px minmax(0, 1fr);
-    gap: 14px;
-    /* start, not the grid default stretch, so the number is a text box
-       aligned to the first line rather than a full-height cell. */
-    align-items: start;
-    padding: 18px 0;
-    border-bottom: 1px solid rgba(245, 240, 228, 0.07);
-  }
-  /* The number used to be aligned with padding-top: 4px, a magic value that
-     drifts the moment the heading's size or line-height changes. Both
-     columns now share a 21.45px first-line box (16.5 x 1.3 for the h3,
-     11 x 1.95 for the number), so they align by construction. */
-  .svc-dark--approach .bp-frame-item .num {
-    font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
-    font-size: 11px;
-    line-height: 1.95;
-    letter-spacing: 0.08em;
-    color: rgba(93, 168, 156, 0.8);
-  }
-  .svc-dark--approach .bp-frame-item h3 {
-    font-family: var(--font-inter-tight), sans-serif;
-    font-weight: 600;
-    font-size: 16.5px;
-    line-height: 1.3;
-    color: rgba(245, 240, 228, 0.95);
-    margin: 0 0 6px;
-  }
-  .svc-dark--approach .bp-frame-item p {
+  display: grid;
+  /* 20px is just wider than "01" at 11px mono with 0.08em tracking
+     (~15px), so the gutter carries almost no dead space. With the 12px gap
+     the copy starts 32px in; it was 42px. */
+  grid-template-columns: 20px minmax(0, 1fr);
+  gap: 12px;
+  align-items: baseline;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(245, 240, 228, 0.07);
+}
+.svc-dark--approach .bp-frame-item .num {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 11px;
+  /* Normal line-height. It no longer has to fake the alignment. */
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  color: rgba(93, 168, 156, 0.8);
+}
+.svc-dark--approach .bp-frame-item h3 {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 600;
+  font-size: 16.5px;
+  line-height: 1.3;
+  color: rgba(245, 240, 228, 0.95);
+  margin: 0 0 6px;
+}
+.svc-dark--approach .bp-frame-item p {
   font-family: var(--font-inter), sans-serif;
   font-size: 14px;
   line-height: 1.58;
   color: rgba(245, 240, 228, 0.57);
   margin: 0;
+}
+
+@media (max-width: 640px) {
+  .svc-dark--approach .bp-frame-item {
+    grid-template-columns: 18px minmax(0, 1fr);
+    gap: 10px;
+    padding: 16px 0;
+  }
 }
 
 /* ── Fluency note: conclusion, not a competing card ──────────────── */
