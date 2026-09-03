@@ -243,6 +243,12 @@ export default function ApproachRoute() {
 
               {/* Supporting items: hairline numbered list, not a card grid,
                   since the model already carries the structure. */}
+              {/* No index labels on these cards. The numbers were removed
+                  because the card had to reserve a gutter for them, and a small
+                  index beside a larger title inside a padded card had no edge to
+                  agree with, so it always read as detached. Plain left-aligned
+                  title + body needs no internal grid at all. `num` is still
+                  destructured below, but only as the React key. */}
               <ol className="bp-frame-list">
                 {[
                   [
@@ -277,11 +283,8 @@ export default function ApproachRoute() {
                   ],
                 ].map(([num, title, body]) => (
                   <li className="bp-frame-item" key={num}>
-                    <span className="num">{num}</span>
-                    <div>
-                      <h3>{title}</h3>
-                      <p>{body}</p>
-                    </div>
+                    <h3>{title}</h3>
+                    <p>{body}</p>
                   </li>
                 ))}
               </ol>

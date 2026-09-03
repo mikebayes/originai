@@ -7881,63 +7881,27 @@
 /* ── Supporting items: the six AI-capable cards ───────────────────
    The BASE .bp-frame-list / .bp-frame-item rules further up this file
    render these as a two-column grid of bordered cards with
-   `padding: 22px 22px 24px`. This block deliberately overrides ONLY the
-   interior of each card and leaves the card chrome alone.
+   `padding: 22px 22px 24px`. That chrome is left entirely to the base.
 
-   That distinction is the bug that was here before: this block used to
-   set `padding: 18px 0` and `border-bottom`, written on the assumption
-   that these were hairline list rows. They are not. The result was a
-   hybrid: the base drew the card border, background and radius, while
-   this override zeroed the horizontal padding, so the number and the copy
-   sat flush against the card's left and right borders. There was also a
-   stray border-top on the list and a redundant border-bottom inside a
-   card that already had a full border.
+   The index numbers are gone from the markup, so there is no gutter to
+   align against and no internal grid here at all. Each card is normal
+   block flow: h3 then p, both starting at the card's left padding edge.
+   That is what finally fixed the alignment. Three earlier attempts tried
+   to align an 11px index against a 16.5px title inside a padded card
+   (padding-top hack, matched line boxes, then grid baseline alignment);
+   each was measurably correct and still read as detached, because a
+   small index beside a larger heading has no edge to agree with.
 
-   Card interior: a narrow number gutter and a content column holding the
-   title and paragraph, so both start from one left edge. The number is
-   baseline-aligned to the content column's first baseline, which is the
-   h3's. Exact, no font-metric maths, and it survives type changes.
+   Only two declarations remain, both palette: the approach page uses the
+   warm cream rather than the base's pure #fff.
    ─────────────────────────────────────────────────────────────────── */
 
-/* No .bp-frame-list override. The base already supplies list-style: none,
-   zero margin/padding, and the two-column card grid. */
-
-.svc-dark--approach .bp-frame-item {
-  display: grid;
-  /* 20px is just wider than "01" at the base 10px mono with 0.18em
-     tracking (~15.6px), so the gutter carries almost no dead space. */
-  grid-template-columns: 20px minmax(0, 1fr);
-  gap: 12px;
-  align-items: baseline;
-  /* No padding and no border here on purpose: both come from the base
-     card rule. Overriding padding is what broke the alignment before. */
-}
-
-.svc-dark--approach .bp-frame-item .num {
-  /* The base gives .num `margin-bottom: 10px` for a stacked
-     number-above-title layout. In a side-by-side gutter that margin only
-     adds dead space under the number, so it is zeroed. Size, tracking and
-     colour are left to the base so the index matches the rest of the
-     design system. */
-  margin-bottom: 0;
-}
-
 .svc-dark--approach .bp-frame-item h3 {
-  /* Palette only: the approach page uses the warm cream rather than the
-     base's pure #fff. Size, line-height and the 8px title-to-body gap all
-     stay with the base. */
   color: rgba(245, 240, 228, 0.95);
 }
 
 .svc-dark--approach .bp-frame-item p {
   color: rgba(245, 240, 228, 0.6);
-}
-
-@media (max-width: 640px) {
-  .svc-dark--approach .bp-frame-item {
-    grid-template-columns: 18px minmax(0, 1fr);
-    gap: 10px;
-  }
 }
 
 /* ── Fluency note: conclusion, not a competing card ──────────────── */
