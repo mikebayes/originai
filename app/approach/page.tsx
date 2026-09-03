@@ -59,10 +59,12 @@ export default function ApproachRoute() {
                 real opportunity and that capturing it takes alignment,
                 chosen opportunities, and usable systems, so the hero now
                 opens on the opportunity and the subheadline carries the
-                three things it takes. Two-tone split retained. */}
+                three things it takes. "ready to move" over "ready to act":
+                same urgency, less like marketing filler. Two-tone split
+                retained. */}
             <h1 className="bp-hero-h1 bp-hero-h1--bare">
               AI is creating a major opportunity{" "}
-              <span className="accent">for organizations ready to act.</span>
+              <span className="accent">for organizations ready to move.</span>
             </h1>
 
             <p className="bp-hero-sub">
