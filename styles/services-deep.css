@@ -1624,7 +1624,26 @@
   .bp-page .bp-rhythm-head,
   .bp-page .bp-coverage-head { grid-template-columns: 1fr; gap: 40px; }
   .bp-outputs-list { grid-template-columns: 1fr; }
-  .bp-hero-footer { grid-template-columns: 1fr; gap: 24px; }
+  /* Hero info strip: hidden at and below the exact width where it stops
+     being horizontal. Above 1024 it is a three-column, rule-topped
+     separator carrying at-a-glance metadata. Stacked, the three k/v pairs
+     read as body copy the visitor is meant to work through, which is not
+     what they are for.
+
+     Checked before hiding: the only strip carrying an SEO-relevant phrase
+     is /services/ai-training ("On-site or remote training for teams in
+     Winnipeg and across Canada"), and both "Winnipeg" and "Canada" also
+     appear in that page's FAQ, so nothing leaves mobile-visible copy.
+     Each hero keeps its own padding-bottom, so hero-to-section spacing
+     does not collapse.
+
+     Copy is untouched. This is display only; the markup still ships. */
+  .bp-hero-footer {
+    display: none;
+    /* Kept so deleting the line above restores the stacked layout. */
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
   .footer-cols { grid-template-columns: 1fr 1fr; gap: 40px; }
   .nav-links a:not(.nav-pill) { display: none; }
 }
