@@ -49,13 +49,13 @@ export default function HomeAbout() {
       <div className="stage-inner">
         <header className="s-header about-header" data-reveal>
           <div>
-            <span className="eyebrow">Who you work with</span>
+            {/* Green accent streak replaces the WHO YOU WORK WITH eyebrow,
+                matching the .dh-rule treatment used by the services and
+                beliefs sections above. */}
+            <span className="dh-rule" aria-hidden="true" />
             <h2 className="s-h2 display">
               <span>The people you meet</span>
-              <span className="muted">
-                {" "}
-                are the people doing the work.
-              </span>
+                <span className="muted"> stay involved.</span>
             </h2>
           </div>
           <p className="about-sub">
@@ -95,7 +95,7 @@ export default function HomeAbout() {
                 claim plainly and lets the portraits, the Senior /
                 operators & builders label, and the body copy evidence it
                 rather than the heading asserting it twice. */}
-            <h3 className="about-title">The people doing the work.</h3>
+            <h3 className="about-title">The people behind Origin AI.</h3>
             <p className="about-body">
               Business, technology, and marketing operators based in Winnipeg,
               working with clients across Canada. Strategy, engineering, and

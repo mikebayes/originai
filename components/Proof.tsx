@@ -5,7 +5,10 @@ export default function Proof() {
       <div className="stage-inner">
         <header className="s-header" data-reveal>
           <div>
-            <span className="eyebrow">Proof</span>
+            {/* Green accent streak replaces the PROOF eyebrow, matching
+                the .dh-rule treatment used by the services and beliefs
+                sections above. */}
+            <span className="dh-rule" aria-hidden="true" />
             <h2 className="s-h2 display">
               <span>Companies betting</span>
               <span className="muted"> their AI on us.</span>
