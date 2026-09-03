@@ -54,15 +54,21 @@ export default function ApproachRoute() {
               </span>
             </div>
 
+            {/* Was "AI adoption starts with judgment, not tools." That led
+                with a caution. The page's actual argument is that AI is a
+                real opportunity and that capturing it takes alignment,
+                chosen opportunities, and usable systems, so the hero now
+                opens on the opportunity and the subheadline carries the
+                three things it takes. Two-tone split retained. */}
             <h1 className="bp-hero-h1 bp-hero-h1--bare">
-              AI adoption starts with{" "}
-              <span className="accent">judgment, not tools.</span>
+              AI is creating a major opportunity{" "}
+              <span className="accent">for organizations ready to act.</span>
             </h1>
 
             <p className="bp-hero-sub">
-              Origin helps organizations align leaders, build fluency,
-              identify the right opportunities, and turn AI into systems
-              people actually use.
+              We help you capitalize on this moment by aligning your team,
+              finding the right opportunities, and building AI into the way
+              your organization operates.
             </p>
 
             <div className="bp-hero-actions">
