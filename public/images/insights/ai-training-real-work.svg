@@ -1,0 +1,314 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-label="">
+  <!--
+    Insights card art: "AI Training for Business Should Be Built Around Real Work"
+
+    Isometric composition matching the existing dark/teal Insights art
+    (closest sibling: the-new-ai-stack.png). Reads as three business
+    documents standing on a working surface, a second platform of
+    interface panels, one finished output on a third, and a workflow
+    node run connecting all three. No text, no figures, no icons.
+
+    Geometry is a 2:1 isometric projection off three local origins:
+      main platform   sx = 540 + 3.0*(x-y)   sy = 177 + 1.73*(x+y) - 3.46*z
+      right platform  sx = 930 + 1.9*(x-y)   sy =  90 + 1.10*(x+y) - 2.20*z
+      left platform   sx = 300 + 1.5*(x-y)   sy = 413 + 0.87*(x+y) - 1.74*z
+    Objects are drawn back-to-front. Keep that order if you edit.
+  -->
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="42%" r="78%">
+      <stop offset="0%" stop-color="#0b1d1b"/>
+      <stop offset="55%" stop-color="#05100f"/>
+      <stop offset="100%" stop-color="#010505"/>
+    </radialGradient>
+
+    <linearGradient id="plateTop" x1="0" y1="0" x2="0.35" y2="1">
+      <stop offset="0%" stop-color="#103029"/>
+      <stop offset="100%" stop-color="#071816"/>
+    </linearGradient>
+
+    <linearGradient id="plateTop2" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0%" stop-color="#0c2622"/>
+      <stop offset="100%" stop-color="#051311"/>
+    </linearGradient>
+
+    <linearGradient id="faceR" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a2523"/>
+      <stop offset="100%" stop-color="#040d0c"/>
+    </linearGradient>
+
+    <linearGradient id="faceL" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#051412"/>
+      <stop offset="100%" stop-color="#020808"/>
+    </linearGradient>
+
+    <linearGradient id="docFace" x1="0" y1="0" x2="0.2" y2="1">
+      <stop offset="0%" stop-color="#113a35"/>
+      <stop offset="100%" stop-color="#051816"/>
+    </linearGradient>
+
+    <linearGradient id="docSide" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#082220"/>
+      <stop offset="100%" stop-color="#030c0b"/>
+    </linearGradient>
+
+    <radialGradient id="vig" cx="50%" cy="46%" r="72%">
+      <stop offset="0%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="62%" stop-color="#000" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.84"/>
+    </radialGradient>
+
+    <pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse">
+      <circle cx="1.4" cy="1.4" r="1.05" fill="#2fe7d6"/>
+    </pattern>
+
+    <radialGradient id="dotFadeA" cx="88%" cy="10%" r="46%">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="dotFadeB" cx="8%" cy="92%" r="40%">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <mask id="dotMask">
+      <rect width="1200" height="675" fill="url(#dotFadeA)"/>
+      <rect width="1200" height="675" fill="url(#dotFadeB)"/>
+    </mask>
+
+    <filter id="soft" x="-70%" y="-70%" width="240%" height="240%">
+      <feGaussianBlur stdDeviation="38"/>
+    </filter>
+
+    <filter id="contact" x="-70%" y="-70%" width="240%" height="240%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="7" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="glowTight" x="-90%" y="-90%" width="280%" height="280%">
+      <feGaussianBlur stdDeviation="3.4" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bg)"/>
+
+  <!-- Background isometric grid -->
+  <g stroke="#2fe7d6" stroke-width="1" opacity="0.07">
+    <path d="M0,-660 L1200,32"/>
+    <path d="M0,-560 L1200,132"/>
+    <path d="M0,-460 L1200,232"/>
+    <path d="M0,-360 L1200,332"/>
+    <path d="M0,-260 L1200,432"/>
+    <path d="M0,-160 L1200,532"/>
+    <path d="M0,-60 L1200,632"/>
+    <path d="M0,40 L1200,732"/>
+    <path d="M0,140 L1200,832"/>
+    <path d="M0,240 L1200,932"/>
+    <path d="M0,340 L1200,1032"/>
+    <path d="M0,440 L1200,1132"/>
+    <path d="M0,40 L1200,-652"/>
+    <path d="M0,140 L1200,-552"/>
+    <path d="M0,240 L1200,-452"/>
+    <path d="M0,340 L1200,-352"/>
+    <path d="M0,440 L1200,-252"/>
+    <path d="M0,540 L1200,-152"/>
+    <path d="M0,640 L1200,-52"/>
+    <path d="M0,740 L1200,48"/>
+    <path d="M0,840 L1200,148"/>
+    <path d="M0,940 L1200,248"/>
+    <path d="M0,1040 L1200,348"/>
+    <path d="M0,1140 L1200,448"/>
+    <path d="M0,1240 L1200,548"/>
+    <path d="M0,1340 L1200,648"/>
+  </g>
+
+  <!-- Dot matrix, faded into two corners -->
+  <g mask="url(#dotMask)" opacity="0.55">
+    <rect width="1200" height="675" fill="url(#dots)"/>
+  </g>
+
+  <!-- Ambient teal light pooled around each platform -->
+  <g filter="url(#soft)">
+    <ellipse cx="545" cy="380" rx="310" ry="132" fill="#17b3a6" opacity="0.26"/>
+    <ellipse cx="930" cy="230" rx="195" ry="90" fill="#2fe7d6" opacity="0.17"/>
+    <ellipse cx="300" cy="520" rx="165" ry="78" fill="#17b3a6" opacity="0.14"/>
+  </g>
+
+  <!-- Connector run: back-left, drawn behind the platforms.
+       Apex held at y=96. The article hero crops this 16:9 file to 21:9,
+       which leaves only y 80-595 visible, so nothing load-bearing may sit
+       outside that band. Same reason the foreground run below stops at
+       y=585 instead of running to the frame edge. -->
+  <g fill="none" stroke="#2fe7d6" stroke-width="1.5" opacity="0.55" filter="url(#glowTight)">
+    <path d="M540,177 L680,96 L740,131 L740,200"/>
+  </g>
+  <circle cx="680" cy="96" r="3.4" fill="#7ff5e9" filter="url(#glow)" opacity="0.95"/>
+
+  <!-- ── Upper-right platform: interface panels ───────────────────── -->
+  <g>
+    <polygon points="1120,200 930,310 930,326 1120,216" fill="url(#faceR)"/>
+    <polygon points="740,200 930,310 930,326 740,216" fill="url(#faceL)"/>
+    <polygon points="930,90 1120,200 930,310 740,200" fill="url(#plateTop2)"/>
+    <path d="M930,90 L1120,200 L740,200" fill="none" stroke="#2fe7d6" stroke-width="1.2" opacity="0.3"/>
+    <path d="M1120,200 L930,310 L740,200" fill="none" stroke="#2fe7d6" stroke-width="2" opacity="0.85" filter="url(#glowTight)"/>
+    <path d="M1120,200 L1120,216 M930,310 L930,326 M740,200 L740,216" stroke="#2fe7d6" stroke-width="1.1" opacity="0.4"/>
+
+    <!-- panel 1 -->
+    <polygon points="994.6,142.8 930,180.2 930,191.2 994.6,153.8" fill="url(#faceR)"/>
+    <polygon points="865.4,142.8 930,180.2 930,191.2 865.4,153.8" fill="url(#faceL)"/>
+    <polygon points="930,105.4 994.6,142.8 930,180.2 865.4,142.8" fill="url(#plateTop)"/>
+    <path d="M994.6,142.8 L930,180.2 L865.4,142.8" fill="none" stroke="#2fe7d6" stroke-width="1.6" opacity="0.7" filter="url(#glowTight)"/>
+    <path d="M930,105.4 L994.6,142.8 M930,105.4 L865.4,142.8" fill="none" stroke="#2fe7d6" stroke-width="1" opacity="0.3"/>
+
+    <!-- panel 2 -->
+    <polygon points="1074.4,189 1009.8,226.4 1009.8,237.4 1074.4,200" fill="url(#faceR)"/>
+    <polygon points="945.2,189 1009.8,226.4 1009.8,237.4 945.2,200" fill="url(#faceL)"/>
+    <polygon points="1009.8,151.6 1074.4,189 1009.8,226.4 945.2,189" fill="url(#plateTop)"/>
+    <path d="M1074.4,189 L1009.8,226.4 L945.2,189" fill="none" stroke="#2fe7d6" stroke-width="1.6" opacity="0.55" filter="url(#glowTight)"/>
+    <path d="M1009.8,151.6 L1074.4,189 M1009.8,151.6 L945.2,189" fill="none" stroke="#2fe7d6" stroke-width="1" opacity="0.26"/>
+
+    <!-- panel 3 -->
+    <polygon points="914.8,189 850.2,226.4 850.2,237.4 914.8,200" fill="url(#faceR)"/>
+    <polygon points="785.6,189 850.2,226.4 850.2,237.4 785.6,200" fill="url(#faceL)"/>
+    <polygon points="850.2,151.6 914.8,189 850.2,226.4 785.6,189" fill="url(#plateTop)"/>
+    <path d="M914.8,189 L850.2,226.4 L785.6,189" fill="none" stroke="#2fe7d6" stroke-width="1.6" opacity="0.55" filter="url(#glowTight)"/>
+    <path d="M850.2,151.6 L914.8,189 M850.2,151.6 L785.6,189" fill="none" stroke="#2fe7d6" stroke-width="1" opacity="0.26"/>
+
+    <!-- panel 4, raised and lit: the one being worked on -->
+    <ellipse cx="930" cy="268" rx="70" ry="22" fill="#2fe7d6" opacity="0.3" filter="url(#contact)"/>
+    <polygon points="994.6,219.8 930,257.2 930,283.6 994.6,246.2" fill="url(#faceR)"/>
+    <polygon points="865.4,219.8 930,257.2 930,283.6 865.4,246.2" fill="url(#faceL)"/>
+    <polygon points="930,182.4 994.6,219.8 930,257.2 865.4,219.8" fill="url(#plateTop)"/>
+    <path d="M994.6,219.8 L930,257.2 L865.4,219.8" fill="none" stroke="#7ff5e9" stroke-width="2.2" opacity="0.95" filter="url(#glowTight)"/>
+    <path d="M930,182.4 L994.6,219.8 M930,182.4 L865.4,219.8" fill="none" stroke="#2fe7d6" stroke-width="1.1" opacity="0.5"/>
+    <path d="M930,257.2 L930,283.6" stroke="#2fe7d6" stroke-width="1.3" opacity="0.55"/>
+  </g>
+
+  <!-- Connector run: right platform down into the foreground -->
+  <g fill="none" stroke="#2fe7d6" stroke-width="1.5" opacity="0.5" filter="url(#glowTight)">
+    <path d="M930,310 L930,470 L810,539"/>
+  </g>
+  <circle cx="930" cy="470" r="3.2" fill="#7ff5e9" filter="url(#glow)" opacity="0.9"/>
+  <circle cx="810" cy="539" r="2.6" fill="#2fe7d6" filter="url(#glow)" opacity="0.75"/>
+
+  <!-- ── Main platform: the working surface ───────────────────────── -->
+  <g>
+    <polygon points="840,350 540,523 540,543 840,370" fill="url(#faceR)"/>
+    <polygon points="240,350 540,523 540,543 240,370" fill="url(#faceL)"/>
+    <polygon points="540,177 840,350 540,523 240,350" fill="url(#plateTop)"/>
+    <path d="M540,177 L840,350 M540,177 L240,350" fill="none" stroke="#2fe7d6" stroke-width="1.3" opacity="0.34"/>
+    <path d="M840,350 L540,523 L240,350" fill="none" stroke="#2fe7d6" stroke-width="2.4" opacity="0.9" filter="url(#glowTight)"/>
+    <path d="M840,350 L840,370 M540,523 L540,543 M240,350 L240,370" stroke="#2fe7d6" stroke-width="1.2" opacity="0.45"/>
+
+    <!-- contact light where each document meets the surface -->
+    <g filter="url(#contact)">
+      <ellipse cx="507" cy="302" rx="76" ry="22" fill="#2fe7d6" opacity="0.3"/>
+      <ellipse cx="597" cy="388" rx="84" ry="24" fill="#2fe7d6" opacity="0.34"/>
+      <ellipse cx="543" cy="470" rx="74" ry="21" fill="#2fe7d6" opacity="0.26"/>
+    </g>
+
+    <!-- Document A: back-left -->
+    <polygon points="582,242.8 552,260.1 552,336.2 582,318.9" fill="url(#docSide)"/>
+    <polygon points="432,190.9 552,260.1 552,336.2 432,267.0" fill="url(#docFace)"/>
+    <polygon points="462,173.6 582,242.8 552,260.1 432,190.9" fill="url(#plateTop)"/>
+    <path d="M462,173.6 L582,242.8 L552,260.1 L432,190.9 Z" fill="none" stroke="#2fe7d6" stroke-width="1.2" opacity="0.55"/>
+    <path d="M432,190.9 L552,260.1 L552,336.2 L432,267.0 Z" fill="none" stroke="#2fe7d6" stroke-width="1.1" opacity="0.4"/>
+    <path d="M432,190.9 L432,267.0" stroke="#7ff5e9" stroke-width="1.7" opacity="0.85" filter="url(#glowTight)"/>
+    <g stroke="#7ff5e9" stroke-width="2.4" stroke-linecap="round" opacity="0.6">
+      <path d="M444,215.1 L540,270.4"/>
+      <path d="M444,227.2 L516,268.7"/>
+      <path d="M444,239.3 L540,294.6"/>
+      <path d="M444,251.4 L516,292.9"/>
+      <path d="M444,263.5 L540,318.8"/>
+    </g>
+
+    <!-- Document B: centre, tallest -->
+    <polygon points="672,301.6 642,318.9 642,422.7 672,405.4" fill="url(#docSide)"/>
+    <polygon points="522,249.7 642,318.9 642,422.7 522,353.5" fill="url(#docFace)"/>
+    <polygon points="552,232.4 672,301.6 642,318.9 522,249.7" fill="url(#plateTop)"/>
+    <path d="M552,232.4 L672,301.6 L642,318.9 L522,249.7 Z" fill="none" stroke="#2fe7d6" stroke-width="1.2" opacity="0.62"/>
+    <path d="M522,249.7 L642,318.9 L642,422.7 L522,353.5 Z" fill="none" stroke="#2fe7d6" stroke-width="1.1" opacity="0.45"/>
+    <path d="M522,249.7 L522,353.5" stroke="#7ff5e9" stroke-width="1.9" opacity="0.95" filter="url(#glowTight)"/>
+    <g stroke="#7ff5e9" stroke-width="2.4" stroke-linecap="round" opacity="0.66">
+      <path d="M534,277.4 L630,332.7"/>
+      <path d="M534,291.2 L600,329.2"/>
+      <path d="M534,305.0 L630,360.3"/>
+      <path d="M534,318.9 L630,374.2"/>
+      <path d="M534,332.7 L600,370.7"/>
+      <path d="M534,346.5 L630,401.8"/>
+    </g>
+
+    <!-- Document C: front-left, shorter -->
+    <polygon points="612,412.3 582,429.6 582,491.9 612,474.6" fill="url(#docSide)"/>
+    <polygon points="474,367.3 582,429.6 582,491.9 474,429.6" fill="url(#docFace)"/>
+    <polygon points="504,350.0 612,412.3 582,429.6 474,367.3" fill="url(#plateTop)"/>
+    <path d="M504,350.0 L612,412.3 L582,429.6 L474,367.3 Z" fill="none" stroke="#2fe7d6" stroke-width="1.2" opacity="0.52"/>
+    <path d="M474,367.3 L582,429.6 L582,491.9 L474,429.6 Z" fill="none" stroke="#2fe7d6" stroke-width="1.1" opacity="0.38"/>
+    <path d="M474,367.3 L474,429.6" stroke="#7ff5e9" stroke-width="1.6" opacity="0.78" filter="url(#glowTight)"/>
+    <g stroke="#7ff5e9" stroke-width="2.3" stroke-linecap="round" opacity="0.55">
+      <path d="M486,391.5 L570,439.9"/>
+      <path d="M486,401.9 L546,436.5"/>
+      <path d="M486,412.3 L570,460.7"/>
+      <path d="M486,422.7 L546,457.3"/>
+    </g>
+  </g>
+
+  <!-- Connector run: main platform down to the lower-left platform -->
+  <g fill="none" stroke="#2fe7d6" stroke-width="1.5" opacity="0.55" filter="url(#glowTight)">
+    <path d="M240,350 L150,402 L150,500"/>
+  </g>
+  <circle cx="150" cy="402" r="3.2" fill="#7ff5e9" filter="url(#glow)" opacity="0.9"/>
+
+  <!-- ── Lower-left platform: one finished output ─────────────────── -->
+  <g>
+    <polygon points="450,500 300,587 300,601 450,514" fill="url(#faceR)"/>
+    <polygon points="150,500 300,587 300,601 150,514" fill="url(#faceL)"/>
+    <polygon points="300,413 450,500 300,587 150,500" fill="url(#plateTop2)"/>
+    <path d="M300,413 L450,500 M300,413 L150,500" fill="none" stroke="#2fe7d6" stroke-width="1.2" opacity="0.3"/>
+    <path d="M450,500 L300,587 L150,500" fill="none" stroke="#2fe7d6" stroke-width="1.9" opacity="0.78" filter="url(#glowTight)"/>
+    <path d="M450,500 L450,514 M300,587 L300,601 M150,500 L150,514" stroke="#2fe7d6" stroke-width="1.1" opacity="0.4"/>
+
+    <ellipse cx="300" cy="512" rx="82" ry="24" fill="#2fe7d6" opacity="0.24" filter="url(#contact)"/>
+    <polygon points="378,494.7 318,529.5 318,545.2 378,510.4" fill="url(#docSide)"/>
+    <polygon points="222,473.9 318,529.5 318,545.2 222,489.6" fill="url(#faceL)"/>
+    <polygon points="282,439.1 378,494.7 318,529.5 222,473.9" fill="url(#plateTop)"/>
+    <path d="M282,439.1 L378,494.7 L318,529.5 L222,473.9 Z" fill="none" stroke="#2fe7d6" stroke-width="1.2" opacity="0.55"/>
+    <path d="M378,494.7 L318,529.5 L222,473.9" fill="none" stroke="#7ff5e9" stroke-width="1.5" opacity="0.6" filter="url(#glowTight)"/>
+    <g stroke="#7ff5e9" stroke-width="2.2" stroke-linecap="round" opacity="0.5">
+      <path d="M258,459.6 L330,501.3"/>
+      <path d="M270,466.5 L342,508.2"/>
+      <path d="M282,473.4 L330,501.1"/>
+    </g>
+  </g>
+
+  <!-- Foreground node run off the front corner -->
+  <g fill="none" stroke="#2fe7d6" stroke-width="1.4" opacity="0.45" filter="url(#glowTight)">
+    <path d="M540,543 L613,585"/>
+    <path d="M540,543 L467,585"/>
+  </g>
+  <circle cx="613" cy="585" r="2.8" fill="#7ff5e9" filter="url(#glow)" opacity="0.8"/>
+  <circle cx="467" cy="585" r="2.8" fill="#7ff5e9" filter="url(#glow)" opacity="0.8"/>
+
+  <!-- Loose particles -->
+  <g fill="#2fe7d6">
+    <circle cx="1058" cy="118" r="1.6" opacity="0.5"/>
+    <circle cx="1126" cy="286" r="1.4" opacity="0.38"/>
+    <circle cx="196" cy="262" r="1.6" opacity="0.42"/>
+    <circle cx="112" cy="566" r="1.4" opacity="0.34"/>
+    <circle cx="754" cy="452" r="1.5" opacity="0.4"/>
+    <circle cx="868" cy="574" r="1.4" opacity="0.32"/>
+    <circle cx="348" cy="148" r="1.4" opacity="0.34"/>
+  </g>
+
+  <rect width="1200" height="675" fill="url(#vig)"/>
+</svg>

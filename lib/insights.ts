@@ -107,6 +107,12 @@ export const articles: Article[] = [
     authorId: "mike-bayes",
     readingTime: "5 min read",
     category: "AI Training",
+    /* Vector rather than PNG, unlike the other seven covers. The card and
+       the article hero both render it through a plain <img>, so it behaves
+       identically; it just stays sharp on retina and weighs ~12KB. Drawn
+       to match the-new-ai-stack.png: same isometric projection, same teal
+       on near-black, no text baked in. */
+    image: "/images/insights/ai-training-real-work.svg",
     metaTitle:
       "AI Training for Business Should Be Built Around Real Work | Origin AI",
     metaDescription:
@@ -114,41 +120,37 @@ export const articles: Article[] = [
     content: [
       {
         type: "paragraph",
-        text: "Most organizations have arrived at the same conclusion at roughly the same time: their teams need to get better with AI. What usually follows is a training session. Someone books a workshop, the team gathers, a facilitator walks through a few tools, and everyone leaves impressed.",
+        text: "A company books an AI workshop. Forty people attend. The facilitator demonstrates a few tools, the room is genuinely impressed, and the feedback forms come back positive.",
       },
       {
         type: "paragraph",
-        text: "Then Monday arrives and very little changes.",
+        text: "Three weeks later the same finance manager is still rebuilding the same month-end summary by hand.",
       },
       {
         type: "paragraph",
-        text: "That gap is the problem with most business AI training. A tool demo is interesting in the moment. It does not necessarily change how someone handles the report they write every week, the proposals they assemble, or the client emails they send. Interest is not the same as capability.",
+        text: "That is the usual outcome of business AI training, and it is not because the session was bad. It is because nothing in it touched the month-end summary. The demo ran on a generic marketing brief, the examples came from a slide deck, and nobody gave her a reason to connect either one to the spreadsheet and the six emails that actually make up her Thursday.",
       },
       {
         type: "paragraph",
-        text: "For AI training to matter inside a business, it has to connect to the tools people already use, the documents they already handle, the decisions they already make, and the workflows they already follow. That sounds obvious. It is also the part most training skips.",
+        text: "Training changes how people work when it is built on the documents they already handle, the approvals they already route, the reports they already assemble, and the decisions they already make. That is a harder session to design, which is why most training skips it.",
       },
 
       { type: "heading", level: 3, text: "Generic AI training is not enough" },
       {
         type: "paragraph",
-        text: "Generic AI training tends to cover three things: features, prompt examples, and broad tool walkthroughs. None of that is wrong. As an introduction it can be genuinely useful, particularly for teams who have not used AI seriously before.",
+        text: "Most AI training covers three things: features, prompt examples, and a tool walkthrough. As an introduction that has real value, especially for a team that has been told to avoid AI until now.",
       },
       {
         type: "paragraph",
-        text: "The problem is what it leaves behind.",
+        text: "What it leaves behind is the problem. People come away knowing AI is capable and still unsure where it belongs in their own job. The finance lead watches a demo about drafting marketing copy and correctly concludes it does not apply to her. The operations coordinator sees a chatbot example and still has no idea whether he is allowed to paste a supplier contract into it.",
       },
       {
         type: "paragraph",
-        text: "Employees usually leave a generic session knowing AI is capable. They are far less clear on where it fits in their own job. Someone in finance watches a demo about drafting marketing copy and correctly concludes it does not apply to them. Someone in operations sees a chatbot example and still has no idea whether they are allowed to paste a supplier contract into it.",
+        text: "Leadership is left holding a version of the same gap. They have seen what the tools do. They still cannot say where AI should be encouraged, which data is off limits, or what good usage looks like on their own team.",
       },
       {
         type: "paragraph",
-        text: "Leaders are left with their own version of the same gap. They have seen what the tools do. They still do not know where AI should be encouraged, where it introduces risk, and what good usage actually looks like inside their organization.",
-      },
-      {
-        type: "paragraph",
-        text: "AI literacy training that stops at what the tool can do produces awareness. It rarely produces adoption.",
+        text: "AI literacy training that stops at what the tool can do produces awareness. Adoption is a different outcome and it needs a different session.",
       },
 
       {
@@ -158,15 +160,15 @@ export const articles: Article[] = [
       },
       {
         type: "paragraph",
-        text: "Useful training is shaped around the organization's real environment rather than a standard curriculum.",
+        text: "Training earns its keep when the examples come out of the organization's own environment.",
       },
       {
         type: "paragraph",
-        text: "That means the examples have to connect to actual job functions: the departments, the tools, the documents, the approvals, the reporting, and the customer or client interactions that already exist. A sales team, an operations team, a leadership group, a finance team, and a project team should not sit through the same session. Their work is different, so the examples should be different.",
+        text: "A sales team, an operations team, a leadership group, a finance team, and a project team should not sit through the same session. Sales cares about proposal turnaround and follow-up quality. Operations cares about procedure documents and approval chains. Finance cares about reconciliation and recurring reporting. Leadership cares about what is safe to delegate and what still needs a human signature. Run one session for all of them and four of the five groups spend it watching somebody else's job.",
       },
       {
         type: "paragraph",
-        text: "The more recognizable the example, the faster people understand where AI can help. The work that tends to translate well:",
+        text: "The more recognizable the example, the faster people place it in their own week. The work that tends to translate well:",
       },
       {
         type: "list",
@@ -189,19 +191,19 @@ export const articles: Article[] = [
       { type: "heading", level: 3, text: "The best training is hands-on" },
       {
         type: "paragraph",
-        text: "People learn AI faster when they test it on tasks they recognize.",
+        text: "The fastest way to move a room is to put its own work on the screen.",
       },
       {
         type: "paragraph",
-        text: "A session built on live demonstration with realistic business scenarios does something a slide deck cannot. It removes the guesswork. Participants see the output on a document that looks like their document, in a situation that looks like their situation, and the question shifts from whether this could work to where they would use it first.",
+        text: "Bring a real document into the session, anonymized where it needs to be, and improve the output together. A redlined contract. A messy client intake form. Last quarter's report. People stop assessing whether AI is impressive and start arguing about whether the summary caught the right clause, which is the argument worth having.",
       },
       {
         type: "paragraph",
-        text: "That shift is the point. The goal of a session is not awareness. It is confidence, plus a short list of specific ways each person can use AI responsibly in their own role starting the next day.",
+        text: "That is also where judgment gets taught. Someone notices the model dropped a condition, or invented a date, or produced three paragraphs that read well and say nothing. Catching that in a room, with colleagues, lands harder than any slide about verifying outputs.",
       },
       {
         type: "paragraph",
-        text: "AI fluency training works the way any other skill does. Watching is not the same as doing.",
+        text: "A session has worked when people leave with two or three things they will use on Monday and a clear sense of what they should not hand over. AI fluency training is a skill like any other, and skills do not transfer by demonstration.",
       },
 
       {
@@ -239,19 +241,19 @@ export const articles: Article[] = [
       },
       {
         type: "paragraph",
-        text: "A session people enjoyed is not the same as a session that worked.",
+        text: "Feedback forms are a poor measure. The signal worth watching shows up three or four weeks later, in whether anybody actually changed how they handle a recurring task.",
       },
       {
         type: "paragraph",
-        text: "The measure is what happens afterward: better habits, clearer use cases, and more confident adoption across the team. Some of that shows up immediately. Some of it needs follow-up support, a little workflow design, or a second session once people have been using AI on real work for a few weeks.",
+        text: "Some of it is visible quickly. Someone starts summarizing client intake notes before the Monday meeting and the meeting gets shorter. Some of it needs a second session, once people have hit the limits and arrive with sharper questions than they had on day one.",
       },
       {
         type: "paragraph",
-        text: "Training also surfaces things leadership cannot see from the top. When several people independently describe the same slow, repetitive, judgment-heavy task, that is useful information. Occasionally a task turns out to be frequent and important enough that it should stop being a manual prompt and become [custom AI workflow software](/services/build) instead.",
+        text: "Training also surfaces things leadership cannot see from the top. When four people in different departments independently describe the same slow, repetitive, judgment-heavy task, that is a finding. Occasionally one of those tasks turns out to be frequent and consequential enough that it should stop being a manual prompt and become [custom AI workflow software](/services/build) instead.",
       },
       {
         type: "paragraph",
-        text: "That is a good outcome, not a failure of the session. The training did its job by finding it.",
+        text: "Surfacing that is the session working, not failing.",
       },
 
       {
@@ -278,11 +280,11 @@ export const articles: Article[] = [
 
       {
         type: "paragraph",
-        text: "AI capability inside a business does not come from one impressive demo. It comes from people understanding where AI belongs in their own work, and being confident enough to use it there.",
+        text: "The test of a session is not the energy in the room on the day. It is whether the month-end summary is still being rebuilt by hand a month later.",
       },
       {
         type: "paragraph",
-        text: "If your team needs training that connects to the way your business actually operates, explore Origin AI's [AI training for business](/services/ai-training).",
+        text: "If your team needs AI training that connects to the way your business actually operates, explore Origin AI's [AI training for business](/services/ai-training).",
       },
     ],
   },
