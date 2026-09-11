@@ -48,11 +48,26 @@ export interface Article {
    *  ~200 wpm. Kept as a string so we can fine-tune per piece. */
   readingTime: string;
   /** Loose category. Keep the set small. Used for filtering + visual
-   *  accent. Add new ones sparingly. */
-  category: "Adoption" | "Build" | "Strategy" | "Managed" | "Notes";
+   *  accent. Add new ones sparingly.
+   *  "AI Training" added 2026-09-11 alongside the /services/ai-training
+   *  launch. Rendered as the card/article tag text only. */
+  category:
+    | "Adoption"
+    | "Build"
+    | "Strategy"
+    | "Managed"
+    | "AI Training"
+    | "Notes";
   /** Abstract conceptual cover image. Path to a file in /public/.
    *  Optional — if missing, the card shows a quiet placeholder. */
   image?: string;
+  /** Optional SEO overrides. The excerpt is written for the article card;
+   *  a meta description is written for the search result, and the two are
+   *  not always the same sentence. When these are omitted the route falls
+   *  back to the original behaviour (`${title} | Origin AI Insights` and
+   *  the excerpt), so existing articles are unaffected. */
+  metaTitle?: string;
+  metaDescription?: string;
   content: Block[];
 }
 
@@ -83,6 +98,194 @@ export const authors: Record<string, Author> = {
    order. Keep new entries at the top.
    ──────────────────────────────────────────────────────────────── */
 export const articles: Article[] = [
+  {
+    slug: "ai-training-for-business-real-work",
+    title: "AI Training for Business Should Be Built Around Real Work",
+    excerpt:
+      "Most AI training shows people what the tools can do. Better business AI training shows teams how to use AI in the actual work they already do: documents, decisions, approvals, client communication, reporting, and internal workflows.",
+    date: "2026-09-11",
+    authorId: "mike-bayes",
+    readingTime: "5 min read",
+    category: "AI Training",
+    metaTitle:
+      "AI Training for Business Should Be Built Around Real Work | Origin AI",
+    metaDescription:
+      "Business AI training works best when it is built around the tools, workflows, documents, and decisions teams already deal with. Origin AI explains why generic tool demos are not enough.",
+    content: [
+      {
+        type: "paragraph",
+        text: "Most organizations have arrived at the same conclusion at roughly the same time: their teams need to get better with AI. What usually follows is a training session. Someone books a workshop, the team gathers, a facilitator walks through a few tools, and everyone leaves impressed.",
+      },
+      {
+        type: "paragraph",
+        text: "Then Monday arrives and very little changes.",
+      },
+      {
+        type: "paragraph",
+        text: "That gap is the problem with most business AI training. A tool demo is interesting in the moment. It does not necessarily change how someone handles the report they write every week, the proposals they assemble, or the client emails they send. Interest is not the same as capability.",
+      },
+      {
+        type: "paragraph",
+        text: "For AI training to matter inside a business, it has to connect to the tools people already use, the documents they already handle, the decisions they already make, and the workflows they already follow. That sounds obvious. It is also the part most training skips.",
+      },
+
+      { type: "heading", level: 3, text: "Generic AI training is not enough" },
+      {
+        type: "paragraph",
+        text: "Generic AI training tends to cover three things: features, prompt examples, and broad tool walkthroughs. None of that is wrong. As an introduction it can be genuinely useful, particularly for teams who have not used AI seriously before.",
+      },
+      {
+        type: "paragraph",
+        text: "The problem is what it leaves behind.",
+      },
+      {
+        type: "paragraph",
+        text: "Employees usually leave a generic session knowing AI is capable. They are far less clear on where it fits in their own job. Someone in finance watches a demo about drafting marketing copy and correctly concludes it does not apply to them. Someone in operations sees a chatbot example and still has no idea whether they are allowed to paste a supplier contract into it.",
+      },
+      {
+        type: "paragraph",
+        text: "Leaders are left with their own version of the same gap. They have seen what the tools do. They still do not know where AI should be encouraged, where it introduces risk, and what good usage actually looks like inside their organization.",
+      },
+      {
+        type: "paragraph",
+        text: "AI literacy training that stops at what the tool can do produces awareness. It rarely produces adoption.",
+      },
+
+      {
+        type: "heading",
+        level: 3,
+        text: "Business teams need training that reflects how they actually work",
+      },
+      {
+        type: "paragraph",
+        text: "Useful training is shaped around the organization's real environment rather than a standard curriculum.",
+      },
+      {
+        type: "paragraph",
+        text: "That means the examples have to connect to actual job functions: the departments, the tools, the documents, the approvals, the reporting, and the customer or client interactions that already exist. A sales team, an operations team, a leadership group, a finance team, and a project team should not sit through the same session. Their work is different, so the examples should be different.",
+      },
+      {
+        type: "paragraph",
+        text: "The more recognizable the example, the faster people understand where AI can help. The work that tends to translate well:",
+      },
+      {
+        type: "list",
+        items: [
+          "Summarizing long internal documents into something a manager can act on",
+          "Drafting stronger first-pass client emails and communication",
+          "Comparing information across multiple files or versions",
+          "Preparing meeting notes, summaries, and follow-ups",
+          "Reviewing policies and procedures for gaps or inconsistencies",
+          "Supporting proposal and RFP work",
+          "Analyzing customer intake and enquiry patterns",
+          "Improving recurring reporting and administrative tasks",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "None of those are novelty use cases. They are the work people already do, which is exactly why they land.",
+      },
+
+      { type: "heading", level: 3, text: "The best training is hands-on" },
+      {
+        type: "paragraph",
+        text: "People learn AI faster when they test it on tasks they recognize.",
+      },
+      {
+        type: "paragraph",
+        text: "A session built on live demonstration with realistic business scenarios does something a slide deck cannot. It removes the guesswork. Participants see the output on a document that looks like their document, in a situation that looks like their situation, and the question shifts from whether this could work to where they would use it first.",
+      },
+      {
+        type: "paragraph",
+        text: "That shift is the point. The goal of a session is not awareness. It is confidence, plus a short list of specific ways each person can use AI responsibly in their own role starting the next day.",
+      },
+      {
+        type: "paragraph",
+        text: "AI fluency training works the way any other skill does. Watching is not the same as doing.",
+      },
+
+      {
+        type: "heading",
+        level: 3,
+        text: "Training should connect to tools, workflows, and expectations",
+      },
+      {
+        type: "paragraph",
+        text: "Training should account for the tools the organization already has. In most businesses that means some combination of ChatGPT, Microsoft Copilot, Google Workspace, a CRM, project management software, document systems, and whatever internal platforms the company runs on. What people tend to search for as ChatGPT training for business is far more useful when it covers the specific mix a team actually works in.",
+      },
+      {
+        type: "paragraph",
+        text: "The same session should settle expectations, which is the part most organizations are missing:",
+      },
+      {
+        type: "list",
+        items: [
+          "Which tools people are approved to use",
+          "What data should never be entered into them",
+          "Where human review is required before anything goes out",
+          "What kinds of tasks are good candidates",
+          "Where AI should not be used at all",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "This is where training starts to overlap with [AI strategy consulting](/services/strategy) and governance. Teams cannot use AI with good judgment if nobody has told them what good judgment looks like here. A session that builds capability without setting boundaries tends to create a different problem from the one it solved.",
+      },
+
+      {
+        type: "heading",
+        level: 3,
+        text: "Training should create repeatable use, not one-time excitement",
+      },
+      {
+        type: "paragraph",
+        text: "A session people enjoyed is not the same as a session that worked.",
+      },
+      {
+        type: "paragraph",
+        text: "The measure is what happens afterward: better habits, clearer use cases, and more confident adoption across the team. Some of that shows up immediately. Some of it needs follow-up support, a little workflow design, or a second session once people have been using AI on real work for a few weeks.",
+      },
+      {
+        type: "paragraph",
+        text: "Training also surfaces things leadership cannot see from the top. When several people independently describe the same slow, repetitive, judgment-heavy task, that is useful information. Occasionally a task turns out to be frequent and important enough that it should stop being a manual prompt and become [custom AI workflow software](/services/build) instead.",
+      },
+      {
+        type: "paragraph",
+        text: "That is a good outcome, not a failure of the session. The training did its job by finding it.",
+      },
+
+      {
+        type: "heading",
+        level: 3,
+        text: "How Origin AI approaches AI training",
+      },
+      {
+        type: "paragraph",
+        text: "Origin AI designs training around the organization rather than a standard curriculum.",
+      },
+      {
+        type: "paragraph",
+        text: "Before a session we look at the team's roles, the tools they already use, the workflows they run, and their current level of AI maturity. A group that has been using AI informally for a year needs something different from a group that has been told not to touch it. The examples, the depth, and the pace change accordingly.",
+      },
+      {
+        type: "paragraph",
+        text: "Sessions are hands-on and built on the work people actually do. We run AI training in Winnipeg and across Canada, on-site or remote, and the format follows the team rather than the other way around.",
+      },
+      {
+        type: "paragraph",
+        text: "Training can stand on its own. It can also connect into wider work: leadership alignment, workflow development, or ongoing improvement once something is live. That connection is deliberate, and it is covered in [Origin AI's approach to AI adoption](/approach).",
+      },
+
+      {
+        type: "paragraph",
+        text: "AI capability inside a business does not come from one impressive demo. It comes from people understanding where AI belongs in their own work, and being confident enough to use it there.",
+      },
+      {
+        type: "paragraph",
+        text: "If your team needs training that connects to the way your business actually operates, explore Origin AI's [AI training for business](/services/ai-training).",
+      },
+    ],
+  },
   {
     slug: "what-to-build-vs-buy-in-the-ai-era",
     title: "What Should You Build vs. Buy in the AI Era?",

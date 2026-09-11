@@ -32,16 +32,24 @@ export async function generateMetadata({
   }
 
   const author = getAuthor(article.authorId);
+
+  /* Optional per-article SEO overrides. The excerpt is card copy; a meta
+     description is written for the search result, so an article may want
+     its own. Both fall back to the original behaviour when absent, which
+     is why every pre-existing article's output is unchanged. */
+  const metaTitle = article.metaTitle ?? `${article.title} | Origin AI Insights`;
+  const metaDescription = article.metaDescription ?? article.excerpt;
+
   return {
-    title: `${article.title} | Origin AI Insights`,
-    description: article.excerpt,
+    title: metaTitle,
+    description: metaDescription,
     alternates: {
       canonical: `https://www.originai.ca/insights/${article.slug}`,
     },
     authors: author ? [{ name: author.name }] : undefined,
     openGraph: {
       title: article.title,
-      description: article.excerpt,
+      description: metaDescription,
       type: "article",
       publishedTime: article.date,
       authors: author ? [author.name] : undefined,
