@@ -20,20 +20,31 @@ import Footer from "@/components/Footer";
  * is here to capture.
  *
  * Positioning: this is not a generic ChatGPT workshop. The differentiator
- * is customization, so the "Customized before anyone joins the session"
- * section carries the pre-session survey, role and workflow review,
- * example selection, and session design. Training also doubles as
- * discovery: "Where training can lead" connects surfaced use cases to AI
- * Workflow Development and Leadership AI Enablement.
+ * is still customization, but as of 2026-10-10 it is stated in one
+ * sentence rather than given its own four-row section, because a buyer
+ * cares what the team walks out knowing, not how the session was built.
+ * The pre-session survey and discussion are named in that sentence.
  *
  * Sections:
  *   1. Hero
- *   2. Built around your team's work (3 cards)
- *   3. Tools we commonly train teams on (4 logo cards)
- *   4. How we customize the training (4 steps + human visual)
+ *   2. AI tools have raised the stakes (origin label + 3 trust cards)
+ *   3. What your team will learn (photograph + 4 numbered topics)
+ *   4. Live training, delivered the way your team works best
  *   5. Tools we commonly train teams on (4 logo cards)
  *   6. Questions, answered (4)
  *   7. CTA
+ *
+ * Copy pass 2026-10-10. The order below was already right, so this was
+ * replacement only, no new sections and no new imagery. Three changes:
+ * the hero now leads with what training gives a team rather than what it
+ * corrects; the risk section opens on how fast bad work spreads; and the
+ * photograph section flipped from how a session is prepared to what the
+ * team actually learns, reusing the same image and four-row rail.
+ *
+ * Section titles are the sections' own now, so the old heading
+ * "Customized before anyone joins the session" is gone. Customization is
+ * still the differentiator, it is just stated in one sentence instead of
+ * four rows.
  *
  * Reorder pass 2026-10-09 (fourth) set the narrative. The page had the
  * right length but the beats were in the wrong order: it opened with
@@ -175,16 +186,18 @@ export default function TeamAITrainingPage() {
               <span className="accent">your team&rsquo;s real work.</span>
             </h1>
 
-            {/* Sharpened 2026-10-09. The previous subhead described the
-                method (tailoring) without naming anything concrete. This
-                version names the four tools and the four things training
-                actually improves, which is also where the tool-name search
-                phrases first appear on the page. */}
+            {/* Rewritten 2026-10-10 to lead with the benefit. The previous
+                subhead opened on judgment, source material and review
+                habits, which are what training corrects rather than what a
+                buyer is buying. Risk now starts in section 2 instead.
+
+                The four tool names left the hero with it. They are still in
+                the title tag, the Service schema, section 5 and the FAQ, so
+                the tool-name search phrases are not lost. */}
             <p className="bp-hero-sub">
-              Origin helps business teams use tools like ChatGPT, Microsoft
-              Copilot, Claude, and Gemini with better judgment, stronger source
-              material, clearer review habits, and examples drawn from the work
-              they actually do.
+              We help your team use AI to save time, improve the quality of
+              what they produce, and take on more complex tasks. Training is
+              hands-on and tailored to your people, tools, and business.
             </p>
 
             <div className="bp-hero-actions">
@@ -234,11 +247,10 @@ export default function TeamAITrainingPage() {
 
             It absorbs the old "Built around your team's work" section,
             which opened the page with three cards (Real roles / Real
-            tasks / Real opportunities) that said the same thing as
-            "Customized before anyone joins the session" two sections
-            later. The department sentence from that section moved into
-            the customization lede below, where it belongs, and brought
-            the /services/strategy link with it.
+            tasks / Real opportunities) that duplicated the section below
+            it. That section's department sentence is gone as of
+            2026-10-10; the /services/strategy link it carried now sits in
+            the scoping line of section 4.
 
             The framing is cost of untrained use, not fear: the cards
             describe what teams learn to do, not what will go wrong.
@@ -261,12 +273,11 @@ export default function TeamAITrainingPage() {
                 </h2>
               </div>
               <p className="section-lede lede">
-                AI tools can help employees create, summarize, analyze, and
-                publish work faster than ever. Used without enough judgment,
-                review, or brand context, the risks show up quickly: generic
-                content, inconsistent messaging, unsupported claims,
-                inaccurate details, and work that feels less credible than it
-                should.
+                Employees can now produce content and analysis at speed, but
+                inaccurate claims, inconsistent messaging, and off-brand
+                material can spread just as quickly. Training helps your team
+                recognize these problems, correct them, and know what needs
+                review before it represents your business.
               </p>
             </div>
 
@@ -295,16 +306,15 @@ export default function TeamAITrainingPage() {
                 ))}
               </div>
             </div>
-
-            <p className="bp-risk-close">
-              Training helps teams understand what good AI-supported work
-              looks like, what weak AI use looks like, and how to use these
-              tools without costing the business trust it has already earned.
-            </p>
+            {/* The closing paragraph that used to sit here is gone. It read
+                "Training helps teams understand what good AI-supported work
+                looks like...", which the replacement intro above now says
+                in its second sentence. Keeping both would have opened and
+                closed the section with the same claim. */}
           </div>
         </section>
 
-        {/* ─── SECTION 3: HOW WE CUSTOMIZE THE TRAINING ──────────── */}
+        {/* ─── SECTION 3: WHAT YOUR TEAM WILL LEARN ─────────────── */}
         {/* Moved up 2026-10-09 (fourth pass) to sit directly after the
             risk lead: the buyer has just been told what is at stake, so
             the next question is what makes this training different. Image
@@ -313,7 +323,7 @@ export default function TeamAITrainingPage() {
             The lede gained the department sentence from the retired
             "Built around your team's work" section, which is what carries
             corporate and team intent, and the /services/strategy link. */}
-        <section className="bp-custom" data-screen-label="How we customize the training">
+        <section className="bp-custom" data-screen-label="What your team will learn">
           <div className="wrap">
             {/* Stacked head: the intro sits directly under the heading in
                 the same column rather than in a right-hand rail, so it
@@ -322,22 +332,12 @@ export default function TeamAITrainingPage() {
               <div>
                 <span className="bp-rule" aria-hidden="true" />
                 <h2 className="section-h2 bp-h2--accented">
-                  Customized before anyone joins the session.
+                  What your team will learn.
                 </h2>
-                {/* The tool list that used to close this paragraph moved to
-                    the tools section, where it has logos and room to say
-                    something about each one. Repeating the four names here
-                    would have read as keyword padding. */}
                 <p className="section-lede lede">
-                  Before training, we gather enough context to make the session
-                  relevant to the team, their roles, and the examples they are
-                  likely to recognize. Some organizations need a{" "}
-                  <a href="/services/strategy" className="bp-body-link">
-                    leadership session
-                  </a>
-                  , some need department-level training for marketing, sales,
-                  operations, service, finance, HR, or project teams, and some
-                  need both.
+                  We use a pre-session survey and discussion to choose the
+                  topics and examples most relevant to your team. Sessions can
+                  cover:
                 </p>
               </div>
             </div>
@@ -371,28 +371,40 @@ export default function TeamAITrainingPage() {
               </figure>
 
               {/* Clean numbered list. No timeline line, no dots, no cards,
-                  no panel. Hairline dividers only. */}
+                  no panel. Hairline dividers only.
+
+                  Contents swapped 2026-10-10. These four rows used to be
+                  the pre-session preparation steps (survey, role review,
+                  example selection, session design), which described what
+                  Origin does rather than what the buyer gets. The
+                  customization message they carried is now the one-sentence
+                  intro above, so nothing was lost by replacing them.
+
+                  These are sample topics drawn from a customized session,
+                  not a fixed curriculum. Keep it at four: the row structure,
+                  numbering and dividers are shared with the other service
+                  pages and a fifth row would unbalance the image pairing. */}
               <ol className="bp-proclist">
                 {[
                   [
                     "01",
-                    "Pre-session survey",
-                    "Participants share current AI use, comfort level, concerns, tools, and examples of tasks that could be improved.",
+                    "Apply AI to business tasks",
+                    "Use AI for research, analysis, reports, presentations, and customer communication, with examples relevant to your team.",
                   ],
                   [
                     "02",
-                    "Role and workflow review",
-                    "We look for common tasks, bottlenecks, documents, decisions, and recurring patterns across the team.",
+                    "Get better results from your tools",
+                    "Provide useful context and source material, ask follow-up questions, and refine results instead of accepting the first answer.",
                   ],
                   [
                     "03",
-                    "Example selection",
-                    "We choose examples that reflect the team's actual context, not generic AI demos.",
+                    "Recognize and correct poor AI output",
+                    "Spot inaccurate claims, missing information, weak conclusions, and generic content. Learn how to check and improve the result.",
                   ],
                   [
                     "04",
-                    "Session design",
-                    "The workshop is shaped around the group's needs, risks, opportunities, and adoption level.",
+                    "Protect your brand and company information",
+                    "Use brand guidelines and approved examples, keep messaging consistent, and understand what information can be shared with approved AI tools.",
                   ],
                 ].map(([num, title, body]) => (
                   <li className="bp-proc" key={num}>
@@ -465,10 +477,21 @@ export default function TeamAITrainingPage() {
               hands-on exercises tailored to your team.
             </p>
 
+            {/* The second sentence is where the /services/strategy link
+                lives now. It lost its previous home when the customization
+                lede was replaced, and this is the one retained sentence on
+                the page that is already about matching an engagement to an
+                audience. It states a routing fact only: no price, duration,
+                group size, or travel commitment. */}
             <p className="bp-fmt-note">
               Typical formats include half-day sessions, full-day sessions, or
               multi-session workshops. Each engagement is scoped based on
-              audience, goals, customization, and team size.
+              audience, goals, customization, and team size, and leadership
+              groups are often a better fit for{" "}
+              <a href="/services/strategy" className="bp-body-link">
+                Leadership AI Enablement
+              </a>
+              .
             </p>
           </div>
         </section>
