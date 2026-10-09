@@ -271,11 +271,21 @@ export default function LeadershipAIEnablementPage() {
               </div>
               <div className="bp-trust-body">
                 <span className="bp-trust-label">Led by Mike Bayes</span>
+                {/* Second sentence group added 2026-10-09. /team was
+                    out-ranking this page on AI consultant and AI strategy
+                    queries partly because it carried the people-led
+                    credibility signal and this page did not state it. Kept in
+                    the same <p> on purpose: .bp-trust-body is a flex column
+                    with gap:6px, so a sibling paragraph would sit too tight. */}
                 <p>
                   Leadership AI Enablement engagements are led by Mike Bayes,
                   President of Origin AI, with 25+ years of senior technology
                   and business leadership experience across strategy,
-                  operations, cybersecurity, and digital transformation.
+                  operations, cybersecurity, and digital transformation. This
+                  is why our AI strategy consulting work is senior-led. The
+                  decisions are rarely only about tools. They involve
+                  leadership alignment, operating judgment, risk, adoption, and
+                  what the organization is ready to change.
                 </p>
               </div>
             </div>

@@ -8642,6 +8642,32 @@
   justify-content: center;
 }
 
+/* ─── Inline body link, dark pages ─────────────────────────────────────
+   Added 2026-10-09 for the /team to /services/strategy contextual link.
+   globals.css sets `a { color: inherit }`, so an anchor in body copy on
+   these pages would otherwise render as muted grey with the browser's
+   default underline and read as incidental rather than deliberate.
+
+   Values are copied from .bp-page--insights .bp-ins-art-link so the two
+   inline-link treatments on the site match. That rule is scoped to
+   .bp-page--insights and does not reach here, which is why this exists
+   rather than reusing the class.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.bp-page .bp-body-link {
+  color: var(--svc-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(93, 168, 156, 0.45);
+  transition: color 0.18s ease, text-decoration-color 0.18s ease;
+}
+
+.bp-page .bp-body-link:hover {
+  color: #7dc3b7;
+  text-decoration-color: rgba(125, 195, 183, 0.9);
+}
+
 /* ─── Draft insights update 2: hero confidence ─────────────────────────
    The hero read as a small text block floating in a large empty band.
    Fixes: larger H1, wider readable sub, a quiet topic row to anchor the

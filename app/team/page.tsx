@@ -217,6 +217,23 @@ export default function TeamRoute() {
                 client relationship. That keeps the work focused, accountable,
                 and tied to business value.
               </p>
+
+              {/* Added 2026-10-09. /team currently ranks for AI consultant and
+                  AI strategy queries that /services/strategy should own, so
+                  this hands those visitors a route to the service page with
+                  "Leadership AI Enablement" as the anchor. Keep the anchor
+                  text exact; it is the positioning term the strategy page's
+                  title, H1 breadcrumb, and Service schema all use. */}
+              <p className="bp-statement-body">
+                For leadership teams that need clearer direction before
+                investing in tools, training, or software, Mike leads our{" "}
+                <a href="/services/strategy" className="bp-body-link">
+                  Leadership AI Enablement
+                </a>{" "}
+                work. It helps organizations decide where AI fits, what should
+                move first, and what the next step should be.
+              </p>
+
               <ul className="bp-statement-points" aria-label="How we work">
                 <li>Senior on the work</li>
                 <li>Close to the client</li>
