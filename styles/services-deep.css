@@ -9333,12 +9333,12 @@
 
      .bp-tools          tool logo cards + trademark note (section 3)
      .bp-risk-section   origin label + three trust cards (section 5)
-     .bp-train-flow     Align / Demonstrate / Try / Apply (section 6)
+     .bp-formats        in person / live online, two unboxed columns (s4)
 
-   Trimmed 2026-10-09 (third pass). .bp-quality, .bp-quality-turn,
-   .bp-origin-grid--four, .bp-review*, .bp-checks, .bp-check*,
-   .bp-outcome* and .bp-bridge-link* were all removed with the five
-   sections they styled. Nothing else referenced any of them.
+   Trimmed across the 2026-10-09 passes. .bp-quality*, .bp-review*,
+   .bp-checks, .bp-check*, .bp-outcome*, .bp-bridge-link*,
+   .bp-origin-grid--four, .bp-train-flow* and .bp-flow-close were all
+   removed with the sections they styled. Nothing else referenced them.
 
    Everything reuses the existing .bp-work-head, .bp-origin-grid and
    .bp-origin-cell systems where it can, so only the genuinely new
@@ -9347,6 +9347,7 @@
    ═══════════════════════════════════════════════════════════════════ */
 
 .bp-page--training .bp-tools,
+.bp-page--training .bp-formats,
 .bp-page--training .bp-risk-section {
   padding: 68px 0 64px;
 }
@@ -9473,46 +9474,86 @@
   max-width: 76ch;
 }
 
-/* ── Section 6: session flow ─────────────────────────────────────────
-   Named .bp-train-flow rather than .bp-flow: .bp-page .bp-flow-step is
-   already a different component (the numbered step list used by the
-   build and managed pages), and two meanings for one class name is a
-   trap for whoever edits this next. */
+/* ── Section 4: delivery format, two unboxed columns ─────────────────
+   Was two bordered cards each with a 3:2 image frame. The frames, the
+   placeholder fills (.bp-fmt-ph, .bp-fmt-ph-label) and the reserved
+   space are gone: no photography is coming for this section.
 
-.bp-page--training .bp-train-flow {
-  list-style: none;
-  margin: 44px 0 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0;
+   Unboxed on purpose. Two bordered cards here would have echoed the
+   three bordered cards in section 2 one screen earlier, and the two
+   options are a comparison rather than a feature set. The only
+   structure is a hairline divider between the columns.
+
+   In person is first in source order, so it is the left column at
+   desktop and the first block when the columns stack. */
+
+.bp-page--training .bp-fmt-split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 48px;
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(245, 240, 228, 0.08);
 }
 
-.bp-page--training .bp-train-flow-step {
+.bp-page--training .bp-fmt-col {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Divider sits in the gutter rather than on a column edge, so it stays
+   centred between the two columns and disappears with them when the
+   grid collapses to one column. */
+.bp-page--training .bp-fmt-col + .bp-fmt-col {
+  position: relative;
+}
+
+.bp-page--training .bp-fmt-col + .bp-fmt-col::before {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 2px;
+  bottom: 2px;
+  width: 1px;
+  background: rgba(245, 240, 228, 0.1);
+}
+
+.bp-page--training .bp-fmt-col h3 {
   font-family: var(--font-inter-tight), sans-serif;
-  font-weight: 500;
-  font-size: clamp(20px, 2.2vw, 28px);
-  letter-spacing: -0.015em;
-  color: rgba(245, 240, 228, 0.92);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.3;
+  color: rgba(245, 240, 228, 0.95);
+  margin: 0;
 }
 
-.bp-page--training .bp-train-flow-step:not(:last-child)::after {
-  content: "→";
-  display: inline-block;
-  margin: 0 22px;
-  font-size: 0.72em;
-  color: rgba(93, 168, 156, 0.9);
-}
-
-.bp-page--training .bp-flow-close {
+.bp-page--training .bp-fmt-col p {
   font-family: var(--font-inter), sans-serif;
-  font-size: 15.5px;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: rgba(245, 240, 228, 0.58);
+  margin: 0;
+  max-width: 44ch;
+}
+
+.bp-page--training .bp-fmt-shared {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14.5px;
   line-height: 1.65;
   color: rgba(245, 240, 228, 0.6);
-  margin: 40px 0 0;
+  margin: 28px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid rgba(245, 240, 228, 0.08);
+  max-width: 76ch;
+}
+
+.bp-page--training .bp-fmt-note {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(245, 240, 228, 0.46);
+  margin: 14px 0 0;
   max-width: 76ch;
 }
 
@@ -9537,11 +9578,11 @@
 
 @media (max-width: 900px) {
   .bp-page--training .bp-tools,
+  .bp-page--training .bp-formats,
   .bp-page--training .bp-risk-section {
     padding: 52px 0 48px;
   }
-  .bp-page--training .bp-risk-close,
-  .bp-page--training .bp-flow-close {
+  .bp-page--training .bp-risk-close {
     font-size: 14.5px;
   }
 }
@@ -9549,6 +9590,18 @@
 @media (max-width: 700px) {
   .bp-page--training .bp-tool-grid {
     grid-template-columns: 1fr;
+  }
+  /* In person stacks first because it is first in source order. */
+  .bp-page--training .bp-fmt-split {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .bp-page--training .bp-fmt-col + .bp-fmt-col::before {
+    display: none;
+  }
+  .bp-page--training .bp-fmt-col + .bp-fmt-col {
+    padding-top: 22px;
+    border-top: 1px solid rgba(245, 240, 228, 0.08);
   }
   .bp-page--training .bp-tool-mark {
     height: 60px;

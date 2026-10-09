@@ -31,22 +31,27 @@ import Footer from "@/components/Footer";
  *   2. Built around your team's work (3 cards)
  *   3. Tools we commonly train teams on (4 logo cards)
  *   4. How we customize the training (4 steps + human visual)
- *   5. Poor AI use can damage trust (origin + 3 cards)
- *   6. How we train your team (4-word flow + handoff line)
- *   7. Questions, answered (4)
- *   8. CTA
+ *   5. Tools we commonly train teams on (4 logo cards)
+ *   6. Questions, answered (4)
+ *   7. CTA
  *
- * Simplification pass 2026-10-09 (third) cut the lower half from five
- * sections to two. The page had grown into a syllabus: what good AI use
- * looks like, generation is not completion, what teams leave with, how
- * the session runs, where training leads. Each was defensible and the
- * sequence was not, because a buyer deciding whether to book a session
- * does not read five concept sections to find the offer.
+ * Reorder pass 2026-10-09 (fourth) set the narrative. The page had the
+ * right length but the beats were in the wrong order: it opened with
+ * two sections about customization, then logos, then risk. A buyer was
+ * three sections deep before learning why any of it mattered.
  *
- * What a buyer reacts to is the risk, so the trust cards became the
- * section instead of the back half of one. Everything else was cut or
- * folded into a single sentence. Nothing above section 5 changed except
- * one anchor added in section 2.
+ * The order now follows the sale. Stakes, then what makes this training
+ * different, then how it is delivered, then which tools it covers. The
+ * logos moved from second to fifth for the same reason: they confirm a
+ * decision rather than start one.
+ *
+ * Retired here: "Built around your team's work" (folded into sections 2
+ * and 3) and "How we train your team", whose Align / Demonstrate / Try /
+ * Apply row was generic process language. Section 4 replaces it with the
+ * question buyers actually ask, which is remote or in person.
+ *
+ * Section 4 ships with placeholder frames. See the comment there before
+ * dropping real photography in.
  *
  * Specificity pass 2026-10-09 added sections 3, 5, and 6. The page was
  * credible but generic: it described customization well and said almost
@@ -223,119 +228,91 @@ export default function TeamAITrainingPage() {
 
         <div className="bp-fade-down" aria-hidden="true" />
 
-        {/* ─── SECTION 2: BUILT AROUND YOUR TEAM'S WORK ──────────── */}
-        <section className="bp-origin" data-screen-label="Built around your team's work">
+        {/* ─── SECTION 2: AI HAS RAISED THE STAKES ───────────────── */}
+        {/* Reorder pass 2026-10-09 (fourth). This is now the lead, and it
+            is the risk argument rather than a restatement of the hero.
+
+            It absorbs the old "Built around your team's work" section,
+            which opened the page with three cards (Real roles / Real
+            tasks / Real opportunities) that said the same thing as
+            "Customized before anyone joins the session" two sections
+            later. The department sentence from that section moved into
+            the customization lede below, where it belongs, and brought
+            the /services/strategy link with it.
+
+            The framing is cost of untrained use, not fear: the cards
+            describe what teams learn to do, not what will go wrong.
+
+            The origin label and its arrow are a ::after so the glyph can
+            flip from -> to a downward arrow when the layout stacks. */}
+        <section className="bp-risk-section" data-screen-label="AI has raised the stakes">
           <div className="wrap">
             <div className="bp-work-head">
               <div>
-                {/* Homepage brand streak. Used once on this page, opening
-                    the body content after the hero. */}
+                {/* Homepage brand streak. Used once, opening the body
+                    content after the hero. */}
                 <span className="hero-mark bp-streak" aria-hidden="true">
                   <span className="hero-mark-dot" />
                   <span className="hero-mark-line" />
                 </span>
                 <h2 className="section-h2 bp-h2--accented">
-                  The session should feel like your team,{" "}
-                  <span className="muted">not a generic demo.</span>
-                </h2>
-              </div>
-              {/* Second sentence added 2026-10-09. The page never said who
-                  the training is for at an organizational level, which left
-                  "corporate AI training" and "AI training for teams" intent
-                  unaddressed. Naming the departments also makes it obvious
-                  this is not a generic public course. */}
-              <p className="section-lede lede">
-                The most useful AI training is tied to the roles, tasks,
-                documents, decisions, and examples people already recognize.
-                Some organizations need a{" "}
-                <a href="/services/strategy" className="bp-body-link">
-                  leadership session
-                </a>
-                , some need department-level training for marketing, sales,
-                operations, service, finance, HR, or project teams, and some
-                need both.
-              </p>
-            </div>
-
-            <div className="bp-origin-grid">
-              <div className="bp-origin-cell">
-                <h3>Real roles</h3>
-                <p>
-                  We shape examples around the people in the room and the
-                  decisions they make.
-                </p>
-              </div>
-              <div className="bp-origin-cell">
-                <h3>Real tasks</h3>
-                <p>
-                  Training uses familiar patterns such as drafting,
-                  summarizing, comparing, reviewing, researching, and
-                  reporting.
-                </p>
-              </div>
-              <div className="bp-origin-cell">
-                <h3>Real opportunities</h3>
-                <p>
-                  The session helps surface repeatable use cases that may be
-                  worth improving beyond training.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ─── SECTION 3: TOOLS WE TRAIN TEAMS ON ────────────────── */}
-        {/* Added 2026-10-09. Deliberately placed early: it is the most
-            concrete thing on the page and the only section with colour in
-            it, so it breaks up a long run of text-only cards.
-
-            The logos are the heading. No h3 above each one, because the
-            wordmark already says the name and a text repeat of it next to
-            the mark reads as a template rather than a designed card. */}
-        <section className="bp-tools" data-screen-label="Tools we train teams on">
-          <div className="wrap">
-            <div className="bp-work-head">
-              <div>
-                <span className="bp-rule" aria-hidden="true" />
-                <h2 className="section-h2 bp-h2--accented">
-                  Tools we commonly train{" "}
-                  <span className="muted">teams on.</span>
+                  AI tools have raised the stakes{" "}
+                  <span className="muted">for everyday work.</span>
                 </h2>
               </div>
               <p className="section-lede lede">
-                Start with the job you are trying to do, not the tool you are
-                trying to use. The session covers the environments your team
-                already works in, and how to tell which one suits the task.
+                AI tools can help employees create, summarize, analyze, and
+                publish work faster than ever. Used without enough judgment,
+                review, or brand context, the risks show up quickly: generic
+                content, inconsistent messaging, unsupported claims,
+                inaccurate details, and work that feels less credible than it
+                should.
               </p>
             </div>
 
-            <div className="bp-tool-grid">
-              {TOOLS.map((t) => (
-                <div className="bp-tool-card" key={t.slug}>
-                  <span className="bp-tool-mark">
-                    <img
-                      src={`/logos/tools/${t.slug}.png`}
-                      alt={t.name}
-                      width={t.w}
-                      height={96}
-                      loading="lazy"
-                    />
-                  </span>
-                  <p>{t.body}</p>
-                </div>
-              ))}
+            <div className="bp-risk">
+              <p className="bp-risk-origin">Untrained use</p>
+
+              <div className="bp-origin-grid">
+                {[
+                  [
+                    "Brand trust",
+                    "Avoid generic or obviously automated work that weakens the brand.",
+                  ],
+                  [
+                    "Customer trust",
+                    "Check claims, specs, assumptions, and customer-facing messages before they leave the business.",
+                  ],
+                  [
+                    "Trust in AI",
+                    "Build confidence by helping people use AI with judgment, source material, and review.",
+                  ],
+                ].map(([h, p]) => (
+                  <div className="bp-origin-cell" key={h}>
+                    <h3>{h}</h3>
+                    <p>{p}</p>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <p className="bp-tool-note">
-              Tool names and logos are trademarks of their respective owners.
-              Origin AI is not affiliated with or endorsed by these providers.
+            <p className="bp-risk-close">
+              Training helps teams understand what good AI-supported work
+              looks like, what weak AI use looks like, and how to use these
+              tools without costing the business trust it has already earned.
             </p>
           </div>
         </section>
 
-        {/* ─── SECTION 4: HOW WE CUSTOMIZE THE TRAINING ──────────── */}
-        {/* Key differentiator section. Sequence is numbered because the
-            four items happen in order before the session. */}
+        {/* ─── SECTION 3: HOW WE CUSTOMIZE THE TRAINING ──────────── */}
+        {/* Moved up 2026-10-09 (fourth pass) to sit directly after the
+            risk lead: the buyer has just been told what is at stake, so
+            the next question is what makes this training different. Image
+            and four-step rail unchanged.
+
+            The lede gained the department sentence from the retired
+            "Built around your team's work" section, which is what carries
+            corporate and team intent, and the /services/strategy link. */}
         <section className="bp-custom" data-screen-label="How we customize the training">
           <div className="wrap">
             {/* Stacked head: the intro sits directly under the heading in
@@ -348,15 +325,19 @@ export default function TeamAITrainingPage() {
                   Customized before anyone joins the session.
                 </h2>
                 {/* The tool list that used to close this paragraph moved to
-                    section 3, where it has logos and room to say something
-                    about each one. Repeating the four names here would have
-                    read as keyword padding. */}
+                    the tools section, where it has logos and room to say
+                    something about each one. Repeating the four names here
+                    would have read as keyword padding. */}
                 <p className="section-lede lede">
                   Before training, we gather enough context to make the session
                   relevant to the team, their roles, and the examples they are
-                  likely to recognize. That includes which AI tools they
-                  already have access to, and which of those the session
-                  should cover.
+                  likely to recognize. Some organizations need a{" "}
+                  <a href="/services/strategy" className="bp-body-link">
+                    leadership session
+                  </a>
+                  , some need department-level training for marketing, sales,
+                  operations, service, finance, HR, or project teams, and some
+                  need both.
                 </p>
               </div>
             </div>
@@ -427,126 +408,122 @@ export default function TeamAITrainingPage() {
           </div>
         </section>
 
-        {/* ─── SECTION 5: POOR AI USE CAN DAMAGE TRUST ──────────── */}
-        {/* Simplification pass 2026-10-09 (third). This replaces five
-            sections: "What good AI use looks like", "Generation is not
-            completion", "What teams leave with", "Designed for
-            participation", and "Where training can lead".
+        {/* ─── SECTION 4: DELIVERY FORMAT ────────────────────────── */}
+        {/* Replaces "How we train your team", whose Align / Demonstrate /
+            Try / Apply row was generic process language that said nothing
+            a buyer could act on. This answers the question that actually
+            comes up on a sales call: can you come to us, or is this
+            remote.
 
-            The trust cards were the strongest thing in that stack and the
-            only part a buyer reacts to, so they are now the section rather
-            than the back half of one. The four upside cards (better /
-            faster / insight / capability) are gone: they described AI in
-            general, not this service, and every service page on the web
-            makes that claim.
+            Rebuilt 2026-10-10 as text only. This shipped with two 3:2
+            image frames holding placeholders for photography that is not
+            coming; the decision was made not to add more images to this
+            page. The frames, the placeholder fills, and the reserved space
+            are all gone rather than left empty.
 
-            "A first AI output is not finished business work" is the one
-            line kept from "Generation is not completion". It earns its
-            place by setting up the spotting sentence after it. The six
-            review statements and the three checks are gone.
-
-            The origin label and its arrow are a ::after so the glyph can
-            flip from -> to a downward arrow when the layout stacks. */}
-        <section className="bp-risk-section" data-screen-label="Poor AI use can damage trust">
+            In person leads because it is the stronger differentiator and
+            the harder thing to offer. Source order puts it first, so it is
+            also first when the columns stack. Deliberately unboxed: two
+            bordered cards here would have competed with the three bordered
+            cards in section 2 a screen earlier. */}
+        <section className="bp-formats" data-screen-label="How training is delivered">
           <div className="wrap">
             <div className="bp-work-head">
               <div>
                 <span className="bp-rule" aria-hidden="true" />
                 <h2 className="section-h2 bp-h2--accented">
-                  Poor AI use can{" "}
-                  <span className="muted">damage trust.</span>
+                  Live training, delivered the way{" "}
+                  <span className="muted">your team works best.</span>
                 </h2>
               </div>
               <p className="section-lede lede">
-                Poor AI use does not just create weak outputs. It can damage
-                brand trust, customer trust, and confidence in AI inside the
-                organization.
+                Sessions are live and hands-on either way. The format follows
+                the team rather than the other way around.
               </p>
             </div>
 
-            <div className="bp-risk">
-              <p className="bp-risk-origin">Poor AI use</p>
-
-              <div className="bp-origin-grid">
-                {[
-                  [
-                    "Brand trust",
-                    "Avoid generic or obviously automated work that weakens the brand.",
-                  ],
-                  [
-                    "Customer trust",
-                    "Check claims, specs, assumptions, and customer-facing messages before they leave the business.",
-                  ],
-                  [
-                    "Trust in AI",
-                    "Use AI well enough that leaders and coworkers build confidence instead of dismissing it after mediocre results.",
-                  ],
-                ].map(([h, p]) => (
-                  <div className="bp-origin-cell" key={h}>
-                    <h3>{h}</h3>
-                    <p>{p}</p>
-                  </div>
-                ))}
-              </div>
+            <div className="bp-fmt-split">
+              {[
+                [
+                  "In person",
+                  "Facilitated workshops with your team together in the same room.",
+                ],
+                [
+                  "Live online",
+                  "Live workshops over Microsoft Teams for teams joining from different locations.",
+                ],
+              ].map(([title, body]) => (
+                <div className="bp-fmt-col" key={title}>
+                  <h3>{title}</h3>
+                  <p>{body}</p>
+                </div>
+              ))}
             </div>
 
-            <p className="bp-risk-close">
-              A first AI output is not finished business work. Teams learn to
-              spot generic, inaccurate, off-brand, or unsupported AI work
-              before it reaches customers, leaders, colleagues, or public
-              channels.
+            <p className="bp-fmt-shared">
+              Both formats include live demonstrations, questions, and
+              hands-on exercises tailored to your team.
+            </p>
+
+            <p className="bp-fmt-note">
+              Typical formats include half-day sessions, full-day sessions, or
+              multi-session workshops. Each engagement is scoped based on
+              audience, goals, customization, and team size.
             </p>
           </div>
         </section>
 
-        {/* ─── SECTION 6: HOW WE TRAIN YOUR TEAM ─────────────────── */}
-        {/* Delivery in one compact section. Replaces "Designed for
-            participation, not passive watching" and absorbs the one useful
-            job of "Where training can lead", which is the handoff to
-            /services/build. That used to be a three-card section; it is
-            now the closing sentence.
+        {/* ─── SECTION 5: TOOLS WE TRAIN TEAMS ON ────────────────── */}
+        {/* Moved down 2026-10-09 (fourth pass). It used to run second,
+            which put product logos ahead of the reason to care. It now
+            sits where a buyer who is already interested goes looking for
+            confirmation that the session covers their stack.
 
-            Stacked head so this reads differently from the two-column head
-            in section 5 directly above it. */}
-        <section className="bp-howitworks" data-screen-label="How we train your team">
+            The logos are the heading. No h3 above each one, because the
+            wordmark already says the name and a text repeat of it next to
+            the mark reads as a template rather than a designed card. */}
+        <section className="bp-tools" data-screen-label="Tools we train teams on">
           <div className="wrap">
-            <div className="bp-work-head bp-work-head--stacked">
+            <div className="bp-work-head">
               <div>
                 <span className="bp-rule" aria-hidden="true" />
                 <h2 className="section-h2 bp-h2--accented">
-                  How we train your team.
+                  Tools we commonly train{" "}
+                  <span className="muted">teams on.</span>
                 </h2>
-                <p className="section-lede lede">
-                  Sessions combine short instruction, live examples, hands-on
-                  exercises, and discussion about where AI fits in the
-                  team&rsquo;s real work.
-                </p>
               </div>
+              <p className="section-lede lede">
+                Start with the job you are trying to do, not the tool you are
+                trying to use. The session covers the environments your team
+                already works in, and how to tell which one suits the task.
+              </p>
             </div>
 
-            <ol className="bp-train-flow">
-              {["Align", "Demonstrate", "Try", "Apply"].map((s) => (
-                <li className="bp-train-flow-step" key={s}>
-                  {s}
-                </li>
+            <div className="bp-tool-grid">
+              {TOOLS.map((t) => (
+                <div className="bp-tool-card" key={t.slug}>
+                  <span className="bp-tool-mark">
+                    <img
+                      src={`/logos/tools/${t.slug}.png`}
+                      alt={t.name}
+                      width={t.w}
+                      height={96}
+                      loading="lazy"
+                    />
+                  </span>
+                  <p>{t.body}</p>
+                </div>
               ))}
-            </ol>
+            </div>
 
-            {/* The /services/build link lives here now. It is the natural
-                home: this is the sentence about what happens after a
-                session, which is exactly what that page is. */}
-            <p className="bp-flow-close">
-              When a repeated task should become a shared workflow,
-              assistant, automation, or{" "}
-              <a href="/services/build" className="bp-body-link">
-                custom AI workflow software
-              </a>
-              , we help identify the next step.
+            <p className="bp-tool-note">
+              Tool names and logos are trademarks of their respective owners.
+              Origin AI is not affiliated with or endorsed by these providers.
             </p>
           </div>
         </section>
 
-        {/* ─── SECTION 7: QUESTIONS, ANSWERED ────────────────────── */}
+        {/* ─── SECTION 6: QUESTIONS, ANSWERED ────────────────────── */}
         {/* Reuses the .bp-faq system already on the live service pages. Head
             uses this page's bp-rule pattern rather than the older all-caps
             eyebrow so it matches the sections above. */}
@@ -584,7 +561,22 @@ export default function TeamAITrainingPage() {
                 {
                   open: false,
                   q: "What do teams walk away with?",
-                  a: "Shared habits for using AI on real tasks, examples drawn from their own work, and a short list of workflow opportunities worth looking at next.",
+                  /* JSX rather than a string so "workflow opportunities"
+                     can carry the /services/build link. That link lost its
+                     home when "How we train your team" was retired, and
+                     this is the one sentence left on the page that already
+                     describes what training surfaces. `a` is typed by
+                     inference, so a mixed string/JSX array is fine. */
+                  a: (
+                    <>
+                      Shared habits for using AI on real tasks, examples drawn
+                      from their own work, and a short list of{" "}
+                      <a href="/services/build" className="bp-body-link">
+                        workflow opportunities
+                      </a>{" "}
+                      worth looking at next.
+                    </>
+                  ),
                 },
               ].map((it, i) => (
                 <details className="bp-faq-item" key={i} open={it.open}>
@@ -602,7 +594,7 @@ export default function TeamAITrainingPage() {
           </div>
         </section>
 
-        {/* ─── SECTION 8: CTA ────────────────────────────────────── */}
+        {/* ─── SECTION 7: CTA ────────────────────────────────────── */}
         {/* No eyebrow, no accent. The CTA panel carries the section. */}
         <section className="bp-cta" data-screen-label="Final CTA" id="contact">
           <div className="wrap">
