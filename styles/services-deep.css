@@ -9329,7 +9329,8 @@
 
      .bp-tools    tool logo cards + trademark note
      .bp-quality  4-up card row, a turn line, then a 3-up card row
-     .bp-review   short statements ("tenets") + a closing line
+     .bp-review   centred statement + three checks + closing maxim
+     .bp-outcome  one-line label strip (section 7)
 
    Everything reuses the existing .bp-work-head, .bp-origin-grid and
    .bp-origin-cell systems where it can, so only the genuinely new
@@ -9438,56 +9439,210 @@
   margin: 0;
 }
 
-/* ── Review tenets ───────────────────────────────────────────────────
-   Short statements, three across, two rows. No body copy and no card
-   chrome: the point is that each line stands on its own. */
+/* ── Section 6: centred statement + three checks ─────────────────────
+   Replaces the .bp-tenets / .bp-tenet / .bp-review-close block from the
+   first pass, which rendered six statements as a two-row hairline grid.
+   Those three classes are gone; nothing else referenced them.
 
-.bp-page--training .bp-tenets {
+   This is the only centred head on the page. That is deliberate. The
+   four lower sections previously shared one head shape, and varying it
+   here is most of what stops the lower half reading as one column. */
+
+.bp-page--training .bp-review-head {
+  max-width: 62ch;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* .bp-rule is a fixed-width block with no auto margins, so it sits hard
+   left under a centred heading unless this is set. Same correction as
+   .svc-dark--team .bp-statement-inner .bp-rule. */
+.bp-page--training .bp-review-head .bp-rule {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bp-page--training .bp-review-head p {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: rgba(245, 240, 228, 0.6);
+  margin: 18px 0 0;
+}
+
+/* Narrower than the .wrap so the checks sit under the centred head as
+   one block rather than spanning the full 1200px while the head above
+   them is only 62ch wide. 920px still leaves roughly 280px per column,
+   which keeps the longest value on one line at desktop. */
+.bp-page--training .bp-checks {
   list-style: none;
-  margin: 40px 0 0;
+  max-width: 920px;
+  margin: 52px auto 0;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  column-gap: 40px;
-  row-gap: 0;
+  gap: 40px;
   border-top: 1px solid rgba(245, 240, 228, 0.08);
 }
 
-/* The teal dash is a pseudo-element at a measured offset rather than a
-   flex child aligned to a baseline. An empty inline span has no baseline
-   of its own, so flexbox would fall back to its margin edge and the dash
-   would land wherever the box happened to sit. This positions it against
-   the known padding-top and line-height instead:
-   20px padding + half of (16px * 1.4) = 20 + 11.2px to the first line's
-   optical centre. */
-.bp-page--training .bp-tenet {
-  position: relative;
-  padding: 20px 0 19px 26px;
-  border-bottom: 1px solid rgba(245, 240, 228, 0.08);
+.bp-page--training .bp-check {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding-top: 24px;
+}
+
+.bp-page--training .bp-check-k {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(93, 168, 156, 1);
+}
+
+.bp-page--training .bp-check-v {
   font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.4;
-  color: rgba(245, 240, 228, 0.9);
+  color: rgba(245, 240, 228, 0.92);
 }
 
-.bp-page--training .bp-tenet::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 31px;
-  width: 14px;
-  height: 1px;
-  background: rgba(93, 168, 156, 0.85);
-}
-
-.bp-page--training .bp-review-close {
+.bp-page--training .bp-review-maxim {
   font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
   font-size: 22px;
   letter-spacing: -0.015em;
   color: rgba(245, 240, 228, 0.95);
-  margin: 40px 0 0;
+  text-align: center;
+  margin: 56px 0 0;
+}
+
+/* ── Section 7: outcome strip ────────────────────────────────────────
+   One line tall, no heading, no card. The lightest band on the page,
+   sitting between two heavier sections so the lower half has somewhere
+   to breathe. Padding is deliberately much smaller than a section. */
+
+.bp-page--training .bp-outcome {
+  padding: 0 0 8px;
+}
+
+.bp-page--training .bp-outcome-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 14px 26px;
+  padding: 26px 0;
+  border-top: 1px solid rgba(245, 240, 228, 0.08);
+  border-bottom: 1px solid rgba(245, 240, 228, 0.08);
+}
+
+.bp-page--training .bp-outcome-label {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 228, 0.4);
+  flex: 0 0 auto;
+}
+
+.bp-page--training .bp-outcome-tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px 26px;
+}
+
+.bp-page--training .bp-outcome-tags li {
+  position: relative;
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: rgba(245, 240, 228, 0.9);
+}
+
+/* Hairline separator between tags, drawn in the gap so it never shows
+   at the end of a wrapped row. */
+.bp-page--training .bp-outcome-tags li + li::before {
+  content: "";
+  position: absolute;
+  left: -13px;
+  top: 0.25em;
+  width: 1px;
+  height: 0.9em;
+  background: rgba(245, 240, 228, 0.16);
+}
+
+/* ── Section 8: session flow ─────────────────────────────────────────
+   Four words and three arrows, replacing the .bp-hrail timeline that
+   carried a number, a heading and a sentence per step. */
+
+.bp-page--training .bp-flow {
+  list-style: none;
+  margin: 44px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+}
+
+.bp-page--training .bp-flow-step {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 500;
+  font-size: clamp(20px, 2.2vw, 28px);
+  letter-spacing: -0.015em;
+  color: rgba(245, 240, 228, 0.92);
+}
+
+.bp-page--training .bp-flow-step:not(:last-child)::after {
+  content: "→";
+  display: inline-block;
+  margin: 0 22px;
+  font-size: 0.72em;
+  color: rgba(93, 168, 156, 0.9);
+}
+
+/* ── Section 9: bridge links ─────────────────────────────────────────
+   Two text links on a hairline rule, replacing three bordered cards.
+   The cards were wrappers around what are really just two links. */
+
+.bp-page--training .bp-bridge-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 56px;
+  margin-top: 40px;
+  padding-top: 26px;
+  border-top: 1px solid rgba(245, 240, 228, 0.08);
+}
+
+.bp-page--training .bp-bridge-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 500;
+  font-size: 17px;
+  color: rgba(93, 168, 156, 1);
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+.bp-page--training .bp-bridge-link:hover {
+  color: #7dc3b7;
+}
+
+.bp-page--training .bp-bridge-link .arrow {
+  transition: transform 0.18s ease;
+}
+
+.bp-page--training .bp-bridge-link:hover .arrow {
+  transform: translateX(3px);
 }
 
 /* ── Responsive ──────────────────────────────────────────────────── */
@@ -9505,25 +9660,40 @@
   .bp-page--training .bp-review {
     padding: 52px 0 48px;
   }
-  .bp-page--training .bp-tenets {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
   .bp-page--training .bp-quality-turn {
     margin: 44px auto 30px;
   }
   .bp-page--training .bp-quality-turn h3 {
     font-size: 20px;
   }
-  .bp-page--training .bp-review-close {
+  .bp-page--training .bp-checks {
+    margin-top: 40px;
+    gap: 26px;
+  }
+  .bp-page--training .bp-review-maxim {
     font-size: 19px;
+    margin-top: 44px;
   }
 }
 
 @media (max-width: 700px) {
   .bp-page--training .bp-tool-grid,
   .bp-page--training .bp-origin-grid--four,
-  .bp-page--training .bp-tenets {
+  .bp-page--training .bp-checks {
     grid-template-columns: 1fr;
+  }
+  /* Single column: the top rule would otherwise read as a divider above
+     the first check only, so move it onto each row. */
+  .bp-page--training .bp-checks {
+    border-top: none;
+    gap: 0;
+  }
+  .bp-page--training .bp-check {
+    padding: 20px 0;
+    border-top: 1px solid rgba(245, 240, 228, 0.08);
+  }
+  .bp-page--training .bp-outcome-row {
+    gap: 10px 20px;
   }
   .bp-page--training .bp-tool-mark {
     height: 60px;

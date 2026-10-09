@@ -32,12 +32,21 @@ import Footer from "@/components/Footer";
  *   3. Tools we commonly train teams on (4 logo cards)
  *   4. How we customize the training (4 steps + human visual)
  *   5. What good AI use looks like (4 cards + trust turn + 3 cards)
- *   6. Generation is not completion (6 tenets)
- *   7. What teams learn (6 compact cards)
- *   8. What happens in the session (4 steps)
- *   9. Where training can lead (3 cards, 2 link out)
+ *   6. Generation is not completion (centred statement + 3 checks)
+ *   7. What teams leave with (label strip, no heading)
+ *   8. What happens in the session (4-word flow)
+ *   9. Where training can lead (stacked head + 2 links)
  *  10. Questions, answered (4)
  *  11. CTA
+ *
+ * Density pass 2026-10-09 (second pass) rebuilt sections 6 through 9.
+ * They had become four consecutive h2-left / lede-right heads each
+ * followed by a grid: six tenets, six skills, four rail steps, three
+ * cards. Individually fine, in sequence a wall. Nothing above section 6
+ * was touched. The ideas were kept and the repetition was not; section 7
+ * lost its grid entirely because all six of its items were already said
+ * somewhere else on the page. Each of the four now has a different shape:
+ * centred block, bare strip, two-column head, stacked head.
  *
  * Specificity pass 2026-10-09 added sections 3, 5, and 6. The page was
  * credible but generic: it described customization well and said almost
@@ -67,7 +76,7 @@ const SERVICE_JSON_LD = {
   "@id": "https://www.originai.ca/services/ai-training#service",
   name: "Team AI Training",
   description:
-    "Customized AI training for teams in Winnipeg and across Canada. Sessions are built around the roles, tasks, documents, decisions, and tools a team already works with, including ChatGPT, Microsoft Copilot, and Claude.",
+    "Customized AI training for teams in Winnipeg and across Canada. Sessions are built around the roles, tasks, documents, decisions, and tools a team already works with, including ChatGPT, Microsoft Copilot, Claude, and Gemini.",
   provider: { "@id": "https://www.originai.ca/#organization" },
   serviceType: "AI Training",
   areaServed: [
@@ -497,105 +506,76 @@ export default function TeamAITrainingPage() {
         </section>
 
         {/* ─── SECTION 6: GENERATION IS NOT COMPLETION ───────────── */}
-        {/* Added 2026-10-09. Short statements rather than cards or a third
-            hairline list, so the review habits read as a position the firm
-            holds rather than another feature grid. */}
+        {/* Compressed 2026-10-09 (second pass). This shipped as a six-item
+            hairline grid, which made it the third list in a row and turned
+            a position the firm holds into another feature set.
+
+            Now a single centred statement with three checks. The centred
+            head is the only one on the page and is doing deliberate work:
+            sections 5, 8 and 9 all use the standard h2-left / lede-right
+            head, so breaking the pattern here is what stops the lower half
+            reading as one long column of identical blocks.
+
+            Four of the six original lines survive folded into the checks
+            and the closing maxim. "Give AI the real source material" and
+            "Ask what it used" both became Source. "Check in proportion to
+            the stakes" became Stakes. "Bring in human expertise" became
+            Ownership, which also absorbs the old standalone close line. */}
         <section className="bp-review" data-screen-label="Reviewing AI output">
           <div className="wrap">
-            <div className="bp-work-head">
-              <div>
-                <span className="bp-rule" aria-hidden="true" />
-                <h2 className="section-h2 bp-h2--accented">
-                  Generation is not{" "}
-                  <span className="muted">completion.</span>
-                </h2>
-              </div>
-              <p className="section-lede lede">
-                A first output is not finished work. Teams learn to review,
-                challenge, shorten, source-check, and reshape AI-assisted work
-                before it becomes business work.
+            <div className="bp-review-head">
+              <span className="bp-rule" aria-hidden="true" />
+              <h2 className="section-h2 bp-h2--accented">
+                Generation is not <span className="muted">completion.</span>
+              </h2>
+              <p>
+                A first AI output is not finished business work. Teams learn
+                to check the source, challenge the answer, improve the draft,
+                and decide what still needs human judgment.
               </p>
             </div>
 
-            <ul className="bp-tenets">
+            <ul className="bp-checks">
               {[
-                "Confidence is not evidence.",
-                "Give AI the real source material.",
-                "Ask what it used and what it assumed.",
-                "Challenge the claims that carry weight.",
-                "Check in proportion to the stakes.",
-                "Bring in human expertise when the answer counts.",
-              ].map((t) => (
-                <li className="bp-tenet" key={t}>
-                  {t}
+                ["Source", "What did it use?"],
+                ["Stakes", "How carefully does this need checking?"],
+                ["Ownership", "AI helped. You own it."],
+              ].map(([k, v]) => (
+                <li className="bp-check" key={k}>
+                  <span className="bp-check-k">{k}</span>
+                  <span className="bp-check-v">{v}</span>
                 </li>
               ))}
             </ul>
 
-            <p className="bp-review-close">
-              AI helped. <span className="muted">You own it.</span>
-            </p>
+            <p className="bp-review-maxim">Confidence is not evidence.</p>
           </div>
         </section>
 
-        {/* ─── SECTION 7: WHAT TEAMS LEARN ───────────────────────── */}
-        <section className="bp-domains" data-screen-label="What teams learn">
+        {/* ─── SECTION 7: WHAT TEAMS LEAVE WITH ──────────────────── */}
+        {/* Was "What the team gets better at": a full section with its own
+            head and a six-item hairline grid. Removed 2026-10-09 (second
+            pass) because every one of its six items was already carried
+            elsewhere. Context and source material are section 6. Tool
+            choice is section 3. Spotting weak output and staying on-brand
+            are the trust cards in section 5. Repeatable work is section 9.
+            It was restating the page back to itself.
+
+            What survives is a single-line label strip with no heading and
+            no paragraph. It is the lightest band on the page by a wide
+            margin, which is the point: it gives the lower half somewhere
+            to breathe between two heavier sections. */}
+        <section className="bp-outcome" data-screen-label="What teams leave with">
           <div className="wrap">
-            <div className="bp-work-head">
-              <div>
-                <span className="bp-rule" aria-hidden="true" />
-                <h2 className="section-h2 bp-h2--accented">
-                  What the team gets better at.
-                </h2>
-              </div>
-              <p className="section-lede lede">
-                The focus is on habits that hold up once the session is over
-                and the work is real.
-              </p>
-            </div>
-
-            {/* Compact hairline list rather than six bordered cards, so the
-                section reads as capability rather than a course syllabus.
-
-                Items rewritten 2026-10-09. The previous six described
-                generic AI tasks (summarize, draft, research) that any
-                workshop teaches. These describe judgment instead, which is
-                the actual differentiator. Kept at six so the 3-col grid
-                still fills two clean rows. Two of the candidate items,
-                improving drafts and turning repeat tasks into workflows,
-                were dropped because sections 6 and 9 already carry them. */}
-            <div className="bp-skills">
-              {[
-                [
-                  "A conversation, not a formula",
-                  "Explain the job, share the material, let it ask questions, push back, refine.",
-                ],
-                [
-                  "Context over prompt length",
-                  "Better context and real source material do more than a longer prompt or a memorized template.",
-                ],
-                [
-                  "The right tool for the task",
-                  "Choosing the environment that suits the work, the data, and the systems already in use.",
-                ],
-                [
-                  "Spotting weak output",
-                  "Recognizing generic, inaccurate, off-brand, or unsupported work before it goes anywhere.",
-                ],
-                [
-                  "Accurate, on-brand, credible",
-                  "Keeping AI-assisted work in the organization's voice, with claims that hold up.",
-                ],
-                [
-                  "What belongs in approved tools",
-                  "Clear boundaries around sensitive information, customer data, and where work should happen.",
-                ],
-              ].map(([h, p], i) => (
-                <div className="bp-skill" key={i}>
-                  <h3>{h}</h3>
-                  <p>{p}</p>
-                </div>
-              ))}
+            <div className="bp-outcome-row">
+              <span className="bp-outcome-label">Teams leave with</span>
+              <ul className="bp-outcome-tags">
+                <li>Better context</li>
+                <li>Real source material</li>
+                <li>Review habits</li>
+                <li>Tool choice</li>
+                <li>Repeatable work</li>
+              </ul>
             </div>
           </div>
         </section>
@@ -613,43 +593,23 @@ export default function TeamAITrainingPage() {
                 </h2>
               </div>
               <p className="section-lede lede">
-                The best sessions combine short instruction, live examples,
-                hands-on exercises, and discussion about where AI fits.
+                Short instruction, live examples, hands-on exercises, and
+                discussion about where AI fits.
               </p>
             </div>
 
-            {/* Horizontal rail. Reads as a session timeline and keeps this
-                section visually distinct from the vertical rail above. */}
-            <ol className="bp-hrail">
-              {[
-                [
-                  "01",
-                  "Align",
-                  "Set expectations, responsible-use boundaries, and the role AI should play.",
-                ],
-                [
-                  "02",
-                  "Demonstrate",
-                  "Show examples tied to the team's tasks, tools, documents, and decisions.",
-                ],
-                [
-                  "03",
-                  "Practice",
-                  "Participants work through exercises using realistic scenarios and prompts.",
-                ],
-                [
-                  "04",
-                  "Capture",
-                  "Document useful patterns, concerns, and opportunities to explore further.",
-                ],
-              ].map(([num, title, body]) => (
-                <li className="bp-hrail-step" key={num}>
-                  <span className="bp-hrail-node" aria-hidden="true">
-                    <span className="bp-hrail-dot" />
-                  </span>
-                  <span className="bp-hrail-num">{num}</span>
-                  <h3>{title}</h3>
-                  <p>{body}</p>
+            {/* Compressed 2026-10-09 (second pass) from the .bp-hrail
+                timeline, which carried a number, a heading and a sentence
+                per step. The four step names already say the shape of the
+                session, and the lede above says what happens in them, so
+                the bodies were restating the lede four times.
+
+                The arrow is a ::after on each step except the last, so the
+                sequence has no separator markup to keep in sync. */}
+            <ol className="bp-flow">
+              {["Align", "Demonstrate", "Try", "Capture"].map((s) => (
+                <li className="bp-flow-step" key={s}>
+                  {s}
                 </li>
               ))}
             </ol>
@@ -659,53 +619,40 @@ export default function TeamAITrainingPage() {
         {/* ─── SECTION 9: WHERE TRAINING CAN LEAD ────────────────── */}
         <section className="bp-origin" data-screen-label="Where training can lead">
           <div className="wrap">
-            <div className="bp-work-head">
+            {/* Compressed 2026-10-09 (second pass). Was three bordered
+                cards, the fourth card grid in the lower half. The first
+                card ("Shared AI habits") is now the outcome strip in
+                section 7, and the other two were card-shaped wrappers
+                around what are really just two links.
+
+                Stacked head so this reads differently again from the
+                two-column head in section 8 directly above it.
+
+                Both existing links are kept. The /services/strategy one
+                predates this pass and is the training-to-leadership route;
+                no links were added or removed. */}
+            <div className="bp-work-head bp-work-head--stacked">
               <div>
                 <span className="bp-rule" aria-hidden="true" />
                 <h2 className="section-h2 bp-h2--accented">
                   Training often reveals what should be built next.
                 </h2>
+                <p className="section-lede lede">
+                  Some opportunities stay as better team habits. Others become
+                  shared prompts, standards, assistants, automations, or
+                  custom AI workflow software.
+                </p>
               </div>
-              <p className="section-lede lede">
-                When teams use AI with real examples, repeatable opportunities
-                become easier to see. Some remain individual habits. Others may
-                become shared prompts, team standards, automations,
-                assistants, or custom workflow tools.
-              </p>
             </div>
 
-            <div className="bp-origin-grid">
-              <div className="bp-origin-cell">
-                <h3>Shared AI habits</h3>
-                <p>
-                  Teams leave with clearer expectations, better examples, and
-                  more consistent ways to use AI.
-                </p>
-              </div>
-
-              <a href="/services/strategy" className="bp-origin-cell is-link">
-                <h3>Workflow opportunities</h3>
-                <p>
-                  The session can surface recurring tasks or decisions that are
-                  worth improving beyond training.
-                </p>
-                <span className="bp-origin-link">
-                  Leadership AI Enablement{" "}
-                  <span className="arrow" aria-hidden="true">→</span>
-                </span>
+            <div className="bp-bridge-links">
+              <a href="/services/strategy" className="bp-bridge-link">
+                Leadership AI Enablement
+                <span className="arrow" aria-hidden="true">→</span>
               </a>
-
-              <a href="/services/build" className="bp-origin-cell is-link">
-                <h3>AI Workflow Development</h3>
-                <p>
-                  The strongest repeated tasks can become custom AI workflow
-                  software: focused tools, assistants, automations, or
-                  integrations built around how the team already works.
-                </p>
-                <span className="bp-origin-link">
-                  Explore workflow development{" "}
-                  <span className="arrow" aria-hidden="true">→</span>
-                </span>
+              <a href="/services/build" className="bp-bridge-link">
+                AI Workflow Development
+                <span className="arrow" aria-hidden="true">→</span>
               </a>
             </div>
           </div>
