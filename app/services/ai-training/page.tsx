@@ -314,16 +314,17 @@ export default function TeamAITrainingPage() {
           </div>
         </section>
 
-        {/* ─── SECTION 3: WHAT YOUR TEAM WILL LEARN ─────────────── */}
-        {/* Moved up 2026-10-09 (fourth pass) to sit directly after the
-            risk lead: the buyer has just been told what is at stake, so
-            the next question is what makes this training different. Image
-            and four-step rail unchanged.
+        {/* ─── SECTION 3: PREPARE YOUR TEAM TO USE AI WELL ───────── */}
+        {/* Sits directly after the risk lead: the buyer has just been told
+            what is at stake, so this answers it. The heading changed from
+            "What your team will learn" on 2026-10-10 so it reads as a
+            response to the section above rather than a syllabus label.
 
-            The lede gained the department sentence from the retired
-            "Built around your team's work" section, which is what carries
-            corporate and team intent, and the /services/strategy link. */}
-        <section className="bp-custom" data-screen-label="What your team will learn">
+            The pre-session survey was one clause inside a longer sentence
+            and was easy to miss. It is now the lead-in, because it is the
+            thing that makes the four topics below customized rather than
+            standard. */}
+        <section className="bp-custom" data-screen-label="Prepare your team to use AI well">
           <div className="wrap">
             {/* Stacked head: the intro sits directly under the heading in
                 the same column rather than in a right-hand rail, so it
@@ -332,12 +333,20 @@ export default function TeamAITrainingPage() {
               <div>
                 <span className="bp-rule" aria-hidden="true" />
                 <h2 className="section-h2 bp-h2--accented">
-                  What your team will learn.
+                  Prepare your team to use AI well.
                 </h2>
+                {/* Deliberately a <p>, not an <h3>. The four training
+                    topics below are h3s; promoting this line would insert
+                    a heading between the section h2 and those four and
+                    make the outline claim they are subordinate to the
+                    survey, which they are not. Weight carries it instead. */}
+                <p className="bp-lead-in">
+                  We start with a pre-session survey.
+                </p>
                 <p className="section-lede lede">
-                  We use a pre-session survey and discussion to choose the
-                  topics and examples most relevant to your team. Sessions can
-                  cover:
+                  We ask about your team&rsquo;s current AI use, priorities,
+                  and concerns, then use their responses to tailor the topics
+                  and examples.
                 </p>
               </div>
             </div>

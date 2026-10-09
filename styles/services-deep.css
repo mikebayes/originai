@@ -9465,6 +9465,35 @@
   color: rgba(93, 168, 156, 0.9);
 }
 
+/* ── Section 3: survey lead-in ───────────────────────────────────────
+   Added 2026-10-10. The pre-session survey used to be one clause inside
+   the section lede and read as background. It is now a bold lead-in with
+   the supporting sentence under it in the existing muted body style.
+
+   Sized to 18.5px/600, which is the same step as .bp-proc-body h3 (the
+   four topic titles in this section), so the lead-in joins the existing
+   type scale rather than introducing a new one. The ladder reads
+   34 -> 18.5 -> 15.5.
+
+   It takes the 20px top margin that .bp-work-head--stacked .section-lede
+   used to get from the h2, and the supporting sentence tightens to 8px so
+   the two lines read as one block. That override needs four classes to
+   beat .bp-page .bp-work-head--stacked .section-lede, hence the
+   .bp-custom in the chain. */
+
+.bp-page--training .bp-custom .bp-lead-in {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 600;
+  font-size: 18.5px;
+  line-height: 1.35;
+  color: rgba(245, 240, 228, 0.96);
+  margin: 20px 0 0;
+}
+
+.bp-page--training .bp-custom .bp-lead-in + .section-lede {
+  margin-top: 8px;
+}
+
 /* ── Section 4: delivery format, two unboxed columns ─────────────────
    Was two bordered cards each with a 3:2 image frame. The frames, the
    placeholder fills (.bp-fmt-ph, .bp-fmt-ph-label) and the reserved
