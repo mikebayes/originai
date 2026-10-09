@@ -8655,7 +8655,11 @@
    ═══════════════════════════════════════════════════════════════════ */
 
 .bp-page .bp-body-link {
-  color: var(--svc-accent);
+  /* Fallback added 2026-10-09: .bp-page--training and .bp-page--workflow
+     never declare --svc-accent, so an unqualified var() here resolved to
+     invalid and the link fell back to inherited body colour. The literal
+     is the same muted teal the five pages that do declare it use. */
+  color: var(--svc-accent, #5da89c);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
@@ -9327,10 +9331,14 @@
    Scoped to .bp-page--training. Three new section types were added to
    /services/ai-training and nothing on the page could express them:
 
-     .bp-tools    tool logo cards + trademark note
-     .bp-quality  4-up card row, a turn line, then a 3-up card row
-     .bp-review   centred statement + three checks + closing maxim
-     .bp-outcome  one-line label strip (section 7)
+     .bp-tools          tool logo cards + trademark note (section 3)
+     .bp-risk-section   origin label + three trust cards (section 5)
+     .bp-train-flow     Align / Demonstrate / Try / Apply (section 6)
+
+   Trimmed 2026-10-09 (third pass). .bp-quality, .bp-quality-turn,
+   .bp-origin-grid--four, .bp-review*, .bp-checks, .bp-check*,
+   .bp-outcome* and .bp-bridge-link* were all removed with the five
+   sections they styled. Nothing else referenced any of them.
 
    Everything reuses the existing .bp-work-head, .bp-origin-grid and
    .bp-origin-cell systems where it can, so only the genuinely new
@@ -9339,8 +9347,7 @@
    ═══════════════════════════════════════════════════════════════════ */
 
 .bp-page--training .bp-tools,
-.bp-page--training .bp-quality,
-.bp-page--training .bp-review {
+.bp-page--training .bp-risk-section {
   padding: 68px 0 64px;
 }
 
@@ -9406,181 +9413,73 @@
   margin: 22px 0 0;
   max-width: 68ch;
 }
+/* ── Section 5: poor AI use, and the three things it costs ───────────
+   A labelled origin on the left, the three trust cards on the right.
+   The relationship is carried by an arrow on the origin rather than by
+   a drawn connector, because a connector would have to be re-measured
+   every time the card heights change.
 
-/* ── Four-up variant of the shared card grid ─────────────────────── */
-.bp-page--training .bp-origin-grid--four {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+   The cards are the shared .bp-origin-grid / .bp-origin-cell system, so
+   only the surrounding frame is defined here. */
+
+.bp-page--training .bp-risk {
+  display: grid;
+  grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+  align-items: center;
+  gap: 36px;
+  margin-top: 40px;
 }
 
-/* ── The turn between "what good looks like" and "what is at stake" ─
-   Centred and narrow so it reads as a statement rather than a card
-   that lost its grid. */
-.bp-page--training .bp-quality-turn {
-  max-width: 62ch;
-  margin: 56px auto 36px;
-  text-align: center;
+/* .bp-origin-grid carries its own 40px top margin for the normal case
+   where it follows a section head. Inside this grid it is a column, so
+   the margin would push it out of alignment with the origin label. */
+.bp-page--training .bp-risk .bp-origin-grid {
+  margin-top: 0;
 }
 
-.bp-page--training .bp-quality-turn h3 {
+.bp-page--training .bp-risk-origin {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0;
+  /* nowrap rather than a max-width: the grid column is auto, so the
+     label sizes itself and stays on one line beside its arrow. A width
+     cap broke "Poor AI use" across two lines and left the arrow
+     stranded beside the second one. */
+  white-space: nowrap;
   font-family: var(--font-inter-tight), sans-serif;
   font-weight: 500;
-  font-size: 23px;
-  line-height: 1.3;
+  font-size: 21px;
+  line-height: 1.25;
   letter-spacing: -0.015em;
-  color: rgba(245, 240, 228, 0.95);
-  margin: 0 0 10px;
+  color: rgba(245, 240, 228, 0.92);
 }
 
-.bp-page--training .bp-quality-turn p {
-  font-family: var(--font-inter), sans-serif;
-  font-size: 15px;
-  line-height: 1.65;
-  color: rgba(245, 240, 228, 0.6);
-  margin: 0;
+/* Pseudo-element so the glyph can flip direction when the layout
+   stacks at narrow widths. */
+.bp-page--training .bp-risk-origin::after {
+  content: "→";
+  font-size: 22px;
+  line-height: 1;
+  color: rgba(93, 168, 156, 0.9);
 }
 
-/* ── Section 6: centred statement + three checks ─────────────────────
-   Replaces the .bp-tenets / .bp-tenet / .bp-review-close block from the
-   first pass, which rendered six statements as a two-row hairline grid.
-   Those three classes are gone; nothing else referenced them.
-
-   This is the only centred head on the page. That is deliberate. The
-   four lower sections previously shared one head shape, and varying it
-   here is most of what stops the lower half reading as one column. */
-
-.bp-page--training .bp-review-head {
-  max-width: 62ch;
-  margin: 0 auto;
-  text-align: center;
-}
-
-/* .bp-rule is a fixed-width block with no auto margins, so it sits hard
-   left under a centred heading unless this is set. Same correction as
-   .svc-dark--team .bp-statement-inner .bp-rule. */
-.bp-page--training .bp-review-head .bp-rule {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.bp-page--training .bp-review-head p {
+.bp-page--training .bp-risk-close {
   font-family: var(--font-inter), sans-serif;
   font-size: 15.5px;
   line-height: 1.65;
   color: rgba(245, 240, 228, 0.6);
-  margin: 18px 0 0;
+  margin: 36px 0 0;
+  max-width: 76ch;
 }
 
-/* Narrower than the .wrap so the checks sit under the centred head as
-   one block rather than spanning the full 1200px while the head above
-   them is only 62ch wide. 920px still leaves roughly 280px per column,
-   which keeps the longest value on one line at desktop. */
-.bp-page--training .bp-checks {
-  list-style: none;
-  max-width: 920px;
-  margin: 52px auto 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 40px;
-  border-top: 1px solid rgba(245, 240, 228, 0.08);
-}
+/* ── Section 6: session flow ─────────────────────────────────────────
+   Named .bp-train-flow rather than .bp-flow: .bp-page .bp-flow-step is
+   already a different component (the numbered step list used by the
+   build and managed pages), and two meanings for one class name is a
+   trap for whoever edits this next. */
 
-.bp-page--training .bp-check {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-  padding-top: 24px;
-}
-
-.bp-page--training .bp-check-k {
-  font-family: var(--font-jetbrains-mono), monospace;
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(93, 168, 156, 1);
-}
-
-.bp-page--training .bp-check-v {
-  font-family: var(--font-inter-tight), sans-serif;
-  font-weight: 500;
-  font-size: 17px;
-  line-height: 1.4;
-  color: rgba(245, 240, 228, 0.92);
-}
-
-.bp-page--training .bp-review-maxim {
-  font-family: var(--font-inter-tight), sans-serif;
-  font-weight: 500;
-  font-size: 22px;
-  letter-spacing: -0.015em;
-  color: rgba(245, 240, 228, 0.95);
-  text-align: center;
-  margin: 56px 0 0;
-}
-
-/* ── Section 7: outcome strip ────────────────────────────────────────
-   One line tall, no heading, no card. The lightest band on the page,
-   sitting between two heavier sections so the lower half has somewhere
-   to breathe. Padding is deliberately much smaller than a section. */
-
-.bp-page--training .bp-outcome {
-  padding: 0 0 8px;
-}
-
-.bp-page--training .bp-outcome-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 14px 26px;
-  padding: 26px 0;
-  border-top: 1px solid rgba(245, 240, 228, 0.08);
-  border-bottom: 1px solid rgba(245, 240, 228, 0.08);
-}
-
-.bp-page--training .bp-outcome-label {
-  font-family: var(--font-jetbrains-mono), monospace;
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(245, 240, 228, 0.4);
-  flex: 0 0 auto;
-}
-
-.bp-page--training .bp-outcome-tags {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 10px 26px;
-}
-
-.bp-page--training .bp-outcome-tags li {
-  position: relative;
-  font-family: var(--font-inter-tight), sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  color: rgba(245, 240, 228, 0.9);
-}
-
-/* Hairline separator between tags, drawn in the gap so it never shows
-   at the end of a wrapped row. */
-.bp-page--training .bp-outcome-tags li + li::before {
-  content: "";
-  position: absolute;
-  left: -13px;
-  top: 0.25em;
-  width: 1px;
-  height: 0.9em;
-  background: rgba(245, 240, 228, 0.16);
-}
-
-/* ── Section 8: session flow ─────────────────────────────────────────
-   Four words and three arrows, replacing the .bp-hrail timeline that
-   carried a number, a heading and a sentence per step. */
-
-.bp-page--training .bp-flow {
+.bp-page--training .bp-train-flow {
   list-style: none;
   margin: 44px 0 0;
   padding: 0;
@@ -9590,7 +9489,7 @@
   gap: 0;
 }
 
-.bp-page--training .bp-flow-step {
+.bp-page--training .bp-train-flow-step {
   display: flex;
   align-items: center;
   font-family: var(--font-inter-tight), sans-serif;
@@ -9600,7 +9499,7 @@
   color: rgba(245, 240, 228, 0.92);
 }
 
-.bp-page--training .bp-flow-step:not(:last-child)::after {
+.bp-page--training .bp-train-flow-step:not(:last-child)::after {
   content: "→";
   display: inline-block;
   margin: 0 22px;
@@ -9608,92 +9507,48 @@
   color: rgba(93, 168, 156, 0.9);
 }
 
-/* ── Section 9: bridge links ─────────────────────────────────────────
-   Two text links on a hairline rule, replacing three bordered cards.
-   The cards were wrappers around what are really just two links. */
-
-.bp-page--training .bp-bridge-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px 56px;
-  margin-top: 40px;
-  padding-top: 26px;
-  border-top: 1px solid rgba(245, 240, 228, 0.08);
-}
-
-.bp-page--training .bp-bridge-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--font-inter-tight), sans-serif;
-  font-weight: 500;
-  font-size: 17px;
-  color: rgba(93, 168, 156, 1);
-  text-decoration: none;
-  transition: color 0.18s ease;
-}
-
-.bp-page--training .bp-bridge-link:hover {
-  color: #7dc3b7;
-}
-
-.bp-page--training .bp-bridge-link .arrow {
-  transition: transform 0.18s ease;
-}
-
-.bp-page--training .bp-bridge-link:hover .arrow {
-  transform: translateX(3px);
+.bp-page--training .bp-flow-close {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: rgba(245, 240, 228, 0.6);
+  margin: 40px 0 0;
+  max-width: 76ch;
 }
 
 /* ── Responsive ──────────────────────────────────────────────────── */
 
 @media (max-width: 1100px) {
-  .bp-page--training .bp-tool-grid,
-  .bp-page--training .bp-origin-grid--four {
+  .bp-page--training .bp-tool-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  /* Origin moves above the cards, so the arrow turns to point down. */
+  .bp-page--training .bp-risk {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+  .bp-page--training .bp-risk-origin {
+    white-space: normal;
+  }
+  .bp-page--training .bp-risk-origin::after {
+    content: "↓";
   }
 }
 
 @media (max-width: 900px) {
   .bp-page--training .bp-tools,
-  .bp-page--training .bp-quality,
-  .bp-page--training .bp-review {
+  .bp-page--training .bp-risk-section {
     padding: 52px 0 48px;
   }
-  .bp-page--training .bp-quality-turn {
-    margin: 44px auto 30px;
-  }
-  .bp-page--training .bp-quality-turn h3 {
-    font-size: 20px;
-  }
-  .bp-page--training .bp-checks {
-    margin-top: 40px;
-    gap: 26px;
-  }
-  .bp-page--training .bp-review-maxim {
-    font-size: 19px;
-    margin-top: 44px;
+  .bp-page--training .bp-risk-close,
+  .bp-page--training .bp-flow-close {
+    font-size: 14.5px;
   }
 }
 
 @media (max-width: 700px) {
-  .bp-page--training .bp-tool-grid,
-  .bp-page--training .bp-origin-grid--four,
-  .bp-page--training .bp-checks {
+  .bp-page--training .bp-tool-grid {
     grid-template-columns: 1fr;
-  }
-  /* Single column: the top rule would otherwise read as a divider above
-     the first check only, so move it onto each row. */
-  .bp-page--training .bp-checks {
-    border-top: none;
-    gap: 0;
-  }
-  .bp-page--training .bp-check {
-    padding: 20px 0;
-    border-top: 1px solid rgba(245, 240, 228, 0.08);
-  }
-  .bp-page--training .bp-outcome-row {
-    gap: 10px 20px;
   }
   .bp-page--training .bp-tool-mark {
     height: 60px;
