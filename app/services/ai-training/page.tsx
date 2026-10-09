@@ -29,12 +29,23 @@ import Footer from "@/components/Footer";
  * Sections:
  *   1. Hero
  *   2. Built around your team's work (3 cards)
- *   3. How we customize the training (4 steps + human visual)
- *   4. What teams learn (6 compact cards)
- *   5. What happens in the session (4 steps)
- *   6. Where training can lead (3 cards, 2 link out)
- *   7. Questions, answered (4)
- *   8. CTA
+ *   3. Tools we commonly train teams on (4 logo cards)
+ *   4. How we customize the training (4 steps + human visual)
+ *   5. What good AI use looks like (4 cards + trust turn + 3 cards)
+ *   6. Generation is not completion (6 tenets)
+ *   7. What teams learn (6 compact cards)
+ *   8. What happens in the session (4 steps)
+ *   9. Where training can lead (3 cards, 2 link out)
+ *  10. Questions, answered (4)
+ *  11. CTA
+ *
+ * Specificity pass 2026-10-09 added sections 3, 5, and 6. The page was
+ * credible but generic: it described customization well and said almost
+ * nothing about what is actually taught. The new sections carry the
+ * message that training is not only tool instruction, it is learning what
+ * good AI-supported work looks like. Section 3 also puts the four tool
+ * names in visible copy for the first time, which the metadata and schema
+ * had been carrying alone.
  *
  * Styling note: the dark hero treatment comes from the svc-dark /
  * svc-dark--training classes in styles/services-deep.css. Those were
@@ -66,6 +77,54 @@ const SERVICE_JSON_LD = {
   ],
   url: "https://www.originai.ca/services/ai-training",
 };
+
+/**
+ * Tools covered in section 3.
+ *
+ * Logos live in /public/logos/tools/ and were trimmed to their artwork
+ * bounding box, then scaled to a uniform 96px cap height so the four read
+ * at the same optical weight in a row. Intrinsic width varies (414-448px)
+ * and is passed through to the width/height attributes so the browser
+ * reserves the right box before the image loads.
+ *
+ * All four marks are dark artwork, so each sits on a cream chip rather
+ * than directly on the dark section. The logos themselves are unmodified
+ * beyond that uniform scaling.
+ *
+ * The copy carries "<tool> training" in visible text because those are
+ * four separate search phrases and the page previously had none of them
+ * outside one FAQ answer.
+ */
+const TOOLS = [
+  {
+    slug: "chatgpt",
+    name: "ChatGPT",
+    w: 416,
+    body:
+      "ChatGPT training for drafting, summarizing, comparing information, working with files, preparing ideas, and improving everyday business communication.",
+  },
+  {
+    slug: "microsoft-copilot",
+    name: "Microsoft Copilot",
+    w: 414,
+    body:
+      "Microsoft Copilot training for teams working inside Microsoft 365, covering where it helps, where it falls short, and how to use it responsibly.",
+  },
+  {
+    slug: "claude",
+    name: "Claude",
+    w: 448,
+    body:
+      "Claude training for longer documents, writing, analysis, structured thinking, policy review, planning, and detailed content work.",
+  },
+  {
+    slug: "gemini",
+    name: "Gemini",
+    w: 425,
+    body:
+      "Gemini training for teams in Google Workspace who want AI support connected to email, documents, research, and team workflows.",
+  },
+];
 
 export default function TeamAITrainingPage() {
   return (
@@ -102,10 +161,16 @@ export default function TeamAITrainingPage() {
               <span className="accent">your team&rsquo;s real work.</span>
             </h1>
 
+            {/* Sharpened 2026-10-09. The previous subhead described the
+                method (tailoring) without naming anything concrete. This
+                version names the four tools and the four things training
+                actually improves, which is also where the tool-name search
+                phrases first appear on the page. */}
             <p className="bp-hero-sub">
-              Origin helps teams use AI with more confidence, consistency, and
-              judgment by tailoring training around their roles, tools,
-              documents, decisions, and real opportunities.
+              Origin helps business teams use tools like ChatGPT, Microsoft
+              Copilot, Claude, and Gemini with better judgment, stronger source
+              material, clearer review habits, and examples drawn from the work
+              they actually do.
             </p>
 
             <div className="bp-hero-actions">
@@ -165,9 +230,17 @@ export default function TeamAITrainingPage() {
                   <span className="muted">not a generic demo.</span>
                 </h2>
               </div>
+              {/* Second sentence added 2026-10-09. The page never said who
+                  the training is for at an organizational level, which left
+                  "corporate AI training" and "AI training for teams" intent
+                  unaddressed. Naming the departments also makes it obvious
+                  this is not a generic public course. */}
               <p className="section-lede lede">
                 The most useful AI training is tied to the roles, tasks,
                 documents, decisions, and examples people already recognize.
+                Some organizations need a leadership session, some need
+                department-level training for marketing, sales, operations,
+                service, finance, HR, or project teams, and some need both.
               </p>
             </div>
 
@@ -198,7 +271,56 @@ export default function TeamAITrainingPage() {
           </div>
         </section>
 
-        {/* ─── SECTION 3: HOW WE CUSTOMIZE THE TRAINING ──────────── */}
+        {/* ─── SECTION 3: TOOLS WE TRAIN TEAMS ON ────────────────── */}
+        {/* Added 2026-10-09. Deliberately placed early: it is the most
+            concrete thing on the page and the only section with colour in
+            it, so it breaks up a long run of text-only cards.
+
+            The logos are the heading. No h3 above each one, because the
+            wordmark already says the name and a text repeat of it next to
+            the mark reads as a template rather than a designed card. */}
+        <section className="bp-tools" data-screen-label="Tools we train teams on">
+          <div className="wrap">
+            <div className="bp-work-head">
+              <div>
+                <span className="bp-rule" aria-hidden="true" />
+                <h2 className="section-h2 bp-h2--accented">
+                  Tools we commonly train{" "}
+                  <span className="muted">teams on.</span>
+                </h2>
+              </div>
+              <p className="section-lede lede">
+                Start with the job you are trying to do, not the tool you are
+                trying to use. The session covers the environments your team
+                already works in, and how to tell which one suits the task.
+              </p>
+            </div>
+
+            <div className="bp-tool-grid">
+              {TOOLS.map((t) => (
+                <div className="bp-tool-card" key={t.slug}>
+                  <span className="bp-tool-mark">
+                    <img
+                      src={`/logos/tools/${t.slug}.png`}
+                      alt={t.name}
+                      width={t.w}
+                      height={96}
+                      loading="lazy"
+                    />
+                  </span>
+                  <p>{t.body}</p>
+                </div>
+              ))}
+            </div>
+
+            <p className="bp-tool-note">
+              Tool names and logos are trademarks of their respective owners.
+              Origin AI is not affiliated with or endorsed by these providers.
+            </p>
+          </div>
+        </section>
+
+        {/* ─── SECTION 4: HOW WE CUSTOMIZE THE TRAINING ──────────── */}
         {/* Key differentiator section. Sequence is numbered because the
             four items happen in order before the session. */}
         <section className="bp-custom" data-screen-label="How we customize the training">
@@ -212,12 +334,16 @@ export default function TeamAITrainingPage() {
                 <h2 className="section-h2 bp-h2--accented">
                   Customized before anyone joins the session.
                 </h2>
+                {/* The tool list that used to close this paragraph moved to
+                    section 3, where it has logos and room to say something
+                    about each one. Repeating the four names here would have
+                    read as keyword padding. */}
                 <p className="section-lede lede">
                   Before training, we gather enough context to make the session
                   relevant to the team, their roles, and the examples they are
-                  likely to recognize. Sessions can include tools such as
-                  ChatGPT, Microsoft Copilot, Claude, and other AI tools,
-                  depending on what the team actually uses.
+                  likely to recognize. That includes which AI tools they
+                  already have access to, and which of those the session
+                  should cover.
                 </p>
               </div>
             </div>
@@ -288,7 +414,131 @@ export default function TeamAITrainingPage() {
           </div>
         </section>
 
-        {/* ─── SECTION 4: WHAT TEAMS LEARN ───────────────────────── */}
+        {/* ─── SECTION 5: WHAT GOOD AI USE LOOKS LIKE ────────────── */}
+        {/* Added 2026-10-09. Two beats in one section rather than two
+            sections: the upside, then what is at stake if the work is
+            poor. Splitting them would have put three card grids in a row
+            and flattened the page's rhythm. */}
+        <section className="bp-quality" data-screen-label="What good AI use looks like">
+          <div className="wrap">
+            <div className="bp-work-head">
+              <div>
+                <span className="bp-rule" aria-hidden="true" />
+                <h2 className="section-h2 bp-h2--accented">
+                  What good AI use{" "}
+                  <span className="muted">looks like.</span>
+                </h2>
+              </div>
+              <p className="section-lede lede">
+                Training is not only learning tools. It is learning what good
+                AI-supported work looks like, and what it should actually
+                improve.
+              </p>
+            </div>
+
+            <div className="bp-origin-grid bp-origin-grid--four">
+              {[
+                [
+                  "Better work",
+                  "Higher-quality documents, presentations, analysis, communication, and decisions.",
+                ],
+                [
+                  "Faster work",
+                  "Less time searching, summarizing, drafting, reformatting, and repeating.",
+                ],
+                [
+                  "Better insight",
+                  "More information brought together, compared, questioned, and turned into useful direction.",
+                ],
+                [
+                  "Greater capability",
+                  "Teams take on work that previously needed more time, more tools, or specialist support.",
+                ],
+              ].map(([h, p]) => (
+                <div className="bp-origin-cell" key={h}>
+                  <h3>{h}</h3>
+                  <p>{p}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* The turn. This is the argument the section exists to make,
+                so it gets its own line rather than becoming a fourth card. */}
+            <div className="bp-quality-turn">
+              <h3>AI quality matters because trust is at stake.</h3>
+              <p>
+                Poor AI use does not just create weak outputs. It can damage
+                brand trust, customer trust, and internal confidence in AI.
+              </p>
+            </div>
+
+            <div className="bp-origin-grid">
+              {[
+                [
+                  "Brand trust",
+                  "Teams learn to avoid generic or obviously automated work that weakens the brand.",
+                ],
+                [
+                  "Customer trust",
+                  "Teams learn to check claims, specs, assumptions, and customer-facing messages before they leave the business.",
+                ],
+                [
+                  "Trust in AI",
+                  "Teams learn to use AI well enough that colleagues build confidence in it instead of dismissing it after mediocre results.",
+                ],
+              ].map(([h, p]) => (
+                <div className="bp-origin-cell" key={h}>
+                  <h3>{h}</h3>
+                  <p>{p}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ─── SECTION 6: GENERATION IS NOT COMPLETION ───────────── */}
+        {/* Added 2026-10-09. Short statements rather than cards or a third
+            hairline list, so the review habits read as a position the firm
+            holds rather than another feature grid. */}
+        <section className="bp-review" data-screen-label="Reviewing AI output">
+          <div className="wrap">
+            <div className="bp-work-head">
+              <div>
+                <span className="bp-rule" aria-hidden="true" />
+                <h2 className="section-h2 bp-h2--accented">
+                  Generation is not{" "}
+                  <span className="muted">completion.</span>
+                </h2>
+              </div>
+              <p className="section-lede lede">
+                A first output is not finished work. Teams learn to review,
+                challenge, shorten, source-check, and reshape AI-assisted work
+                before it becomes business work.
+              </p>
+            </div>
+
+            <ul className="bp-tenets">
+              {[
+                "Confidence is not evidence.",
+                "Give AI the real source material.",
+                "Ask what it used and what it assumed.",
+                "Challenge the claims that carry weight.",
+                "Check in proportion to the stakes.",
+                "Bring in human expertise when the answer counts.",
+              ].map((t) => (
+                <li className="bp-tenet" key={t}>
+                  {t}
+                </li>
+              ))}
+            </ul>
+
+            <p className="bp-review-close">
+              AI helped. <span className="muted">You own it.</span>
+            </p>
+          </div>
+        </section>
+
+        {/* ─── SECTION 7: WHAT TEAMS LEARN ───────────────────────── */}
         <section className="bp-domains" data-screen-label="What teams learn">
           <div className="wrap">
             <div className="bp-work-head">
@@ -299,38 +549,46 @@ export default function TeamAITrainingPage() {
                 </h2>
               </div>
               <p className="section-lede lede">
-                The focus is on responsible AI habits that improve everyday
-                tasks without removing judgment.
+                The focus is on habits that hold up once the session is over
+                and the work is real.
               </p>
             </div>
 
             {/* Compact hairline list rather than six bordered cards, so the
-                section reads as capability rather than a course syllabus. */}
+                section reads as capability rather than a course syllabus.
+
+                Items rewritten 2026-10-09. The previous six described
+                generic AI tasks (summarize, draft, research) that any
+                workshop teaches. These describe judgment instead, which is
+                the actual differentiator. Kept at six so the 3-col grid
+                still fills two clean rows. Two of the candidate items,
+                improving drafts and turning repeat tasks into workflows,
+                were dropped because sections 6 and 9 already carry them. */}
             <div className="bp-skills">
               {[
                 [
-                  "Prompt with context",
-                  "Clearer instructions, source material, constraints, and intended outcomes.",
+                  "A conversation, not a formula",
+                  "Explain the job, share the material, let it ask questions, push back, refine.",
                 ],
                 [
-                  "Review and improve outputs",
-                  "Evaluate responses, refine drafts, catch gaps, apply judgment.",
+                  "Context over prompt length",
+                  "Better context and real source material do more than a longer prompt or a memorized template.",
                 ],
                 [
-                  "Summarize and synthesize",
-                  "Turn documents, notes, or feedback into clear summaries and next steps.",
+                  "The right tool for the task",
+                  "Choosing the environment that suits the work, the data, and the systems already in use.",
                 ],
                 [
-                  "Draft and adapt content",
-                  "Stronger first drafts, rewritten for audience, channel, and tone.",
+                  "Spotting weak output",
+                  "Recognizing generic, inaccurate, off-brand, or unsupported work before it goes anywhere.",
                 ],
                 [
-                  "Research and compare",
-                  "Explore options, compare information, prepare better questions.",
+                  "Accurate, on-brand, credible",
+                  "Keeping AI-assisted work in the organization's voice, with claims that hold up.",
                 ],
                 [
-                  "Work responsibly",
-                  "Boundaries around privacy, accuracy, sensitive information, and review.",
+                  "What belongs in approved tools",
+                  "Clear boundaries around sensitive information, customer data, and where work should happen.",
                 ],
               ].map(([h, p], i) => (
                 <div className="bp-skill" key={i}>
@@ -342,7 +600,7 @@ export default function TeamAITrainingPage() {
           </div>
         </section>
 
-        {/* ─── SECTION 5: WHAT HAPPENS IN THE SESSION ────────────── */}
+        {/* ─── SECTION 8: WHAT HAPPENS IN THE SESSION ────────────── */}
         {/* Uses the hairline list treatment rather than numbered cards so
             it reads differently from section 3. */}
         <section className="bp-howitworks" data-screen-label="What happens in the session">
@@ -398,7 +656,7 @@ export default function TeamAITrainingPage() {
           </div>
         </section>
 
-        {/* ─── SECTION 6: WHERE TRAINING CAN LEAD ────────────────── */}
+        {/* ─── SECTION 9: WHERE TRAINING CAN LEAD ────────────────── */}
         <section className="bp-origin" data-screen-label="Where training can lead">
           <div className="wrap">
             <div className="bp-work-head">
@@ -440,8 +698,9 @@ export default function TeamAITrainingPage() {
               <a href="/services/build" className="bp-origin-cell is-link">
                 <h3>AI Workflow Development</h3>
                 <p>
-                  High-value opportunities can become focused AI tools,
-                  assistants, automations, integrations, or internal systems.
+                  The strongest repeated tasks can become custom AI workflow
+                  software: focused tools, assistants, automations, or
+                  integrations built around how the team already works.
                 </p>
                 <span className="bp-origin-link">
                   Explore workflow development{" "}
@@ -452,7 +711,7 @@ export default function TeamAITrainingPage() {
           </div>
         </section>
 
-        {/* ─── SECTION 7: QUESTIONS, ANSWERED ────────────────────── */}
+        {/* ─── SECTION 10: QUESTIONS, ANSWERED ────────────────────── */}
         {/* Reuses the .bp-faq system already on the live service pages. Head
             uses this page's bp-rule pattern rather than the older all-caps
             eyebrow so it matches the sections above. */}
@@ -480,7 +739,7 @@ export default function TeamAITrainingPage() {
                 {
                   open: false,
                   q: "Do you train on specific tools?",
-                  a: "Yes. Sessions are built around the tools your team already has, so in practice this usually looks like ChatGPT training, Microsoft Copilot training, or a mix of both alongside whatever else is in use.",
+                  a: "Yes. Sessions are built around the tools your team already has, so in practice this usually looks like ChatGPT training, Microsoft Copilot training, Claude training, or Gemini training, often in combination, alongside any specialized tools already in use.",
                 },
                 {
                   open: false,
@@ -508,7 +767,7 @@ export default function TeamAITrainingPage() {
           </div>
         </section>
 
-        {/* ─── SECTION 8: CTA ────────────────────────────────────── */}
+        {/* ─── SECTION 11: CTA ────────────────────────────────────── */}
         {/* No eyebrow, no accent. The CTA panel carries the section. */}
         <section className="bp-cta" data-screen-label="Final CTA" id="contact">
           <div className="wrap">

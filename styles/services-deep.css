@@ -9321,3 +9321,211 @@
     font-size: 16.5px;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   TRAINING PAGE SPECIFICITY PASS, 2026-10-09
+   Scoped to .bp-page--training. Three new section types were added to
+   /services/ai-training and nothing on the page could express them:
+
+     .bp-tools    tool logo cards + trademark note
+     .bp-quality  4-up card row, a turn line, then a 3-up card row
+     .bp-review   short statements ("tenets") + a closing line
+
+   Everything reuses the existing .bp-work-head, .bp-origin-grid and
+   .bp-origin-cell systems where it can, so only the genuinely new
+   pieces are defined here. Section padding matches the .bp-domains /
+   .bp-howitworks rhythm already set for this page at line ~7143.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.bp-page--training .bp-tools,
+.bp-page--training .bp-quality,
+.bp-page--training .bp-review {
+  padding: 68px 0 64px;
+}
+
+/* ── Tool cards ──────────────────────────────────────────────────────
+   Four across. Each logo sits on a cream chip because all four marks
+   are dark artwork and would otherwise be invisible on this page. The
+   chip is the full card width so the four line up on a shared baseline
+   regardless of each lockup's width. */
+
+.bp-page--training .bp-tool-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.bp-page--training .bp-tool-card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 22px 22px 24px;
+  border: 1px solid rgba(245, 240, 228, 0.08);
+  border-radius: 14px;
+  background: linear-gradient(
+    170deg,
+    rgba(245, 240, 228, 0.025) 0%,
+    rgba(245, 240, 228, 0) 100%
+  );
+}
+
+.bp-page--training .bp-tool-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 68px;
+  padding: 0 18px;
+  border-radius: 10px;
+  /* The site's cream, not pure white: the chips read as part of the
+     page rather than four holes punched in it. */
+  background: #f5f0e4;
+}
+
+.bp-page--training .bp-tool-mark img {
+  display: block;
+  width: auto;
+  height: 26px;
+  max-width: 100%;
+}
+
+.bp-page--training .bp-tool-card p {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: rgba(245, 240, 228, 0.58);
+  margin: 0;
+}
+
+.bp-page--training .bp-tool-note {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 12px;
+  line-height: 1.6;
+  color: rgba(245, 240, 228, 0.34);
+  margin: 22px 0 0;
+  max-width: 68ch;
+}
+
+/* ── Four-up variant of the shared card grid ─────────────────────── */
+.bp-page--training .bp-origin-grid--four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* ── The turn between "what good looks like" and "what is at stake" ─
+   Centred and narrow so it reads as a statement rather than a card
+   that lost its grid. */
+.bp-page--training .bp-quality-turn {
+  max-width: 62ch;
+  margin: 56px auto 36px;
+  text-align: center;
+}
+
+.bp-page--training .bp-quality-turn h3 {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 500;
+  font-size: 23px;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  color: rgba(245, 240, 228, 0.95);
+  margin: 0 0 10px;
+}
+
+.bp-page--training .bp-quality-turn p {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(245, 240, 228, 0.6);
+  margin: 0;
+}
+
+/* ── Review tenets ───────────────────────────────────────────────────
+   Short statements, three across, two rows. No body copy and no card
+   chrome: the point is that each line stands on its own. */
+
+.bp-page--training .bp-tenets {
+  list-style: none;
+  margin: 40px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 40px;
+  row-gap: 0;
+  border-top: 1px solid rgba(245, 240, 228, 0.08);
+}
+
+/* The teal dash is a pseudo-element at a measured offset rather than a
+   flex child aligned to a baseline. An empty inline span has no baseline
+   of its own, so flexbox would fall back to its margin edge and the dash
+   would land wherever the box happened to sit. This positions it against
+   the known padding-top and line-height instead:
+   20px padding + half of (16px * 1.4) = 20 + 11.2px to the first line's
+   optical centre. */
+.bp-page--training .bp-tenet {
+  position: relative;
+  padding: 20px 0 19px 26px;
+  border-bottom: 1px solid rgba(245, 240, 228, 0.08);
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.4;
+  color: rgba(245, 240, 228, 0.9);
+}
+
+.bp-page--training .bp-tenet::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 31px;
+  width: 14px;
+  height: 1px;
+  background: rgba(93, 168, 156, 0.85);
+}
+
+.bp-page--training .bp-review-close {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: -0.015em;
+  color: rgba(245, 240, 228, 0.95);
+  margin: 40px 0 0;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────── */
+
+@media (max-width: 1100px) {
+  .bp-page--training .bp-tool-grid,
+  .bp-page--training .bp-origin-grid--four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .bp-page--training .bp-tools,
+  .bp-page--training .bp-quality,
+  .bp-page--training .bp-review {
+    padding: 52px 0 48px;
+  }
+  .bp-page--training .bp-tenets {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .bp-page--training .bp-quality-turn {
+    margin: 44px auto 30px;
+  }
+  .bp-page--training .bp-quality-turn h3 {
+    font-size: 20px;
+  }
+  .bp-page--training .bp-review-close {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 700px) {
+  .bp-page--training .bp-tool-grid,
+  .bp-page--training .bp-origin-grid--four,
+  .bp-page--training .bp-tenets {
+    grid-template-columns: 1fr;
+  }
+  .bp-page--training .bp-tool-mark {
+    height: 60px;
+  }
+}
