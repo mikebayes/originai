@@ -282,7 +282,7 @@ export default function TeamAITrainingPage() {
             </div>
 
             <div className="bp-risk">
-              <p className="bp-risk-origin">Untrained use</p>
+              <p className="bp-risk-origin">What&rsquo;s at risk</p>
 
               <div className="bp-origin-grid">
                 {[
