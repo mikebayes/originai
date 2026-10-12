@@ -8903,9 +8903,23 @@
    content block are untouched.
    ═══════════════════════════════════════════════════════════════════ */
 
-.svc-dark--training .bp-train-grid {
-  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
-  align-items: start;
+/* BUGFIX 2026-10-12. This block used to be unconditional. It sits after
+   the `@media (max-width: 1100px)` rule above that stacks the grid to a
+   single column, and it carries the same specificity (0,0,2,0), so source
+   order made it win at every width. The section never stacked: on a phone
+   the photograph held the left column and the four topics were crammed
+   into the right, which is what made the descriptions wrap so hard.
+
+   Confining it to the desktop side of the same breakpoint fixes the
+   stack and leaves the desktop split byte-identical. The 1101 here is the
+   1100 above plus one; if that breakpoint ever moves, move both. The
+   figure cap below it was never broken, because the 1100px query that
+   follows re-asserts its own value. */
+@media (min-width: 1101px) {
+  .svc-dark--training .bp-train-grid {
+    grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+    align-items: start;
+  }
 }
 .svc-dark--training .bp-train-figure {
   max-width: 440px;
