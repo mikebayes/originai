@@ -46,7 +46,7 @@ Internal links from the homepage services overview cards land on the matching an
 
 ### `/team`
 
-The team page. Each member gets a full block: portrait, name, title, longer bio, optional LinkedIn link. Three members today (Mike, Chad, Taylor), easy to add more later.
+The team page. Each member gets a full block: portrait, name, title, longer bio, optional LinkedIn link. Two members today (Mike, Chad), easy to add more later.
 
 ### `/approach`
 

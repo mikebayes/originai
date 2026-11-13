@@ -84,12 +84,6 @@ export const authors: Record<string, Author> = {
     role: "Co-Founder & CEO",
     photo: "/images/CB.avif",
   },
-  "taylor-crawford": {
-    id: "taylor-crawford",
-    name: "Taylor Crawford",
-    role: "Co-Founder, Growth & Partnerships",
-    photo: "/images/TC.avif",
-  },
 };
 
 /* ─── Articles ─────────────────────────────────────────────────────

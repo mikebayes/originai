@@ -12,7 +12,7 @@ import HeroNav from "./HeroNav";
  * Sections (intentionally short):
  *   1. Hero — TEAM eyebrow, H1, sub, two CTAs, 3-col footer rail
  *      (Team / Model / Delivery).
- *   2. Founding team — three premium cards (Mike, Chad, Taylor)
+ *   2. Founding team — premium cards (Mike, Chad)
  *      with photo placeholders (initials), role, short bio, focus
  *      chips. Photos are placeholders that can be swapped to real
  *      headshots later. We deliberately don't use AI-generated faces.
@@ -71,7 +71,7 @@ export default function TeamPage() {
           <div className="bp-hero-footer">
             <div className="bp-hero-foot-col">
               <div className="k">Team</div>
-              <div className="v">3 partners</div>
+              <div className="v">Senior partners</div>
             </div>
             <div className="bp-hero-foot-col">
               <div className="k">Model</div>
@@ -102,7 +102,7 @@ export default function TeamPage() {
               </h2>
             </div>
             <p className="section-lede lede">
-              Three partners with operator experience across AI strategy,
+              Partners with operator experience across AI strategy,
               software delivery, and growth. Senior on every engagement.
             </p>
           </div>
@@ -135,20 +135,6 @@ export default function TeamPage() {
                   "Software delivery",
                   "AI-assisted build",
                   "Digital systems",
-                ],
-              },
-              {
-                name: "Taylor Crawford",
-                initials: "TC",
-                photo: "/images/TC.avif",
-                role: "Co-Founder, Growth & Partnerships",
-                bio:
-                  "Taylor brings commercial strategy, marketing, and partnership experience to Origin AI. He helps connect AI opportunities to market realities, client needs, and business growth.",
-                chips: [
-                  "Partnerships",
-                  "Growth strategy",
-                  "Market positioning",
-                  "Client relationships",
                 ],
               },
             ].map((p) => (

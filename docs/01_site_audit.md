@@ -98,10 +98,9 @@ Inconsistencies worth flagging:
 
 **Section: Our Leadership Team** (`#our-team`)
 - H2: `Experienced leaders guiding practical AI adoption.`
-- Three team cards (image + name + title + bio):
+- Team cards (image + name + title + bio):
   1. `Mike Bayes` — President & Lead AI Consultant. Mike helps teams figure out how AI fits into their everyday work, with a focus on practical use and real adoption.
   2. `Chad Beauchamp` — Co-Founder & CEO. Chad helps shape strategy at Origin and works with clients to define how AI supports their business.
-  3. `Taylor Crawford` — Co-Founder & Consultant. Taylor leads business development and strategic partnerships at Origin.
 
 **Section: Our Principles**
 - H2: `Principles that guide every Origin engagement.`
@@ -192,7 +191,7 @@ Pattern is consistent across the three live posts:
 - Closing paragraph from Origin AI's voice
 - Pager: `Previous` / `Next` (broken on at least one post — points at `/insights/:tG9AbZrun`)
 
-Authors used: `Mike Bayes`, `Chad Beauchamp`. Taylor not yet credited.
+Authors used: `Mike Bayes`, `Chad Beauchamp`.
 
 ---
 

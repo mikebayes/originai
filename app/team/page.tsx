@@ -57,20 +57,6 @@ const PARTNERS = [
       "Digital systems",
     ],
   },
-  {
-    name: "Taylor Crawford",
-    initials: "TC",
-    photo: "/images/TC.avif",
-    role: "Co-Founder, Growth & Partnerships",
-    bio:
-      "Taylor brings commercial strategy, marketing, and partnership experience to Origin AI. He helps connect AI opportunities to market realities, client needs, and business growth.",
-    chips: [
-      "Partnerships",
-      "Growth strategy",
-      "Market positioning",
-      "Client relationships",
-    ],
-  },
 ];
 
 export default function TeamRoute() {

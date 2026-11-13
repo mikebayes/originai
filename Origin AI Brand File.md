@@ -12,7 +12,7 @@ A small senior AI consulting firm based in Winnipeg, Canada. Strategy, custom so
 
 Not a tool reseller. Not a generic consultancy. Not a workshop shop. Not a freelance dev shop. The team that owns the outcome end to end.
 
-Three founders: Mike Bayes (Lead AI Advisor), Chad Beauchamp (Co-Founder & CEO), Taylor Crawford (Co-Founder, Growth & Partnerships).
+Founders: Mike Bayes (Lead AI Advisor), Chad Beauchamp (Co-Founder & CEO).
 
 Service lines:
 - **AI Strategy & Training** — leadership advisory, roadmaps, readiness, training
