@@ -205,10 +205,15 @@ export default function AIWorkflowDevelopmentPage() {
             other than ours.
 
             2026-11-18, second pass: switched to the web-embed export and
-            turned the player into a native page element. It is now a
-            muted autoplaying loop with no controls, no border, no radius
-            and no background, so it reads as part of the page rather
-            than a thing to press play on.
+            turned the player into a native page element. No controls, no
+            border, no radius, no background, so it reads as part of the
+            page rather than a thing to press play on.
+
+            Third pass: it plays once per visit to the section rather
+            than looping. Scrolling it into view starts it from the
+            beginning, it holds on the final Origin frame, and scrolling
+            away resets it. There is no loop or autoPlay attribute any
+            more; the observer is the only thing that starts playback.
 
             That works because the export is matted to the page colour.
             Its edge pixels are rgb(5,10,9) against the .bp-page

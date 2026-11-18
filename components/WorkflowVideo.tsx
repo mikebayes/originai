@@ -3,24 +3,39 @@
 import { useEffect, useRef } from "react";
 
 /**
- * The looping workflow animation on /services/build.
+ * The workflow animation on /services/build.
  *
- * This is the only client component on that page. It exists for two
- * behaviours that cannot be done in markup or CSS:
+ * Plays once per visit to the section: it starts from the beginning when
+ * the visitor scrolls it into view, runs to the end, and then holds on
+ * the final Origin frame. It does not loop. Scrolling away resets it, so
+ * coming back plays it again from the start.
  *
- *   1. Play only while on screen. An autoplaying loop that runs the
- *      whole time the page is open decodes 60fps video for nothing.
- *   2. Honour prefers-reduced-motion. CSS cannot pause a video, so the
- *      check has to happen in JS.
+ * This is the page's only client component. Markup and CSS cannot start
+ * playback on scroll, and CSS cannot pause a video, so the viewport and
+ * reduced-motion behaviour both have to live in JS.
  *
- * The element still ships autoPlay/muted/loop/playsInline in the markup
- * so it behaves correctly with no JS at all: it simply plays, which is
- * the same thing it did before this component existed.
+ * Notably NOT on the element:
  *
- * muted is what makes autoplay legal in every current browser, and
- * playsInline is what stops iOS Safari taking it fullscreen. Neither is
- * optional here.
+ *   loop     removed, because the animation now has to stop on its last
+ *            frame rather than restart.
+ *   autoPlay removed, because it fires on load regardless of where the
+ *            section is. That would burn the single play before anyone
+ *            had scrolled to it. The observer is the only thing that
+ *            starts playback now.
+ *
+ * muted is what makes programmatic play() legal without a user gesture
+ * in every current browser, and playsInline is what stops iOS Safari
+ * taking it fullscreen. Neither is optional.
  */
+
+/* Ratio at which the section counts as "substantially visible" and the
+   animation starts. The reset happens only at ratio 0, when the element
+   is fully out of view, which leaves 0 to 0.5 as a dead band: small
+   scrolls and address-bar resizes move through it without retriggering
+   anything, and the reset is never visible on screen because by the time
+   it happens there is nothing left to see. */
+const PLAY_AT = 0.5;
+
 export default function WorkflowVideo() {
   const ref = useRef<HTMLVideoElement>(null);
 
@@ -30,10 +45,9 @@ export default function WorkflowVideo() {
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-    /* Reduced motion: stop the loop and hand back a control bar, so the
-       animation is still reachable on demand rather than simply gone.
-       Controls are off for everyone else, which is the whole point of
-       the change. */
+    /* Reduced motion gets the poster as a static frame and a control bar,
+       so the animation is still reachable on demand rather than simply
+       absent. Controls stay off for everyone else. */
     const applyMotionPreference = () => {
       if (reduce.matches) {
         el.pause();
@@ -47,27 +61,36 @@ export default function WorkflowVideo() {
     applyMotionPreference();
     reduce.addEventListener("change", applyMotionPreference);
 
+    /* Tracks which side of the dead band we are on, so entering the
+       section fires once rather than on every observer callback. */
+    let armed = false;
     let observer: IntersectionObserver | undefined;
 
     if ("IntersectionObserver" in window) {
       observer = new IntersectionObserver(
         (entries) => {
           for (const entry of entries) {
-            if (reduce.matches) return;
-            if (entry.isIntersecting) {
-              /* play() rejects if the browser declines autoplay. There
-                 is nothing useful to do about that, and an unhandled
-                 rejection would show up in the console, so swallow it
-                 and leave the poster showing. */
+            if (entry.intersectionRatio >= PLAY_AT) {
+              if (armed) continue;
+              armed = true;
+              if (reduce.matches) continue;
+              el.currentTime = 0;
+              /* play() rejects if the browser declines playback. Nothing
+                 useful to do about it, and an unhandled rejection would
+                 surface in the console, so swallow it and leave the
+                 poster showing. */
               void el.play().catch(() => {});
-            } else {
+            } else if (!entry.isIntersecting) {
+              if (!armed) continue;
+              armed = false;
               el.pause();
+              el.currentTime = 0;
             }
+            /* Anything between the two is the dead band: leave playback
+               exactly as it is. */
           }
         },
-        /* A quarter visible. Lower would start it while it is still a
-           sliver at the edge of the viewport. */
-        { threshold: 0.25 }
+        { threshold: [0, PLAY_AT] }
       );
 
       observer.observe(el);
@@ -87,9 +110,7 @@ export default function WorkflowVideo() {
       poster="/videos/origin-ai-the-quote-request-web-embed-poster.webp"
       width={720}
       height={720}
-      autoPlay
       muted
-      loop
       playsInline
       preload="metadata"
       aria-label="An animated example showing a customer quote request being read, drafted, approved by a person, and answered"
