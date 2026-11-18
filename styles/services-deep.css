@@ -9692,31 +9692,31 @@
   max-width: 460px;
 }
 
-/* The frame owns the 1:1 box so the slot is reserved before the poster
-   decodes, which keeps this section out of the page's CLS. */
+/* The frame is now a bare layout box, nothing more. It still owns the
+   1:1 ratio so the slot is reserved before the poster decodes, which
+   keeps this section out of the page's CLS.
+
+   Every piece of player chrome was removed on 2026-11-18: radius,
+   hairline border, drop shadow, the #0a1012 fill and the isolation
+   stacking context. The web-embed export is matted to the page colour,
+   so any of those would have drawn a visible square around an animation
+   that is supposed to look native to the page. There is deliberately no
+   background here either, so the section colour shows through until the
+   first frame paints. */
 .svc-dark--build .bp-demo-frame {
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;
-  border-radius: 14px;
-  overflow: hidden;
-  border: 0.5px solid rgba(245, 240, 228, 0.09);
-  box-shadow:
-    0 30px 60px -20px rgba(0, 0, 0, 0.62),
-    0 8px 24px -8px rgba(0, 0, 0, 0.42);
-  background: #0a1012;
-  isolation: isolate;
 }
 
 .svc-dark--build .bp-demo-video {
   display: block;
   width: 100%;
   height: 100%;
-  /* contain, not cover: the video is already 1:1 and matches the frame,
-     so this only guards against a future re-export at another ratio
-     being cropped rather than letterboxed. */
+  /* contain, so a future export at another ratio letterboxes against
+     the page colour rather than being cropped. */
   object-fit: contain;
-  background: #0a1012;
+  background: transparent;
 }
 
 .svc-dark--build .bp-demo-points {

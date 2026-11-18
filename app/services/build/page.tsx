@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import HeroNav from "@/components/HeroNav";
 import Footer from "@/components/Footer";
+import WorkflowVideo from "@/components/WorkflowVideo";
 
 /**
  * /services/build — AI Workflow Development.
@@ -203,17 +204,26 @@ export default function AIWorkflowDevelopmentPage() {
             no third-party player, no tracking iframe, and no branding
             other than ours.
 
-            Performance: the MP4 is 7.2MB, which is only fetched when
-            someone presses play. preload="metadata" pulls the header
-            alone, and the file is already written faststart (moov ahead
-            of mdat) so that is a few KB rather than a progressive
-            download. The 20KB poster is what actually renders on load.
+            2026-11-18, second pass: switched to the web-embed export and
+            turned the player into a native page element. It is now a
+            muted autoplaying loop with no controls, no border, no radius
+            and no background, so it reads as part of the page rather
+            than a thing to press play on.
 
-            No autoplay, muted by default, native controls so the visitor
-            can unmute. The frame carries no grain or vignette overlay
-            unlike .bp-train-frame on the other service pages: an overlay
-            span would sit on top of the video and swallow clicks on the
-            control bar. */}
+            That works because the export is matted to the page colour.
+            Its edge pixels are rgb(5,10,9) against the .bp-page
+            background of #050a08, a one-unit difference that comes from
+            H.264 chroma rounding. Replacing the file with an export on
+            any other background would put a visible square back, so
+            check the matte before swapping it.
+
+            Playback lives in components/WorkflowVideo.tsx, a client
+            component, because pausing offscreen and honouring
+            prefers-reduced-motion both need JS.
+
+            Performance: 5.8MB, faststart, preload="metadata" so only the
+            header is fetched up front. The 19KB poster is what renders
+            on load and while the first frames buffer. */}
         <section className="bp-demo" data-screen-label="Workflow example">
           <div className="wrap">
             <div className="bp-work-head">
@@ -234,18 +244,7 @@ export default function AIWorkflowDevelopmentPage() {
             <div className="bp-demo-grid">
               <figure className="bp-demo-figure">
                 <div className="bp-demo-frame">
-                  <video
-                    className="bp-demo-video"
-                    src="/videos/origin-ai-the-quote-request.mp4"
-                    poster="/videos/origin-ai-the-quote-request-poster.webp"
-                    width={720}
-                    height={720}
-                    controls
-                    muted
-                    playsInline
-                    preload="metadata"
-                    aria-label="A 28 second animated example showing a customer quote request being read, drafted, approved by a person, and answered"
-                  />
+                  <WorkflowVideo />
                 </div>
               </figure>
 
