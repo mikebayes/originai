@@ -9765,6 +9765,53 @@
   margin: 26px 0 0;
 }
 
+/* Two-column balance.
+   ─────────────────────────────────────────────────────────────────────
+   The right column is shorter than the square video (roughly 373px of
+   content against a 460px frame), so it used to stop well short of the
+   video's bottom edge.
+
+   The grid row does the work. .bp-demo-grid drops its align-items:start
+   so both columns share one row height, which the video sets because it
+   is the taller of the two. The figure then opts out with align-self so
+   the frame keeps its own size rather than stretching. The body fills
+   the row, its list takes the free space, and the three items divide
+   that space equally with flex-basis 0.
+
+   No min-height and no pixel offsets anywhere, so if the copy or the
+   video size changes the column re-balances on its own.
+
+   Confined to the two-column band on purpose. Stacked, each column is
+   its own grid row, the row height is content height, there is no free
+   space to distribute, and equal-height rows would be meaningless. */
+@media (min-width: 1101px) {
+  .svc-dark--build .bp-demo-grid {
+    align-items: stretch;
+  }
+
+  .svc-dark--build .bp-demo-figure {
+    align-self: start;
+  }
+
+  .svc-dark--build .bp-demo-body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .svc-dark--build .bp-demo-points {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Equal rows, so the hairline dividers land at even intervals. Each
+     item's text still sits at the top of its row, which is what keeps
+     the first heading level with the top of the video. */
+  .svc-dark--build .bp-demo-point {
+    flex: 1 1 0;
+  }
+}
+
 /* ── Responsive ──────────────────────────────────────────────────── */
 
 @media (max-width: 1100px) {
