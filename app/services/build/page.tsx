@@ -22,9 +22,12 @@ import Footer from "@/components/Footer";
  * back in visible copy before promotion. Do not remove them without
  * checking GSC first.
  *
- * Sections: hero, where build starts, the work we can help improve,
- * what the solution can become, from idea to launch (+ workflow
- * artifact), CTA.
+ * Sections: hero, where build starts, workflow example (self-hosted
+ * video), the work we can help improve, what the solution can become,
+ * from idea to launch (+ workflow artifact), CTA.
+ *
+ * The video section added 2026-11-18 is the only place on the site that
+ * ships a video. Asset and poster both live in /public/videos/.
  */
 
 export const metadata: Metadata = {
@@ -191,7 +194,96 @@ export default function AIWorkflowDevelopmentPage() {
           </div>
         </section>
 
-        {/* ─── SECTION 3: THE WORK WE CAN HELP IMPROVE ───────────── */}
+        {/* ─── SECTION 3: WORKFLOW EXAMPLE (VIDEO) ───────────────── */}
+        {/* Added 2026-11-18. Sits straight after "where build starts" so a
+            visitor sees a concrete example before the abstract category
+            cards below.
+
+            Self-hosted on purpose: no YouTube or Vimeo embed, so there is
+            no third-party player, no tracking iframe, and no branding
+            other than ours.
+
+            Performance: the MP4 is 7.2MB, which is only fetched when
+            someone presses play. preload="metadata" pulls the header
+            alone, and the file is already written faststart (moov ahead
+            of mdat) so that is a few KB rather than a progressive
+            download. The 20KB poster is what actually renders on load.
+
+            No autoplay, muted by default, native controls so the visitor
+            can unmute. The frame carries no grain or vignette overlay
+            unlike .bp-train-frame on the other service pages: an overlay
+            span would sit on top of the video and swallow clicks on the
+            control bar. */}
+        <section className="bp-demo" data-screen-label="Workflow example">
+          <div className="wrap">
+            <div className="bp-work-head">
+              <div>
+                <span className="bp-rule" aria-hidden="true" />
+                <h2 className="section-h2 bp-h2--accented">
+                  One quote request,{" "}
+                  <span className="muted">handled in one flow.</span>
+                </h2>
+              </div>
+              <p className="section-lede lede">
+                A short example of the kind of workflow we build: a customer
+                quote request read, priced, approved by a person, and
+                answered, without the copy and paste in between.
+              </p>
+            </div>
+
+            <div className="bp-demo-grid">
+              <figure className="bp-demo-figure">
+                <div className="bp-demo-frame">
+                  <video
+                    className="bp-demo-video"
+                    src="/videos/origin-ai-the-quote-request.mp4"
+                    poster="/videos/origin-ai-the-quote-request-poster.webp"
+                    width={720}
+                    height={720}
+                    controls
+                    muted
+                    playsInline
+                    preload="metadata"
+                    aria-label="A 28 second animated example showing a customer quote request being read, drafted, approved by a person, and answered"
+                  />
+                </div>
+              </figure>
+
+              <div className="bp-demo-body">
+                {/* Deliberately not a transcript of the video. The five
+                    on-screen steps already tell that story; these say what
+                    it means for the buyer, which the video does not. */}
+                <ul className="bp-demo-points">
+                  {[
+                    [
+                      "Built on the process you already run",
+                      "The workflow follows how a request already moves through the business instead of asking the team to work a different way.",
+                    ],
+                    [
+                      "A person approves before anything is sent",
+                      "Drafting and preparation are automated. The judgment call stays with your team.",
+                    ],
+                    [
+                      "One flow instead of four tools",
+                      "Inbox, price list, document, and CRM steps stop being separate manual jobs.",
+                    ],
+                  ].map(([h, p]) => (
+                    <li className="bp-demo-point" key={h}>
+                      <h3>{h}</h3>
+                      <p>{p}</p>
+                    </li>
+                  ))}
+                </ul>
+
+                <p className="bp-demo-note">
+                  Illustrative example, not a customer case study.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── SECTION 4: THE WORK WE CAN HELP IMPROVE ───────────── */}
         {/* Most concrete section on the page. Deliberately the visual
             anchor: larger cards, more presence than section 4. */}
         <section className="bp-domains" data-screen-label="Where this shows up">
@@ -250,7 +342,7 @@ export default function AIWorkflowDevelopmentPage() {
           </div>
         </section>
 
-        {/* ─── SECTION 4: WHAT WE BUILD (secondary) ──────────────── */}
+        {/* ─── SECTION 5: WHAT WE BUILD (secondary) ──────────────── */}
         {/* Intentionally lighter than section 3: smaller type, single
             row at desktop, no numbering. Answers "what form" after the
             business framing has already landed. */}
@@ -300,7 +392,7 @@ export default function AIWorkflowDevelopmentPage() {
           </div>
         </section>
 
-        {/* ─── SECTION 5: HOW IT WORKS ───────────────────────────── */}
+        {/* ─── SECTION 6: HOW IT WORKS ───────────────────────────── */}
         <section className="bp-howitworks" data-screen-label="How it works">
           <div className="wrap">
             <div className="bp-work-head">
@@ -627,7 +719,7 @@ export default function AIWorkflowDevelopmentPage() {
           </div>
         </section>
 
-        {/* ─── SECTION 6: CTA ────────────────────────────────────── */}
+        {/* ─── SECTION 7: CTA ────────────────────────────────────── */}
         <section className="bp-cta" data-screen-label="Final CTA" id="contact">
           <div className="wrap">
             {/* Option A chosen: no eyebrow, no accent mark. The CTA panel

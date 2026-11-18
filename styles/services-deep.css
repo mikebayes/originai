@@ -9638,3 +9638,140 @@
     height: 60px;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   WORKFLOW EXAMPLE VIDEO  ·  /services/build  ·  2026-11-18
+   ───────────────────────────────────────────────────────────────────
+   Square (1:1) self-hosted MP4 beside three supporting points.
+
+   Gated on .svc-dark--build, which only the build page carries, so no
+   other route is touched. Note .bp-page--workflow would NOT have been
+   safe here: /services/ai-training carries that class too.
+
+   Base rules first, media queries after, deliberately. An unconditional
+   rule placed after a max-width query is what broke the training page's
+   stacking in October, since both carry the same specificity and source
+   order then decides. Keep new rules above the queries at the bottom.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.svc-dark--build .bp-demo {
+  padding: 76px 0 72px;
+}
+
+.svc-dark--build .bp-demo-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 52px;
+  align-items: start;
+  margin-top: 44px;
+}
+
+.svc-dark--build .bp-demo-figure {
+  margin: 0;
+  max-width: 460px;
+}
+
+/* The frame owns the 1:1 box so the slot is reserved before the poster
+   decodes, which keeps this section out of the page's CLS. */
+.svc-dark--build .bp-demo-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 0.5px solid rgba(245, 240, 228, 0.09);
+  box-shadow:
+    0 30px 60px -20px rgba(0, 0, 0, 0.62),
+    0 8px 24px -8px rgba(0, 0, 0, 0.42);
+  background: #0a1012;
+  isolation: isolate;
+}
+
+.svc-dark--build .bp-demo-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* contain, not cover: the video is already 1:1 and matches the frame,
+     so this only guards against a future re-export at another ratio
+     being cropped rather than letterboxed. */
+  object-fit: contain;
+  background: #0a1012;
+}
+
+.svc-dark--build .bp-demo-points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.svc-dark--build .bp-demo-point {
+  padding: 20px 0 19px;
+  border-bottom: 1px solid rgba(245, 240, 228, 0.07);
+}
+
+.svc-dark--build .bp-demo-point:first-child {
+  padding-top: 0;
+}
+
+.svc-dark--build .bp-demo-point:last-child {
+  border-bottom: none;
+}
+
+.svc-dark--build .bp-demo-point h3 {
+  font-family: var(--font-inter-tight), sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.35;
+  color: rgba(245, 240, 228, 0.95);
+  margin: 0 0 7px;
+}
+
+.svc-dark--build .bp-demo-point p {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14.5px;
+  line-height: 1.62;
+  color: rgba(245, 240, 228, 0.6);
+  margin: 0;
+  max-width: 56ch;
+}
+
+.svc-dark--build .bp-demo-note {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 228, 0.34);
+  margin: 26px 0 0;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────── */
+
+@media (max-width: 1100px) {
+  .svc-dark--build .bp-demo-grid {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+  /* Stacked, a 1:1 video at full content width runs very tall, so cap it
+     the way the training photograph is capped on the other pages. */
+  .svc-dark--build .bp-demo-figure {
+    max-width: 520px;
+  }
+}
+
+@media (max-width: 900px) {
+  .svc-dark--build .bp-demo {
+    padding: 56px 0 52px;
+  }
+  .svc-dark--build .bp-demo-figure {
+    max-width: 440px;
+  }
+}
+
+@media (max-width: 700px) {
+  .svc-dark--build .bp-demo-figure {
+    max-width: none;
+  }
+  .svc-dark--build .bp-demo-note {
+    margin-top: 22px;
+  }
+}
