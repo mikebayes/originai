@@ -9783,7 +9783,29 @@
 
    Confined to the two-column band on purpose. Stacked, each column is
    its own grid row, the row height is content height, there is no free
-   space to distribute, and equal-height rows would be meaningless. */
+   space to distribute, and stretching would be meaningless.
+
+   On where the spare height goes, two earlier attempts were wrong:
+
+     1. Equal rows with the text left at the top of each row. Dividers
+        landed at even intervals, but about 50px of dead space sat under
+        every block, so each divider was far from the text above it and
+        tight to the heading below. That reads as broken spacing rather
+        than even spacing.
+     2. Natural row heights with all the slack collected at the bottom.
+        The items spaced correctly but the list then filled only the top
+        two thirds, leaving the lower right of the section empty.
+
+   What works is equal rows with the content centred inside each one.
+   The slack is split above and below every block, so the gap above a
+   divider equals the gap below it, the three items spread across the
+   full height, and the note lands on the frame's bottom edge.
+
+   The trade is that the first heading now sits about 35px below the top
+   of the video rather than flush with it, which is the same 35px that
+   appears above and below every other block. Pinning it flush would put
+   that row's whole 70px of slack underneath it and bring back problem 1
+   for the first divider. */
 @media (min-width: 1101px) {
   .svc-dark--build .bp-demo-grid {
     align-items: stretch;
@@ -9804,11 +9826,22 @@
     flex-direction: column;
   }
 
-  /* Equal rows, so the hairline dividers land at even intervals. Each
-     item's text still sits at the top of its row, which is what keeps
-     the first heading level with the top of the video. */
+  /* Equal rows, content centred. The base 20/19px padding comes off
+     because the centring now provides the breathing room, and keeping
+     it would make the first and last blocks sit differently from the
+     middle one. */
   .svc-dark--build .bp-demo-point {
     flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+  }
+
+  /* The rows already fill to here, so the note needs no margin of its
+     own to reach the bottom edge. */
+  .svc-dark--build .bp-demo-note {
+    margin-top: 0;
   }
 }
 
