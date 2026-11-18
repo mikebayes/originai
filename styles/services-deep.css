@@ -9658,6 +9658,27 @@
   padding: 76px 0 72px;
 }
 
+/* One grid for the whole section.
+   ─────────────────────────────────────────────────────────────────────
+   .bp-work-head is 1.15fr / 1fr with a 60px gutter, and .bp-demo-grid
+   below is 0.9fr / 1.1fr with 52px. Two different column systems
+   stacked, so the intro paragraph started 92px right of the three point
+   descriptions under it (measured, not estimated).
+
+   The head is pulled onto the body's template rather than the other way
+   round, because the body's split is the one the square video needs.
+
+   Both halves are inside media queries on purpose so neither can shadow
+   the other, and both switch at 1100px so the head and the body stack
+   together. The head would otherwise hold two columns until 900px and
+   sit beside an already-stacked body in that band. */
+@media (min-width: 1101px) {
+  .svc-dark--build .bp-demo .bp-work-head {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 52px;
+  }
+}
+
 .svc-dark--build .bp-demo-grid {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
@@ -9747,6 +9768,12 @@
 /* ── Responsive ──────────────────────────────────────────────────── */
 
 @media (max-width: 1100px) {
+  /* Head stacks with the body, not 200px later at the shared 900px
+     breakpoint. 40px matches every other stacked head on the site. */
+  .svc-dark--build .bp-demo .bp-work-head {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
   .svc-dark--build .bp-demo-grid {
     grid-template-columns: 1fr;
     gap: 34px;
