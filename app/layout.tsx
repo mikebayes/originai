@@ -57,6 +57,7 @@ import "./globals.css";
 
 import StickyNav from "@/components/StickyNav";
 import RevealInit from "@/components/RevealInit";
+import { pageOpenGraph } from "@/lib/open-graph";
 
 const SEO_TITLE = "AI Consulting & Custom AI Software in Winnipeg | Origin AI";
 const SEO_DESCRIPTION =
@@ -73,22 +74,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: SITE_URL,
   },
-  openGraph: {
-    title: SEO_TITLE,
-    description: SEO_DESCRIPTION,
-    url: SITE_URL,
-    siteName: "Origin AI",
-    type: "website",
-    locale: "en_CA",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Origin AI — AI Consulting & Custom AI Software in Winnipeg",
-      },
-    ],
-  },
+  // Same values as before. Child pages call pageOpenGraph with their own
+  // title, description, and canonical URL; see lib/open-graph.ts.
+  openGraph: pageOpenGraph(SEO_TITLE, SEO_DESCRIPTION, SITE_URL),
   twitter: {
     card: "summary_large_image",
     title: SEO_TITLE,

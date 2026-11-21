@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
 import HeroNav from "@/components/HeroNav";
 import Footer from "@/components/Footer";
+import { pageOpenGraph } from "@/lib/open-graph";
+
+const title = "Privacy Policy | Origin AI";
+const description =
+  "How Origin AI collects, uses, and protects personal information on originai.ca. Plain-language privacy practices for our contact form, analytics, and visitor data.";
+const canonical = "https://www.originai.ca/privacy";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Origin AI",
-  description:
-    "How Origin AI collects, uses, and protects personal information on originai.ca. Plain-language privacy practices for our contact form, analytics, and visitor data.",
-  alternates: { canonical: "https://www.originai.ca/privacy" },
+  title,
+  description,
+  alternates: { canonical },
+  openGraph: pageOpenGraph(title, description, canonical),
 };
 
 /**

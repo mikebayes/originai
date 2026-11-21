@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageOpenGraph } from "@/lib/open-graph";
 import HeroNav from "@/components/HeroNav";
 import Footer from "@/components/Footer";
 import {
@@ -25,12 +26,16 @@ import {
  * read a.excerpt directly.
  */
 
+const title = "AI Insights for Business Adoption | Origin AI";
+const description =
+  "Articles on AI adoption, training, workflow development, custom AI software, and how organizations can make AI useful in real work.";
+const canonical = "https://www.originai.ca/insights";
+
 export const metadata: Metadata = {
-  title:
-    "AI Insights for Business Adoption | Origin AI",
-  description:
-    "Articles on AI adoption, training, workflow development, custom AI software, and how organizations can make AI useful in real work.",
-  alternates: { canonical: "https://www.originai.ca/insights" },
+  title,
+  description,
+  alternates: { canonical },
+  openGraph: pageOpenGraph(title, description, canonical),
 };
 
 export default function InsightsRoute() {

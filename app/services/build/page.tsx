@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import HeroNav from "@/components/HeroNav";
 import Footer from "@/components/Footer";
 import WorkflowVideo from "@/components/WorkflowVideo";
+import { pageOpenGraph } from "@/lib/open-graph";
 
 /**
  * /services/build — AI Workflow Development.
@@ -31,12 +32,17 @@ import WorkflowVideo from "@/components/WorkflowVideo";
  * ships a video. Asset and poster both live in /public/videos/.
  */
 
+const title =
+  "Custom AI Software Winnipeg | AI Workflow Development | Origin AI";
+const description =
+  "Custom AI software and workflow development for organizations that need internal tools, assistants, automations, and systems built around real work.";
+const canonical = "https://www.originai.ca/services/build";
+
 export const metadata: Metadata = {
-  title:
-    "Custom AI Software Winnipeg | AI Workflow Development | Origin AI",
-  description:
-    "Custom AI software and workflow development for organizations that need internal tools, assistants, automations, and systems built around real work.",
-  alternates: { canonical: "https://www.originai.ca/services/build" },
+  title,
+  description,
+  alternates: { canonical },
+  openGraph: pageOpenGraph(title, description, canonical),
 };
 
 const SERVICE_JSON_LD = {

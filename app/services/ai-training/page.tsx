@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import HeroNav from "@/components/HeroNav";
 import Footer from "@/components/Footer";
+import { pageOpenGraph } from "@/lib/open-graph";
 
 /**
  * /services/ai-training — Team AI Training.
@@ -79,11 +80,16 @@ import Footer from "@/components/Footer";
  * still using that system were updated in the same pass.
  */
 
+const title = "AI Training Winnipeg | Team AI Training for Business | Origin AI";
+const description =
+  "AI training for teams in Winnipeg and across Canada. Origin AI helps staff use AI around real roles, tasks, documents, decisions, and workflows.";
+const canonical = "https://www.originai.ca/services/ai-training";
+
 export const metadata: Metadata = {
-  title: "AI Training Winnipeg | Team AI Training for Business | Origin AI",
-  description:
-    "AI training for teams in Winnipeg and across Canada. Origin AI helps staff use AI around real roles, tasks, documents, decisions, and workflows.",
-  alternates: { canonical: "https://www.originai.ca/services/ai-training" },
+  title,
+  description,
+  alternates: { canonical },
+  openGraph: pageOpenGraph(title, description, canonical),
 };
 
 const SERVICE_JSON_LD = {

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import HeroNav from "@/components/HeroNav";
 import Footer from "@/components/Footer";
+import { pageOpenGraph } from "@/lib/open-graph";
 
 /**
  * /services/managed — Managed AI Improvement.
@@ -22,12 +23,17 @@ import Footer from "@/components/Footer";
  * monthly scope, what it can support, FAQ, CTA.
  */
 
+const title =
+  "Managed AI Services | AI Workflow Support & Improvement | Origin AI";
+const description =
+  "Managed AI improvement for organizations that need support, refinement, and ongoing optimization after AI workflows, tools, or systems go live.";
+const canonical = "https://www.originai.ca/services/managed";
+
 export const metadata: Metadata = {
-  title:
-    "Managed AI Services | AI Workflow Support & Improvement | Origin AI",
-  description:
-    "Managed AI improvement for organizations that need support, refinement, and ongoing optimization after AI workflows, tools, or systems go live.",
-  alternates: { canonical: "https://www.originai.ca/services/managed" },
+  title,
+  description,
+  alternates: { canonical },
+  openGraph: pageOpenGraph(title, description, canonical),
 };
 
 const SERVICE_JSON_LD = {

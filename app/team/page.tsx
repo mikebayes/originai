@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import HeroNav from "@/components/HeroNav";
 import Footer from "@/components/Footer";
+import { pageOpenGraph } from "@/lib/open-graph";
 
 /**
  * /team — the Origin AI team.
@@ -20,12 +21,16 @@ import Footer from "@/components/Footer";
  * checking GSC.
  */
 
+const title = "AI Consultants Winnipeg | Origin AI Team";
+const description =
+  "Meet the Origin AI team: Winnipeg-based business, technology, and marketing operators helping organizations apply AI to real work.";
+const canonical = "https://www.originai.ca/team";
+
 export const metadata: Metadata = {
-  title:
-    "AI Consultants Winnipeg | Origin AI Team",
-  description:
-    "Meet the Origin AI team: Winnipeg-based business, technology, and marketing operators helping organizations apply AI to real work.",
-  alternates: { canonical: "https://www.originai.ca/team" },
+  title,
+  description,
+  alternates: { canonical },
+  openGraph: pageOpenGraph(title, description, canonical),
 };
 
 const PARTNERS = [

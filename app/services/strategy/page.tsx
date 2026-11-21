@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import HeroNav from "@/components/HeroNav";
 import Footer from "@/components/Footer";
+import { pageOpenGraph } from "@/lib/open-graph";
 
 /**
  * /services/strategy — Leadership AI Enablement.
@@ -25,12 +26,17 @@ import Footer from "@/components/Footer";
  * CTA.
  */
 
+const title =
+  "AI Strategy Consulting | Leadership AI Enablement | Origin AI";
+const description =
+  "Leadership AI enablement and AI strategy consulting for organizations deciding where AI fits, how it should be used, and what should move first.";
+const canonical = "https://www.originai.ca/services/strategy";
+
 export const metadata: Metadata = {
-  title:
-    "AI Strategy Consulting | Leadership AI Enablement | Origin AI",
-  description:
-    "Leadership AI enablement and AI strategy consulting for organizations deciding where AI fits, how it should be used, and what should move first.",
-  alternates: { canonical: "https://www.originai.ca/services/strategy" },
+  title,
+  description,
+  alternates: { canonical },
+  openGraph: pageOpenGraph(title, description, canonical),
 };
 
 const SERVICE_JSON_LD = {

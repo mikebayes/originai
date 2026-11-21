@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import HeroNav from "@/components/HeroNav";
 import Footer from "@/components/Footer";
+import { pageOpenGraph } from "@/lib/open-graph";
 
 /**
  * /approach — Origin's approach to AI adoption.
@@ -22,12 +23,17 @@ import Footer from "@/components/Footer";
  *   Managed AI Improvement   -> /services/managed
  */
 
+const title =
+  "Our AI Adoption Approach | Strategy, Training, Build & Improvement | Origin AI";
+const description =
+  "See how Origin AI helps organizations move from leadership direction to team training, workflow development, launch, and ongoing improvement.";
+const canonical = "https://www.originai.ca/approach";
+
 export const metadata: Metadata = {
-  title:
-    "Our AI Adoption Approach | Strategy, Training, Build & Improvement | Origin AI",
-  description:
-    "See how Origin AI helps organizations move from leadership direction to team training, workflow development, launch, and ongoing improvement.",
-  alternates: { canonical: "https://www.originai.ca/approach" },
+  title,
+  description,
+  alternates: { canonical },
+  openGraph: pageOpenGraph(title, description, canonical),
 };
 
 export default function ApproachRoute() {

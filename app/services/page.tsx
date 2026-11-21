@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageOpenGraph } from "@/lib/open-graph";
 import {
   MarkAlign,
   MarkRoster,
@@ -37,12 +38,17 @@ import Footer from "@/components/Footer";
  * a simple path (journey rail + reassurance note), proof, CTA.
  */
 
+const title =
+  "AI Consulting Services | Training, Workflow Development & AI Enablement | Origin AI";
+const description =
+  "Explore Origin AI services: leadership AI enablement, team AI training, AI workflow development, and managed improvement for organizations adopting AI.";
+const canonical = "https://www.originai.ca/services";
+
 export const metadata: Metadata = {
-  title:
-    "AI Consulting Services | Training, Workflow Development & AI Enablement | Origin AI",
-  description:
-    "Explore Origin AI services: leadership AI enablement, team AI training, AI workflow development, and managed improvement for organizations adopting AI.",
-  alternates: { canonical: "https://www.originai.ca/services" },
+  title,
+  description,
+  alternates: { canonical },
+  openGraph: pageOpenGraph(title, description, canonical),
 };
 
 const SERVICE_JSON_LD = {
