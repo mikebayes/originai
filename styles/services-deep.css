@@ -9672,6 +9672,20 @@
    the other, and both switch at 1100px so the head and the body stack
    together. The head would otherwise hold two columns until 900px and
    sit beside an already-stacked body in that band. */
+/* Rule under the heading area, separating it from the animation below.
+   Drawn on the head's own bottom edge rather than as an extra element,
+   so it spans the content width for free and needs no markup change.
+
+   Spacing reads: intro copy, 30px, rule, 52px, animation. The 52px is a
+   margin rather than padding so it collapses with .bp-demo-grid's 44px
+   top margin instead of adding to it. Same hairline as the dividers
+   between the three points. */
+.svc-dark--build .bp-demo .bp-work-head {
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgba(245, 240, 228, 0.07);
+  margin-bottom: 52px;
+}
+
 @media (min-width: 1101px) {
   .svc-dark--build .bp-demo .bp-work-head {
     grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
@@ -9776,85 +9790,25 @@
   margin: 26px 0 0;
 }
 
-/* Two-column balance.
+/* Why the right column is NOT stretched to the video's height.
    ─────────────────────────────────────────────────────────────────────
-   The right column is shorter than the square video (roughly 373px of
-   content against a 460px frame), so it used to stop well short of the
-   video's bottom edge.
+   It used to be. The grid row was set to stretch, the list took the
+   free space and the three items divided it with flex-basis 0, which
+   put the note on the frame's bottom edge and spread the points evenly
+   down the column.
 
-   The grid row does the work. .bp-demo-grid drops its align-items:start
-   so both columns share one row height, which the video sets because it
-   is the taller of the two. The figure then opts out with align-self so
-   the frame keeps its own size rather than stretching. The body fills
-   the row, its list takes the free space, and the three items divide
-   that space equally with flex-basis 0.
+   That was tuned against a 460px video. At 673px it stopped working:
+   each row grew to 219px with roughly 70px of air around a two-line
+   block, and the three points read as drifting rather than grouped.
 
-   No min-height and no pixel offsets anywhere, so if the copy or the
-   video size changes the column re-balances on its own.
+   So the stretch is gone and the list runs at its natural height,
+   top-aligned with the animation. .bp-demo-point keeps its base
+   20px/19px padding, which puts 39px between one block and the next
+   with the hairline sitting in the middle of that gap, and the note
+   follows the last point on its own 26px margin.
 
-   Confined to the two-column band on purpose. Stacked, each column is
-   its own grid row, the row height is content height, there is no free
-   space to distribute, and stretching would be meaningless.
-
-   On where the spare height goes, two earlier attempts were wrong:
-
-     1. Equal rows with the text left at the top of each row. Dividers
-        landed at even intervals, but about 50px of dead space sat under
-        every block, so each divider was far from the text above it and
-        tight to the heading below. That reads as broken spacing rather
-        than even spacing.
-     2. Natural row heights with all the slack collected at the bottom.
-        The items spaced correctly but the list then filled only the top
-        two thirds, leaving the lower right of the section empty.
-
-   What works is equal rows with the content centred inside each one.
-   The slack is split above and below every block, so the gap above a
-   divider equals the gap below it, the three items spread across the
-   full height, and the note lands on the frame's bottom edge.
-
-   The trade is that the first heading now sits about 35px below the top
-   of the video rather than flush with it, which is the same 35px that
-   appears above and below every other block. Pinning it flush would put
-   that row's whole 70px of slack underneath it and bring back problem 1
-   for the first divider. */
-@media (min-width: 1101px) {
-  .svc-dark--build .bp-demo-grid {
-    align-items: stretch;
-  }
-
-  .svc-dark--build .bp-demo-figure {
-    align-self: start;
-  }
-
-  .svc-dark--build .bp-demo-body {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .svc-dark--build .bp-demo-points {
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* Equal rows, content centred. The base 20/19px padding comes off
-     because the centring now provides the breathing room, and keeping
-     it would make the first and last blocks sit differently from the
-     middle one. */
-  .svc-dark--build .bp-demo-point {
-    flex: 1 1 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0;
-  }
-
-  /* The rows already fill to here, so the note needs no margin of its
-     own to reach the bottom edge. */
-  .svc-dark--build .bp-demo-note {
-    margin-top: 0;
-  }
-}
+   The column no longer reaches the bottom of the animation. That is
+   intentional: grouping beats filling once the video is this tall. */
 
 /* ── Responsive ──────────────────────────────────────────────────── */
 
