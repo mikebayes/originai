@@ -9674,22 +9674,33 @@
    sit beside an already-stacked body in that band. */
 @media (min-width: 1101px) {
   .svc-dark--build .bp-demo .bp-work-head {
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
     gap: 52px;
   }
 }
 
 .svc-dark--build .bp-demo-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  /* 65 / 35. The animation is the thing worth looking at, so it gets
+     the room. The head above uses the same track sizes, which is what
+     keeps the intro paragraph on the same left edge as the three point
+     descriptions; change one and you have to change the other. */
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
   gap: 52px;
   align-items: start;
   margin-top: 44px;
 }
 
+/* No desktop cap. This carried max-width: 460px, which was the real
+   reason the animation looked small: widening the grid track did
+   nothing while the figure inside it stayed pinned to 460px. The figure
+   now fills whatever the 65% track gives it, and the frame's 1 / 1
+   aspect-ratio takes the height from there.
+
+   The stacked breakpoints below still cap it, because at one column a
+   square running the full content width would be enormous. */
 .svc-dark--build .bp-demo-figure {
   margin: 0;
-  max-width: 460px;
 }
 
 /* The frame is now a bare layout box, nothing more. It still owns the
