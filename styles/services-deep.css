@@ -9790,6 +9790,58 @@
   margin: 26px 0 0;
 }
 
+/* Vertical placement of the right column against the tall animation.
+   ─────────────────────────────────────────────────────────────────────
+   The grid row stretches so the body has a full-height box to position
+   inside, and the figure opts out so the frame keeps its own size. The
+   body then centres its contents in that box.
+
+   The bias is deliberate. Centring the whole block, points plus the
+   disclaimer, puts the three points slightly above the midline, because
+   the disclaimer hangs off the bottom of the group and pulls the
+   geometric centre down past the visual mass. The padding-top below
+   offsets that: it shortens the centring box from the top, which walks
+   the whole group back down into the lower-middle rather than letting
+   it read as floating high.
+
+   Nothing here is a fixed height, so the column recentres itself if the
+   copy or the video size changes.
+
+   Confined to the two-column band. Stacked, the body is its own grid
+   row at content height and there is nothing to centre against. */
+@media (min-width: 1101px) {
+  .svc-dark--build .bp-demo-grid {
+    align-items: stretch;
+  }
+
+  .svc-dark--build .bp-demo-figure {
+    align-self: start;
+  }
+
+  .svc-dark--build .bp-demo-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 44px;
+  }
+
+  /* 16/16 instead of the base 20/19, so the three items read as one
+     group: 32px between blocks rather than 40px. */
+  .svc-dark--build .bp-demo-point {
+    padding: 16px 0;
+  }
+
+  .svc-dark--build .bp-demo-point:first-child {
+    padding-top: 0;
+  }
+
+  /* Pulled in from 26px so the disclaimer stays attached to the group
+     above it rather than reading as a separate stray line. */
+  .svc-dark--build .bp-demo-note {
+    margin-top: 20px;
+  }
+}
+
 /* Why the right column is NOT stretched to the video's height.
    ─────────────────────────────────────────────────────────────────────
    It used to be. The grid row was set to stretch, the list took the
